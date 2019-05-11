@@ -11,3 +11,57 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.map-container {
+  background-color: lightgreen;
+}
+.map > div {
+  height: 50rem;
+  width: 50rem;
+}
+.point {
+  height: auto;
+  width: 3em;
+}
+/*************************** SCALABLE GRID ***************************/
+.grid-header { 
+  grid-area: header; 
+  background: lightblue;
+}
+.grid-menu { 
+  grid-area: menu; 
+  background: lightpink;
+}
+.grid-main { 
+  grid-area: main; 
+  background: lightgoldenrodyellow;
+}
+.grid-footer {
+  grid-area: footer;
+  bottom: 0;
+  text-align: center;
+  background: lightcoral;
+}
+.grid-container {
+  width: 100%;
+  display: grid;
+grid-template-areas:
+  'header header'
+  'menu main'
+  'footer footer';
+   grid-gap: 0;
+}
+
+@media screen and (max-width: 414px) {
+  .grid-container {
+      width: 100%;
+      display: grid;
+  grid-template-areas:
+      'header'
+      'main'
+      'menu'
+      'footer';
+      grid-gap: 0;
+  }
+}
+/*-------------------------- SCALABLE GRID --------------------------*/

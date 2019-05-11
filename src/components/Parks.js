@@ -1,17 +1,18 @@
-import React from 'react'
+import React from 'react';
 
 const Parks = (props) => {
-
-    const parksList = props.parks.maps((e, i) => {
-        return <li key={i}>{e.data.catagory}</li>
+    console.log(props.parks)
+    const parksList = props.parks.map((e, i) => {
+        if (e.catagory = "Park Closure" && !e.title.includes('Restrooms') && e.description.includes('closed') || e.description.includes('closure')) {
+        return <li key={i}>{e.title} : {e.description}</li>
+    }
     })
     return(
-        <div>
-            <h1>Parks</h1>
+        <React.Fragment>
             <ul>
                 {parksList}
             </ul>
-        </div>
+        </React.Fragment>
     )
 }
 
