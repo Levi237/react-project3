@@ -37,9 +37,6 @@ class App extends Component {
     })
   }
 
-//   componentDidMount() {
-
-//   }
   componentDidMount(){
     this.getParks().then(response => {
       this.setState({
@@ -90,63 +87,49 @@ class App extends Component {
 
 
 
-//   render() {
-//     return (
-//       <div>
-//         <NavBar currentUser={this.state.currentUser}/>
-//         <Switch>
-//           <Route exact path={routes.ROOT} render={() => <div>ROOT</div>} />
-//           <Route exact path={routes.HOME} render={() => <div>HOME</div>} />
-//           <Route exact path={routes.USERS} render={() => <div>USER</div>} />
-//           <Route exact path={`${routes.USERS}/:id`} render={() => <ShowUser />} />
-//           <Route exact path={routes.POSTS} render={() => <div>POST</div>} />
-//           <Route exact path={routes.LOGIN} render={() => <Login currentUser={this.state.currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-//           <Route render={() => <div>NOT FOUND</div>} />
-//         </Switch>
-//       </div>
-//     );
-//   }
-// }
-
-
-
-//         <Switch>
-//           <Route exact path={routes.ROOT} render={() => <div>ROOT</div>} />
-//           <Route exact path={routes.HOME} render={() => <div>HOME</div>} />
-//           <Route exact path={routes.USERS} render={() => <div>USER</div>} />
-//           <Route exact path={`${routes.USERS}/:id`} render={() => <ShowUser />} />
-//           <Route exact path={routes.POSTS} render={() => <div>POST</div>} />
-//           <Route exact path={routes.LOGIN} render={() => <Login currentUser={this.state.currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-//           <Route render={() => <div>NOT FOUND</div>} />
-//         </Switch>
   render(){
     const { parks, parkNames, currentUser } = this.state
     return (
       <div className="grid-container">
-        <div className="grid-header">
+
+        <div className="grid-aa" />
+
+        <div className="grid-header header">
           <h1>WELCOME</h1>
-          <Nav />
-          {/* <Login /> */}
         </div>
-        <div className="grid-menu">
-        <Switch>
-          <Route exact path={routes.ROOT} render={() => <div>ROOT</div>} />
-          <Route exact path={routes.HOME} render={() => <div>HOME</div>} />
-          <Route exact path={routes.POST} render={() => <div>POST</div>} />
-          <Route exact path={`${routes.USERS}/:id`} render={() => <ShowUser />} />
-          <Route exact path={routes.USERS} render={() => <div>USERS</div>} />
-          <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} />} />
-          <Route component={My404} />
-        </Switch>
+
+        
+
+        <div className="grid-nav">
+          <Nav currentUser={currentUser}/>       
+          <Switch>
+            <Route exact path={routes.ROOT} render={() => <div className="navAlert">YOU ARE AT THE ROOT PAGE</div>} />
+            <Route exact path={routes.HOME} render={() => <div className="navAlert">YOU ARE AT THE HOME PAGE</div>} />
+            <Route exact path={routes.POST} render={() => <div className="navAlert">YOU ARE AT THE POST PAGE</div>} />
+            <Route exact path={`${routes.USERS}/:id`} render={() => <ShowUser />} />
+            <Route exact path={routes.USERS} render={() => <div className="navAlert">YOU ARE AT THE USERS PAGE</div>} />
+            <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
+            <Route component={My404} />
+          </Switch>
+        </div>
+        <div className="grid-ba"/>
+
+
+        <div className="grid-menu heading">
           <h1>Current Park Closures</h1>
           <Parks parkNames={parkNames} parks={parks}  />
         </div>  
         <div className="grid-main map-container map">
           <ShowMap parkNames={parkNames} parks={parks} />
         </div>
+
+
+        <div className="grid-ac" />
         <div className="grid-footer">
           <h3>This is the footer</h3>
         </div>
+        <div className="grid-bc" />
+        
       </div>
     );
   }

@@ -12,59 +12,80 @@ code {
     monospace;
 }
 
+.header > h1 {
+  padding-left: 2em;
+}
+
+.heading > h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2rem;
+}
+
 .map-container {
   background-color: lightgreen;
 }
 .map > div {
-  height: 30rem;
-  width: 30rem;
+  height: 30em;
+  width: 30em;
 }
 .pin {
   height: auto;
   width: 3em;
 }
 .alertList {
-  border-top: 1px solid black;
+  border-top: 1px dotted lightgray;
   padding: .5em;
 }
 /*************************** SCALABLE GRID ***************************/
-.grid-header { 
-  grid-area: header; 
-  background: lightblue;
-}
+/* there has got to be a dryer way */
+.grid-aa, .grid-ac, .grid-ba, .grid-bc, .grid-header, .grid-nav , .grid-footer { background: black; color: white; }
+.grid-aa { grid-area: aa; }
+.grid-ac { grid-area: ac; }
+.grid-ba { grid-area: ba; }
+.grid-bc { grid-area: bc; }
+.grid-header { grid-area: header; }
+.grid-nav { grid-area: nav; }
 .grid-menu { 
   grid-area: menu; 
-  background: lightpink;
+  background: white;
+  padding: 0 4rem;
+  text-align: justify;
 }
 .grid-main { 
   grid-area: main; 
   text-align: center;
-  background: lightgoldenrodyellow;
+  background: white;
+  padding: 2rem;
+  margin: 0 auto 6em auto;
 }
 .grid-footer {
   grid-area: footer;
   bottom: 0;
   text-align: center;
-  background: lightcoral;
 }
 .grid-container {
   width: 100%;
   display: grid;
+  grid-template-columns: 12% auto auto 12%;
+  grid-template-rows: 12% auto 6%;
 grid-template-areas:
-  'header header'
-  'menu main'
-  'footer footer';
+  ' aa header nav ba '
+  ' . menu main . '
+  ' ac footer footer bc ';
    grid-gap: 0;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 1100px) {
   .grid-container {
       width: 100%;
       display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
   grid-template-areas:
       'header'
-      'main'
+      'nav'
       'menu'
+      'main'
       'footer';
       grid-gap: 0;
   }

@@ -48,12 +48,5 @@ class Login extends Component {
     }
 }
 
-//             <input type="text" name="username" value={username} onChange={this.changeHandler} />
-//             <input type="password" name="password" value={password} onChange={this.changeHandler} />
-//             <button type='submit'>Submit</button>
-//           </form>
-//       )
-//     }
-// }
 
 export default Login

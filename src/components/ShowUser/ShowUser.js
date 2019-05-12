@@ -32,4 +32,3 @@ class ShowUser extends Component {
     }
 }
 export default withRouter(ShowUser)
-// export default withRouter(ShowUser)

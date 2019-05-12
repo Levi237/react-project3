@@ -1,14 +1,25 @@
+.navBtn {
+    float: right;
+    text-decoration: none;  
+    background-color: none;
+    color: white;
+    padding: .5rem 1rem;
+    margin: 4px 0;
+}
+
 .navBtn:hover {
-    background-color: blue !important;
-    color: white !important;
+    transition: all .3s;
+    background-color: rgb(211, 211, 211, .5);
+    border-right: 2px solid gray;
+    border-left: 2px solid gray;
+    margin: 4px -2px;
+
 }
 
 .active {
-    background-color: navy !important;
-    color: white !important;
+    text-decoration: underline !important;
 }
-.navBtn {
-    background-color: white;
-    color: navy;
-    padding: 0 1rem;
+
+.navAlert {
+    text-align: center;
 }
