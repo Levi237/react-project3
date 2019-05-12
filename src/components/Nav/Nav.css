@@ -1,3 +1,14 @@
+.navBtn:hover {
+    background-color: blue !important;
+    color: white !important;
+}
+
 .active {
-    background-color: red
+    background-color: navy !important;
+    color: white !important;
+}
+.navBtn {
+    background-color: white;
+    color: navy;
+    padding: 0 1rem;
 }

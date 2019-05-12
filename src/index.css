@@ -16,12 +16,16 @@ code {
   background-color: lightgreen;
 }
 .map > div {
-  height: 50rem;
-  width: 50rem;
+  height: 30rem;
+  width: 30rem;
 }
-.point {
+.pin {
   height: auto;
   width: 3em;
+}
+.alertList {
+  border-top: 1px solid black;
+  padding: .5em;
 }
 /*************************** SCALABLE GRID ***************************/
 .grid-header { 
@@ -34,6 +38,7 @@ code {
 }
 .grid-main { 
   grid-area: main; 
+  text-align: center;
   background: lightgoldenrodyellow;
 }
 .grid-footer {
