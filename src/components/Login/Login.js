@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
+import './Login.css'
+
 class Login extends Component {
     state = {
         username: '',
@@ -39,11 +41,13 @@ class Login extends Component {
         return(
             this.state.logged
             ? <Redirect to={`/users/${this.props.currenUser._id}`} />
-            : <form onSubmit={this.onSubmit}>
-                <input type="text" placeholder="Your Name" name="username" onChange={this.changeHandler} value={username}></input>
-                <input type="password" placeholder="Your Password" name="password" onChange={this.changeHandler} value={password}></input>
-                <input type="submit" value="Submit" />
-            </form>
+            : <section className="loginForm">
+                <form onSubmit={this.onSubmit}>
+                    <input type="text" placeholder="Your Name Here" name="username" onChange={this.changeHandler} value={username}></input>
+                    <input type="password" placeholder="Your Password" name="password" onChange={this.changeHandler} value={password}></input>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
         )
     }
 }

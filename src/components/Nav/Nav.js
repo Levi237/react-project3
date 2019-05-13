@@ -10,9 +10,13 @@ const Nav= (currentUser) =>
     <NavLink activeClassName="active" className="navBtn" to={routes.HOME}>HOME</NavLink>
     <NavLink activeClassName="active" className="navBtn" to={routes.USERS}>USERS</NavLink>
     <NavLink activeClassName="active" className="navBtn" to={routes.POST}>POST</NavLink>
-    {
-        currentUser ? <span> Hello {currentUser.username}</span> : <NavLink activeClassName="active" className="navBtn" to={routes.LOGIN}>LOGIN</NavLink>
-    }
+    <NavLink activeClassName="active" className="navBtn" to={routes.LOGIN}>LOGIN</NavLink>
+
 </div>
 
 export default Nav
+
+
+// {
+//     currentUser ? <span> Hello {currentUser.username}</span> : <NavLink activeClassName="active" className="navBtn" to={routes.LOGIN}>LOGIN</NavLink>
+// }

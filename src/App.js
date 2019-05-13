@@ -1,8 +1,8 @@
 import React, {Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 
-import Parks from './components/Parks';
-import ShowMap from './components/Map';
+import Alerts from './components/parkAlerts';
+import Map from './components/Map';
 import Nav from './components/Nav/Nav';
 import Login from './components/Login/Login'
 import ShowUser from './components/ShowUser/ShowUser'
@@ -22,8 +22,9 @@ class App extends Component {
 
   state = {
     currentUser: null,
-    parks: [],
+    alerts: [],
     parkNames: [],
+    closureList: [],
     map: {
       lat: '',
       long: '',
@@ -38,26 +39,51 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.getParks().then(response => {
-      this.setState({
-        parks: response.data,
+    this.getAlerts().then(alerts => {
+      this.getParkNames()
+        .then(names => {
+          // console.log(names.data)
+          const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
+          const list = filterAlerts.reduce((total, f) => {
+            names.data.forEach(a => {
+              // console.log(a.parkCode, f.parkCode)
+              if(a.parkCode === f.parkCode) {
+                total.push(Object.assign(f, a))
+                return total
+              }
+            })
+            return total
+          }, [])
+
+          // console.log(list)
+          this.setState({
+            closureList: list
+          })
+        })
+
+
+      // this.setState({
+      //   alerts: response.data,
+      //   // const result = words.filter(word => word.length > 6); ????????? OMG FML
+      // })
+      // console.log(response.data, '<====== response getAlerts on componentDidMount')
+    })
+    // this.getParkNames().then(reply => {
+    //   this.setState({
+    //     parkNames: reply.data
+    //     },
+    //     this.makeClosureList
+    //     )
         
-      })
-      // console.log(response.data, '<====== response getParks on componentDidMount')
-    })
-    this.getParkNames().then(reply => {
-      this.setState({
-        parkNames: reply.data
-      })
-      // console.log(reply.data, '<====== getParkNames response on componentDidMount')
-    })
+    //   // console.log(reply.data, '<====== getParkNames response on componentDidMount')
+    // })
   }
  
-  getParks = async () => {
+  getAlerts = async () => {
     try {
-      const parks = await fetch('https://developer.nps.gov/api/v1/alerts?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
-      const parksJson = await parks.json();
-        return parksJson
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alertsJson = await alerts.json();
+        return alertsJson
     } catch(err) {
         return err
     }
@@ -65,70 +91,87 @@ class App extends Component {
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
         console.log(err)
     }
   }
-//----------> USE lat and long to show locations on map just link on Earthquake
+//==========> USE lat and long to show locations on map just link on Earthquake
   getMap = async () => {
     try {
-      const m = await fetch("https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&callback=initMap")
-      const mapJson = await m.json();
+      const map = await fetch("https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&callback=initMap")
+      const mapJson = await map.json();
       return mapJson
     } catch (err) {
       return err
     }
   }
-//----------> USE lat and long to show locations on map just link on Earthquake
+//==========> USE lat and long to show locations on map just link on Earthquake
+  // makeClosureList = () => { // async?
+  //   const closureList = [];
+  //   console.log(this.state, "<===== this.state in makeClosureList")
+  //   console.log(this.state.alerts[0].parkCode)
+    
+  //   if (this.state.length > 0) {
 
-
-
+  //     for (let a = 0; a < this.state.alerts; a++){
+  //       console.log(this.state.alerts[a].parkCode, "<===== this.state in makeClosureList2")
+  //       // for (let n = 0; n < this.state.parkNames; n++){
+  //       //   if (this.state.ParkNames[n].parkCode = this.state.alerts[a].parkCode){
+  //       //     closureList.push(this.state.ParkNames[n].parkCode)
+  //       //   }
+  //       // }
+  //     } if (closureList.length >= 0 ){console.log(closureList, '<==== post push')}
+  //   }
+  // }
 
   render(){
-    const { parks, parkNames, currentUser } = this.state
+    const { closureList, currentUser } = this.state
     return (
       <div className="grid-container">
 
         <div className="grid-aa" />
-
-        <div className="grid-header header">
+        <div className="grid-header">
           <h1>WELCOME</h1>
+            <Switch>
+              <Route exact path={routes.ROOT} render={() => <div className="navAlert">YOU ARE AT THE ROOT PAGE</div>} />
+              <Route exact path={routes.HOME} render={() => <div className="navAlert">YOU ARE AT THE HOME PAGE</div>} />
+              <Route exact path={routes.POST} render={() => <div className="navAlert">YOU ARE AT THE POST PAGE</div>} />
+              <Route exact path={`${routes.USERS}/:id`} render={() => <ShowUser />} />
+              <Route exact path={routes.USERS} render={() => <div className="navAlert">YOU ARE AT THE USERS PAGE</div>} />
+              <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
+              <Route component={My404} />
+            </Switch>
         </div>
-
+        <div className="grid-ab"/>
         
+      <div className="grid-image"></div>
 
+
+        <div className="grid-ba"/>
         <div className="grid-nav">
           <Nav currentUser={currentUser}/>       
-          <Switch>
-            <Route exact path={routes.ROOT} render={() => <div className="navAlert">YOU ARE AT THE ROOT PAGE</div>} />
-            <Route exact path={routes.HOME} render={() => <div className="navAlert">YOU ARE AT THE HOME PAGE</div>} />
-            <Route exact path={routes.POST} render={() => <div className="navAlert">YOU ARE AT THE POST PAGE</div>} />
-            <Route exact path={`${routes.USERS}/:id`} render={() => <ShowUser />} />
-            <Route exact path={routes.USERS} render={() => <div className="navAlert">YOU ARE AT THE USERS PAGE</div>} />
-            <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-            <Route component={My404} />
-          </Switch>
         </div>
-        <div className="grid-ba"/>
+        <div className="grid-bb"/>
 
 
-        <div className="grid-menu heading">
+        <div className="grid-menu">
           <h1>Current Park Closures</h1>
-          <Parks parkNames={parkNames} parks={parks}  />
+          <Alerts closureList={closureList}  />
         </div>  
         <div className="grid-main map-container map">
-          <ShowMap parkNames={parkNames} parks={parks} />
+          <h1>MOCK MAP</h1>
+          <Map closureList={closureList} />
         </div>
 
 
-        <div className="grid-ac" />
+        <div className="grid-ca" />
         <div className="grid-footer">
           <h3>This is the footer</h3>
         </div>
-        <div className="grid-bc" />
+        <div className="grid-cb" />
         
       </div>
     );
