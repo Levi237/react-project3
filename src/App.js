@@ -1,5 +1,7 @@
 import React, {Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
+// import { ClipLoader, PacmanLoader} from 'react-spinners'
+import { PacmanLoader } from 'react-spinners'
 
 import Alerts from './components/Alerts';
 import Map from './components/Map';
@@ -25,6 +27,7 @@ class App extends Component {
     alerts: [],
     parkNames: [],
     closureList: [],
+    loading: true
   }
 
   doSetCurrentUser = user => {
@@ -32,6 +35,14 @@ class App extends Component {
       currentUser: user
     })
   }
+
+  logoutUser = () => {
+    console.log('logout selected')
+    this.setState({
+      currentUser: null
+    })
+  }
+
 
   componentDidMount(){
     this.getAlerts().then(alerts => {
@@ -48,7 +59,8 @@ class App extends Component {
             return total
           }, [])
           this.setState({
-            closureList: list
+            closureList: list,
+            loading: false
           })
         })
     })
@@ -84,27 +96,13 @@ class App extends Component {
     }
   }
 
-  doAddAlert = async (id, name) => {
-    const { currentUser } = this.props
- 
-    const addAlert = await fetch('/users', {
-        method: 'POST',
-        credentials: 'include',
-        body: JSON.stringify({id, name}), //userList
-        headers: {
-            'Content-type': 'application/json'
-        }
-        
-    })
-  }
   render(){
-    const { closureList, currentUser } = this.state
+    const { closureList, currentUser, loading } = this.state
     return (
       <div className="grid-container">
-
-        <div className="grid-aa" />
-        <div className="grid-header">
+        <div className="grid-aa" /><div className="grid-header">
           <h1>Park Alert</h1>
+          <PacmanLoader loading={loading} color={'#FFF'}/>
             <Switch>
               <Route exact path={routes.ROOT} render={() => <div className="navAlert">YOU ARE AT THE ROOT PAGE</div>} />
               <Route exact path={routes.HOME} render={() => <div className="navAlert">YOU ARE AT THE HOME PAGE</div>} />
@@ -112,19 +110,16 @@ class App extends Component {
               <Route exact path={`${routes.USERS}/:id`} render={() => <ShowUser />} />
               <Route exact path={routes.USERS} render={() => <div className="navAlert">YOU ARE AT THE USERS PAGE</div>} />
               <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
+              <Route exact path={routes.LOGOUT} render={() => <div onChange={this.logoutUser}/>} />
               <Route component={My404} />
             </Switch>
-        </div>
-        <div className="grid-ab"/>
+        </div><div className="grid-ab"/>     
         
         <div className="grid-image"></div>
-
-        <div className="grid-ba"/>
-        <div className="grid-nav">
+     
+        <div className="grid-ba"/><div className="grid-nav">
           <Nav  currentUser={currentUser}/>       
-        </div>
-        <div className="grid-bb"/>
-
+        </div><div className="grid-bb"/>
 
         <div className="grid-menu">      
           <Alerts closureList={closureList} currentUser={currentUser} />
@@ -133,13 +128,10 @@ class App extends Component {
           <Map closureList={closureList} />
         </div>
 
-
-        <div className="grid-ca" />
-        <div className="grid-footer">
+        <div className="grid-ca" /><div className="grid-footer">
           <h3>This is the footer</h3>
-        </div>
-        <div className="grid-cb" />
-        
+        </div><div className="grid-cb" />
+               
       </div>
     );
   }

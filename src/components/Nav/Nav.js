@@ -11,7 +11,7 @@ const Nav= ({currentUser}) =>
     <NavLink activeClassName="active" className="navBtn" to={routes.USERS}>USERS</NavLink>
     <NavLink activeClassName="active" className="navBtn" to={routes.POST}>POST</NavLink>
     {
-    currentUser ?  <span>{currentUser.username}  .</span> : <NavLink activeClassName="active" className="navBtn" to={routes.LOGIN}>LOGIN</NavLink>
+    currentUser ?  <NavLink activeClassName="active" className="navBtn" to={routes.LOGOUT}>LOGOUT</NavLink> : <NavLink activeClassName="active" className="navBtn" to={routes.LOGIN}>LOGIN</NavLink>
     }
 
 </div>
