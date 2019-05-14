@@ -12,6 +12,7 @@ class Map extends Component {
         // console.log(this.props.parkNames[0], '<----- Maps.js ShowMap this.props.parkNames')
         return(
             <div>
+            <h1>MOCK MAP</h1>
                  <GoogleMapReact 
                     bootstrapURLKeys={{ key: "AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"}}
                     defaultCenter={{
@@ -39,6 +40,7 @@ class Map extends Component {
                             // lat="37.8651"
                             // lng="-119.5383"  // Yosemite Coordinates
                             pin="../map-pin.png"
+                            value={e.fullName}
                           
                           />
                         )

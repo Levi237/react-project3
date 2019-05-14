@@ -1,7 +1,7 @@
 import React, {Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 
-import Alerts from './components/parkAlerts';
+import Alerts from './components/Alerts';
 import Map from './components/Map';
 import Nav from './components/Nav/Nav';
 import Login from './components/Login/Login'
@@ -25,11 +25,6 @@ class App extends Component {
     alerts: [],
     parkNames: [],
     closureList: [],
-    map: {
-      lat: '',
-      long: '',
-      local: ''
-    }
   }
 
   doSetCurrentUser = user => {
@@ -42,11 +37,9 @@ class App extends Component {
     this.getAlerts().then(alerts => {
       this.getParkNames()
         .then(names => {
-          // console.log(names.data)
           const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
           const list = filterAlerts.reduce((total, f) => {
             names.data.forEach(a => {
-              // console.log(a.parkCode, f.parkCode)
               if(a.parkCode === f.parkCode) {
                 total.push(Object.assign(f, a))
                 return total
@@ -54,29 +47,11 @@ class App extends Component {
             })
             return total
           }, [])
-
-          // console.log(list)
           this.setState({
             closureList: list
           })
         })
-
-
-      // this.setState({
-      //   alerts: response.data,
-      //   // const result = words.filter(word => word.length > 6); ????????? OMG FML
-      // })
-      // console.log(response.data, '<====== response getAlerts on componentDidMount')
     })
-    // this.getParkNames().then(reply => {
-    //   this.setState({
-    //     parkNames: reply.data
-    //     },
-    //     this.makeClosureList
-    //     )
-        
-    //   // console.log(reply.data, '<====== getParkNames response on componentDidMount')
-    // })
   }
  
   getAlerts = async () => {
@@ -98,7 +73,7 @@ class App extends Component {
         console.log(err)
     }
   }
-//==========> USE lat and long to show locations on map just link on Earthquake
+
   getMap = async () => {
     try {
       const map = await fetch("https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&callback=initMap")
@@ -108,8 +83,6 @@ class App extends Component {
       return err
     }
   }
-//==========> USE lat and long to show locations on map just link on Earthquake
-
 
   render(){
     const { closureList, currentUser } = this.state
@@ -118,7 +91,7 @@ class App extends Component {
 
         <div className="grid-aa" />
         <div className="grid-header">
-          <h1>WELCOME</h1>
+          <h1>Park Alert</h1>
             <Switch>
               <Route exact path={routes.ROOT} render={() => <div className="navAlert">YOU ARE AT THE ROOT PAGE</div>} />
               <Route exact path={routes.HOME} render={() => <div className="navAlert">YOU ARE AT THE HOME PAGE</div>} />
@@ -131,22 +104,19 @@ class App extends Component {
         </div>
         <div className="grid-ab"/>
         
-      <div className="grid-image"></div>
-
+        <div className="grid-image"></div>
 
         <div className="grid-ba"/>
         <div className="grid-nav">
-          <Nav currentUser={currentUser}/>       
+          <Nav  currentUser={currentUser}/>       
         </div>
         <div className="grid-bb"/>
 
 
         <div className="grid-menu">
-          <h1>Current Park Closures</h1>
-          <Alerts closureList={closureList}  />
+          <Alerts closureList={closureList} currentUser={currentUser} />
         </div>  
         <div className="grid-main map-container map">
-          <h1>MOCK MAP</h1>
           <Map closureList={closureList} />
         </div>
 
