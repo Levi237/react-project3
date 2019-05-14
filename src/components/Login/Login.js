@@ -29,7 +29,7 @@ class Login extends Component {
 
         const parsedResponse = await loginResponse.json();
         if(parsedResponse.success) {
-            this.props.doSetCurrentUser(parsedResponse.user)
+            this.props.doSetCurrentUser(parsedResponse.data)
                 this.setState({
                     logged: true,
                 })
@@ -40,7 +40,7 @@ class Login extends Component {
         const { username, password } = this.state
         return(
             this.state.logged
-            ? <Redirect to={`/users/${this.props.currenUser._id}`} />
+            ? <Redirect to={`/users/${this.props.currentUser._id}`} />
             : <section className="loginForm">
                 <form onSubmit={this.onSubmit}>
                     <input type="text" placeholder="Your Name Here" name="username" onChange={this.changeHandler} value={username}></input>

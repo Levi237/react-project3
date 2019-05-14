@@ -9,7 +9,8 @@ class ShowUser extends Component {
 
     componentDidMount() {
         this.doGetUser()
-            .then(({user}) => this.setState({user}))
+            .then(({user}) => this.setState({user: user}))
+            
     }
 
     doGetUser = async () => {
@@ -24,9 +25,8 @@ class ShowUser extends Component {
 
     render() {
         return (
-            <div>
-                <h1>{this.state.user.username}</h1>
-                <h1>{this.state.user.password}</h1>
+            <div className="showUser">
+                <h1>{this.state.user.username}'s page</h1>
             </div>
         )
     }

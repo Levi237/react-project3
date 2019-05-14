@@ -109,23 +109,7 @@ class App extends Component {
     }
   }
 //==========> USE lat and long to show locations on map just link on Earthquake
-  // makeClosureList = () => { // async?
-  //   const closureList = [];
-  //   console.log(this.state, "<===== this.state in makeClosureList")
-  //   console.log(this.state.alerts[0].parkCode)
-    
-  //   if (this.state.length > 0) {
 
-  //     for (let a = 0; a < this.state.alerts; a++){
-  //       console.log(this.state.alerts[a].parkCode, "<===== this.state in makeClosureList2")
-  //       // for (let n = 0; n < this.state.parkNames; n++){
-  //       //   if (this.state.ParkNames[n].parkCode = this.state.alerts[a].parkCode){
-  //       //     closureList.push(this.state.ParkNames[n].parkCode)
-  //       //   }
-  //       // }
-  //     } if (closureList.length >= 0 ){console.log(closureList, '<==== post push')}
-  //   }
-  // }
 
   render(){
     const { closureList, currentUser } = this.state

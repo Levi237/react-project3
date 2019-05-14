@@ -60,6 +60,13 @@ button {
   background-color: lightgrey;
   color: black;
 }
+
+
+.showUser {
+  margin-top: -2.5rem;
+  text-align: center
+}
+
 /*************************** SCALABLE GRID ***************************/
 /* there has got to be a dryer way */
 .grid-aa, .grid-ab, .grid-ba, .grid-bb, .grid-ca, .grid-cb, .grid-header, .grid-nav , .grid-footer { background: black; color: white; }
@@ -95,7 +102,7 @@ button {
 .grid-menu { 
   grid-area: menu; 
   background: white;
-  padding: .5rem 4rem 4rem 4rem;
+  padding: .5rem 2rem 2rem 2rem;
   text-align: justify;
   margin-bottom: 2rem;
 }
