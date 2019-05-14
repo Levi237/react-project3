@@ -1,13 +1,13 @@
 import React, {Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
-// import { ClipLoader, PacmanLoader} from 'react-spinners'
 import { PacmanLoader } from 'react-spinners'
 
 import Alerts from './components/Alerts';
 import Map from './components/Map';
 import Nav from './components/Nav/Nav';
-import Login from './components/Login/Login'
-import ShowUser from './components/ShowUser/ShowUser'
+import Login from './components/Login/Login';
+import ShowUser from './components/ShowUser/ShowUser';
+import UserList from './components/UserList/UserList';
 
 import * as routes from './constants/routes'
 import './App.css';
@@ -40,7 +40,7 @@ class App extends Component {
     console.log(e)
     console.log('logout selected')
     this.setState({
-      currentUser: null
+      currentUser: []
     })
   }
 
@@ -100,7 +100,8 @@ class App extends Component {
     const { closureList, currentUser, loading } = this.state
     return (
       <div className="grid-container">
-        <div className="grid-aa" /><div className="grid-header">
+        <div className="grid-aa" />
+        <div className="grid-header">
           <h1>Park Alert</h1>
           <PacmanLoader loading={loading} color={'#FFF'}/>
             <Switch>
@@ -122,7 +123,12 @@ class App extends Component {
         </div><div className="grid-bb"/>
 
         <div className="grid-menu">      
-          <Alerts closureList={closureList} currentUser={currentUser} />
+          {
+            this.state.currentUser.logged = true
+            ? <UserList currentUser={currentUser} />
+            : <Alerts doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} currentUser={currentUser} />
+          
+          }
         </div>  
         <div className="grid-main map-container map">
           <Map closureList={closureList} />
