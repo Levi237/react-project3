@@ -30,7 +30,7 @@ import '../index.css'
 
 class Alerts extends Component {
     doAddAlert = async (id, name) => {
-        const { currentUser } = this.props
+        // const { currentUser } = this.props
         const addAlert = await fetch('/users', {
             method: 'POST',
             credentials: 'include',

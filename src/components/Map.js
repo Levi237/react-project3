@@ -8,8 +8,6 @@ class Map extends Component {
         zoom: 3.5
     }
     render(){
-        // cannot get latLng from parkNames
-        // console.log(this.props.parkNames[0], '<----- Maps.js ShowMap this.props.parkNames')
         return(
             <div>
             <h1>MOCK MAP</h1>
@@ -23,23 +21,14 @@ class Map extends Component {
                     >
                     {this.props.closureList.map((e, i)=>{
                         const PointTo = ({ pin }) => <a href={e.url} target="_blank"><img className="pin" src={pin} alt={e.fullName} title={e.fullName} /></a>
-                        // console.log(e.latLong, "<====== latLong");
-                        // console.log(e.latLong.split(','), "<====== latLong split");
                         let firstSplit = e.latLong.split(':')
-                        console.log(firstSplit)
-                        console.log(firstSplit[1].split(',')[0], firstSplit[2], '<=== firstSplit')
-                        // let lastSplit = firstSplit.match(/\d+/)
-                        // console.log(lastSplit, '<=== lastSplit')
-                        
-                        // console.log(e.latLong.match(/\d+/), "<====== latLong");
-                        // var numbers = string.match(/\d+/g).map(Number);
+                        // console.log(firstSplit)
+                        // console.log(firstSplit[1].split(',')[0], firstSplit[2], '<=== firstSplit')
                         return (
                             <PointTo
                             key={i}
                             lat={firstSplit[1].split(',')[0]}
                             lng={firstSplit[2]}
-                            // lat="37.8651"
-                            // lng="-119.5383"  // Yosemite Coordinates
                             pin="../map-pin.png"
                           
                           />

@@ -36,13 +36,13 @@ class App extends Component {
     })
   }
 
-  logoutUser = () => {
+  logoutUser = (e) => {
+    console.log(e)
     console.log('logout selected')
     this.setState({
       currentUser: null
     })
   }
-
 
   componentDidMount(){
     this.getAlerts().then(alerts => {
@@ -110,7 +110,7 @@ class App extends Component {
               <Route exact path={`${routes.USERS}/:id`} render={() => <ShowUser />} />
               <Route exact path={routes.USERS} render={() => <div className="navAlert">YOU ARE AT THE USERS PAGE</div>} />
               <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-              <Route exact path={routes.LOGOUT} render={() => <div onChange={this.logoutUser}/>} />
+              <Route exact path={routes.LOGOUT} render={() => <div type="submit" onChange={this.logoutUser}/>} />
               <Route component={My404} />
             </Switch>
         </div><div className="grid-ab"/>     

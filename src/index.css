@@ -135,7 +135,7 @@ button {
 grid-template-areas:
   ' aa header header ab '
   ' image image image image'
-  ' . nav nav . '
+  ' ba nav nav bb '
   ' . menu main . '
   ' ca footer footer cb ';
    grid-gap: 0;
