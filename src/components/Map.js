@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-const PointTo = ({ pin }) => <img className="pin" src={pin} alt={"?"} />
+
 
 class Map extends Component {
     static defaultProps = {
-        zoom: 4
+        zoom: 3.5
     }
     render(){
         // cannot get latLng from parkNames
@@ -17,11 +17,12 @@ class Map extends Component {
                     bootstrapURLKeys={{ key: "AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"}}
                     defaultCenter={{
                         lat: 39.8283,//center of US
-                        lng: -98.5795
+                        lng: -95.5795
                     }}
                     defaultZoom={this.props.zoom}
                     >
                     {this.props.closureList.map((e, i)=>{
+                        const PointTo = ({ pin }) => <a href={e.url} target="_blank"><img className="pin" src={pin} alt={e.fullName} title={e.fullName} /></a>
                         // console.log(e.latLong, "<====== latLong");
                         // console.log(e.latLong.split(','), "<====== latLong split");
                         let firstSplit = e.latLong.split(':')
@@ -40,7 +41,6 @@ class Map extends Component {
                             // lat="37.8651"
                             // lng="-119.5383"  // Yosemite Coordinates
                             pin="../map-pin.png"
-                            value={e.fullName}
                           
                           />
                         )

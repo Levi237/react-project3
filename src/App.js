@@ -56,7 +56,7 @@ class App extends Component {
  
   getAlerts = async () => {
     try {
-      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const alertsJson = await alerts.json();
         return alertsJson
     } catch(err) {
@@ -66,7 +66,7 @@ class App extends Component {
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
@@ -84,6 +84,19 @@ class App extends Component {
     }
   }
 
+  doAddAlert = async (id, name) => {
+    const { currentUser } = this.props
+ 
+    const addAlert = await fetch('/users', {
+        method: 'POST',
+        credentials: 'include',
+        body: JSON.stringify({id, name}), //userList
+        headers: {
+            'Content-type': 'application/json'
+        }
+        
+    })
+  }
   render(){
     const { closureList, currentUser } = this.state
     return (
@@ -113,7 +126,7 @@ class App extends Component {
         <div className="grid-bb"/>
 
 
-        <div className="grid-menu">
+        <div className="grid-menu">      
           <Alerts closureList={closureList} currentUser={currentUser} />
         </div>  
         <div className="grid-main map-container map">
