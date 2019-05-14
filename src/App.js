@@ -123,12 +123,11 @@ class App extends Component {
         </div><div className="grid-bb"/>
 
         <div className="grid-menu">      
-          {
-            this.state.currentUser.logged = true
-            ? <UserList currentUser={currentUser} />
-            : <Alerts doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} currentUser={currentUser} />
+        {
+          currentUser && <UserList currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+        }
+          <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} />
           
-          }
         </div>  
         <div className="grid-main map-container map">
           <Map closureList={closureList} />

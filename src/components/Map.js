@@ -20,7 +20,7 @@ class Map extends Component {
                     defaultZoom={this.props.zoom}
                     >
                     {this.props.closureList.map((e, i)=>{
-                        const PointTo = ({ pin }) => <a href={e.url} target="_blank"><img className="pin" src={pin} alt={e.fullName} title={e.fullName} /></a>
+                        const PointTo = ({ pin }) => <a href={e.url} target="_blank" rel="noopener noreferrer"><img className="pin" src={pin} alt={e.fullName} title={e.fullName} /></a>
                         let firstSplit = e.latLong.split(':')
                         // console.log(firstSplit)
                         // console.log(firstSplit[1].split(',')[0], firstSplit[2], '<=== firstSplit')
