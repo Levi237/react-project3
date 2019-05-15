@@ -47,19 +47,13 @@ class Alerts extends Component {
     render(){
        
         const alertList = this.props.closureList.map((park, i) => {
-            const list = this.props.currentUser.userList;
-            for (let i = 0; i < list.length; i++){
-               
             
-
             // const filterLists = this.props.currentUser.data.filter(l => (l.id !== park.id))
             // console.log(this.props.currentUser, '<--- currentUser')
             // console.log(park.id, '<--- park')
             // console.log(this.props.currentUser.userList[0].id, '<--- currentUser.userList')
 
-            // if (park.id === this.props.currentUser.userList[0].id){
-            //     console.log('match made', park.id)
-            // }
+
 
                 return (
                     
@@ -71,14 +65,11 @@ class Alerts extends Component {
                             // this.props.currentUser && <button type="submit">Add to List</button>
 
 
-                                this.props.currentUser ? (list[i].id !== park.id) : <button type="submit">Add to List</button>
+                                this.props.currentUser &&
                                 
-            
-                                // <button type="submit">Add to List</button>
-                                // : <div />
-                                // this.props.currentUser.userList[i]._id != this.props.closureList[?].id
-                                // this.getAlerts().then(alerts => {
-                                //     this.getParkNames()
+                                <button type="submit">Add to List</button>
+                                // this.props.currentUser.then(list => {
+                                //     this.park
                                 //       .then(names => {
                             
                         }
@@ -88,7 +79,7 @@ class Alerts extends Component {
                     </section>
                     
                 )  
-            } })
+        })
 
         return(
             <React.Fragment>
@@ -101,3 +92,39 @@ class Alerts extends Component {
 
 export default Alerts;
 
+// const alertList = this.props.closureList.map((park, i) => {
+//     // let list = this.props.currentUser.userList;
+//     // for (let i = 0; i < list.length; i++){
+       
+    
+
+//     // const filterLists = this.props.currentUser.data.filter(l => (l.id !== park.id))
+//     // console.log(this.props.currentUser, '<--- currentUser')
+//     console.log(park.id, '<--- park.id')
+//     console.log(this.props.currentUser.userList[0].id, '<--- currentUser.userList')
+//     // console.log(list[i].id, '<--- list.id')
+//     // if (park.id === list[i].id){
+//     //     console.log('match made', park.id)
+//     // }
+        
+//         return (
+            
+                        
+//             <section className="alertList" key={i}>
+//             <form onSubmit={(event) => this.doAddAlert(event, park)}>
+//                 <strong>{park.fullName}<br /></strong>{park.title} <br /><p>{park.description}</p>
+//                 {
+//                     // this.props.currentUser && <button type="submit">Add to List</button>
+
+
+//                         this.props.currentUser && <button type="submit">Add to List</button>
+                        
+//                         // && (list[i].id === park.id) ? <div></div> :
+//                         // <button type="submit">Add to List</button>
+//                         // : <div />
+//                         // this.props.currentUser.userList[i]._id != this.props.closureList[?].id
+//                         // this.getAlerts().then(alerts => {
+//                         //     this.getParkNames()
+//                         //       .then(names => {
+                    
+//                 }

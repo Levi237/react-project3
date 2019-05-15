@@ -68,7 +68,7 @@ class App extends Component {
  
   getAlerts = async () => {
     try {
-      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const alertsJson = await alerts.json();
         return alertsJson
     } catch(err) {
