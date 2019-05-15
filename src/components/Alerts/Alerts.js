@@ -26,7 +26,8 @@
 // export default Alerts;
 
 import React, { Component } from 'react';
-import '../index.css'
+// import '../index.css'
+import './Alerts.css'
 
 class Alerts extends Component {
     doAddAlert = async (event, park) => {
@@ -67,7 +68,7 @@ class Alerts extends Component {
 
                                 this.props.currentUser &&
                                 
-                                <button type="submit">Add to List</button>
+                                <button className="alertsButton" type="submit">Add to List</button>
                                 // this.props.currentUser.then(list => {
                                 //     this.park
                                 //       .then(names => {

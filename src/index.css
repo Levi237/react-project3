@@ -2,7 +2,7 @@
 html {
   background-image: url('./background.jpg');
   background-size: no-repeat;
-  height: 100%;
+  width: 100%;
 }
 
 body {
@@ -33,17 +33,13 @@ h1 {
   background-color: lightgreen;
 }
 .map > div {
-  height: 30em;
-  width: 30em;
+  height: 20em;
+  width: 20em;
 }
 .pin {
   text-align: center;
   height: auto;
   width: 3em;
-}
-.alertList {
-  border-top: 1px dotted lightgray;
-  padding: .5em 0 ;
 }
 
 input, button {
@@ -111,7 +107,12 @@ button {
   padding: 0;
   /* margin: 0; */
 }
-
+.grid-list { 
+  grid-area: list; 
+  text-align: justify;
+  margin: 0 auto 0 32px;
+  height: auto;
+}
 .grid-main { 
   grid-area: main; 
   text-align: center;
@@ -129,12 +130,14 @@ button {
 .grid-container {
   width: 100%;
   display: grid;
+  position: relative;
   grid-template-columns: 12% auto auto 12%;
-  grid-template-rows: 7rem 2% 34px auto 5rem;
+  grid-template-rows: 7rem 2% 34px auto auto 5rem;
 grid-template-areas:
   ' aa header header ab '
   ' image image image image'
   ' ba nav nav bb '
+  ' . menu list . '
   ' . menu main . '
   ' ca footer footer cb ';
    grid-gap: 0;
@@ -168,6 +171,7 @@ grid-template-areas:
       'nav'
       'menu'
       'main'
+      'list'
       'footer';
       grid-gap: 0;
   }

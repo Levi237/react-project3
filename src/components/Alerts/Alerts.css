@@ -1,0 +1,16 @@
+.alertList {
+    border-top: 1px dotted lightgray;
+    padding: .5em 0 ;
+  }
+  .alertsButton {
+    color: white;
+    border: 1px white solid;
+    border-radius: 5px;
+    padding: .5em 1em;
+    background-color: rgb(57, 93, 41, 1);
+    margin-bottom: .1em;
+  }
+  .alertsButton:hover {
+    background-color: rgba(33, 56, 23, 0.6);
+  }
+

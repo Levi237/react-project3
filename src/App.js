@@ -2,7 +2,7 @@ import React, {Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import { PacmanLoader } from 'react-spinners'
 
-import Alerts from './components/Alerts';
+import Alerts from './components/Alerts/Alerts';
 import Map from './components/Map';
 import Nav from './components/Nav/Nav';
 import Login from './components/Login/Login';
@@ -36,13 +36,13 @@ class App extends Component {
     })
   }
 
-  logoutUser = (e) => {
-    console.log(e)
-    console.log('logout selected')
-    this.setState({
-      currentUser: []
-    })
-  }
+  // logoutUser = (e) => {
+  //   console.log(e)
+  //   console.log('logout selected')
+  //   this.setState({
+  //     currentUser: []
+  //   })
+  // }
 
   componentDidMount(){
     this.getAlerts().then(alerts => {
@@ -96,6 +96,40 @@ class App extends Component {
     }
   }
 
+  deleteItem = async (userListId, currentUserId, e) => {
+    console.log(userListId, '<----------------------- this is id', currentUserId)
+    e.preventDefault();
+    try {
+        // const deleteItem = await fetch('/users/'+id, {
+        //     method: 'DELETE'
+        // });
+        const deleteItem = await fetch('/users/'+currentUserId+'/'+userListId, {
+            method: 'DELETE'
+        });
+        console.log('==================inside try delete function==================', deleteItem)
+        const deleteItemJson = await deleteItem.json();
+        console.log(deleteItemJson.data, "<--deleteItemJson")
+        // this.setState({currentUser: this.state.userList.filter((alert, i) => alert._id !== id)})
+        this.setState({currentUser: deleteItemJson.data})
+    } catch(err) {
+        console.log(err, 'error')
+    }
+}
+
+// renderElement(){
+//   if(this.state.value == 'news')
+//      return <Text>data</Text>;
+//   return null;
+// }
+
+// render() {
+//    return (   
+//        <View style={styles.container}>
+//            { this.renderElement() }
+//        </View>
+//    )
+// }
+
   render(){
     const { closureList, currentUser, loading } = this.state
     return (
@@ -123,12 +157,14 @@ class App extends Component {
         </div><div className="grid-bb"/>
 
         <div className="grid-menu">      
-        {
-          currentUser && <UserList currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
-        }
           <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} />
-          
         </div>  
+        <div className="grid-list">
+        {
+          currentUser && 
+          <UserList deleteItem={this.deleteItem} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+        }
+        </div>
         <div className="grid-main map-container map">
           <Map closureList={closureList} />
         </div>
