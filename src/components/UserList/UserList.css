@@ -31,6 +31,8 @@ a {
     padding: .5em 1em;
     background-color: rgb(57, 93, 41, 1);
     margin: .5em;
+    position: relative;
+    float: right;
   }
   .userListButton:hover {
     background-color: rgba(33, 56, 23, 0.6);

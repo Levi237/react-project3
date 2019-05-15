@@ -45,40 +45,41 @@ class Alerts extends Component {
         this.props.doSetCurrentUser(alertJson.user)
     }
 
+    toggle = event => {
+        console.log('toggle click heard')
+        event.currentTarget.classList.toggle('active');
+    }
+            // toggle = () => {
+            //     var x = document.querySelector(".details");
+            //     if (x.style.display === "none") {
+            //       x.style.display = "block";
+            //     } else {
+            //       x.style.display = "none";
+            //     }
+            //   }
     render(){
        
         const alertList = this.props.closureList.map((park, i) => {
             
-            // const filterLists = this.props.currentUser.data.filter(l => (l.id !== park.id))
-            // console.log(this.props.currentUser, '<--- currentUser')
-            // console.log(park.id, '<--- park')
-            // console.log(this.props.currentUser.userList[0].id, '<--- currentUser.userList')
-
-
-
                 return (
-                    
-                                
+                          
                     <section className="alertList" key={i}>
-                    <form onSubmit={(event) => this.doAddAlert(event, park)}>
-                        <strong>{park.fullName}<br /></strong>{park.title} <br /><p>{park.description}</p>
-                        {
-                            // this.props.currentUser && <button type="submit">Add to List</button>
-
-
-                                this.props.currentUser &&
-                                
-                                <button className="alertsButton" type="submit">Add to List</button>
-                                // this.props.currentUser.then(list => {
-                                //     this.park
-                                //       .then(names => {
+                        <form onSubmit={(event) => this.doAddAlert(event, park)}>
+                            <div className="title" onClick={this.toggle}>
+                                <div>
+                                    <strong>{park.fullName}<br /></strong>{park.title}
+                                    </div>
                             
-                        }
+                            <div className="details">
+                                {park.description}
+                            </div>
+                            </div>
+                            {
+                                this.props.currentUser && <button className="alertsButton" type="submit">Add to List</button>             
+                            }
 
-
-                    </form>
-                    </section>
-                    
+                        </form>
+                    </section>  
                 )  
         })
 
