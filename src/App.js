@@ -1,12 +1,12 @@
 import React, {Component } from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import { PacmanLoader } from 'react-spinners'
 
 import Alerts from './components/Alerts/Alerts';
 import Map from './components/Map';
 import Nav from './components/Nav/Nav';
 import Login from './components/Login/Login';
-// import Logout from './components/Logout/Logout';
+import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
 import ShowUser from './components/ShowUser/ShowUser';
 import UserList from './components/UserList/UserList';
@@ -38,12 +38,12 @@ class App extends Component {
     })
   }
 
-  logoutUser = (e) => {
-    console.log(e)
+  logoutUser = () => {
     console.log('logout selected')
     this.setState({
-      currentUser: []
+      currentUser: null //[]
     })
+    this.props.history.push(routes.ROOT)
   }
 
   componentDidMount(){
@@ -183,4 +183,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
