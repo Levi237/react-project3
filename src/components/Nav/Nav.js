@@ -6,11 +6,11 @@ import './Nav.css'
 
 const Nav= ({currentUser}) => 
 <div>
-    <NavLink activeClassName="active" className="navBtn" to={routes.ROOT} exact>ROOT</NavLink>
-    <NavLink activeClassName="active" className="navBtn" to={routes.HOME}>HOME</NavLink>
+    {/* <NavLink activeClassName="active" className="navBtn" to={routes.ROOT} exact>ROOT</NavLink> */}
+    {/* <NavLink activeClassName="active" className="navBtn" to={routes.HOME}>HOME</NavLink> */}
     <NavLink activeClassName="active" className="navBtn" to={routes.USERS}>USERS</NavLink>
     {
-        currentUser ? "" : <NavLink activeClassName="active" className="navBtn" to={routes.REGISTER} >JOIN</NavLink>
+    currentUser ? "" : <NavLink activeClassName="active" className="navBtn" to={routes.REGISTER} >JOIN</NavLink>
     }
     {
     // currentUser ?  <NavLink activeClassName="active" className="navBtn" onClick={props.logoutUser} to={routes.LOGOUT}>LOGOUT</NavLink> : <NavLink activeClassName="active" className="navBtn" to={routes.LOGIN}>LOGIN</NavLink>

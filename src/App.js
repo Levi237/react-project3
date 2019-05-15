@@ -144,7 +144,6 @@ class App extends Component {
               <Route exact path={routes.ROOT} render={() => <div className="navAlert">YOU ARE AT THE ROOT PAGE</div>} />
               <Route exact path={routes.HOME} render={() => <div className="navAlert">YOU ARE AT THE HOME PAGE</div>} />
               <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-              
               { currentUser && 
               <Route exact path={`${routes.USERS}/:id`} render={() => <ShowUser />} />
                }
