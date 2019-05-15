@@ -1,6 +1,6 @@
 export const ROOT = '/';
 export const HOME = '/home';
-export const POST = '/post';
+export const REGISTER = '/register';
 export const LOGIN = '/login';
 export const USERS = '/users';
-export const LOGOUT = '/login';
+export const LOGOUT = '/home';

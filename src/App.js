@@ -6,6 +6,8 @@ import Alerts from './components/Alerts/Alerts';
 import Map from './components/Map';
 import Nav from './components/Nav/Nav';
 import Login from './components/Login/Login';
+// import Logout from './components/Logout/Logout';
+import Register from './components/Register/Register';
 import ShowUser from './components/ShowUser/ShowUser';
 import UserList from './components/UserList/UserList';
 
@@ -36,13 +38,13 @@ class App extends Component {
     })
   }
 
-  // logoutUser = (e) => {
-  //   console.log(e)
-  //   console.log('logout selected')
-  //   this.setState({
-  //     currentUser: []
-  //   })
-  // }
+  logoutUser = (e) => {
+    console.log(e)
+    console.log('logout selected')
+    this.setState({
+      currentUser: []
+    })
+  }
 
   componentDidMount(){
     this.getAlerts().then(alerts => {
@@ -131,7 +133,7 @@ class App extends Component {
 // }
 
   render(){
-    const { closureList, currentUser, loading } = this.state
+    const { closureList, currentUser, loading, } = this.state
     return (
       <div className="grid-container">
         <div className="grid-aa" />
@@ -141,11 +143,15 @@ class App extends Component {
             <Switch>
               <Route exact path={routes.ROOT} render={() => <div className="navAlert">YOU ARE AT THE ROOT PAGE</div>} />
               <Route exact path={routes.HOME} render={() => <div className="navAlert">YOU ARE AT THE HOME PAGE</div>} />
-              <Route exact path={routes.POST} render={() => <div className="navAlert">YOU ARE AT THE POST PAGE</div>} />
+              <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
+              
+              { currentUser && 
               <Route exact path={`${routes.USERS}/:id`} render={() => <ShowUser />} />
+               }
+              {/* <Route exact path={currentUser ? `${routes.USERS}/:id` : routes.LOGIN} render={() => <ShowUser />} /> */}
               <Route exact path={routes.USERS} render={() => <div className="navAlert">YOU ARE AT THE USERS PAGE</div>} />
               <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-              <Route exact path={routes.LOGOUT} render={() => <div type="submit" onChange={this.logoutUser}/>} />
+              <Route exact path={routes.LOGOUT} render={() => <div className="navAlert">YOU ARE AT THE LOGOUT PAGE</div>} />
               <Route component={My404} />
             </Switch>
         </div><div className="grid-ab"/>     
@@ -153,7 +159,7 @@ class App extends Component {
         <div className="grid-image"></div>
      
         <div className="grid-ba"/><div className="grid-nav">
-          <Nav  currentUser={currentUser}/>       
+          <Nav  currentUser={currentUser} logoutUser={this.logoutUser}/>       
         </div><div className="grid-bb"/>
 
         <div className="grid-menu">      
