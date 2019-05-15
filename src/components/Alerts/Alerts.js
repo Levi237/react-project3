@@ -46,17 +46,9 @@ class Alerts extends Component {
     }
 
     toggle = event => {
-        console.log('toggle click heard')
         event.currentTarget.classList.toggle('active');
     }
-            // toggle = () => {
-            //     var x = document.querySelector(".details");
-            //     if (x.style.display === "none") {
-            //       x.style.display = "block";
-            //     } else {
-            //       x.style.display = "none";
-            //     }
-            //   }
+
     render(){
        
         const alertList = this.props.closureList.map((park, i) => {

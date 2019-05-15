@@ -99,7 +99,7 @@ class App extends Component {
   }
 
   deleteItem = async (userListId, currentUserId, e) => {
-    console.log(userListId, '<----------------------- this is id', currentUserId)
+    // console.log(userListId, '<----------------------- this is id', currentUserId)
     e.preventDefault();
     try {
         // const deleteItem = await fetch('/users/'+id, {
@@ -108,9 +108,9 @@ class App extends Component {
         const deleteItem = await fetch('/users/'+currentUserId+'/'+userListId, {
             method: 'DELETE'
         });
-        console.log('==================inside try delete function==================', deleteItem)
+        // console.log('==================inside try delete function==================', deleteItem)
         const deleteItemJson = await deleteItem.json();
-        console.log(deleteItemJson.data, "<--deleteItemJson")
+        // console.log(deleteItemJson.data, "<--deleteItemJson")
         // this.setState({currentUser: this.state.userList.filter((alert, i) => alert._id !== id)})
         this.setState({currentUser: deleteItemJson.data})
     } catch(err) {
@@ -118,6 +118,27 @@ class App extends Component {
     }
 }
 
+editSubmit = (currentUserId, e) => {
+  console.log(currentUserId, '<-currentUserId')
+  e.preventDefault();
+  // const editUser = await fetch(`/users/${currentUserId}/edit`, {
+  //     method: 'PUT',
+  //     credentials: 'include',
+  //     body: JSON.stringify(this.state),
+  //     headers: {
+  //         'Content-type' : 'application/json'
+  //     }
+  // })
+  //   console.log(editUser)
+  //   const parsedResponse = await editUser.json();
+  //   console.log(parsedResponse)
+  //   if(parsedResponse.data) {
+  //       this.props.doSetCurrentUser(parsedResponse.data)
+  //           this.setState({
+  //               logged: true,
+  //           })
+    // }
+  }
 // renderElement(){
 //   if(this.state.value == 'news')
 //      return <Text>data</Text>;
@@ -167,7 +188,7 @@ class App extends Component {
         <div className="grid-list">
         {
           currentUser && 
-          <UserList deleteItem={this.deleteItem} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+          <UserList deleteItem={this.deleteItem} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editSubmit={this.editSubmit}/>
         }
         </div>
         <div className="grid-main map-container map">
