@@ -5,7 +5,7 @@
     },
     "proxies": {
       "/api/v1/": {
-        "origin": "https://park101.herokuapp.com/"
+        "origin": "https://afternoon-beyond-79555.herokuapp.com/"
       }
     }
   }
