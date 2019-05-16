@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import './Alerts.css'
 
 class Alerts extends Component {
-    state = {
-        lat: '',
-        lng: ''
-    }
 
     doAddAlert = async (event, park) => {
         console.log(park)
@@ -31,21 +27,10 @@ class Alerts extends Component {
     showOnMap = (event, park) =>{
         console.log(park)
         event.preventDefault()
-        // console.log(this.state.lat, this.state.lng, "<showOnMap")
+        // console.log(this.props.lat, this.props.lng, "<==========showOnMap")
     }
 
-    handleSetMap = e => {
-        // console.log(e.target.value, '<--------e.target.value')
-        // console.log('click handleSetMap')
-        let firstSplit = e.target.value.split(':')
-        // console.log(firstSplit)
-        // console.log(firstSplit[1].split(',')[0], firstSplit[2], '<=== check splits 1, 2')
-        this.setState({
-            lat: firstSplit[1].split(',')[0],
-            lng: firstSplit[2]
-        })
-        
-    }
+
 
     render(){
        
@@ -69,7 +54,7 @@ class Alerts extends Component {
                         </div>
 
                         <form onSubmit={(map) => this.showOnMap(map, park)}>
-                                    <button type="submit" onClick={this.handleSetMap} value={park.latLong}>Map</button>
+                                    <button type="submit" onClick={this.props.handleSetMap} value={park.latLong}>Map</button>
                         </form>
 
                         <form onSubmit={(event) => this.doAddAlert(event, park)}>

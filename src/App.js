@@ -28,7 +28,9 @@ class App extends Component {
     alerts: [],
     parkNames: [],
     closureList: [],
-    loading: true
+    loading: true,
+    lat: '',
+    lng: '',
   }
 
   doSetCurrentUser = user => {
@@ -44,6 +46,19 @@ class App extends Component {
     })
     this.props.history.push(routes.ROOT)
   }
+
+  handleSetMap = e => {
+    console.log(e.target.value, '<--------e.target.value')
+    console.log('click handleSetMap')
+    let firstSplit = e.target.value.split(':')
+    // console.log(firstSplit)
+    // console.log(firstSplit[1].split(',')[0], firstSplit[2], '<=== check splits 1, 2')
+    this.setState({
+        lat: firstSplit[1].split(',')[0],
+        lng: firstSplit[2]
+    })  
+  }
+
 
   componentDidMount(){
     this.getAlerts().then(alerts => {
@@ -269,7 +284,7 @@ editUser = async (e) => {
 
         <div className="grid-menu">    
         
-          <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} />
+          <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
         </div>  
         <div className="grid-list">
           {
