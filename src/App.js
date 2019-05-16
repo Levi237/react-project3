@@ -118,6 +118,31 @@ class App extends Component {
     }
 }
 
+editUser = async (e) => {
+  e.preventDefault();
+  console.log(this.state, "<--------------this.state")
+  console.log(this.state.currentUser.username, '<---------this.state.username===============<<<<<<')
+  console.log(e.target.username, '<-----------e.target.username');
+  let userid = this.state.currentUser
+      const editUser = await fetch('/users/'+userid._id+'/edit', {
+          method: 'PUT',
+          credentials: 'include',
+          body: JSON.stringify(this.state),
+          headers: {
+              'Content-type' : 'application/json'
+          }
+      })
+        console.log(editUser, "<-----------editUser in editUser")
+        const parsedResponse = await editUser.json();
+        console.log(parsedResponse, "<==========parsed response")
+        if(parsedResponse.data) {
+            this.doSetCurrentUser(parsedResponse.data)
+                this.setState({
+                    logged: true,
+                })
+        }
+      }
+
 // edituser = async (id, e) => {
 //   console.log(e, "<------- id on edituser")
 
@@ -250,7 +275,7 @@ class App extends Component {
           <UserList deleteItem={this.deleteItem} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} edituser={this.edituser}/>
                  }
           {
-            currentUser &&  <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} edituser={this.edituser}/>
+            currentUser &&  <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editUser={this.editUser}/>
 
         }
         </div>
