@@ -69,7 +69,7 @@ class App extends Component {
  
   getAlerts = async () => {
     try {
-      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const alertsJson = await alerts.json();
         return alertsJson
     } catch(err) {
@@ -272,14 +272,14 @@ editUser = async (e) => {
           <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} />
         </div>  
         <div className="grid-list">
-        {
+          {
           currentUser && 
           <UserList deleteItem={this.deleteItem} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} edituser={this.edituser}/>
                  }
           {
             currentUser &&  <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editUser={this.editUser}/>
 
-        }
+          }
         </div>
         <div className="grid-main map-container map">
           <Map closureList={closureList} />

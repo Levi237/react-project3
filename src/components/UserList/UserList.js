@@ -10,6 +10,7 @@ class UserList extends Component {
         const myList = currentUser.userList.map((alert, i) => 
             <section className="listItem" key={i}>
                 <strong>
+                    {/* <div onClick={}>{alert.title}</div> */}
                     <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.name}</a><br />
                 </strong>
                 <button className="userListButton" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove from List</button>
