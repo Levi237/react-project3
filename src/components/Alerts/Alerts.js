@@ -25,14 +25,11 @@ class Alerts extends Component {
         event.currentTarget.classList.toggle('active');
     }
 
-
     showOnMap = (event, park) =>{
         console.log(park)
         event.preventDefault()
         // console.log(this.props.lat, this.props.lng, "<==========showOnMap")
     }
-
-
 
     render(){
        
