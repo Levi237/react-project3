@@ -6,10 +6,10 @@ import Alerts from './components/Alerts/Alerts';
 import Map from './components/Map';
 import Nav from './components/Nav/Nav';
 import Login from './components/Login/Login';
-import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
 import ShowUser from './components/ShowUser/ShowUser';
 import UserList from './components/UserList/UserList';
+import EditUser from './components/EditUser/EditUser'
 
 import * as routes from './constants/routes'
 import './App.css';
@@ -118,17 +118,20 @@ class App extends Component {
     }
 }
 
-editSubmit = (currentUserId, e) => {
-  console.log(currentUserId, '<-currentUserId')
-  e.preventDefault();
-  // const editUser = await fetch(`/users/${currentUserId}/edit`, {
+// edituser = async (id, e) => {
+//   console.log(e, "<------- id on edituser")
+
+  // e.preventDefault();
+  // const editUser = await fetch('/users/'+id, {
   //     method: 'PUT',
-  //     credentials: 'include',
+  //     // credentials: 'include',
   //     body: JSON.stringify(this.state),
   //     headers: {
   //         'Content-type' : 'application/json'
   //     }
   // })
+
+
   //   console.log(editUser)
   //   const parsedResponse = await editUser.json();
   //   console.log(parsedResponse)
@@ -137,8 +140,64 @@ editSubmit = (currentUserId, e) => {
   //           this.setState({
   //               logged: true,
   //           })
-    // }
-  }
+  //   }
+  // }
+
+
+
+  // closeAndEdit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+
+  //     const editResponse = await fetch('http://localhost:9000/api/v1/movies/' + this.state.movieToEdit._id, {
+  //       method: 'PUT',
+  //       body: JSON.stringify(this.state.movieToEdit),
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       }
+  //     })
+
+  //     const parsedResponse = await editResponse.json();
+
+
+  //     const editedMovieArray = this.state.movies.map((movie) => {
+
+  //       if(movie._id === this.state.movieToEdit._id){
+
+  //           movie = parsedResponse.data;
+
+  //       }
+
+  //       return movie
+  //     });
+
+
+  //     this.setState({
+  //       movies: editedMovieArray,
+  //       modalShowing: false
+  //     });
+
+  //   }catch(err){
+  //     console.log(err);
+  //   }
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // renderElement(){
 //   if(this.state.value == 'news')
 //      return <Text>data</Text>;
@@ -188,7 +247,11 @@ editSubmit = (currentUserId, e) => {
         <div className="grid-list">
         {
           currentUser && 
-          <UserList deleteItem={this.deleteItem} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editSubmit={this.editSubmit}/>
+          <UserList deleteItem={this.deleteItem} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} edituser={this.edituser}/>
+                 }
+          {
+            currentUser &&  <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} edituser={this.edituser}/>
+
         }
         </div>
         <div className="grid-main map-container map">

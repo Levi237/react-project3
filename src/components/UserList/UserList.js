@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './UserList.css'
 
-import EditUser from '../EditUser/EditUser'
+// import EditUser from '../EditUser/EditUser'
 
 class UserList extends Component {
 
@@ -18,7 +18,7 @@ class UserList extends Component {
         return (
             <div className="myListContainer">
                 <h4>Hello {currentUser.username}</h4>
-                <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editSubmit={this.editSubmit}/>
+                
                 
                     { myList }
                 
