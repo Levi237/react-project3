@@ -22,8 +22,6 @@ class Map extends Component {
     render(){
         return(
             <React.Fragment>
-
-            <h1>MOCK MAP</h1>
             <div>
                  <GoogleMapReact 
                     bootstrapURLKeys={{ key: "AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"}}

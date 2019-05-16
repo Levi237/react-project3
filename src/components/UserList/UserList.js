@@ -5,13 +5,20 @@ import './UserList.css'
 
 class UserList extends Component {
 
+    showOnMap = (event, park) =>{
+        console.log(park)
+        event.preventDefault()
+        // console.log(this.props.lat, this.props.lng, "<==========showOnMap")
+    }
+
     render (){
         const { currentUser, deleteItem } = this.props
         const myList = currentUser.userList.map((alert, i) => 
             <section className="listItem" key={i}>
                 <strong>
-                    {/* <div onClick={}>{alert.title}</div> */}
-                    <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.name}</a><br />
+                    <div>{alert.fullName}</div>
+                    <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}{alert.name}</a><br />
+                    <form onSubmit={this.showOnMap}><button onClick={this.props.handleSetMap} value={alert.latLong}>Map</button></form>
                 </strong>
                 <button className="userListButton" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove from List</button>
             </section>
@@ -19,10 +26,7 @@ class UserList extends Component {
         return (
             <div className="myListContainer">
                 <h4>Hello {currentUser.username}</h4>
-                
-                
                     { myList }
-                
             </div>      
         )
     }

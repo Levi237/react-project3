@@ -48,18 +48,16 @@ class App extends Component {
   }
 
   handleSetMap = e => {
-    console.log(e.target.value, '<--------e.target.value')
-    console.log('click handleSetMap')
+    // console.log(e.target.value, '<--------e.target.value')
+    // console.log('click handleSetMap')
     let firstSplit = e.target.value.split(':')
-    // console.log(firstSplit)
-    // console.log(firstSplit[1].split(',')[0], firstSplit[2], '<=== check splits 1, 2')
     this.setState({
         lat: firstSplit[1].split(',')[0],
         lng: firstSplit[2]
     })  
   }
 
-
+  
   componentDidMount(){
     this.getAlerts().then(alerts => {
       this.getParkNames()
@@ -130,9 +128,9 @@ class App extends Component {
     } catch(err) {
         console.log(err, 'error')
     }
-}
+  }
 
-editUser = async (e) => {
+  editUser = async (e) => {
   e.preventDefault();
   console.log(this.state, "<--------------this.state")
   console.log(this.state.currentUser.username, '<---------this.state.username===============<<<<<<')
@@ -155,7 +153,7 @@ editUser = async (e) => {
                     logged: true,
                 })
         }
-      }
+  }
 
 // edituser = async (id, e) => {
 //   console.log(e, "<------- id on edituser")
@@ -289,7 +287,7 @@ editUser = async (e) => {
         <div className="grid-list">
           {
           currentUser && 
-          <UserList deleteItem={this.deleteItem} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} edituser={this.edituser}/>
+          <UserList deleteItem={this.deleteItem} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>
                  }
           {
             currentUser &&  <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editUser={this.editUser}/>
