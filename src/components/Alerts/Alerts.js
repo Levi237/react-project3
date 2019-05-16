@@ -59,7 +59,9 @@ class Alerts extends Component {
                         <form onSubmit={(event) => this.doAddAlert(event, park)}>
                             <div className="title" onClick={this.toggle}>
                                 <div>
-                                    <strong>{park.fullName}<br /></strong>{park.title}
+                                    <strong>{park.fullName}</strong>
+                                        <br />
+                                    <small>{park.title}</small>
                                     </div>
                             
                             <div className="details">

@@ -1,8 +1,12 @@
 
 html {
-  background-image: url('./background.jpg');
-  background-size: no-repeat;
-  width: 100%;
+  background-image: url('./yosemite2.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center top;
+  background-attachment: fixed;
+  /* background-size: cover; */
+  height: 100%;
 }
 
 body {
@@ -34,7 +38,9 @@ h1 {
 }
 .map > div {
   height: 20em;
-  width: 20em;
+  width: 94%;
+  padding: 3%;
+  background-color: white;
 }
 .pin {
   text-align: center;
@@ -43,19 +49,19 @@ h1 {
 }
 
 input, button {
-  margin-bottom: -10px;
+  margin: 0 .3em;
+  border-radius: 2px;
 }
 
 input {
   width: 9em;
-  border-radius: 2px;
-  margin-right: .5rem;
+  /* margin-right: .5rem; */
 }
 button {
-  border-radius: 2px;
   background-color: lightgrey;
   color: black;
 }
+
 
 
 .showUser {
@@ -66,6 +72,7 @@ button {
 /*************************** SCALABLE GRID ***************************/
 /* there has got to be a dryer way */
 .grid-aa, .grid-ab, .grid-ba, .grid-bb, .grid-ca, .grid-cb, .grid-header, .grid-nav , .grid-footer { background: black; color: white; }
+.grid-ba, .grid-bb, .grid-nav { background: rgb(0, 0, 0, .6); color: white; }
 .grid-aa { grid-area: aa; }
 .grid-ab { grid-area: ab; }
 .grid-ba { grid-area: ba; }
@@ -83,6 +90,7 @@ button {
   grid-area: image; 
   background-color: transparent;
   width: auto;
+  margin: auto;
 
 }
 .grid-nav { 
@@ -90,6 +98,7 @@ button {
   text-align: right;
   position: relative;
   padding: 8px 0 ;
+  font-weight: bold;
   /* bottom: 0; */
   /* margin-bottom: 0; */
 }
@@ -110,7 +119,7 @@ button {
 .grid-list { 
   grid-area: list; 
   text-align: justify;
-  margin: 0 auto 0 32px;
+  margin: 1em  0 auto 1em;
   height: auto;
 }
 .grid-main { 
@@ -119,8 +128,8 @@ button {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1rem;
   background: transparent;
-  padding: 0 1rem 0 2rem;
-  margin: 0 auto 6em auto;
+  padding: 0 auto;
+  margin: 1em  0 auto 1em;
 }
 .grid-footer {
   grid-area: footer;
@@ -131,8 +140,8 @@ button {
   width: 100%;
   display: grid;
   position: relative;
-  grid-template-columns: 12% auto auto 12%;
-  grid-template-rows: 7rem 2% 34px auto auto 5rem;
+  grid-template-columns: 1fr 4fr 3fr 1fr;
+  grid-template-rows: 5rem 2rem 34px auto 100% 5rem;
 grid-template-areas:
   ' aa header header ab '
   ' image image image image'
@@ -145,42 +154,62 @@ grid-template-areas:
 
 @media screen and (max-width: 1100px) {
   .grid-header {
-    position: aboslute;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    margin-bottom: 10px;
     top:0
+  }
+  .grid-header > h1 {
+    /* font-size: 2rem; */
+    margin-block-end: 0em;
+    margin: 1px 0 0 .25em;
   }
   .grid-nav {
     text-align: center;
-    font-size: 1.3em;
-    padding: 0 2rem;
+    font-size: 1.4em;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    margin-top: 3rem;
+  }
+
+  .grid-list{
+    width: 100%;
+    margin: 1em auto;
   }
   .grid-menu {
-    padding: 0 2rem 1rem 2rem;
+    /* padding: 0 2rem 1rem 2rem; */
   }
   .grid-main { 
-    padding: 0 2rem 0 2rem;
-    margin-bottom: 2rem;
+    /* padding: 0 2rem 0 2rem; */
+    /* margin-bottom: 2rem; */
   }
   .grid-container {
       width: 100%;
       display: grid;
-      grid-template-columns: auto;
-      grid-template-rows: 5rem 4.5rem auto auto auto auto;
+      grid-template-columns: 1fr;
+      grid-template-rows: 2rem auto 4.5rem auto auto auto;
   grid-template-areas:
       'header'
-      'image'
       'nav'
+      'image'
+      'list'
       'menu'
       'main'
-      'list'
+      
       'footer';
       grid-gap: 0;
   }
   input {
     margin-left: 3rem !important;
+    margin: 4rem 2rem;
   }
   button, input {
-    transform: scale(1.5);
-    margin: 2rem 2rem;
+font-size: 1.5rem
+    
+
   }
 }
 /*-------------------------- SCALABLE GRID --------------------------*/

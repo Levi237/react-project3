@@ -9,8 +9,10 @@ class Map extends Component {
     }
     render(){
         return(
-            <div>
+            <React.Fragment>
+
             <h1>MOCK MAP</h1>
+            <div>
                  <GoogleMapReact 
                     bootstrapURLKeys={{ key: "AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"}}
                     defaultCenter={{
@@ -30,13 +32,14 @@ class Map extends Component {
                             lat={firstSplit[1].split(',')[0]}
                             lng={firstSplit[2]}
                             pin="../map-pin.png"
-                          
-                          />
-                        )
-                    })}
+                            
+                            />
+                            )
+                        })}
                      
                     </GoogleMapReact>
             </div>
+                        </React.Fragment>
         );
     }
 }

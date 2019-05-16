@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-// // import './Register.css'
+// import './Register.css'
 
 class Register extends Component {
     state = {
@@ -59,11 +59,13 @@ class Register extends Component {
 }
 
 const RegisterForm = ({changeHandler, onSubmit, username, password}) => 
+<section  className="registerForm">
     <form onSubmit={e => onSubmit(e)}>
          <input type="text" placeholder="Your Name Here" name="username" onChange={e => changeHandler(e)} value={username}></input>
          <input type="password" placeholder="Your Password" name="password" onChange={e => changeHandler(e)} value={password}></input>
          <button type="submit">Register</button>
      </form>
+</section>
 
 
 

@@ -7,7 +7,6 @@ import Map from './components/Map';
 import Nav from './components/Nav/Nav';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
-import ShowUser from './components/ShowUser/ShowUser';
 import UserList from './components/UserList/UserList';
 import EditUser from './components/EditUser/EditUser'
 
@@ -244,29 +243,32 @@ editUser = async (e) => {
         <div className="grid-aa" />
         <div className="grid-header">
           <h1>Park Alert</h1>
-          <PacmanLoader loading={loading} color={'#FFF'}/>
+          
+        </div><div className="grid-ab"/>     
+        
+        <div className="grid-image">
+        
             <Switch>
               <Route exact path={routes.ROOT} render={() => <div className="navAlert">YOU ARE AT THE ROOT PAGE</div>} />
               <Route exact path={routes.HOME} render={() => <div className="navAlert">YOU ARE AT THE HOME PAGE</div>} />
               <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
               { currentUser && 
-              <Route exact path={`${routes.USERS}/:id`} render={() => <ShowUser />} />
+              <Route exact path={`${routes.USERS}/:id`}/>
                }
               {/* <Route exact path={currentUser ? `${routes.USERS}/:id` : routes.LOGIN} render={() => <ShowUser />} /> */}
-              <Route exact path={routes.USERS} render={() => <div className="navAlert">YOU ARE AT THE USERS PAGE</div>} />
+              <Route exact path={routes.USERS} />
               <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-              <Route exact path={routes.LOGOUT} render={() => <div className="navAlert">YOU ARE AT THE LOGOUT PAGE</div>} />
+              <Route exact path={routes.LOGOUT} render={() => <div className="navAlert">Thank you for visiting.</div>} />
               <Route component={My404} />
-            </Switch>
-        </div><div className="grid-ab"/>     
-        
-        <div className="grid-image"></div>
+            </Switch></div>
      
         <div className="grid-ba"/><div className="grid-nav">
-          <Nav  currentUser={currentUser} logoutUser={this.logoutUser}/>       
+        <PacmanLoader loading={loading} color={"gold"} size={8}/>  
+        <Nav  currentUser={currentUser} logoutUser={this.logoutUser}/>       
         </div><div className="grid-bb"/>
 
-        <div className="grid-menu">      
+        <div className="grid-menu">    
+        
           <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} />
         </div>  
         <div className="grid-list">

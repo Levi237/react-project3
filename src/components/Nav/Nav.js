@@ -5,8 +5,8 @@ import * as routes from '../../constants/routes'
 import './Nav.css'
 
 const Nav = ({currentUser, logoutUser}) => 
-<div>
-    <NavLink activeClassName="active" className="navBtn" to={routes.USERS}>USERS</NavLink>
+<div className="navBox">
+    <NavLink activeClassName="active" className="navBtn" to={routes.HOME}>HOME</NavLink>
     {
     currentUser ? "" : <NavLink activeClassName="active" className="navBtn" to={routes.REGISTER} >JOIN</NavLink>
     }
