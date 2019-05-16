@@ -4,7 +4,7 @@
       "/**": "index.html"
     },
     "proxies": {
-      "/api/v1/": {
+      "/api/": {
         "origin": "https://afternoon-beyond-79555.herokuapp.com/"
       }
     }

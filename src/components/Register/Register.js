@@ -20,7 +20,7 @@ class Register extends Component {
     onSubmit = async (e) => {
         console.log("on submit click")
         e.preventDefault();
-        const registerResponse = await fetch('/', {
+        const registerResponse = await fetch('/api/v1', {
             method: 'POST',
             credentials: 'include',
             body: JSON.stringify(this.state),
