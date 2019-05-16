@@ -7,17 +7,6 @@ class Map extends Component {
     static defaultProps = {
         zoom: 5
     }
-    // center = () => {
-        
-    //     let latitude = this.props.lat;
-    //     let longitutde = this.props.lng;
-    //     let center = latitude + longitutde
-    //     if (this.props.lat) {
-
-    //         console.log(center, "<------center")
-    //     }
-    // }
-    
 
     render(){
         return(
@@ -26,11 +15,11 @@ class Map extends Component {
                  <GoogleMapReact 
                     bootstrapURLKeys={{ key: "AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"}}
                     defaultCenter={{
-                        lat: 39.8283,//center of US
-                        lng: -95.5795
+                        lat: 37.8651,//YOSEMITE
+                        lng: -119.5383
                     }}
                     center={{
-                        lat: +this.props.lat,//center of US
+                        lat: +this.props.lat,
                         lng: +this.props.lng
                     }}
                     defaultZoom={this.props.zoom}

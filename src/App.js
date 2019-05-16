@@ -29,8 +29,8 @@ class App extends Component {
     parkNames: [],
     closureList: [],
     loading: true,
-    lat: 39.8283,
-    lng: -95.5795,
+    lat: 37.8651,
+    lng: -119.5383,
   }
 
   doSetCurrentUser = user => {
