@@ -5,8 +5,20 @@ import GoogleMapReact from 'google-map-react';
 
 class Map extends Component {
     static defaultProps = {
-        zoom: 3.5
+        zoom: 5
     }
+    // center = () => {
+        
+    //     let latitude = this.props.lat;
+    //     let longitutde = this.props.lng;
+    //     let center = latitude + longitutde
+    //     if (this.props.lat) {
+
+    //         console.log(center, "<------center")
+    //     }
+    // }
+    
+
     render(){
         return(
             <React.Fragment>
@@ -18,6 +30,10 @@ class Map extends Component {
                     defaultCenter={{
                         lat: 39.8283,//center of US
                         lng: -95.5795
+                    }}
+                    center={{
+                        lat: +this.props.lat,//center of US
+                        lng: +this.props.lng
                     }}
                     defaultZoom={this.props.zoom}
                     >

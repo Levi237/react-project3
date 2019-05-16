@@ -29,8 +29,8 @@ class App extends Component {
     parkNames: [],
     closureList: [],
     loading: true,
-    lat: '',
-    lng: '',
+    lat: 39.8283,
+    lng: -95.5795,
   }
 
   doSetCurrentUser = user => {
@@ -252,7 +252,7 @@ editUser = async (e) => {
 // }
 
   render(){
-    const { closureList, currentUser, loading, } = this.state
+    const { closureList, currentUser, loading, lat, lng} = this.state
     return (
       <div className="grid-container">
         <div className="grid-aa" />
@@ -297,7 +297,7 @@ editUser = async (e) => {
           }
         </div>
         <div className="grid-main map-container map">
-          <Map closureList={closureList} />
+          <Map closureList={closureList} lat={lat} lng={lng}/>
         </div>
 
         <div className="grid-ca" /><div className="grid-footer">
