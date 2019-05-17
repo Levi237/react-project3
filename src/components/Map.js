@@ -15,7 +15,8 @@ class Map extends Component {
                  <GoogleMapReact 
                     bootstrapURLKeys={{ key: "AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"}}
                     defaultCenter={{
-                        lat: 37.8651,//YOSEMITE
+                        //Yosemite coordinates
+                        lat: 37.8651,  
                         lng: -119.5383
                     }}
                     center={{
@@ -27,8 +28,6 @@ class Map extends Component {
                     {this.props.closureList.map((e, i)=>{
                         const PointTo = ({ pin }) => <a href={e.url} target="_blank" rel="noopener noreferrer"><img className="pin" src={pin} alt={e.fullName} title={e.fullName} /></a>
                         let firstSplit = e.latLong.split(':')
-                        // console.log(firstSplit)
-                        // console.log(firstSplit[1].split(',')[0], firstSplit[2], '<=== firstSplit')
                         return (
                             <PointTo
                             key={i}
@@ -42,7 +41,7 @@ class Map extends Component {
                      
                     </GoogleMapReact>
             </div>
-                        </React.Fragment>
+            </React.Fragment>
         );
     }
 }

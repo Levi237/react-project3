@@ -19,7 +19,7 @@ class ShowUser extends Component {
             const parsedUser = await user.json()
             return parsedUser
         } catch(err) {
-            console.log(err)
+            return err
         }
     }
 

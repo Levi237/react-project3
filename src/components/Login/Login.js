@@ -14,7 +14,6 @@ class Login extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-                console.log(this.state.username, this.state.password)
     }
 
     onSubmit = async (e) => {
@@ -29,9 +28,7 @@ class Login extends Component {
 
                
         })
-        console.log(loginResponse)
         const parsedResponse = await loginResponse.json();
-        console.log(parsedResponse)
         if(parsedResponse.data) {
             this.props.doSetCurrentUser(parsedResponse.data)
                 this.setState({

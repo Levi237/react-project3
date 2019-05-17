@@ -40,7 +40,6 @@ class App extends Component {
   }
 
   logoutUser = () => {
-    console.log('logout selected')
     this.setState({
       currentUser: null //[]
     })
@@ -48,8 +47,6 @@ class App extends Component {
   }
 
   handleSetMap = e => {
-    // console.log(e.target.value, '<--------e.target.value')
-    // console.log('click handleSetMap')
     let firstSplit = e.target.value.split(':')
     this.setState({
         lat: firstSplit[1].split(',')[0],
@@ -96,7 +93,7 @@ class App extends Component {
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
-        console.log(err)
+        return err
     }
   }
 
@@ -111,30 +108,20 @@ class App extends Component {
   }
 
   deleteItem = async (userListId, currentUserId, e) => {
-    // console.log(userListId, '<----------------------- this is id', currentUserId)
     e.preventDefault();
     try {
-        // const deleteItem = await fetch('/users/'+id, {
-        //     method: 'DELETE'
-        // });
         const deleteItem = await fetch(process.env.REACT_APP_API+'/api/v1/'+currentUserId+'/'+userListId, {
             method: 'DELETE'
         });
-        // console.log('==================inside try delete function==================', deleteItem)
         const deleteItemJson = await deleteItem.json();
-        // console.log(deleteItemJson.data, "<--deleteItemJson")
-        // this.setState({currentUser: this.state.userList.filter((alert, i) => alert._id !== id)})
-        this.setState({currentUser: deleteItemJson.data})
+          this.setState({currentUser: deleteItemJson.data})
     } catch(err) {
-        console.log(err, 'error')
+        return err
     }
   }
 
   editUser = async (e) => {
   e.preventDefault();
-  console.log(this.state, "<--------------this.state")
-  console.log(this.state.currentUser.username, '<---------this.state.username===============<<<<<<')
-  console.log(e.target.username, '<-----------e.target.username');
   let userid = this.state.currentUser
       const editUser = await fetch(process.env.REACT_APP_API+'/api/v1/'+userid._id+'/edit', {
           method: 'PUT',
@@ -144,9 +131,7 @@ class App extends Component {
               'Content-type' : 'application/json'
           }
       })
-        console.log(editUser, "<-----------editUser in editUser")
         const parsedResponse = await editUser.json();
-        console.log(parsedResponse, "<==========parsed response")
         if(parsedResponse.data) {
             this.doSetCurrentUser(parsedResponse.data)
                 this.setState({
@@ -154,100 +139,6 @@ class App extends Component {
                 })
         }
   }
-
-// edituser = async (id, e) => {
-//   console.log(e, "<------- id on edituser")
-
-  // e.preventDefault();
-  // const editUser = await fetch('/users/'+id, {
-  //     method: 'PUT',
-  //     // credentials: 'include',
-  //     body: JSON.stringify(this.state),
-  //     headers: {
-  //         'Content-type' : 'application/json'
-  //     }
-  // })
-
-
-  //   console.log(editUser)
-  //   const parsedResponse = await editUser.json();
-  //   console.log(parsedResponse)
-  //   if(parsedResponse.data) {
-  //       this.props.doSetCurrentUser(parsedResponse.data)
-  //           this.setState({
-  //               logged: true,
-  //           })
-  //   }
-  // }
-
-
-
-  // closeAndEdit = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-
-  //     const editResponse = await fetch('http://localhost:9000/api/v1/movies/' + this.state.movieToEdit._id, {
-  //       method: 'PUT',
-  //       body: JSON.stringify(this.state.movieToEdit),
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //     })
-
-  //     const parsedResponse = await editResponse.json();
-
-
-  //     const editedMovieArray = this.state.movies.map((movie) => {
-
-  //       if(movie._id === this.state.movieToEdit._id){
-
-  //           movie = parsedResponse.data;
-
-  //       }
-
-  //       return movie
-  //     });
-
-
-  //     this.setState({
-  //       movies: editedMovieArray,
-  //       modalShowing: false
-  //     });
-
-  //   }catch(err){
-  //     console.log(err);
-  //   }
-  // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// renderElement(){
-//   if(this.state.value == 'news')
-//      return <Text>data</Text>;
-//   return null;
-// }
-
-// render() {
-//    return (   
-//        <View style={styles.container}>
-//            { this.renderElement() }
-//        </View>
-//    )
-// }
 
   render(){
     const { closureList, currentUser, loading, lat, lng} = this.state
@@ -267,17 +158,17 @@ class App extends Component {
               <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
               { currentUser && 
               <Route exact path={`${routes.USERS}/:id`}/>
-               }
-              {/* <Route exact path={currentUser ? `${routes.USERS}/:id` : routes.LOGIN} render={() => <ShowUser />} /> */}
+              }
               <Route exact path={routes.USERS} />
               <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
               <Route exact path={routes.LOGOUT} render={() => <div className="navAlert">Thank you for visiting.</div>} />
               <Route component={My404} />
-            </Switch></div>
+            </Switch>
+        </div>
      
         <div className="grid-ba"/><div className="grid-nav">
-        <PacmanLoader loading={loading} color={"gold"} size={8}/>  
-        <Nav  currentUser={currentUser} logoutUser={this.logoutUser}/>       
+          <PacmanLoader loading={loading} color={"gold"} size={8}/>  
+          <Nav  currentUser={currentUser} logoutUser={this.logoutUser}/>       
         </div><div className="grid-bb"/>
 
         <div className="grid-menu">    
@@ -288,10 +179,9 @@ class App extends Component {
           {
           currentUser && 
           <UserList deleteItem={this.deleteItem} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>
-                 }
+          }
           {
-            currentUser &&  <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editUser={this.editUser}/>
-
+          currentUser &&  <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editUser={this.editUser}/>
           }
         </div>
         <div className="grid-main map-container map">
@@ -299,7 +189,7 @@ class App extends Component {
         </div>
 
         <div className="grid-ca" /><div className="grid-footer">
-          <h3>This is the footer</h3>
+          <h3><a href="https://www.nps.gov">Please enjoy this tribute to the National Park Service</a></h3>
         </div><div className="grid-cb" />
                
       </div>

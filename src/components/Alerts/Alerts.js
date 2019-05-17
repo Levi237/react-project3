@@ -5,7 +5,6 @@ import './Alerts.css'
 class Alerts extends Component {
 
     doAddAlert = async (event, park) => {
-        console.log(park, "<----park on doAddAlert")
         event.preventDefault()
         const addAlert = await fetch(`${process.env.REACT_APP_API}/api/v1/${this.props.currentUser._id}/parks`, {
             method: 'POST',
@@ -17,8 +16,6 @@ class Alerts extends Component {
         })
         const alertJson = await addAlert.json()
         this.props.doSetCurrentUser(alertJson.user)
-        console.log(alertJson, "<----alertJson")
-        console.log(addAlert, "<----addAlert")
     }
 
     toggle = event => {
@@ -26,9 +23,7 @@ class Alerts extends Component {
     }
 
     showOnMap = (event, park) =>{
-        console.log(park)
         event.preventDefault()
-        // console.log(this.props.lat, this.props.lng, "<==========showOnMap")
     }
 
     render(){

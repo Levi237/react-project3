@@ -1,10 +1,6 @@
 
 html {
-  background-image: url('./yosemite2.png');
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position: center top;
-  background-attachment: fixed;
+
   /* background-size: cover; */
   height: 100%;
 }
@@ -92,6 +88,11 @@ button {
   width: auto;
   margin: auto;
 
+  background-image: url('./header-yosemite.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center top;
+  background-attachment: fixed;
 }
 .grid-nav { 
   grid-area: nav; 

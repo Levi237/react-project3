@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import './UserList.css'
 
-// import EditUser from '../EditUser/EditUser'
-
 class UserList extends Component {
 
     showOnMap = (event, park) =>{
-        console.log(park)
         event.preventDefault()
-        // console.log(this.props.lat, this.props.lng, "<==========showOnMap")
     }
 
     render (){

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-// import './Register.css'
 
 class Register extends Component {
     state = {
@@ -14,11 +13,9 @@ class Register extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-        // console.log(this.state.username, this.state.password)
     }
 
     onSubmit = async (e) => {
-        console.log("on submit click")
         e.preventDefault();
         const registerResponse = await fetch(process.env.REACT_APP_API+'/api/v1', {
             method: 'POST',
@@ -29,7 +26,6 @@ class Register extends Component {
             }
         })
         const parsedResponse = await registerResponse.json();
-        console.log(parsedResponse)
         if(parsedResponse.user) {
             this.props.doSetCurrentUser(parsedResponse.user)
                 this.setState({
