@@ -1,6 +1,11 @@
 .title .details {
+  transition-duration: 5s;
   display: none;
 
+}
+
+.title {
+  transition: all .1s ease-in-out;
 }
 
 .title:hover {
@@ -9,10 +14,9 @@
 }
 
 .active .details {
+  transition-duration: 5s;
   display: inline-block;
   width: 100%;
-  
-
 }
 
 .details {
@@ -34,7 +38,6 @@
   margin-bottom: .1em;
 }
 .alertsButton:hover {
-  
   transition-delay: .1s;
   background-color: rgba(33, 56, 23, 1);
 }
