@@ -36,7 +36,10 @@ h3 {
   font-weight: bold;
 }
 .mapBtn {
+  position: relative;
   float: right;
+  z-index: 30;
+  margin-top: -40px;
 }
 
 .map-container {
