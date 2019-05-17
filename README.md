@@ -38,4 +38,4 @@ https://maps.googleapis.com/maps/api/js
 
 
 ## A Special Thanks to Pacman
-<img src="pacman.jpg" align="middle">
+<img src="pacman.jpg">
