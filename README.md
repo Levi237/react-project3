@@ -7,16 +7,18 @@ Nature is one of our greatest resources.  As outdoor activities such as backpaki
 
  My goal with this project was to make it easier for people to know when access becomes available again to allow the public.
 
+## Website
+
+<a href="https://intense-headland-71507.herokuapp.com/home">Park Alert System</a>
+
 ## 3rd Party API Sources:
 
-### National Parks Services
+**National Parks Services**
 https://developer.nps.gov/api/v1/alerts<br>
 https://developer.nps.gov/api/v1/parks
 
-**test 2**
-*test 1*
 
-### Google Map React
+**Google Map React**
 https://maps.googleapis.com/maps/api/js
 
 ## Technologies
@@ -29,9 +31,3 @@ https://maps.googleapis.com/maps/api/js
 <li>CSS</li>
 <li>HTML</li>
 </ul>
-
-
-
-## Website
-
-<a href="https://intense-headland-71507.herokuapp.com/home">Park Alert</a>
