@@ -39,7 +39,9 @@ class Alerts extends Component {
                                         <br />
                                     <small>{park.title}</small>
                                     </div>
-                                    
+                        <form onSubmit={(map) => this.showOnMap(map, park)}>
+                            <button className="mapBtn" type="submit" onClick={this.props.handleSetMap} value={park.latLong}>Map</button>
+                        </form>
                             <div className="details">
                                 {park.description}
                             </div>
@@ -47,9 +49,7 @@ class Alerts extends Component {
 
                         </div>
 
-                        <form onSubmit={(map) => this.showOnMap(map, park)}>
-                            <button className="mapBtn" type="submit" onClick={this.props.handleSetMap} value={park.latLong}>Map</button>
-                        </form>
+
 
                         <form onSubmit={(event) => this.doAddAlert(event, park)}>
                             { this.props.currentUser && 
