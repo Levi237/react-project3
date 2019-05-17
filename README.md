@@ -6,8 +6,9 @@ Nature is one of our greatest resources.  As outdoor activities such as backpaki
 
 My goal with this project is to make it easier for people to know when access becomes available again to allow the public.
 
+<br><br>
+*Future additions: compare userList to closureList to find !== matches and create a new list to show which parks have opened most recently*
 
- *Future additions: compare userList to closureList to find !== matches and create a new list to show which parks have opened most recently*
 
 ## Website
 
