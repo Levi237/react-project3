@@ -29,9 +29,13 @@ h1 {
   font-weight: bold;
 }
 h3 {
+  position: relative;
+  z-index: 50;
   display: block;
   font-size: 1.17em;
   margin: auto 0;
+  margin-top: auto;
+  margin-bottom: auto;
   margin-block-start: 0;
   margin-block-end: 0;
   margin-inline-start: 0px;
@@ -60,14 +64,7 @@ input, button {
 
 input {
   width: 9em;
-  /* margin-right: .5rem; */
 }
-button {
-  background-color: lightgrey;
-  color: black;
-}
-
-
 
 .showUser {
   margin-top: -2.5rem;
@@ -82,7 +79,8 @@ button {
 .grid-ba { grid-area: ba; }
 .grid-bb { grid-area: bb; }
 .grid-ca { grid-area: ca; }
-.grid-cb { grid-area: cb; }
+.grid-cb { grid-area: cb; }   
+.grid-tt { grid-area: tt; background: rgb(0, 0, 0, .6);}
 
 .grid-header { grid-area: header; }
 .grid-header > h1 {
@@ -130,7 +128,7 @@ button {
 .grid-menu { 
   grid-area: menu; 
   background: white;
-  padding: .5rem 2rem 2rem 2rem;
+  padding: .5rem 0;
   text-align: justify;
   margin-bottom: 2rem;
 }
@@ -140,6 +138,10 @@ button {
   padding: 0;
   /* margin: 0; */
 }
+.grid-menu > div {
+  margin: 2rem;
+}
+
 .grid-list { 
   grid-area: list; 
   text-align: justify;
@@ -169,7 +171,7 @@ button {
 grid-template-areas:
   ' aa header header ab '
   ' image image image image'
-  ' title title title title '
+  ' tt title title title '
   ' ba nav nav bb '
   ' . menu list . '
   ' . menu main . '

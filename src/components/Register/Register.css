@@ -3,8 +3,7 @@
     text-align: center;
 }
 
-button 
- {
+button {
         color: white;
         border: 1px white solid;
         border-radius: 5px;
@@ -13,8 +12,9 @@ button
         transition: all .1s ease-in-out;
         background-color: rgb(57, 93, 41, 1);
         margin-bottom: .1em;
-      }
+}
+
 button:hover {
         transition-delay: .1s;
         background-color: rgba(33, 56, 23, 1);
-      }
+}
