@@ -44,7 +44,7 @@ class Register extends Component {
             <div>
                 {
             this.state.logged
-            ? <Redirect to={`/users/${this.props.currentUser._id}`} />
+            ? <Redirect to={`${process.env.REACT_APP_API}'/api/v1/'${this.props.currentUser._id}`} />
             : <RegisterForm 
                 changeHandler={this.changeHandler}
                 onSubmit={this.onSubmit}
