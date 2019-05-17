@@ -8,7 +8,8 @@ My goal with this project is to make it easier for people to know when access be
 <br><br>
 *Future additions: compare userList to closureList to find !== matches and create a new list to show which parks have opened most recently*
 
-<img width="100%" src="header-yosemite.png">
+<img width="100%" src="header-yosemite.png"><br>
+
 ## Website
 
 ### <a href="https://intense-headland-71507.herokuapp.com/home">Park Alert System</a>
