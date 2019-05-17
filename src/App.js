@@ -117,7 +117,7 @@ class App extends Component {
         // const deleteItem = await fetch('/users/'+id, {
         //     method: 'DELETE'
         // });
-        const deleteItem = await fetch('/users/'+currentUserId+'/'+userListId, {
+        const deleteItem = await fetch(process.env.REACT_APP_API+'/api/v1/'+currentUserId+'/'+userListId, {
             method: 'DELETE'
         });
         // console.log('==================inside try delete function==================', deleteItem)
@@ -136,7 +136,7 @@ class App extends Component {
   console.log(this.state.currentUser.username, '<---------this.state.username===============<<<<<<')
   console.log(e.target.username, '<-----------e.target.username');
   let userid = this.state.currentUser
-      const editUser = await fetch('/users/'+userid._id+'/edit', {
+      const editUser = await fetch(process.env.REACT_APP_API+'/api/v1/'+userid._id+'/edit', {
           method: 'PUT',
           credentials: 'include',
           body: JSON.stringify(this.state),

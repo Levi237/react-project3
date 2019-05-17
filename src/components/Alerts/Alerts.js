@@ -7,7 +7,7 @@ class Alerts extends Component {
     doAddAlert = async (event, park) => {
         console.log(park, "<----park on doAddAlert")
         event.preventDefault()
-        const addAlert = await fetch(`/users/${this.props.currentUser._id}/parks`, {
+        const addAlert = await fetch(`${process.env.REACT_APP_API}'/api/v1/${this.props.currentUser._id}/parks`, {
             method: 'POST',
             credentials: 'include',
             body: JSON.stringify({park}),
