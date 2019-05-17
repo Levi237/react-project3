@@ -161,6 +161,10 @@ class App extends Component {
             </Switch>
         </div><div className="grid-ab"/>     
         
+        <div className="grid-title">
+        <div></div>
+        </div>
+
         <div className="grid-image">
           <div>
               <img src="../header-yosemite.png" />

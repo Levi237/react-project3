@@ -77,7 +77,6 @@ button {
 /*************************** SCALABLE GRID ***************************/
 /* there has got to be a dryer way */
 .grid-aa, .grid-ab, .grid-ba, .grid-bb, .grid-ca, .grid-cb, .grid-header, .grid-nav , .grid-footer { background: black; color: white; }
-.grid-ba, .grid-bb, .grid-nav { background: rgb(0, 0, 0, .6); color: white; }
 .grid-aa { grid-area: aa; }
 .grid-ab { grid-area: ab; }
 .grid-ba { grid-area: ba; }
@@ -111,8 +110,6 @@ button {
   z-index: 100;
 }
 
-
-
 .grid-nav { 
   grid-area: nav; 
   text-align: right;
@@ -121,6 +118,13 @@ button {
   font-weight: bold;
   /* bottom: 0; */
   /* margin-bottom: 0; */
+}
+
+.grid-title { 
+  grid-area: title;
+  background: rgb(0, 0, 0, .6); 
+  color: white; 
+  width: 100%;
 }
 
 .grid-menu { 
@@ -161,10 +165,11 @@ button {
   display: grid;
   position: relative;
   grid-template-columns: 1fr 4fr 3fr 1fr;
-  grid-template-rows: 3rem 12rem 3rem auto 100% 5rem;
+  grid-template-rows: 3.4rem 10rem 3.4rem 34px auto 100% 5rem;
 grid-template-areas:
   ' aa header header ab '
   ' image image image image'
+  ' title title title title '
   ' ba nav nav bb '
   ' . menu list . '
   ' . menu main . '
