@@ -9,16 +9,16 @@ Nature is one of our greatest resources.  As outdoor activities such as backpaki
 
 ## Website
 
-<a href="https://intense-headland-71507.herokuapp.com/home">Park Alert System</a>
+### <a href="https://intense-headland-71507.herokuapp.com/home">Park Alert System</a>
 
 ## 3rd Party API Sources:
 
-**National Parks Services**
+**National Parks Services**<br>
 https://developer.nps.gov/api/v1/alerts<br>
 https://developer.nps.gov/api/v1/parks
 
 
-**Google Map React**
+**Google Map React**<br>
 https://maps.googleapis.com/maps/api/js
 
 ## Technologies
