@@ -35,6 +35,9 @@ h3 {
   margin-block-end: 0;
   font-weight: bold;
 }
+.mapBtn {
+  float: right;
+}
 
 .map-container {
   background-color: lightgreen;
