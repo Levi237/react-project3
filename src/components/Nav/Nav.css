@@ -16,15 +16,15 @@
 
 }
 
-.active {
+/* .active {
     text-decoration: underline !important;
-}
+} */
 
 .navAlert {
     text-align: center;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 800px) {
     .navBtn {
         padding: 0 1rem;
     }

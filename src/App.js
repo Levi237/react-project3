@@ -16,7 +16,7 @@ import './App.css';
 const My404 = () =>{
   return (
     <div>
-      You are lost
+      404
     </div>
     )
 }
@@ -146,7 +146,7 @@ class App extends Component {
       <div className="grid-container">
         <div className="grid-aa" />
         <div className="grid-header">
-          <h3>National Park Alert</h3>
+          <h3>National Park Alert System</h3>
 
         </div><div className="grid-ab"/>     
 
@@ -161,10 +161,10 @@ class App extends Component {
           
           <Switch>
               <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
-              <Route exact path={routes.HOME} render={() => <div className="navAlert"></div>} />
+              <Route exact path={routes.HOME} render={() => <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
               <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
               { currentUser && 
-              <Route exact path={`${routes.USERS}/:id`}/>
+              <Route exact path={`${routes.USERS}/:id`} render={() => <div className="navAlert"></div>}/>
               }
               <Route exact path={routes.USERS} />
               <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
@@ -174,22 +174,20 @@ class App extends Component {
           </div><div className="grid-tb"/>
               
         <div className="grid-ba"/><div className="grid-nav">
-          {
-            loading ? <PacmanLoader loading={loading} color={"gold"} size={8}/> : <Nav currentUser={currentUser} logoutUser={this.logoutUser}/>
+          {loading ? 
+          <PacmanLoader loading={loading} color={"gold"} size={8}/> : <Nav currentUser={currentUser} logoutUser={this.logoutUser}/>
           }
         </div><div className="grid-bb"/>
 
         <div className="grid-menu">    
-        
           <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
         </div>  
         <div className="grid-list">
-          {
-          currentUser && 
+          { currentUser && 
           <UserList deleteItem={this.deleteItem} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>
           }
-          {
-          currentUser &&  <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editUser={this.editUser}/>
+          { currentUser &&  
+          <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editUser={this.editUser}/>
           }
         </div>
         <div className="grid-main map-container map">
