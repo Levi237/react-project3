@@ -20,7 +20,9 @@
 }
 
 .details {
+  padding-top: .4em;
   text-decoration: none;
+  font-size: .8em;
 }
 
 .alertList {
@@ -29,8 +31,8 @@
 }
 
 .alertsButton {
-  color: white;
-  border: 1px white solid;
+  color: #fff;
+  border: 1px #fff solid;
   border-radius: 5px;
   padding: .5em 1em;
   transition: all .1s ease-in-out;

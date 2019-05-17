@@ -3,11 +3,10 @@
     /* width: 30em; */
     height: auto;
     padding: 1em;
-    background-color: white;
+    background-color: #FFF;
 }
 
 .myListContainer > h4 {
-    /* margin: 5em 0; */
     display: block;
     margin-block-start: 0em;
     margin-block-end: 0em;
@@ -18,7 +17,7 @@
 
 a {
     text-decoration: none;
-    color: black;
+    color: #000;
 }
 
 .listItem {
@@ -26,9 +25,9 @@ a {
 }
 
 .userListButton {
-    color: white;
+    color: #FFF;
     font-size: .5em;
-    border: 1px white solid;
+    border: 1px #FFF solid;
     border-radius: 5px;
     padding: .5em 1em;
     transition: all .1s ease-in-out;

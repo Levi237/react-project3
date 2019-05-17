@@ -1,7 +1,5 @@
 
 html {
-
-  /* background-size: cover; */
   height: 100%;
 }
 
@@ -31,17 +29,13 @@ h1 {
 h3 {
   position: relative;
   z-index: 50;
-  display: block;
+  /* display: block; */
   font-size: 1.17em;
-  margin: auto 0;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-block-start: 0;
+  margin-block-start: .8em;
   margin-block-end: 0;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
   font-weight: bold;
 }
+
 .map-container {
   background-color: lightgreen;
 }
@@ -49,7 +43,7 @@ h3 {
   height: 20em;
   width: 94%;
   padding: 3%;
-  background-color: white;
+  background-color: #FFF;
 }
 .pin {
   text-align: center;
@@ -64,6 +58,7 @@ input, button {
 
 input {
   width: 9em;
+  height: 1rem;
 }
 
 .showUser {
@@ -73,14 +68,20 @@ input {
 
 /*************************** SCALABLE GRID ***************************/
 /* there has got to be a dryer way */
-.grid-aa, .grid-ab, .grid-ba, .grid-bb, .grid-ca, .grid-cb, .grid-header, .grid-nav , .grid-footer { background: black; color: white; }
+.grid-header, .grid-nav , .grid-footer, .grid-aa, .grid-ab, .grid-ba, .grid-bb, .grid-ca, .grid-cb { background: #000; color: #FFF; }
+.grid-title, .grid-ta, .grid-tb {
+  background: rgb(0, 0, 0, .6); 
+  color: #FFF; 
+  width: 100%;
+}
 .grid-aa { grid-area: aa; }
 .grid-ab { grid-area: ab; }
 .grid-ba { grid-area: ba; }
 .grid-bb { grid-area: bb; }
 .grid-ca { grid-area: ca; }
 .grid-cb { grid-area: cb; }   
-.grid-tt { grid-area: tt; background: rgb(0, 0, 0, .6);}
+.grid-ta { grid-area: ta; }
+.grid-tb { grid-area: tb; }
 
 .grid-header { grid-area: header; }
 .grid-header > h1 {
@@ -120,14 +121,14 @@ input {
 
 .grid-title { 
   grid-area: title;
-  background: rgb(0, 0, 0, .6); 
-  color: white; 
-  width: 100%;
+}
+.grid-title > section > form {
+  margin: 1em 0;
 }
 
 .grid-menu { 
   grid-area: menu; 
-  background: white;
+  background: #FFF;
   padding: .5rem 0;
   text-align: justify;
   margin-bottom: 2rem;
@@ -138,9 +139,7 @@ input {
   padding: 0;
   /* margin: 0; */
 }
-.grid-menu > div {
-  margin: 2rem;
-}
+
 
 .grid-list { 
   grid-area: list; 
@@ -159,19 +158,32 @@ input {
 }
 .grid-footer {
   grid-area: footer;
-  bottom: 0;
+  /* bottom: 0; */
+  position: sticky;
   text-align: center;
 }
+
+.grid-footer > h3 > a {
+  transition: all .3s ease-in-out;
+  text-decoration: none;
+  color: #FFF;
+  margin: 2rem auto;
+}
+
+.grid-footer > h3 > a:hover {
+  font-size: 1.1em;
+}
+
 .grid-container {
   width: 100%;
   display: grid;
   position: relative;
-  grid-template-columns: 1fr 4fr 3fr 1fr;
+  grid-template-columns: 2fr 5fr 4fr 2fr;
   grid-template-rows: 3.4rem 10rem 3.4rem 34px auto 100% 5rem;
 grid-template-areas:
   ' aa header header ab '
   ' image image image image'
-  ' tt title title title '
+  ' ta title title tb '
   ' ba nav nav bb '
   ' . menu list . '
   ' . menu main . '
@@ -179,19 +191,14 @@ grid-template-areas:
    grid-gap: 0;
 }
 
-@media screen and (max-width: 1100px) {
+/*********************** @media RESIZE TO PHONE 500px ***********************/
+
+@media screen and (max-width: 500px) {
   .grid-header {
     position: fixed;
     width: 100%;
-    z-index: 10;
-    margin-bottom: 10px;
-    top:0
   }
-  .grid-header > h1 {
-    /* font-size: 2rem; */
-    margin-block-end: 0em;
-    margin: 1px 0 0 .25em;
-  }
+
   .grid-nav {
     text-align: center;
     font-size: 1.4em;
@@ -199,44 +206,113 @@ grid-template-areas:
     position: fixed;
     width: 100%;
     z-index: 10;
-    margin-top: 3rem;
+    margin: 1.6rem auto 0 auto;
   }
 
-  .grid-list{
-    width: 100%;
-    margin: 1em auto;
+  .grid-menu, .grid-main, .grid-list, .grid-image  {
+    margin: auto;
+    width: 100%
   }
-  .grid-menu {
-    /* padding: 0 2rem 1rem 2rem; */
-  }
-  .grid-main { 
-    /* padding: 0 2rem 0 2rem; */
-    /* margin-bottom: 2rem; */
-  }
+
   .grid-container {
       width: 100%;
       display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 2rem auto 4.5rem auto auto auto;
+      grid-template-columns: auto;
+      grid-template-rows: 1rem auto 4.5rem auto auto auto auto auto;
   grid-template-areas:
       'header'
       'nav'
       'image'
+      'title'
       'list'
       'menu'
       'main'
-      
       'footer';
       grid-gap: 0;
   }
-  input {
-    margin-left: 3rem !important;
-    margin: 4rem 2rem;
-  }
-  button, input {
-font-size: 1.5rem
-    
 
+  .grid-header > div > h3 {
+    margin-block-end: 0em;
+    margin: 1px 0 0 .25em;
+  }
+
+  .grid-title section > form > input {
+    font-size: 2rem;
+    height: 1em;
+    width: 90%;
+    margin: .2em auto;
+    padding: 0 .2em;
+  }
+
+  .grid-title section > form > button {
+    /* height: 2rem; */
+    /* width: 80%; */
+    font-size: 1rem;
+  }
+}
+/*-------------------------- SCALABLE GRID --------------------------*/
+/*********************** @media RESIZE TO PHONE 800px ***********************/
+
+@media screen and (max-width: 800px) and (min-width: 500px) {
+  .grid-header {
+    position: relative;
+    width: 100%;
+  }
+
+  .grid-nav {
+    text-align: center;
+    font-size: 1.4em;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    margin: 1.6rem auto 0 auto;
+  }
+  .grid-menu {} 
+  .grid-main {
+    width: 100%;
+  }
+  .grid-list {
+    margin: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .grid-title {
+    
+  }
+  .grid-container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 3rem 0 11rem 4rem auto 100% auto;
+  grid-template-areas:
+      'header header'
+      'nav nav'
+      'image image'
+      'title title'
+      'menu list'
+      'menu main'
+      'footer footer';
+      grid-gap: 0;
+  }
+
+  .grid-header > div > h3 {
+    margin-block-end: 0em;
+    margin: 1px 0 0 .25em;
+  }
+
+  .grid-title section > form > input {
+    font-size: 1.4rem;
+    height: 1em;
+    width: 10rem;
+    margin: 0 1em 0 0;
+    padding: 0 .2em;
+  }
+
+  .grid-title section > form > button {
+    height: 2rem;
+    font-size: 1rem;
   }
 }
 /*-------------------------- SCALABLE GRID --------------------------*/

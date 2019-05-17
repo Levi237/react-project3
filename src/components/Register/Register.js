@@ -38,7 +38,7 @@ class Register extends Component {
     render(){
         const { username, password } = this.state
         return(
-            <div>
+            <React.Fragment>
                 {
             this.state.logged
             ? <Redirect to={`${process.env.REACT_APP_API}'/api/v1/'${this.props.currentUser._id}`} />
@@ -50,7 +50,7 @@ class Register extends Component {
                 />
                 }
 
-            </div>
+            </React.Fragment>
         )
     }
 }

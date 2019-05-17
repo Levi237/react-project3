@@ -146,7 +146,19 @@ class App extends Component {
       <div className="grid-container">
         <div className="grid-aa" />
         <div className="grid-header">
-          <h3>National Park Closures</h3>
+          <h3>National Park Alert</h3>
+
+        </div><div className="grid-ab"/>     
+
+        <div className="grid-image">
+          <div>
+              <img src="../header-yosemite.png" />
+          </div>
+        </div>
+
+        
+        <div className="grid-ta"/><div className="grid-title">
+          
           <Switch>
               <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
               <Route exact path={routes.HOME} render={() => <div className="navAlert"></div>} />
@@ -159,19 +171,8 @@ class App extends Component {
               <Route exact path={routes.LOGOUT} render={() => <div className="navAlert"></div>} />
               <Route component={My404} />
             </Switch>
-        </div><div className="grid-ab"/>     
-
-        <div className="grid-image">
-          <div>
-              <img src="../header-yosemite.png" />
-          </div>
-        </div>
-
-        <div className="grid-tt"/>
-        <div className="grid-title">
-          <h1>Park Alert</h1>
-        </div>
-     
+          </div><div className="grid-tb"/>
+              
         <div className="grid-ba"/><div className="grid-nav">
           {
             loading ? <PacmanLoader loading={loading} color={"gold"} size={8}/> : <Nav currentUser={currentUser} logoutUser={this.logoutUser}/>

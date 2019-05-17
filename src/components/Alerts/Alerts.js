@@ -63,7 +63,9 @@ class Alerts extends Component {
         return(
             <React.Fragment>
             <h1>Current Park Closures</h1>
+            <div>
                     {alertList}
+            </div>
             </React.Fragment>
         )
     }
