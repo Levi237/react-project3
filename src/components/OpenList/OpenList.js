@@ -6,18 +6,21 @@ class OpenList extends Component {
     }
 
     componentDidMount = () => {
-        console.log(this.props.currentUser, "<================this.props.currentUser")
-        console.log(this.props.currentUser.userList, "<================this.props.currentUser.userList")
-        console.log(this.props.closureList, "<============================== this.props.closureList")
+        console.log(this.props.currentUser, "<================this.props.currentUser");
+        console.log(this.props.currentUser.userList, "<================this.props.currentUser.userList");
+        console.log(this.props.closureList, "<============================== this.props.closureList");
 
-        let currentUserList = this.props.currentUser.userList
-        let compareClosureList = this.props.closureList
+        let newList = [];
+        let currentUserList = this.props.currentUser.userList;
+        let compareClosureList = this.props.closureList;
         for (let u = 0; u < currentUserList.length; u++){
             for (let c = 0; c < compareClosureList.length; c++){
-                if (compareClosureList[c].id === currentUserList[u].id){
+                if (currentUserList[u].id === compareClosureList[c].id){
+                    newList.unshift(currentUserList[u])
                     console.log(compareClosureList[c].id, 'match found', currentUserList[u].id)
                 }
             }
+            console.log(newList, "<=============attempt push to new list")
         }
         // currentUserList.then(user => {
         //     console.log("this.props.currentUser.then ===========>", user)
