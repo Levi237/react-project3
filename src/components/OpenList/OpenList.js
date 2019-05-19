@@ -5,7 +5,7 @@ class OpenList extends Component {
         openList: []
     }
 
-    makeList = () => {
+    componentDidMount = () => {
         console.log(this.props.currentUser)
         console.log(this.props.closureList)
 
@@ -39,8 +39,9 @@ class OpenList extends Component {
 
         return(
             <div>
-                <h2>Open List</h2>
-                {showOpen}
+                { showOpen.length > 0 &&
+                <div><h2>Open List</h2>{showOpen}</div>
+                }
             </div>
         )
     }
