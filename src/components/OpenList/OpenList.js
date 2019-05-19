@@ -17,11 +17,14 @@ class OpenList extends Component {
             for (let c = 0; c < compareClosureList.length; c++){
                 if (currentUserList[u].id === compareClosureList[c].id){
                     newList.unshift(currentUserList[u])
-                    console.log(compareClosureList[c].id, 'match found', currentUserList[u].id)
+                    console.log(compareClosureList[c].id, '<======= match found =======>', currentUserList[u].id)
                 }
             }
             console.log(newList, "<=============attempt push to new list")
         }
+        this.setState({
+            openList: newList
+        })
         // currentUserList.then(user => {
         //     console.log("this.props.currentUser.then ===========>", user)
         //     // closure.then(park => {
@@ -52,7 +55,7 @@ class OpenList extends Component {
         return(
             <div>
                 { showOpen.length > 0 &&
-                <div><h2>Open List</h2>{showOpen}</div>
+                <div><h2>Not so Open List</h2>{showOpen}</div>
                 }
             </div>
         )
