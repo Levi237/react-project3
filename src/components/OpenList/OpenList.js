@@ -6,8 +6,8 @@ class OpenList extends Component {
     }
 
     componentDidMount = () => {
-        console.log(this.props.currentUser)
-        console.log(this.props.closureList)
+        console.log(this.props.currentUser, "<================this.props.currentUser")
+        console.log(this.props.closureList, "<============================== this.props.closureList")
 
         
         this.props.currentUser.then(user => {
