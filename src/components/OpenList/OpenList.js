@@ -15,9 +15,10 @@ class OpenList extends Component {
         let compareClosureList = this.props.closureList;
         for (let u = 0; u < currentUserList.length; u++){
             for (let c = 0; c < compareClosureList.length; c++){
-                if (currentUserList[u].id === compareClosureList[c].id){
+                if (currentUserList[u].id !== compareClosureList[c].id){
                     newList.unshift(currentUserList[u])
-                    console.log(compareClosureList[c].id, '<======= match found =======>', currentUserList[u].id)
+                    // console.log(compareClosureList[c].id, '<======= match found =======>', currentUserList[u].id)
+                    console.log('<======================= nothing should show up =======================>')
                 }
             }
             console.log(newList, "<=============attempt push to new list")
