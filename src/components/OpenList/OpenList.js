@@ -10,10 +10,11 @@ class OpenList extends Component {
         console.log(this.props.currentUser.userList, "<================this.props.currentUser.userList")
         console.log(this.props.closureList, "<============================== this.props.closureList")
 
-        
-        this.props.currentUser.then(user => {
+        let user = this.props.currentUser.userList
+        let closure = this.props.closureList
+        user.then(user => {
             console.log("this.props.currentUser.then ===========>", user)
-            this.props.closureList.then(park => {
+            closure.then(park => {
                 console.log("this.props.closureList.then ===========>", park)
                 // const list = user.data.reduce((newList, u) => {
                 //     console.log(u, "<------------------- u of user.data.reduceh => newList, u")
