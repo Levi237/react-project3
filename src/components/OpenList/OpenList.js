@@ -7,27 +7,28 @@ class OpenList extends Component {
 
     componentDidMount = () => {
         console.log(this.props.currentUser, "<================this.props.currentUser")
+        console.log(this.props.currentUser.userList, "<================this.props.currentUser.userList")
         console.log(this.props.closureList, "<============================== this.props.closureList")
 
         
         this.props.currentUser.then(user => {
             console.log("this.props.currentUser.then ===========>", user)
             this.props.closureList.then(park => {
-                console.log("this.props.closureList.then ===========>")
-                const list = user.data.reduce((newList, u) => {
-                    console.log(u, "<------------------- u of user.data.reduceh => newList, u")
-                    park.data.forEach(p => {
-                        console.log(p, "<------------------- park.data.forEach => p")
-                        if (u.userList.title === p.title) {
-                            newList.push(Object.assign(u, p))
-                            return newList
-                        }
-                    })
-                    return newList
-                }, [])
-                this.setState({
-                    openList: list
-                })
+                console.log("this.props.closureList.then ===========>", park)
+                // const list = user.data.reduce((newList, u) => {
+                //     console.log(u, "<------------------- u of user.data.reduceh => newList, u")
+                //     // park.data.forEach(p => {
+                //     //     console.log(p, "<------------------- park.data.forEach => p")
+                //     //     // if (u.userList.title === p.title) {
+                //     //     //     newList.push(Object.assign(u, p))
+                //     //     //     return newList
+                //     //     // }
+                //     // })
+                //     return newList
+                // }, [])
+                // this.setState({
+                //     openList: list
+                // })
             })
         })
     }
