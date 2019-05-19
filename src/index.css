@@ -92,7 +92,11 @@ input {
 .grid-ta { grid-area: ta; }
 .grid-tb { grid-area: tb; }
 
-.grid-header { grid-area: header; }
+.grid-header { 
+  grid-area: header; 
+  position: fixed;
+  z-index: 5000;
+}
 .grid-header > h1 {
   font-size: 2.5rem;
   margin-block-end: 0em;
@@ -230,15 +234,23 @@ grid-template-areas:
     text-align: center;
     font-size: 1.4em;
     padding: 0;
-    position: fixed;
+    position: absolute;
     width: 100%;
     z-index: 10;
-    margin: 1.6rem auto 0 auto;
+    margin: 4rem auto 0 auto;
   }
 
-  .grid-menu, .grid-main, .grid-list, .grid-image  {
+  .grid-menu, .grid-main, .grid-list  {
     margin: auto;
     width: 100%
+  }
+
+  .grid-image {
+    height: 2rem;
+  }
+
+  .grid-title {
+    margin: 1rem 0 0 0;
   }
 
   .grid-container {
@@ -276,6 +288,10 @@ grid-template-areas:
     /* width: 80%; */
     font-size: 1rem;
   }
+
+  .grid-menu > h1 {
+    text-align: center;
+  }
 }
 /*-------------------------- SCALABLE GRID --------------------------*/
 /*********************** @media RESIZE TO PHONE 800px ***********************/
@@ -296,6 +312,7 @@ grid-template-areas:
     margin: 1.6rem auto 0 auto;
   }
   .grid-menu {} 
+  
   .grid-main {
     width: 100%;
   }
