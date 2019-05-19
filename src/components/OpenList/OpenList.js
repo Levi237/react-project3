@@ -10,28 +10,35 @@ class OpenList extends Component {
         console.log(this.props.currentUser.userList, "<================this.props.currentUser.userList")
         console.log(this.props.closureList, "<============================== this.props.closureList")
 
-        let user = this.props.currentUser.userList
-        let closure = this.props.closureList
-        user.then(user => {
-            console.log("this.props.currentUser.then ===========>", user)
-            closure.then(park => {
-                console.log("this.props.closureList.then ===========>", park)
-                // const list = user.data.reduce((newList, u) => {
-                //     console.log(u, "<------------------- u of user.data.reduceh => newList, u")
-                //     // park.data.forEach(p => {
-                //     //     console.log(p, "<------------------- park.data.forEach => p")
-                //     //     // if (u.userList.title === p.title) {
-                //     //     //     newList.push(Object.assign(u, p))
-                //     //     //     return newList
-                //     //     // }
-                //     // })
-                //     return newList
-                // }, [])
-                // this.setState({
-                //     openList: list
-                // })
-            })
-        })
+        let currentUserList = this.props.currentUser.userList
+        let compareClosureList = this.props.closureList
+        for (let u = 0; u < currentUserList.length; u++){
+            for (let c = 0; c < compareClosureList.length; c++){
+                if (compareClosureList[c].id === currentUserList[u].id){
+                    console.log(compareClosureList[c].id, 'match found', currentUserList[u].id)
+                }
+            }
+        }
+        // currentUserList.then(user => {
+        //     console.log("this.props.currentUser.then ===========>", user)
+        //     // closure.then(park => {
+        //     //     console.log("this.props.closureList.then ===========>", park)
+        //     //     // const list = user.data.reduce((newList, u) => {
+        //     //     //     console.log(u, "<------------------- u of user.data.reduceh => newList, u")
+        //     //     //     // park.data.forEach(p => {
+        //     //     //     //     console.log(p, "<------------------- park.data.forEach => p")
+        //     //     //     //     // if (u.userList.title === p.title) {
+        //     //     //     //     //     newList.push(Object.assign(u, p))
+        //     //     //     //     //     return newList
+        //     //     //     //     // }
+        //     //     //     // })
+        //     //     //     return newList
+        //     //     // }, [])
+        //     //     // this.setState({
+        //     //     //     openList: list
+        //     //     // })
+        //     // })
+        // })
     }
 
     render(){
