@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  /* overflow: hidden; // compliments Vianney */
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -38,8 +39,10 @@ h3 {
 .mapBtn {
   position: relative;
   float: right;
-  z-index: 30;
-  margin-top: -40px;
+  z-index: 300;
+}
+.mapBtn:hover{
+  transform: scale(1.1);
 }
 
 .map-container {
@@ -93,6 +96,12 @@ input {
 .grid-header > h1 {
   font-size: 2.5rem;
   margin-block-end: 0em;
+}
+.grid-header > h3 > img {
+  height: 1em;
+  z-index: 50;
+  position: relative;
+  margin-right: -.15em;
 }
 
 .grid-image { 

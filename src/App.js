@@ -1,6 +1,11 @@
 import React, {Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { PacmanLoader } from 'react-spinners'
+// import moment from 'moment' and react-live-clock
+// import Particles from 'react-particles-???'  also can rip from json
+// virtualsky.lco.global/embed/custom.html // Alex Project
+// npm package react-globe for the globe
+
 
 import Alerts from './components/Alerts/Alerts';
 import Map from './components/Map';
@@ -9,6 +14,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import UserList from './components/UserList/UserList';
 import EditUser from './components/EditUser/EditUser'
+import OpenList from './components/OpenList/OpenList'
 
 import * as routes from './constants/routes'
 import './App.css';
@@ -16,7 +22,7 @@ import './App.css';
 const My404 = () =>{
   return (
     <div>
-      404
+      {/* 404 */}
     </div>
     )
 }
@@ -79,7 +85,7 @@ class App extends Component {
  
   getAlerts = async () => {
     try {
-      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const alertsJson = await alerts.json();
         return alertsJson
     } catch(err) {
@@ -89,7 +95,7 @@ class App extends Component {
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
@@ -146,13 +152,13 @@ class App extends Component {
       <div className="grid-container">
         <div className="grid-aa" />
         <div className="grid-header">
-          <h3>National Park Alert System</h3>
+          <h3><img src="./alert.png" alt="logo" />National Park Alert System</h3>
 
         </div><div className="grid-ab"/>     
 
         <div className="grid-image">
           <div>
-              <img src="../header-yosemite.png" />
+              <img src="../header-yosemite.png" alt="?" title="5 days Aug 2018"/>
           </div>
         </div>
 
@@ -184,7 +190,10 @@ class App extends Component {
         </div>  
         <div className="grid-list">
           { currentUser && 
-          <UserList deleteItem={this.deleteItem} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>
+          <OpenList currentUser={currentUser} closureList={closureList}/>
+          }
+          { currentUser && 
+          <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>
           }
           { currentUser &&  
           <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editUser={this.editUser}/>

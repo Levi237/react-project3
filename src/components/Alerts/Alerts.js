@@ -33,23 +33,19 @@ class Alerts extends Component {
                 return (
                           
                     <section className="alertList" key={i}>
+                        <form onSubmit={(map) => this.showOnMap(map, park)}>
+                            <button className="mapBtn" type="submit" onClick={this.props.handleSetMap} value={park.latLong}>Map</button>
+                        </form>
                             <div className="title" onClick={this.toggle}>
                                 <div>
                                     <strong>{park.fullName}</strong>
                                         <br />
                                     <small>{park.title}</small>
-                                    </div>
-                        <form onSubmit={(map) => this.showOnMap(map, park)}>
-                            <button className="mapBtn" type="submit" onClick={this.props.handleSetMap} value={park.latLong}>Map</button>
-                        </form>
+                                </div>
                             <div className="details">
                                 {park.description}
                             </div>
-                            
-
                         </div>
-
-
 
                         <form onSubmit={(event) => this.doAddAlert(event, park)}>
                             { this.props.currentUser && 

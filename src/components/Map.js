@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-const PointGreen = ({ ping }) => <img className="pin" src={ping} />
+// const PointGreen = ({ ping }) => <img alt="?" className="pin" src={ping} />
 
 class Map extends Component {
     static defaultProps = {
@@ -26,7 +26,7 @@ class Map extends Component {
                     }}
                     defaultZoom={this.props.zoom}
                     >
-                    <PointGreen lat={37.8651} lng={-119.5383} ping="../map-pin-green.png" / >
+                    {/* <PointGreen lat={37.8651} lng={-119.5383} ping="../map-pin-green.png" / > */}
                     {this.props.closureList.map((e, i)=>{
                         const PointTo = ({ pin }) => <a href={e.url} target="_blank" rel="noopener noreferrer"><img className="pin" src={pin} alt={e.fullName} title={e.fullName} /></a>
                         let firstSplit = e.latLong.split(':')
