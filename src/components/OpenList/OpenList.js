@@ -34,6 +34,7 @@ class OpenList extends Component {
             }
         }        
         console.log(loopUser, "<=============loopUser splice()")
+        console.log(currentUser.userList, "<=============currentUser.userList")
 
 
         this.setState({
