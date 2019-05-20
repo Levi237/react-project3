@@ -41,13 +41,14 @@ class OpenList extends Component {
 
     render(){
 
-    const showOpen = this.state.openList.map((makeOpenList, i) => <div key={i}>{makeOpenList.fullName}<br />{makeOpenList.title}</div>)
+    const showOpen = this.state.openList.map((makeOpenList, i) => <div key={i}><strong>{makeOpenList.fullName}</strong><br /><small>{makeOpenList.title}</small></div>)
 
 
         return(
             <div>
+                <h2>Hello {this.currentUser.name}</h2>
                 { showOpen.length > 0 &&
-                <div><h2>Now Open</h2>{showOpen}</div>
+                <div><h1>Now Open</h1>{showOpen}</div>
                 }
             </div>
         )

@@ -20,7 +20,7 @@ class UserList extends Component {
         )
         return (
             <div className="myListContainer">
-                <h4>Hello {currentUser.username}</h4>
+                <h4>{currentUser.username}'s list of closures:</h4>
                     { myList }
             </div>      
         )

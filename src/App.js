@@ -200,9 +200,9 @@ class App extends Component {
         }
         </div>  
         <div className="grid-list">
-          { currentUser &&
+        { currentUser &&
           <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
-          }
+        }
         </div>
         <div className="grid-main map-container map">
           <Map closureList={closureList} lat={lat} lng={lng}/>
