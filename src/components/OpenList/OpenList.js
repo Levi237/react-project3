@@ -16,53 +16,27 @@ class OpenList extends Component {
         let loopUser = [];
         for (let u = 0; u < currentUserList.length; u++){
             loopUser.push(currentUserList[u])
-            console.log("push into userLoop ---->", currentUserList[u].title)
+            // console.log("push into userLoop ---->", currentUserList[u].title)
         }
 
         for (let c = 0; c < compareClosureList.length; c++){
-        for (let l = 0; l < loopUser.length; l++){
+            for (let l = 0; l < loopUser.length; l++){
             
-                console.log(loopUser[l].fullName, '<========loopUser[l].fullName')
-                console.log(compareClosureList[c].fullName, '<=======================compareClosureList[c].fullName')
+                // console.log(loopUser[l].fullName, '<========loopUser[l].fullName')
+                // console.log(compareClosureList[c].fullName, '<=======================compareClosureList[c].fullName')
                 if (loopUser[l].id === compareClosureList[c].id){
-                    console.log("match", loopUser[l].fullName, '<======= match found =======>',compareClosureList[c].fullName)
+                    // console.log("match", loopUser[l].fullName, '<======= match found =======>',compareClosureList[c].fullName)
                     loopUser.splice(l, 1);
-                    // l--;
-                    // if (loopUser[l].id === compareClosureList[c].id){
-                    //     console.log(loopUser[l].fullName, '<======= match found =======>',compareClosureList[c].fullName)
-                    //     loopUser.splice(l, 1);
-                    //     // l--;
-                    // }
                 }
             }
         }        
-        console.log(loopUser, "<=============loopUser splice()")
-        console.log(currentUserList, "<=============currentUser.userList")
+        // console.log(loopUser, "<=============loopUser splice()")
+        // console.log(currentUserList, "<=============currentUser.userList")
 
 
         this.setState({
             openList: loopUser
         })
-        // currentUserList.then(user => {
-        //     console.log("this.props.currentUser.then ===========>", user)
-        //     // closure.then(park => {
-        //     //     console.log("this.props.closureList.then ===========>", park)
-        //     //     // const list = user.data.reduce((newList, u) => {
-        //     //     //     console.log(u, "<------------------- u of user.data.reduceh => newList, u")
-        //     //     //     // park.data.forEach(p => {
-        //     //     //     //     console.log(p, "<------------------- park.data.forEach => p")
-        //     //     //     //     // if (u.userList.title === p.title) {
-        //     //     //     //     //     newList.push(Object.assign(u, p))
-        //     //     //     //     //     return newList
-        //     //     //     //     // }
-        //     //     //     // })
-        //     //     //     return newList
-        //     //     // }, [])
-        //     //     // this.setState({
-        //     //     //     openList: list
-        //     //     // })
-        //     // })
-        // })
     }
 
     render(){
@@ -73,7 +47,7 @@ class OpenList extends Component {
         return(
             <div>
                 { showOpen.length > 0 &&
-                <div><h2>Not so Open List</h2>{showOpen}</div>
+                <div><h2>Now Open</h2>{showOpen}</div>
                 }
             </div>
         )
