@@ -158,7 +158,7 @@ class App extends Component {
 
         <div className="grid-image">
           <div>
-              <img src="../header-yosemite.png" alt="?" title="5 days Aug 2018"/>
+              <img src="../header-yosemite.png" alt="header-yosemite" title="5 days Aug 2018"/>
           </div>
         </div>
 
