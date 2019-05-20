@@ -22,10 +22,10 @@ class OpenList extends Component {
         // console.log(loopUser, "<=============loopUser")
         for (let l = 0; l < loopUser.length; l++){
             for (let c = 0; c < compareClosureList.length; c++){
-                console.log(loopUser[l].title, '<========loopUser[l].title')
-                console.log(compareClosureList[c].title, '<=======================compareClosureList[c].title')
-                while (loopUser[l].id === compareClosureList[c].id){
-                    console.log(loopUser[l].title, '<======= match found =======>',compareClosureList[c].title)
+                console.log(loopUser[l].fullName, '<========loopUser[l].fullName')
+                console.log(compareClosureList[c].fullName, '<=======================compareClosureList[c].fullName')
+                if (loopUser[l].id === compareClosureList[c].id){
+                    console.log(loopUser[l].fullName, '<======= match found =======>',compareClosureList[c].fullName)
                     loopUser.splice(l, 1);
                     // l--;
                 }
