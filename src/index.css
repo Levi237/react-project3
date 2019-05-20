@@ -94,7 +94,7 @@ input {
 
 .grid-header { 
   grid-area: header; 
-  position: fixed;
+  position: relative;
   z-index: 5000;
 }
 .grid-header > h1 {
@@ -306,10 +306,10 @@ grid-template-areas:
     text-align: center;
     font-size: 1.4em;
     padding: 0;
-    position: fixed;
+    position: relative;
     width: 100%;
     z-index: 10;
-    margin: 1.6rem auto 0 auto;
+    margin: 3.5rem auto 0 auto;
   }
   .grid-menu {} 
   

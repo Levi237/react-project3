@@ -23,11 +23,11 @@ class OpenList extends Component {
         for (let c = 0; c < compareClosureList.length; c++){
             for (let l = 0; l < loopUser.length; l++){
                 if (loopUser[l].id === compareClosureList[c].id){
-                    loopUser.splice(loopUser[l].id)
+                    loopUser.splice(loopUser[l])
                 }
             }
         }        
-        console.log(loopUser, "<=============loopUser slice()")
+        console.log(loopUser, "<=============loopUser splice()")
         console.log(newList, "<=============attempt push to new list")
                 // for (let n = 0; n < newList.length; n++){
 
