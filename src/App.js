@@ -8,7 +8,7 @@ import { PacmanLoader } from 'react-spinners'
 
 
 import Alerts from './components/Alerts/Alerts';
-import Map from './components/Map';
+import Map from './components/Map/Map';
 import Nav from './components/Nav/Nav';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';

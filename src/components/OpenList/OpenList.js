@@ -7,7 +7,7 @@ class OpenList extends Component {
 
     componentDidMount = () => {
         let currentUserList = this.props.currentUser.userList;
-        // let compareClosureList = this.props.closureList;
+        let compareClosureList = this.props.closureList;
         
         console.log(this.props.currentUser, "<================this.props.currentUser");
         console.log(this.props.currentUser.userList, "<================this.props.currentUser.userList");
@@ -21,13 +21,13 @@ class OpenList extends Component {
         }
         console.log(loopUser, "<=============loopUser")
         for (let l = 0; l < loopUser.length; l++){
-            // for (let c = 0; c < compareClosureList.length; c++){
+            for (let c = 0; c < compareClosureList.length; c++){
                 console.log(loopUser[l], '<========loopUser[l]')
-                // console.log(compareClosureList[c], '<=======================compareClosureList[c]')
-                // if (loopUser[l].id === compareClosureList[c].id){
-                //     loopUser.filter(loopUser[l])
-                // }
-            // }
+                console.log(compareClosureList[c], '<=======================compareClosureList[c]')
+                if (loopUser[l].id === compareClosureList[c].id){
+                    loopUser.filter(loopUser[l])
+                }
+            }
         }        
         console.log(loopUser, "<=============loopUser splice()")
         console.log(newList, "<=============attempt push to new list")
