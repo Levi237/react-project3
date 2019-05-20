@@ -9,12 +9,12 @@ class OpenList extends Component {
         console.log(this.props.currentUser, "<================this.props.currentUser");
         console.log(this.props.currentUser.userList, "<================this.props.currentUser.userList");
         console.log(this.props.closureList, "<============================== this.props.closureList");
-
+        
+        let loopUser = []
         let newList = [];
         let currentUserList = this.props.currentUser.userList;
         let compareClosureList = this.props.closureList;
         for (let u = 0; u < currentUserList.length; u++){
-            let loopUser = []
             loopUser.push(currentUserList[u])
             for (let c = 0; c < compareClosureList.length; c++){
                 for (let lu = 0; lu < loopUser.length; lu++){
