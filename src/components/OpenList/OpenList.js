@@ -63,7 +63,7 @@ class OpenList extends Component {
             <small>{makeOpenList.title}</small>
         </div>
         <div className="details">
-            {makeOpenList.latLong}
+            {makeOpenList.description}
         </div>
         </div>
     </section>
