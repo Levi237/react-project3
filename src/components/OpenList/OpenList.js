@@ -25,7 +25,8 @@ class OpenList extends Component {
                 console.log(loopUser[l], '<========loopUser[l]')
                 console.log(compareClosureList[c], '<=======================compareClosureList[c]')
                 if (loopUser[l].id === compareClosureList[c].id){
-                    loopUser.filter(loopUser[l])
+                    console.log(loopUser[l].id, '<======= match found =======>',compareClosureList[c].id)
+                    loopUser.splice(loopUser[l])
                 }
             }
         }        

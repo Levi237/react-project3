@@ -77,18 +77,18 @@ input {
 
 /*************************** SCALABLE GRID ***************************/
 /* there has got to be a dryer way */
-.grid-header, .grid-nav , .grid-footer, .grid-aa, .grid-ab, .grid-ba, .grid-bb, .grid-ca, .grid-cb { background: #000; color: #FFF; }
+.grid-header, .grid-nav , .grid-footer, .grid-ha, .grid-hb, .grid-na, .grid-nv, .grid-fa, .grid-fb { background: #000; color: #FFF; }
 .grid-title, .grid-ta, .grid-tb {
   background: rgb(0, 0, 0, .6); 
   color: #FFF; 
   width: 100%;
 }
-.grid-aa { grid-area: aa; }
-.grid-ab { grid-area: ab; }
-.grid-ba { grid-area: ba; }
-.grid-bb { grid-area: bb; }
-.grid-ca { grid-area: ca; }
-.grid-cb { grid-area: cb; }   
+.grid-ha { grid-area: ha; }
+.grid-hb { grid-area: hb; }
+.grid-na { grid-area: na; }
+.grid-nb { grid-area: nb; }
+.grid-fa { grid-area: fa; }
+.grid-fb { grid-area: fb; }   
 .grid-ta { grid-area: ta; }
 .grid-tb { grid-area: tb; }
 
@@ -195,6 +195,7 @@ input {
 }
 
 .grid-footer > h3 > a {
+  font-size: .7rem;
   transition: all .3s ease-in-out;
   text-decoration: none;
   color: #FFF;
@@ -202,7 +203,7 @@ input {
 }
 
 .grid-footer > h3 > a:hover {
-  font-size: 1.1em;
+  font-size: .8rem;
 }
 
 .grid-container {
@@ -212,13 +213,13 @@ input {
   grid-template-columns: 2fr 5fr 4fr 2fr;
   grid-template-rows: 3.4rem 10rem 3.4rem 34px auto auto 5rem;
 grid-template-areas:
-  ' aa header header ab '
+  ' ha header header hb '
   ' image image image image'
   ' ta title title tb '
-  ' ba nav nav bb '
+  ' na nav nav nb '
   ' . menu list . '
   ' . menu main . '
-  ' ca footer footer cb ';
+  ' fa footer footer fb ';
    grid-gap: 0;
 }
 
