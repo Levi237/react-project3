@@ -46,7 +46,7 @@ class OpenList extends Component {
 
         return(
             <div>
-                <h2>Hello {this.currentUser.username}</h2>
+                <h2>Hello {this.props.currentUser.username}</h2>
                 { showOpen.length > 0 &&
                 <div><h1>Now Open</h1>{showOpen}</div>
                 }
