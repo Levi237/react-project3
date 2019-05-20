@@ -311,7 +311,7 @@ grid-template-areas:
     z-index: 10;
     margin: 3.5rem auto 0 auto;
   }
-  .grid-menu {} 
+
   
   .grid-main {
     width: 100%;
@@ -322,9 +322,7 @@ grid-template-areas:
     height: auto;
   }
 
-  .grid-title {
-    
-  }
+
   .grid-container {
       width: 100%;
       display: grid;
