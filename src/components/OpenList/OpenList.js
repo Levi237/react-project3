@@ -14,10 +14,10 @@ class OpenList extends Component {
         // console.log(this.props.closureList, "<============================== this.props.closureList");
         
         let loopUser = [];
-for (let u = 0; u < currentUserList.length; u++){
-    loopUser.push(currentUserList[u])
-    console.log("push into userLoop ---->", currentUserList[u].title)
-}
+        for (let u = 0; u < currentUserList.length; u++){
+            loopUser.push(currentUserList[u])
+            console.log("push into userLoop ---->", currentUserList[u].title)
+        }
 
         for (let c = 0; c < compareClosureList.length; c++){
         for (let l = 0; l < loopUser.length; l++){
@@ -37,7 +37,7 @@ for (let u = 0; u < currentUserList.length; u++){
             }
         }        
         console.log(loopUser, "<=============loopUser splice()")
-        console.log(currentUserListList, "<=============currentUser.userList")
+        console.log(currentUserList, "<=============currentUser.userList")
 
 
         this.setState({
