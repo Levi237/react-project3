@@ -6,24 +6,29 @@ class OpenList extends Component {
     }
 
     componentDidMount = () => {
+        let currentUserList = this.props.currentUser.userList;
+        let compareClosureList = this.props.closureList;
+        
         console.log(this.props.currentUser, "<================this.props.currentUser");
         console.log(this.props.currentUser.userList, "<================this.props.currentUser.userList");
         console.log(this.props.closureList, "<============================== this.props.closureList");
         
         let loopUser = []
         let newList = [];
-        let currentUserList = this.props.currentUser.userList;
-        let compareClosureList = this.props.closureList;
+
         for (let u = 0; u < currentUserList.length; u++){
             loopUser.push(currentUserList[u])
-            for (let c = 0; c < compareClosureList.length; c++){
-                for (let lu = 0; lu < loopUser.length; lu++){
-                    if (loopUser[lu].id === compareClosureList[c].id){
-                        loopUser.slice(loopUser[lu].id)
-                    }
+        }
+        console.log(loopUser, "<=============loopUser")
+        for (let c = 0; c < compareClosureList.length; c++){
+            for (let l = 0; l < loopUser.length; l++){
+                if (loopUser[l].id === compareClosureList[c].id){
+                    loopUser.slice(loopUser[l].id)
                 }
-                
-
+            }
+        }        
+        console.log(loopUser, "<=============loopUser slice()")
+        console.log(newList, "<=============attempt push to new list")
                 // for (let n = 0; n < newList.length; n++){
 
                 //     let loopClosure = compareClosureList[c].id
@@ -33,10 +38,10 @@ class OpenList extends Component {
                 //         console.log(loopUser.id, '<========= currentUser ============== nothing should show up ============ compareClosureList.id ===========>', loopClosure.id)
                 //     }
                 // }
-            }
-            console.log(loopUser, "<=============loopUser")
-            console.log(newList, "<=============attempt push to new list")
-        }
+            
+
+        
+
         this.setState({
             openList: newList
         })
