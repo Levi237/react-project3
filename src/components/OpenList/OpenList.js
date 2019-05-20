@@ -48,7 +48,7 @@ class OpenList extends Component {
     //     <form className="mapBtn" onSubmit={this.showOnMap}><button onClick={handleSetMap} value={alert.latLong}>Map</button></form><button className="userListButton" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove from List</button>
     // 
     const showOpen = this.state.openList.map((makeOpenList, i) => 
-    <section className="listItem" key={i}>
+    <section className="alertList" key={i}>
     <strong>{makeOpenList.fullName}</strong>
     <br />
     <small>{makeOpenList.title}</small>
