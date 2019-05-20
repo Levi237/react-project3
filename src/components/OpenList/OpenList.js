@@ -24,11 +24,11 @@ class OpenList extends Component {
             for (let c = 0; c < compareClosureList.length; c++){
                 console.log(loopUser[l], '<========loopUser[l]')
                 console.log(compareClosureList[c], '<=======================compareClosureList[c]')
-                // if (loopUser[l].id === compareClosureList[c].id){
-                //     console.log(loopUser[l].id, '<======= match found =======>',compareClosureList[c].id)
+                if (loopUser[l].id === compareClosureList[c].id){
+                    console.log(loopUser[l].title, '<======= match found =======>',compareClosureList[c].title)
                 //     loopUser.splice(l, 1);
                 //     l--;
-                // }
+                }
             }
         }        
         console.log(loopUser, "<=============loopUser splice()")
