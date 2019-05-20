@@ -186,18 +186,21 @@ class App extends Component {
         </div><div className="grid-nb"/>
 
         <div className="grid-menu">  
-        { currentUser  &&
-          <OpenList currentUser={currentUser} closureList={closureList}/>&&
-          <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>&&
-          <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editUser={this.editUser}/>
-
-
- 
-
+        { currentUser
+          ?
+           <OpenList currentUser={currentUser} closureList={closureList}/>        
+          : 
+          <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
         }  
-                  </div>  
+        { currentUser &&
+          <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>
+        }
+        { currentUser &&
+          <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editUser={this.editUser}/>       
+        }
+        </div>  
         <div className="grid-list">
-          { currentUser && 
+          { currentUser &&
           <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
           }
         </div>
