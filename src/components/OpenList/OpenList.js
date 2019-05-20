@@ -23,7 +23,7 @@ class OpenList extends Component {
         for (let l = 0; l < loopUser.length; l++){
             for (let c = 0; c < compareClosureList.length; c++){
                 if (loopUser[l].id === compareClosureList[c].id){
-                    loopUser.splice(loopUser[l])
+                    loopUser.filter(loopUser[l])
                 }
             }
         }        
