@@ -14,30 +14,27 @@ class OpenList extends Component {
         // console.log(this.props.closureList, "<============================== this.props.closureList");
         
         let loopUser = currentUserList;
-        let newList = [];
 
-        // for (let u = 0; u < currentUserList.length; u++){
-        //     loopUser.push(currentUserList[u])
-        // }
-        // console.log(loopUser, "<=============loopUser")
+
+        for (let c = 0; c < compareClosureList.length; c++){
         for (let l = 0; l < loopUser.length; l++){
-            for (let c = 0; c < compareClosureList.length; c++){
+            
                 console.log(loopUser[l].fullName, '<========loopUser[l].fullName')
                 console.log(compareClosureList[c].fullName, '<=======================compareClosureList[c].fullName')
                 if (loopUser[l].id === compareClosureList[c].id){
-                    console.log(loopUser[l].fullName, '<======= match found =======>',compareClosureList[c].fullName)
+                    console.log("match", loopUser[l].fullName, '<======= match found =======>',compareClosureList[c].fullName)
                     loopUser.splice(l, 1);
                     // l--;
-                    if (loopUser[l].id === compareClosureList[c].id){
-                        console.log(loopUser[l].fullName, '<======= match found =======>',compareClosureList[c].fullName)
-                        loopUser.splice(l, 1);
-                        // l--;
-                    }
+                    // if (loopUser[l].id === compareClosureList[c].id){
+                    //     console.log(loopUser[l].fullName, '<======= match found =======>',compareClosureList[c].fullName)
+                    //     loopUser.splice(l, 1);
+                    //     // l--;
+                    // }
                 }
             }
         }        
         console.log(loopUser, "<=============loopUser splice()")
-        console.log(newList, "<=============attempt push to new list")
+
 
         this.setState({
             openList: loopUser
