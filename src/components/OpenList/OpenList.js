@@ -9,9 +9,9 @@ class OpenList extends Component {
         let currentUserList = this.props.currentUser.userList;
         let compareClosureList = this.props.closureList;
         
-        console.log(this.props.currentUser, "<================this.props.currentUser");
-        console.log(this.props.currentUser.userList, "<================this.props.currentUser.userList");
-        console.log(this.props.closureList, "<============================== this.props.closureList");
+        // console.log(this.props.currentUser, "<================this.props.currentUser");
+        // console.log(this.props.currentUser.userList, "<================this.props.currentUser.userList");
+        // console.log(this.props.closureList, "<============================== this.props.closureList");
         
         let loopUser = []
         let newList = [];
@@ -19,14 +19,14 @@ class OpenList extends Component {
         for (let u = 0; u < currentUserList.length; u++){
             loopUser.push(currentUserList[u])
         }
-        console.log(loopUser, "<=============loopUser")
+        // console.log(loopUser, "<=============loopUser")
         for (let l = 0; l < loopUser.length; l++){
             for (let c = 0; c < compareClosureList.length; c++){
-                console.log(loopUser[l], '<========loopUser[l]')
-                console.log(compareClosureList[c], '<=======================compareClosureList[c]')
+                console.log(loopUser[l].title, '<========loopUser[l].title')
+                console.log(compareClosureList[c].title, '<=======================compareClosureList[c].title')
                 if (loopUser[l].id === compareClosureList[c].id){
                     console.log(loopUser[l].title, '<======= match found =======>',compareClosureList[c].title)
-                //     loopUser.splice(l, 1);
+                    loopUser.splice(l, 1);
                 //     l--;
                 }
             }
