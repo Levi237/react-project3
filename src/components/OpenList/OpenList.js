@@ -20,7 +20,7 @@ class OpenList extends Component {
                 for (let n = 0; n < newList.length; n++){
 
                     let loopClosure = compareClosureList[c].id
-                    if (loopUser.id !== loopClosure.id && newList[n].id ){
+                    if (loopUser.id !== loopClosure.id && loopUser.id !== newList[n].id ){
                         newList.unshift(loopUser.id)
                         // console.log(compareClosureList[c].id, '<======= match found =======>', currentUserList[u].id)
                         console.log(loopUser.id, '<========= currentUser ============== nothing should show up ============ compareClosureList.id ===========>', loopClosure.id)
