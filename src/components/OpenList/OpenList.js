@@ -47,7 +47,7 @@ class OpenList extends Component {
         return(
             <React.Fragment>
                 { showOpen.length > 0 &&
-                <div><h1>Now Open</h1>{showOpen}</div>
+                <React.Fragment><h1>Now Open</h1>{showOpen}</React.Fragment>
                 }
             </React.Fragment>
         )
