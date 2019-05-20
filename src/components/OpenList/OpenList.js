@@ -16,11 +16,11 @@ class OpenList extends Component {
         for (let u = 0; u < currentUserList.length; u++){
             let loopUser = currentUserList[u]
             for (let c = 0; c < compareClosureList.length; c++){
-                let loopClosure = compareClosureList[c]
-                if (loopUser.id !== [...loopClosure.id]){
+                let loopClosure = compareClosureList[c].id
+                if (loopUser.id !== [...loopClosure]){
                     newList.unshift(loopUser)
                     // console.log(compareClosureList[c].id, '<======= match found =======>', currentUserList[u].id)
-                    console.log(loopUser.id, '<========= currentUser ============== nothing should show up ============ closures ===========>', [...loopClosure.id])
+                    console.log(loopUser.id, '<========= currentUser ============== nothing should show up ============ [...loopClosure] ===========>', [...loopClosure])
                 }
             }
             console.log(newList, "<=============attempt push to new list")
