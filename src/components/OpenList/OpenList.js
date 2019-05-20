@@ -10,14 +10,15 @@ class OpenList extends Component {
         console.log(this.props.currentUser.userList, "<================this.props.currentUser.userList");
         console.log(this.props.closureList, "<============================== this.props.closureList");
 
-        let newList = currentUserList;
+        let newList = [];
         let currentUserList = this.props.currentUser.userList;
         let compareClosureList = this.props.closureList;
         for (let u = 0; u < currentUserList.length; u++){
             let loopUser = currentUserList[u]
             for (let c = 0; c < compareClosureList.length; c++){
-                if (loopUser.id === compareClosureList[c].id){
-                    newList.slice(loopUser)
+                let loopClosure = compareClosureList[c]
+                if (loopUser.id !== loopClosure[c].id){
+                    newList.unshift(loopUser)
                     // console.log(compareClosureList[c].id, '<======= match found =======>', currentUserList[u].id)
                     console.log(loopUser.id, '<========= currentUser ============== nothing should show up ============ closures ===========>', compareClosureList[c].id)
                 }
