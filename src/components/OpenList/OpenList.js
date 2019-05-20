@@ -22,7 +22,7 @@ class OpenList extends Component {
                         loopUser.slice(loopUser[lu].id)
                     }
                 }
-                console.log(loopUser, "<=============loopUser")
+                
 
                 // for (let n = 0; n < newList.length; n++){
 
@@ -34,6 +34,7 @@ class OpenList extends Component {
                 //     }
                 // }
             }
+            console.log(loopUser, "<=============loopUser")
             console.log(newList, "<=============attempt push to new list")
         }
         this.setState({
