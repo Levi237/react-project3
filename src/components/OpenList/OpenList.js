@@ -14,18 +14,25 @@ class OpenList extends Component {
         let currentUserList = this.props.currentUser.userList;
         let compareClosureList = this.props.closureList;
         for (let u = 0; u < currentUserList.length; u++){
-            let loopUser = currentUserList[u]
+            let loopUser = []
+            loopUser.push(currentUserList[u])
             for (let c = 0; c < compareClosureList.length; c++){
-
-                for (let n = 0; n < newList.length; n++){
-
-                    let loopClosure = compareClosureList[c].id
-                    if (loopUser.id !== loopClosure.id && loopUser.id !== newList[n].id ){
-                        newList.unshift(loopUser.id)
-                        // console.log(compareClosureList[c].id, '<======= match found =======>', currentUserList[u].id)
-                        console.log(loopUser.id, '<========= currentUser ============== nothing should show up ============ compareClosureList.id ===========>', loopClosure.id)
+                for (let lu = 0; lu < loopUser.length; lu++){
+                    if (loopUser[lu].id === compareClosureList[c].id){
+                        loopUser.slice(loopUser[lu].id)
                     }
                 }
+                console.log(loopUser, "<=============loopUser")
+
+                // for (let n = 0; n < newList.length; n++){
+
+                //     let loopClosure = compareClosureList[c].id
+                //     if (loopUser.id !== loopClosure.id && loopUser.id !== newList[n].id ){
+                //         newList.unshift(loopUser.id)
+                //         // console.log(compareClosureList[c].id, '<======= match found =======>', currentUserList[u].id)
+                //         console.log(loopUser.id, '<========= currentUser ============== nothing should show up ============ compareClosureList.id ===========>', loopClosure.id)
+                //     }
+                // }
             }
             console.log(newList, "<=============attempt push to new list")
         }
