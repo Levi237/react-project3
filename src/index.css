@@ -139,7 +139,7 @@ input {
   padding: .5rem 0;
   text-align: justify;
   margin-bottom: 2rem;
-  max-height: 580px;
+  max-height: 600px;
   overflow: auto;
 }
 .grid-menu > h1 {

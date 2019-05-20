@@ -3,7 +3,8 @@ import './UserList.css'
 
 class UserList extends Component {
 
-    showOnMap = (event, park) =>{
+    // showOnMap = (event, park) =>{
+    showOnMap = (event) => {
         event.preventDefault()
     }
 
