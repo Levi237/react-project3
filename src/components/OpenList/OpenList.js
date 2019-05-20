@@ -56,12 +56,15 @@ class OpenList extends Component {
     // </div>
     const showOpen = this.state.openList.map((makeOpenList, i) => 
     <section className="alertList" key={i}>
-        <div className="title" onClick={this.toggle}></div>
-            <strong>{makeOpenList.fullName}</strong>
+        <div className="title" onClick={this.toggle}>
+        <div>
+        <strong>{makeOpenList.fullName}</strong>
             <br />
             <small>{makeOpenList.title}</small>
+        </div>
         <div className="details">
             {makeOpenList.latLong}
+        </div>
         </div>
     </section>
     )
