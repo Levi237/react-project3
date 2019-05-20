@@ -20,7 +20,7 @@ class OpenList extends Component {
                 if (loopUser.id !== [...loopClosure.id]){
                     newList.unshift(loopUser)
                     // console.log(compareClosureList[c].id, '<======= match found =======>', currentUserList[u].id)
-                    console.log(loopUser.id, '<========= currentUser ============== nothing should show up ============ closures ===========>', compareClosureList[c].id)
+                    console.log(loopUser.id, '<========= currentUser ============== nothing should show up ============ closures ===========>', [...loopClosure.id])
                 }
             }
             console.log(newList, "<=============attempt push to new list")
