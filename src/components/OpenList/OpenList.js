@@ -23,7 +23,7 @@ class OpenList extends Component {
         for (let l = 0; l < loopUser.length; l++){
             // for (let c = 0; c < compareClosureList.length; c++){
                 console.log(loopUser[l], '<========loopUser[l]')
-                console.log(compareClosureList[c], '<=======================compareClosureList[c]')
+                // console.log(compareClosureList[c], '<=======================compareClosureList[c]')
                 // if (loopUser[l].id === compareClosureList[c].id){
                 //     loopUser.filter(loopUser[l])
                 // }
