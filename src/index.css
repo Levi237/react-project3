@@ -142,9 +142,15 @@ input {
   max-height: 800px;
   overflow: auto;
 }
-.grid-menu > h1, .grid-list > h1 {
+.grid-menu > h1 {
   font-family: 'Times New Roman', Times, serif;
   font-size: 2rem;
+  padding: 0;
+}
+
+.grid-list > h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
   padding: 0;
 }
 

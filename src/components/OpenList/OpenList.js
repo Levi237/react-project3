@@ -40,18 +40,24 @@ class OpenList extends Component {
     }
 
     render(){
-    //     <section className="listItem" key={i}>
-    //     <strong>
-    //         <div>{alert.fullName}</div>
-    //         <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}{alert.name}</a>
-    //     </strong><br />
-    //     <form className="mapBtn" onSubmit={this.showOnMap}><button onClick={handleSetMap} value={alert.latLong}>Map</button></form><button className="userListButton" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove from List</button>
-    // 
+    //     <div className="title" onClick={this.toggle}>
+    //     <div>
+    //         <strong>{park.fullName}</strong>
+    //             <br />
+    //         <small>{park.title}</small>
+    //     </div>
+    // <div className="details">
+    //     {park.description}
+    // </div>
     const showOpen = this.state.openList.map((makeOpenList, i) => 
     <section className="alertList" key={i}>
+    <div className="title" onClick={this.toggle}></div>
     <strong>{makeOpenList.fullName}</strong>
     <br />
     <small>{makeOpenList.title}</small>
+    <div className="details">
+    {makeOpenList.latLong}
+    </div>
     </section>
     )
 
