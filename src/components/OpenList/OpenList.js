@@ -15,14 +15,14 @@ class OpenList extends Component {
         let compareClosureList = this.props.closureList;
         for (let u = 0; u < currentUserList.length; u++){
             let loopUser = currentUserList[u]
-            for (let c = 0; c < compareClosureList.length; c++){
-                let loopClosure = compareClosureList[c].id
-                if (loopUser.id !== [...loopClosure]){
+            // for (let c = 0; c < compareClosureList.length; c++){
+                // let loopClosure = compareClosureList[c].id
+                if (loopUser.id !== compareClosureList){
                     newList.unshift(loopUser)
                     // console.log(compareClosureList[c].id, '<======= match found =======>', currentUserList[u].id)
-                    console.log(loopUser.id, '<========= currentUser ============== nothing should show up ============ [...loopClosure] ===========>', [...loopClosure])
+                    console.log(loopUser.id, '<========= currentUser ============== nothing should show up ============ compareClosureList ===========>', compareClosureList)
                 }
-            }
+            // }
             console.log(newList, "<=============attempt push to new list")
         }
         this.setState({
