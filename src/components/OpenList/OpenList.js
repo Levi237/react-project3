@@ -26,24 +26,13 @@ class OpenList extends Component {
                 console.log(compareClosureList[c], '<=======================compareClosureList[c]')
                 if (loopUser[l].id === compareClosureList[c].id){
                     console.log(loopUser[l].id, '<======= match found =======>',compareClosureList[c].id)
-                    loopUser.filter(loopUser[l])
+                    loopUser.splice(l, 1);
+                    l--;
                 }
             }
         }        
         console.log(loopUser, "<=============loopUser splice()")
         console.log(newList, "<=============attempt push to new list")
-                // for (let n = 0; n < newList.length; n++){
-
-                //     let loopClosure = compareClosureList[c].id
-                //     if (loopUser.id !== loopClosure.id && loopUser.id !== newList[n].id ){
-                //         newList.unshift(loopUser.id)
-                //         // console.log(compareClosureList[c].id, '<======= match found =======>', currentUserList[u].id)
-                //         console.log(loopUser.id, '<========= currentUser ============== nothing should show up ============ compareClosureList.id ===========>', loopClosure.id)
-                //     }
-                // }
-            
-
-        
 
         this.setState({
             openList: newList
