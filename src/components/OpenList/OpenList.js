@@ -19,14 +19,14 @@ class OpenList extends Component {
         for (let u = 0; u < currentUserList.length; u++){
             loopUser.push(currentUserList[u])
         }
-        // console.log(loopUser, "<=============loopUser")
-        // for (let c = 0; c < compareClosureList.length; c++){
-        //     for (let l = 0; l < loopUser.length; l++){
-        //         if (loopUser[l].id === compareClosureList[c].id){
-        //             loopUser.splice(loopUser[l])
-        //         }
-        //     }
-        // }        
+        console.log(loopUser, "<=============loopUser")
+        for (let l = 0; l < loopUser.length; l++){
+            for (let c = 0; c < compareClosureList.length; c++){
+                if (loopUser[l].id === compareClosureList[c].id){
+                    loopUser.splice(loopUser[l])
+                }
+            }
+        }        
         console.log(loopUser, "<=============loopUser splice()")
         console.log(newList, "<=============attempt push to new list")
                 // for (let n = 0; n < newList.length; n++){
