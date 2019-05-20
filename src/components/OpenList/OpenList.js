@@ -24,18 +24,18 @@ class OpenList extends Component {
             for (let c = 0; c < compareClosureList.length; c++){
                 console.log(loopUser[l], '<========loopUser[l]')
                 console.log(compareClosureList[c], '<=======================compareClosureList[c]')
-                if (loopUser[l].id === compareClosureList[c].id){
-                    console.log(loopUser[l].id, '<======= match found =======>',compareClosureList[c].id)
-                    loopUser.splice(l, 1);
-                    l--;
-                }
+                // if (loopUser[l].id === compareClosureList[c].id){
+                //     console.log(loopUser[l].id, '<======= match found =======>',compareClosureList[c].id)
+                //     loopUser.splice(l, 1);
+                //     l--;
+                // }
             }
         }        
         console.log(loopUser, "<=============loopUser splice()")
         console.log(newList, "<=============attempt push to new list")
 
         this.setState({
-            openList: newList
+            openList: loopUser
         })
         // currentUserList.then(user => {
         //     console.log("this.props.currentUser.then ===========>", user)
