@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../Alerts/Alerts'
 
 class OpenList extends Component {
     state = {
