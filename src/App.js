@@ -165,7 +165,7 @@ class App extends Component {
         
         <div className="grid-ta"/><div className="grid-title">
         { currentUser && 
-        <h1>{currentUser.username}'s Tracker</h1>
+        <div><h1>{currentUser.username}'s Tracker</h1></div>
         }
           <Switch>
               <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
