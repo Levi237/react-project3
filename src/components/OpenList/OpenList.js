@@ -21,7 +21,7 @@ class OpenList extends Component {
 
         for (let c = 0; c < compareClosureList.length; c++){
             for (let l = 0; l < loopUser.length; l++){
-            
+//--------------------> POSSIBLE GLITCH, MIGHT NEED TO REMOVE FROM OPENLIST, HOPE JUST REMOVES WHEN DELETED
                 // console.log(loopUser[l].fullName, '<========loopUser[l].fullName')
                 // console.log(compareClosureList[c].fullName, '<=======================compareClosureList[c].fullName')
                 if (loopUser[l].id === compareClosureList[c].id){

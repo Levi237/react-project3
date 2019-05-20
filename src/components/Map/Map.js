@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
+import './Map.css';
 // const PointGreen = ({ ping }) => <img alt="?" className="pin" src={ping} />
 
 class Map extends Component {
@@ -35,7 +36,7 @@ class Map extends Component {
                             key={i}
                             lat={firstSplit[1].split(',')[0]}
                             lng={firstSplit[2]}
-                            pin="../map-pin.png"
+                            pin="../red-pin.png"
                             
                             />
                             )
