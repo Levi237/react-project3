@@ -150,11 +150,11 @@ class App extends Component {
     const { closureList, currentUser, loading, lat, lng} = this.state
     return (
       <div className="grid-container">
-        <div className="grid-aa" />
+        <div className="grid-ha" />
         <div className="grid-header">
           <h3><img src="./alert.png" alt="logo" />National Park Alert System</h3>
 
-        </div><div className="grid-ab"/>     
+        </div><div className="grid-hb"/>     
 
         <div className="grid-image">
           <div>
@@ -179,11 +179,11 @@ class App extends Component {
             </Switch>
           </div><div className="grid-tb"/>
               
-        <div className="grid-ba"/><div className="grid-nav">
+        <div className="grid-na"/><div className="grid-nav">
           {loading ? 
           <PacmanLoader loading={loading} color={"gold"} size={8}/> : <Nav currentUser={currentUser} logoutUser={this.logoutUser}/>
           }
-        </div><div className="grid-bb"/>
+        </div><div className="grid-nb"/>
 
         <div className="grid-menu">    
           <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
@@ -203,9 +203,9 @@ class App extends Component {
           <Map closureList={closureList} lat={lat} lng={lng}/>
         </div>
 
-        <div className="grid-ca" /><div className="grid-footer">
+        <div className="grid-fa" /><div className="grid-footer">
           <h3><a href="https://www.nps.gov">Please enjoy this tribute to the National Park Service</a></h3>
-        </div><div className="grid-cb" />
+        </div><div className="grid-fb" />
                
       </div>
     );
