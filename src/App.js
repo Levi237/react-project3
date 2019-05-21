@@ -167,6 +167,9 @@ class App extends Component {
         { currentUser && 
         <div><h1>{currentUser.username}'s Tracker</h1></div>
         }
+        { loading &&
+        <div>Please allow time for data to load.  Compliments of nps.gov</div>
+        }
           <Switch>
               <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
               <Route exact path={routes.HOME} render={() => currentUser ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
