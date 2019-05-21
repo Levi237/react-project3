@@ -53,6 +53,9 @@ input {
   text-align: center
 }
 
+.loading {
+  text-align: center;
+}
 /*************************** SCALABLE GRID ***************************/
 /* there has got to be a dryer way */
 .grid-header, .grid-nav , .grid-footer, .grid-ha, .grid-hb, .grid-na, .grid-nb, .grid-fa, .grid-fb { background: #000; color: #FFF; }
