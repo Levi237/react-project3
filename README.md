@@ -35,7 +35,7 @@ https://maps.googleapis.com/maps/api/js
 <li>HTML</li>
 <li>Photoshop</li>
 </ul>
+<br><br>
 
-
-## A Special Thanks to Pacman
-<img src="pacman.jpg" width="40%">
+### A Special Thanks to Pacman
+<img src="pacman.jpg" width="30%">
