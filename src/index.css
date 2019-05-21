@@ -136,27 +136,21 @@ input {
 .grid-menu { 
   grid-area: menu; 
   background: #FFF;
-  padding: .5rem 0;
+  padding: .5rem;
   text-align: justify;
   margin-bottom: 2rem;
   max-height: 600px;
   overflow: auto;
 }
-.grid-menu > h1 {
+.grid-menu > h1, .grid-list > h1 {
   font-family: 'Times New Roman', Times, serif;
   font-size: 2rem;
   padding: 0;
 }
 
-.grid-list > h1 {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 1.5rem;
-  padding: 0;
-}
-
 .grid-list { 
   grid-area: list; 
-  margin: 1em  0 auto 1em;
+  padding: .5rem;
   height: auto;
   max-height: 300px;
   overflow: auto;
