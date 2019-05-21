@@ -14,14 +14,16 @@ class OpenList extends Component {
         // console.log(this.props.currentUser.userList, "<================this.props.currentUser.userList");
         // console.log(this.props.closureList, "<============================== this.props.closureList");
         
-        let loopUser = [];
-        for (let u = 0; u < currentUserList.length; u++){
-            loopUser.push(currentUserList[u])
+        let loopUser = [...currentUserList];
+        //Array.from(currentuserList) // also works
+        // for (let u = 0; u < currentUserList.length; u++){
+            // loopUser.push(...currentUserList)
             // console.log("push into userLoop ---->", currentUserList[u].title)
-        }
+        // }
 
         for (let c = 0; c < compareClosureList.length; c++){
-            for (let l = 0; l < loopUser.length; l++){
+            for (let l = loopUser.length - 1; l >= 0; l--){
+            // for (let l = 0; l < loopUser.length; l++){
 //--------------------> POSSIBLE GLITCH, MIGHT NEED TO REMOVE FROM OPENLIST, HOPE JUST REMOVES WHEN DELETED
                 // console.log(loopUser[l].fullName, '<========loopUser[l].fullName')
                 // console.log(compareClosureList[c].fullName, '<=======================compareClosureList[c].fullName')
@@ -45,15 +47,7 @@ class OpenList extends Component {
     }
 
     render(){
-    //     <div className="title" onClick={this.toggle}>
-    //     <div>
-    //         <strong>{park.fullName}</strong>
-    //             <br />
-    //         <small>{park.title}</small>
-    //     </div>
-    // <div className="details">
-    //     {park.description}
-    // </div>
+
     const showOpen = this.state.openList.map((makeOpenList, i) => 
     <section className="alertList" key={i}>
         <div className="title" onClick={this.toggle}>
