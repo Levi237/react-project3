@@ -197,6 +197,7 @@ class App extends Component {
           ? <OpenList currentUser={currentUser} closureList={closureList}/>  
           : <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/> } 
           />
+        <Route exact path={routes.HOME} render={() => currentUser ? '' : <div className="navAlert"><h1>More to come</h1><h2>Please visit us again soon!</h2></div>} />
 
         </Switch>
         {/* { currentUser
