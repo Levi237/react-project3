@@ -214,7 +214,9 @@ class App extends Component {
         <Switch>
           <Route exact path={routes.SEARCH} render={() => 
             currentUser &&
-            <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>     
+            <div>
+              <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>     
+            </div>
             } />
         </Switch>
         <Map closureList={closureList} lat={lat} lng={lng}/>
