@@ -85,7 +85,7 @@ class App extends Component {
  
   getAlerts = async () => {
     try {
-      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const alertsJson = await alerts.json();
         return alertsJson
     } catch(err) {
@@ -95,7 +95,7 @@ class App extends Component {
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
@@ -157,7 +157,7 @@ class App extends Component {
         </div><div className="grid-hb"/>     
 
         <div className="grid-image">
-          <div>
+          <div className="image-holder">
               <img src="../header-yosemite.png" alt="header-yosemite" title="5 days Aug 2018"/>
           </div>
         </div>
@@ -168,7 +168,7 @@ class App extends Component {
         <div><h1>{currentUser.username}'s Tracker</h1></div>
         }
         { loading &&
-        <div>Please allow time for data to load.  Compliments of nps.gov</div>
+        <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div>
         }
           <Switch>
               <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
@@ -191,12 +191,16 @@ class App extends Component {
         </div><div className="grid-nb"/>
 
         <div className="grid-menu">  
-        { currentUser
+        <Switch>
+        <Route exact path={routes.HOME} render={() => currentUser ? <OpenList currentUser={currentUser} closureList={closureList}/>  : <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/> } />
+
+        </Switch>
+        {/* { currentUser
           ?
            <OpenList currentUser={currentUser} closureList={closureList}/>        
           : 
           <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
-        }  
+        }   */}
         { currentUser &&
           <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>
         }

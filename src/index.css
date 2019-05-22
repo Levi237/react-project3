@@ -63,6 +63,7 @@ input {
   background: rgb(0, 0, 0, .6); 
   color: #FFF; 
   width: 100%;
+  margin-top: -82px;
 }
 .grid-ha { grid-area: ha; }
 .grid-hb { grid-area: hb; }
@@ -96,12 +97,15 @@ input {
   margin: auto;
 }
 
+.image-holder {
+  height: 200px;
+}
+
 .grid-image > div > img {
-  height: 15rem;
+  max-height: 200px;
   width: 100%;
   z-index: -10;
   position: relative;
-
 }
 
 .switchContainer {
@@ -129,7 +133,7 @@ input {
   position: absolute;
   display: block;
   font-size: 2em;
-  margin-block-start: 0.2em;
+  margin-block-start: 0.8em;
   margin-block-end: 0.2em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
@@ -190,8 +194,8 @@ input {
   width: 100%;
   display: grid;
   position: relative;
-  grid-template-columns: 2fr 5fr 4fr 2fr;
-  grid-template-rows: 3.4rem 10rem 3.4rem 34px auto auto 5rem;
+  grid-template-columns: 1.5fr 5fr 4fr 1.5fr;
+  grid-template-rows: 55px 200px 0px 56px auto auto 5rem;
 grid-template-areas:
   ' ha header header hb '
   ' image image image image'
