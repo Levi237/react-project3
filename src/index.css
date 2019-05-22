@@ -165,7 +165,7 @@ input {
 
 .grid-main { 
   grid-area: main; 
-  text-align: center;
+  /* text-align: center; */
   font-family: 'Times New Roman', Times, serif;
   font-size: 1rem;
   background: transparent;
