@@ -149,7 +149,7 @@ class App extends Component {
   }
 
   render(){
-    const { closureList, currentUser, loading, lat, lng} = this.state
+    const { closureList, currentUser, loading, lat, lng } = this.state
     return (
       <div className="grid-container">
         <div className="grid-ha" />
@@ -166,12 +166,8 @@ class App extends Component {
 
         
         <div className="grid-ta"/><div className="grid-title">
-        { currentUser && 
-        <div><h1>{currentUser.username}'s Tracker</h1></div>
-        }
-        { loading &&
-        <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div>
-        }
+        { currentUser && <div><h1>{currentUser.username}'s Tracker</h1></div> }
+        { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }
           <Switch>
               <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
               <Route exact path={routes.HOME} render={() => currentUser ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
@@ -187,41 +183,31 @@ class App extends Component {
               
         <div className="grid-na"/><div className="grid-nav">
           {loading ? 
-          <PacmanLoader loading={loading} color={"gold"} size={8}/> : <Nav currentUser={currentUser} logoutUser={this.logoutUser}/>
+          <PacmanLoader loading={loading} color={"gold"} size={12}/> : <Nav currentUser={currentUser} logoutUser={this.logoutUser}/>
           }
         </div><div className="grid-nb"/>
 
         <div className="grid-menu">  
-        { currentUser
-          ? ''
-          : <Intro />
+        { currentUser ? '' : <Intro /> }
 
-        }
         <Switch>
-          <Route exact path={routes.HOME} render={() => currentUser && 
-            <Intro />} />
-          <Route exact path={routes.TRACK} render={() => currentUser && 
-            <OpenList currentUser={currentUser} closureList={closureList}/>} />
-          <Route exact path={routes.SEARCH} render={() => currentUser && 
-            <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
-          <Route exact path={`${routes.USERS}/:id`} render={() => currentUser && 
-            <div>Welcome to your user page.<br />There isn't much here to use yet</div>} />
+          <Route exact path={routes.HOME} render={() => currentUser && <Intro />} />
+          <Route exact path={routes.TRACK} render={() => currentUser && <OpenList currentUser={currentUser} closureList={closureList}/>} />
+          <Route exact path={routes.SEARCH} render={() => currentUser && <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
+          <Route exact path={`${routes.USERS}/:id`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} />
         </Switch>
         </div>  
 
         <div className="grid-main">
         <Switch>
-          <Route exact path={routes.HOME} render={() => currentUser &&
-            <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
+          <Route exact path={routes.HOME} render={() => currentUser && <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
         </Switch>
 
         <Map closureList={closureList} lat={lat} lng={lng}/>
       
         <Switch>
-          <Route exact path={routes.TRACK} render={() => currentUser &&
-            <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>} />
-          <Route exact path={routes.SEARCH} render={() => currentUser &&
-            <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>} />
+          <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>} />
+          <Route exact path={routes.SEARCH} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>} />
         </Switch>
         
         </div>
