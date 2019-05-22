@@ -197,7 +197,12 @@ class App extends Component {
           ? <OpenList currentUser={currentUser} closureList={closureList}/>  
           : <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/> } 
           />
-        <Route exact path={routes.HOME} render={() => currentUser ? <div className="navAlert"><h1>Hello {currentUser.name}</h1><h1>More to come</h1><h2>Please visit us again soon!</h2></div> : <div className="navAlert"><h1>More to come</h1><h2>Please visit us again soon!</h2></div>} />
+        <Route exact path={routes.HOME} render={() => 
+          currentUser 
+          ? <div className="navAlert"><h1>Hello {currentUser.name}</h1><h1>More to come</h1><h2>Please visit us again soon!</h2></div> 
+          : <div className="navAlert"><h1>More to come</h1><h2>Please visit us again soon!</h2></div>
+          } />
+          
 
         </Switch>
         {/* { currentUser
@@ -214,12 +219,18 @@ class App extends Component {
         }
         </div>  
         <div className="grid-list">
-        { currentUser &&
-          <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
-        }
+
+        <Map closureList={closureList} lat={lat} lng={lng}/>
         </div>
         <div className="grid-main map-container map">
-          <Map closureList={closureList} lat={lat} lng={lng}/>
+        <Switch>
+        <Route exact path={routes.HOME} render={() => 
+          currentUser 
+          ? <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
+          : " "         
+          } />
+       
+        </Switch>
         </div>
 
         <div className="grid-fa" /><div className="grid-footer">
