@@ -171,6 +171,7 @@ input {
   background: transparent;
   padding: 0 auto;
   overflow: auto;
+  max-height: 900px
 }
 .grid-footer {
   grid-area: footer;
