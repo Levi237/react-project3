@@ -211,18 +211,20 @@ class App extends Component {
           : 
           <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
         }   */}
-        { currentUser &&
+        <Route exact path={routes.SEARCH} render={() => 
+          currentUser &&
           <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>
-        }
+          } />
+
         { currentUser &&
           <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editUser={this.editUser}/>       
         }
         </div>  
-        <div className="grid-list">
+        <div className="grid-list map-container map">
 
         <Map closureList={closureList} lat={lat} lng={lng}/>
         </div>
-        <div className="grid-main map-container map">
+        <div className="grid-main">
         <Switch>
         <Route exact path={routes.HOME} render={() => 
           currentUser 
