@@ -40,6 +40,9 @@ class OpenList extends Component {
         <strong>{makeOpenList.fullName}</strong>
             <br />
             <small>{makeOpenList.title}</small>
+            <form className="mapBtn" onSubmit={this.showOnMap}>
+                <button onClick={this.props.handleSetMap} value={alert.latLong}>Map</button>
+            </form>
         </div>
         <div className="details">
             {makeOpenList.description}
