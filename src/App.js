@@ -16,6 +16,8 @@ import UserList from './components/UserList/UserList';
 // import EditUser from './components/EditUser/EditUser'
 import OpenList from './components/OpenList/OpenList'
 
+import Intro from './components/Intro/Intro'
+
 import * as routes from './constants/routes'
 import './App.css';
 
@@ -192,7 +194,8 @@ class App extends Component {
 
         <div className="grid-menu">  
         <Switch>
-          <Route exact path={routes.TRACKER} render={() => 
+          <Route exact path={routes.HOME} render={() => <Intro />} />
+          <Route exact path={routes.TRACK} render={() => 
             currentUser 
             ? <OpenList currentUser={currentUser} closureList={closureList}/>  
             : <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/> } 
@@ -223,7 +226,7 @@ class App extends Component {
             currentUser &&
             <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
             } />
-            <Route exact path={routes.SEARCH} render={() => 
+            <Route exact path={routes.TRACK} render={() => 
             currentUser &&
             <div>
               <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>     

@@ -170,6 +170,7 @@ input {
   font-size: 1rem;
   background: transparent;
   padding: 0 auto;
+  overflow: auto;
 }
 .grid-footer {
   grid-area: footer;
@@ -195,14 +196,14 @@ input {
   display: grid;
   position: relative;
   grid-template-columns: 1.5fr 5fr 4fr 1.5fr;
-  grid-template-rows: 55px 200px 0px 56px auto auto 5rem;
+  grid-template-rows: 55px 200px 0px 56px auto 5rem;
 grid-template-areas:
   ' ha header header hb '
   ' image image image image'
   ' ta title title tb '
   ' na nav nav nb '
+
   ' . menu main . '
-  ' . menu list . '
   ' fa footer footer fb ';
    grid-gap: 0;
 }

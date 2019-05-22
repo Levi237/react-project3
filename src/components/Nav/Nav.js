@@ -8,7 +8,7 @@ const Nav = ({currentUser, logoutUser}) =>
 <div className="navBox">
     <NavLink activeClassName="active" className="navBtn" to={routes.HOME}>HOME</NavLink>
     { currentUser 
-        ? <NavLink activeClassName="active" className="navBtn" to={routes.TRACKER} >TRACK</NavLink> 
+        ? <NavLink activeClassName="active" className="navBtn" to={routes.TRACK} >TRACK</NavLink> 
         : <NavLink activeClassName="active" className="navBtn" to={routes.REGISTER} >JOIN</NavLink>
     }
     { currentUser &&
