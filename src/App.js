@@ -172,9 +172,9 @@ class App extends Component {
               <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
               <Route exact path={routes.HOME} render={() => currentUser ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
               <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-              { currentUser && 
+              {/* { currentUser && 
               <Route exact path={`${routes.USERS}/:id`} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from USER/:id TEST LINK</h1></div>}/>
-              }
+              } */}
               <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
               <Route exact path={routes.LOGOUT} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from LOGOUT</h1></div>} />
               <Route component={My404} />

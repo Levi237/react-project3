@@ -26,6 +26,9 @@ class OpenList extends Component {
             openList: loopUser
         })
     }
+    showOnMap = (event) => {
+        event.preventDefault()
+    }
 
     toggle = event => {
         event.currentTarget.classList.toggle('active');
