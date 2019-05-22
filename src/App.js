@@ -204,20 +204,28 @@ class App extends Component {
             } />
           <Route exact path={routes.SEARCH} render={() => 
             currentUser &&
-            <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>
+            <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
+
             } />
         </Switch>
         </div>  
-        <div className="grid- map-container map">
+
+        <div className="grid-main map-container map">
+        <Switch>
+          <Route exact path={routes.SEARCH} render={() => 
+            currentUser &&
+            <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>     
+            } />
+        </Switch>
         <Map closureList={closureList} lat={lat} lng={lng}/>
         </div>
+
         <div className="grid-list">
         <Switch>
-        <Route exact path={routes.HOME} render={() => 
-          currentUser 
-          ? <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
-          : " "         
-          } />
+          <Route exact path={routes.HOME} render={() => 
+            currentUser &&
+            <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
+            } />
        
         </Switch>
         
