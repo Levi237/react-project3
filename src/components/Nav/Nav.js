@@ -13,6 +13,8 @@ const Nav = ({currentUser, logoutUser}) =>
     }
     { currentUser &&
         <NavLink activeClassName="active" className="navBtn" to={routes.SEARCH}>SEARCH</NavLink>
+        &&
+        <NavLink activeClassName="active" className="navBtn" to={routes.USERS}>USER</NavLink>
     }
     { currentUser 
         ? <NavLink activeClassName="active" className="navBtn" to={routes.LOGOUT} onClick={logoutUser}>LOGOUT</NavLink> 

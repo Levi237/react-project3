@@ -203,6 +203,10 @@ class App extends Component {
             currentUser &&
             <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
             } />
+          <Route exact path={`${routes.USERS}/:id`} render={() => 
+            currentUser && 
+            <div>Welcome to your user page.<br />There isn't much here to use yet</div>
+          } />
         </Switch>
         </div>  
 
@@ -213,10 +217,7 @@ class App extends Component {
             <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
             } />
             
-          <Route exact path={`${routes.USERS}/:id`} render={() => 
-            currentUser && 
-            <div>Welcome to your user page.<br />There isn't much here to use yet</div>
-          } />
+
             
         </Switch>
 
