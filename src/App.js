@@ -13,7 +13,7 @@ import Nav from './components/Nav/Nav';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import UserList from './components/UserList/UserList';
-import EditUser from './components/EditUser/EditUser'
+// import EditUser from './components/EditUser/EditUser'
 import OpenList from './components/OpenList/OpenList'
 
 import * as routes from './constants/routes'
@@ -192,39 +192,26 @@ class App extends Component {
 
         <div className="grid-menu">  
         <Switch>
-        <Route exact path={routes.TRACKER} render={() => 
-          currentUser 
-          ? <OpenList currentUser={currentUser} closureList={closureList}/>  
-          : <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/> } 
-          />
-        <Route exact path={routes.HOME} render={() => 
-          currentUser 
-          ? <div className="navAlert"><h1>Hello {currentUser.name}</h1><h1>More to come</h1><h2>Please visit us again soon!</h2></div> 
-          : <div className="navAlert"><h1>More to come</h1><h2>Please visit us again soon!</h2></div>
-          } />
-          
-
+          <Route exact path={routes.TRACKER} render={() => 
+            currentUser 
+            ? <OpenList currentUser={currentUser} closureList={closureList}/>  
+            : <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/> } 
+            />
+          <Route exact path={routes.HOME} render={() => 
+            currentUser 
+            ? ""
+            : <div className="navAlert"><h1>More to come</h1><h2>Please visit us again soon!</h2></div>
+            } />
+          <Route exact path={routes.SEARCH} render={() => 
+            currentUser &&
+            <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>
+            } />
         </Switch>
-        {/* { currentUser
-          ?
-           <OpenList currentUser={currentUser} closureList={closureList}/>        
-          : 
-          <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
-        }   */}
-        <Route exact path={routes.SEARCH} render={() => 
-          currentUser &&
-          <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>
-          } />
-
-        { currentUser &&
-          <EditUser currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} editUser={this.editUser}/>       
-        }
         </div>  
-        <div className="grid-list map-container map">
-
+        <div className="grid- map-container map">
         <Map closureList={closureList} lat={lat} lng={lng}/>
         </div>
-        <div className="grid-main">
+        <div className="grid-list">
         <Switch>
         <Route exact path={routes.HOME} render={() => 
           currentUser 
@@ -233,7 +220,9 @@ class App extends Component {
           } />
        
         </Switch>
+        
         </div>
+
 
         <div className="grid-fa" /><div className="grid-footer">
           <h3><a href="https://www.nps.gov">Please enjoy this tribute to the National Park Service</a></h3>

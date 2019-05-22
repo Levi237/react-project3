@@ -201,8 +201,8 @@ grid-template-areas:
   ' image image image image'
   ' ta title title tb '
   ' na nav nav nb '
-  ' . menu list . '
   ' . menu main . '
+  ' . menu list . '
   ' fa footer footer fb ';
    grid-gap: 0;
 }
