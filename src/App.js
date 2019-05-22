@@ -206,22 +206,20 @@ class App extends Component {
         </Switch>
         </div>  
 
-        <div className="grid-main map-container map">
+        <div className="grid-main">
         <Switch>
-
-        </Switch>
-        <Map closureList={closureList} lat={lat} lng={lng}/>
-        
-
-        
-        <Switch>
-          <Route exact path={routes.HOME} render={() => 
+        <Route exact path={routes.HOME} render={() => 
             currentUser &&
             <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
             } />
-          <Route exact path={routes.TRACK} render={() => 
+        </Switch>
+
+        <Map closureList={closureList} lat={lat} lng={lng}/>
+      
+        <Switch>
+          <Route exact path={routes.TRACK|routes.SEARCH} render={() => 
             currentUser &&
-              <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>     
+            <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>     
             } />
         </Switch>
         

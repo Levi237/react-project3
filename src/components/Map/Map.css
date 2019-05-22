@@ -3,21 +3,18 @@
     float: right;
     z-index: 300;
   }
-  .mapBtn:hover{
+.mapBtn:hover{
     transform: scale(1.1);
-  }
+}
   
-  .map-container {
-    background-color: #FFF;
-  }
-  .map > div {
-    height: 20em;
-    width: 94%;
-    padding: 3%;
-    background-color: #FFF;
-  }
-  .pin {
-    text-align: center;
-    height: 20px;
-    /* width: 30px; */
-  }
+.map {
+  height: 20em;
+  width: 94%;
+  padding: 3%;
+  background-color: #FFF;
+}
+.pin {
+  text-align: center;
+  height: 20px;
+
+}

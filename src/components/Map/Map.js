@@ -12,7 +12,7 @@ class Map extends Component {
     render(){
         return(
             <React.Fragment>
-            <div>
+            <div className="map">
                  <GoogleMapReact 
                     bootstrapURLKeys={{ key: "AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"}}
                     defaultCenter={{

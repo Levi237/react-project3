@@ -41,7 +41,8 @@ class Login extends Component {
         const { username, password } = this.state
         return(
             this.state.logged
-            ? <Redirect to={`${process.env.REACT_APP_API}/api/v1/${this.props.currentUser._id}`} />
+            // ? <Redirect to={`${process.env.REACT_APP_API}/api/v1/${this.props.currentUser._id}`} />
+            ? <Redirect to={`/${this.props.currentUser._id}`} />
             : <section className="loginForm">
                 <form onSubmit={this.onSubmit}>
                     <input type="text" placeholder="Your Name Here" name="username" onChange={this.changeHandler} value={username}></input>
