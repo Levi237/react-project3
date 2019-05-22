@@ -179,7 +179,6 @@ class App extends Component {
               { currentUser && 
               <Route exact path={`${routes.USERS}/:id`} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from USER/:id TEST LINK</h1></div>}/>
               }
-              <Route exact path={routes.USERS} />
               <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
               <Route exact path={routes.LOGOUT} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from LOGOUT</h1></div>} />
               <Route component={My404} />
@@ -224,7 +223,7 @@ class App extends Component {
         <Map closureList={closureList} lat={lat} lng={lng}/>
       
         <Switch>
-          <Route exact path={routes.TRACK|routes.SEARCH} render={() => 
+          <Route exact path={routes.TRACK} render={() => 
             currentUser &&
             <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>     
             } />
