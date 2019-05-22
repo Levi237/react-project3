@@ -196,19 +196,12 @@ class App extends Component {
         <Switch>
           <Route exact path={routes.HOME} render={() => <Intro />} />
           <Route exact path={routes.TRACK} render={() => 
-            currentUser 
-            ? <OpenList currentUser={currentUser} closureList={closureList}/>  
-            : <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/> } 
-            />
-          <Route exact path={routes.HOME} render={() => 
-            currentUser 
-            ? ""
-            : <div className="navAlert"><h1>More to come</h1><h2>Please visit us again soon!</h2></div>
+            currentUser &&
+            <OpenList currentUser={currentUser} closureList={closureList}/>  
             } />
           <Route exact path={routes.SEARCH} render={() => 
             currentUser &&
             <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
-
             } />
         </Switch>
         </div>  
@@ -218,19 +211,17 @@ class App extends Component {
 
         </Switch>
         <Map closureList={closureList} lat={lat} lng={lng}/>
-        </div>
+        
 
-        <div className="grid-list">
+        
         <Switch>
           <Route exact path={routes.HOME} render={() => 
             currentUser &&
             <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
             } />
-            <Route exact path={routes.TRACK} render={() => 
+          <Route exact path={routes.TRACK} render={() => 
             currentUser &&
-            <div>
               <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>     
-            </div>
             } />
         </Switch>
         
