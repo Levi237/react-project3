@@ -212,12 +212,7 @@ class App extends Component {
 
         <div className="grid-main map-container map">
         <Switch>
-          <Route exact path={routes.SEARCH} render={() => 
-            currentUser &&
-            <div>
-              <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>     
-            </div>
-            } />
+
         </Switch>
         <Map closureList={closureList} lat={lat} lng={lng}/>
         </div>
@@ -228,7 +223,12 @@ class App extends Component {
             currentUser &&
             <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
             } />
-       
+            <Route exact path={routes.SEARCH} render={() => 
+            currentUser &&
+            <div>
+              <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap}/>     
+            </div>
+            } />
         </Switch>
         
         </div>
