@@ -21,7 +21,7 @@ class UserList extends Component {
         )
         return (
             <div className="myListContainer">
-                <h3>Tracking Closures:</h3>
+                <h1>Tracking Closures:</h1>
                     { myList }
             </div>      
         )

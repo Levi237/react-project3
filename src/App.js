@@ -174,9 +174,9 @@ class App extends Component {
               <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
               <Route exact path={routes.HOME} render={() => currentUser ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
               <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-              { currentUser && 
+              {/* { currentUser && 
               <Route exact path={`${routes.USERS}/:id`} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from USER/:id</h1></div>}/>
-              }
+              } */}
               <Route exact path={routes.USERS} />
               <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
               <Route exact path={routes.LOGOUT} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from LOGOUT</h1></div>} />
@@ -197,7 +197,7 @@ class App extends Component {
           ? <OpenList currentUser={currentUser} closureList={closureList}/>  
           : <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/> } 
           />
-        <Route exact path={routes.HOME} render={() => currentUser ? '' : <div className="navAlert"><h1>More to come</h1><h2>Please visit us again soon!</h2></div>} />
+        <Route exact path={routes.HOME} render={() => currentUser ? <div className="navAlert"><h1>Hello {currentUser.name}</h1><h1>More to come</h1><h2>Please visit us again soon!</h2></div> : <div className="navAlert"><h1>More to come</h1><h2>Please visit us again soon!</h2></div>} />
 
         </Switch>
         {/* { currentUser
