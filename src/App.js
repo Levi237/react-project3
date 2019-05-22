@@ -194,7 +194,7 @@ class App extends Component {
           <Route exact path={routes.HOME} render={() => currentUser && <Intro />} />
           <Route exact path={routes.TRACK} render={() => currentUser && <OpenList currentUser={currentUser} closureList={closureList}/>} />
           <Route exact path={routes.SEARCH} render={() => currentUser && <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
-          <Route exact path={`${routes.USERS}/:id`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} />
+          <Route exact path={`/users/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} />
         </Switch>
         </div>  
 
