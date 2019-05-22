@@ -199,9 +199,6 @@ class App extends Component {
         </div>  
 
         <div className="grid-main">
-        <Switch>
-          <Route exact path={routes.HOME} render={() => currentUser && <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
-        </Switch>
 
         <Map closureList={closureList} lat={lat} lng={lng}/>
       
