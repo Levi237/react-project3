@@ -192,7 +192,11 @@ class App extends Component {
 
         <div className="grid-menu">  
         <Switch>
-        <Route exact path={routes.HOME} render={() => currentUser ? <OpenList currentUser={currentUser} closureList={closureList}/>  : <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/> } />
+        <Route exact path={routes.TRACKER} render={() => 
+          currentUser 
+          ? <OpenList currentUser={currentUser} closureList={closureList}/>  
+          : <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/> } 
+          />
 
         </Switch>
         {/* { currentUser
