@@ -42,7 +42,7 @@ class OpenList extends Component {
             
             <section className="alertList" key={i}>
                 <form className="mapBtn" onSubmit={this.showOnMap}>
-                    <button onClick={this.props.handleSetMap} value={alert.latLong}>Map</button>
+                    <button onClick={this.props.handleSetMap} value={makeOpenList.latLong}>Map</button>
                 </form>
                 <div className="title" onClick={this.toggle}>
                     <div>
