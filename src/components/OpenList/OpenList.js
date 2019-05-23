@@ -54,7 +54,7 @@ class OpenList extends Component {
                         {makeOpenList.description}
                     </div>
                     {/* <button className="userListButton">Remove from List</button> */}
-                    <button className="userListButton" onClick={this.props.deleteItem.bind(null, makeOpenList.id, this.props.currentUser.id)}>Remove from List Coming Soon</button>
+                    <button className="userListButton" onClick={this.props.deleteItem.bind(null, makeOpenList._id, this.props.currentUser._id)}>Remove from List Coming Soon</button>
                 </div>
             </section>
         )

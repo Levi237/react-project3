@@ -128,25 +128,25 @@ class App extends Component {
     }
   }
 
-  editUser = async (e) => {
-  e.preventDefault();
-  let userid = this.state.currentUser
-      const editUser = await fetch(process.env.REACT_APP_API+'/api/v1/'+userid._id+'/edit', {
-          method: 'PUT',
-          credentials: 'include',
-          body: JSON.stringify(this.state),
-          headers: {
-              'Content-type' : 'application/json'
-          }
-      })
-        const parsedResponse = await editUser.json();
-        if(parsedResponse.data) {
-            this.doSetCurrentUser(parsedResponse.data)
-                this.setState({
-                    logged: true,
-                })
-        }
-  }
+  // editUser = async (e) => {
+  // e.preventDefault();
+  // let userid = this.state.currentUser
+  //     const editUser = await fetch(process.env.REACT_APP_API+'/api/v1/'+userid._id+'/edit', {
+  //         method: 'PUT',
+  //         credentials: 'include',
+  //         body: JSON.stringify(this.state),
+  //         headers: {
+  //             'Content-type' : 'application/json'
+  //         }
+  //     })
+  //       const parsedResponse = await editUser.json();
+  //       if(parsedResponse.data) {
+  //           this.doSetCurrentUser(parsedResponse.data)
+  //               this.setState({
+  //                   logged: true,
+  //               })
+  //       }
+  // }
 
   render(){
     const { closureList, currentUser, loading, lat, lng } = this.state
