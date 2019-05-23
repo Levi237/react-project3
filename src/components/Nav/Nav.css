@@ -23,6 +23,7 @@
 
 .navAlert {
     text-align: center;
+    z-index: 90
 }
 
 @media screen and (max-width: 800px) {

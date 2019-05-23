@@ -87,7 +87,7 @@ class App extends Component {
  
   getAlerts = async () => {
     try {
-      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const alertsJson = await alerts.json();
         return alertsJson
     } catch(err) {
@@ -97,7 +97,7 @@ class App extends Component {
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
@@ -165,12 +165,14 @@ class App extends Component {
         </div>
 
         
-        <div className="grid-ta"/><div className="grid-title">
-        { currentUser && <div><h1>{currentUser.username}'s Tracker</h1></div> }
+        <div className="grid-ta"/>
+        <div className="grid-title">
         { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }
+        { currentUser && <div><h1>{currentUser.username}'s Tracker</h1></div> }
+        
           <Switch>
               <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
-              <Route exact path={routes.HOME} render={() => currentUser ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
+              <Route exact path={routes.HOME} render={() => currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
               <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
               {/* { currentUser && 
               <Route exact path={`${routes.USERS}/:id`} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from USER/:id TEST LINK</h1></div>}/>

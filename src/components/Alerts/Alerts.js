@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import '../index.css'
 import './Alerts.css'
 
 class Alerts extends Component {
@@ -22,7 +21,8 @@ class Alerts extends Component {
         event.currentTarget.classList.toggle('active');
     }
 
-    showOnMap = (event, park) =>{
+    showOnMap = (event) =>{
+    // showOnMap = (event, park) =>{
         event.preventDefault()
     }
 
@@ -30,30 +30,30 @@ class Alerts extends Component {
        
         const alertList = this.props.closureList.map((park, i) => {
             
-                return (
-                          
-                    <section className="alertList" key={i}>
-                        <form onSubmit={(map) => this.showOnMap(map, park)}>
-                            <button className="mapBtn" type="submit" onClick={this.props.handleSetMap} value={park.latLong}>Map</button>
-                        </form>
-                            <div className="title" onClick={this.toggle}>
-                                <div>
-                                    <strong>{park.fullName}</strong>
-                                        <br />
-                                    <small>{park.title}</small>
-                                </div>
-                            <div className="details">
-                                {park.description}
-                            </div>
-                        </div>
+            return (
 
-                        <form onSubmit={(event) => this.doAddAlert(event, park)}>
-                            { this.props.currentUser && 
-                            <button className="alertsButton" type="submit">Add to List</button>             
-                            }
-                        </form>
-                    </section>  
-                )  
+                <section className="alertList" key={i}>
+                    <form onSubmit={(map) => this.showOnMap(map, park)}>
+                        <button className="mapBtn" type="submit" onClick={this.props.handleSetMap} value={park.latLong}>Map</button>
+                    </form>
+                    <div className="title" onClick={this.toggle}>
+                        <div>
+                            <strong>{park.fullName}</strong>
+                                <br />
+                            <small>{park.title}</small>
+                        </div>
+                        <div className="details">
+                            {park.description}
+                        </div>
+                    </div>
+
+                    <form onSubmit={(event) => this.doAddAlert(event, park)}>
+                        { this.props.currentUser && 
+                        <button className="alertsButton" type="submit">Add to List</button>             
+                        }
+                    </form>
+                </section>  
+            )  
         })
 
         return(

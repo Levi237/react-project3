@@ -26,34 +26,37 @@ class OpenList extends Component {
             openList: loopUser
         })
     }
-    showOnMap = (event) => {
-        event.preventDefault()
-    }
 
     toggle = event => {
         event.currentTarget.classList.toggle('active');
     }
 
+    showOnMap = (event) => {
+        event.preventDefault()
+    }
+
     render(){
 
-    const showOpen = this.state.openList.map((makeOpenList, i) => 
-    <section className="alertList" key={i}>
-        <div className="title" onClick={this.toggle}>
-        <div>
-        <strong>{makeOpenList.fullName}</strong>
-            <br />
-            <small>{makeOpenList.title}</small>
-            <form className="mapBtn" onSubmit={this.showOnMap}>
-                <button onClick={this.props.handleSetMap} value={alert.latLong}>Map</button>
-            </form>
-        </div>
-        <div className="details">
-            {makeOpenList.description}
-        </div>
-        </div>
-    </section>
-    )
-
+    const showOpen = this.state.openList.map((makeOpenList, i) => {
+        return (
+            
+            <section className="alertList" key={i}>
+                <form className="mapBtn" onSubmit={this.showOnMap}>
+                    <button onClick={this.props.handleSetMap} value={alert.latLong}>Map</button>
+                </form>
+                <div className="title" onClick={this.toggle}>
+                    <div>
+                        <strong>{makeOpenList.fullName}</strong>
+                            <br />
+                        <small>{makeOpenList.title}</small>
+                    </div>
+                    <div className="details">
+                        {makeOpenList.description}
+                    </div>
+                </div>
+            </section>
+        )
+    })
 
         return(
             <React.Fragment>
