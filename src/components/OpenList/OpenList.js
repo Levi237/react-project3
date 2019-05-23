@@ -36,13 +36,13 @@ class OpenList extends Component {
     }
 
     render(){
-
+    const { currentUser, deleteItem, handleSetMap } = this.props
     const showOpen = this.state.openList.map((makeOpenList, i) => {
         return (
             
             <section className="alertList" key={i}>
                 <form className="mapBtn" onSubmit={this.showOnMap}>
-                    <button onClick={this.props.handleSetMap} value={makeOpenList.latLong}>Map</button>
+                    <button onClick={handleSetMap} value={makeOpenList.latLong}>Map</button>
                 </form>
                 <div className="title" onClick={this.toggle}>
                     <div>
@@ -53,8 +53,8 @@ class OpenList extends Component {
                     <div className="details">
                         {makeOpenList.description}
                     </div>
-                    <button className="userListButton">Eventually this will be a delete button</button>
-                    {/* <button className="userListButton" onClick={this.props.deleteItem.bind(null, makeOpenList._id, this.props.currentUser._id)}>Remove from List Coming Soon</button> */}
+                    {/* <button className="userListButton">Eventually this will be a delete button</button> */}
+                    <button className="userListButton" onClick={deleteItem.bind(null, makeOpenList.title, currentUser.title)}>Remove from List Coming Soon</button>
                 </div>
             </section>
         )
