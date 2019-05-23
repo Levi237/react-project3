@@ -53,6 +53,7 @@ class OpenList extends Component {
                     <div className="details">
                         {makeOpenList.description}
                     </div>
+                    <button className="userListButton" onClick={this.props.deleteItem.bind(null, alert._id, makeOpenList._id)}>Remove from List</button>
                 </div>
             </section>
         )
