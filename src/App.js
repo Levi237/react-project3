@@ -14,7 +14,6 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import UserList from './components/UserList/UserList';
 // import EditUser from './components/EditUser/EditUser'
-import OpenList from './components/OpenList/OpenList'
 
 import Intro from './components/Intro/Intro'
 

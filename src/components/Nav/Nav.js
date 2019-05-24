@@ -15,7 +15,7 @@ const Nav = ({currentUser, logoutUser}) =>
         <NavLink activeClassName="active" className="navBtn" to={routes.SEARCH}>SEARCH</NavLink>
     }
     { currentUser 
-        ? <NavLink activeClassName="active" className="navBtn" to={routes.LOGOUT} onClick={logoutUser}>LOGOUT</NavLink> 
+        ? <NavLink className="navBtn" to={routes.LOGOUT} onClick={logoutUser}>LOGOUT</NavLink> 
         : <NavLink activeClassName="active" className="navBtn" to={routes.LOGIN}>LOGIN</NavLink>
     }
 
