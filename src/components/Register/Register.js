@@ -56,7 +56,7 @@ class Register extends Component {
 }
 
 const RegisterForm = ({changeHandler, onSubmit, username, password}) => 
-<section  className="registerForm">
+<section  className="enter">
     <form onSubmit={e => onSubmit(e)}>
          <input type="text" placeholder="Your Name Here" name="username" onChange={e => changeHandler(e)} value={username}></input>
          <input type="password" placeholder="Your Password" name="password" onChange={e => changeHandler(e)} value={password}></input>

@@ -1,9 +1,9 @@
-.registerForm {
+.enter{
     margin: auto 0;
     text-align: center;
 }
 
-.registerForm > form > button {
+.enter > form > button {
         color: #FFF;
         border: 1px #FFF solid;
         border-radius: 5px;
@@ -14,7 +14,7 @@
         margin-bottom: .1em;
 }
 
-.registerForm > form > button:hover {
+.enter > form > button:hover {
         transition-delay: .1s;
         background-color: rgba(33, 56, 23, 1);
 }
