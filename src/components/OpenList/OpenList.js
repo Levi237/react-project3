@@ -16,7 +16,6 @@ class OpenList extends Component {
         for (let c = 0; c < compareClosureList.length; c++){
             for (let l = loopUser.length - 1; l >= 0; l--){
 
-//--------------------> POSSIBLE GLITCH, MIGHT NEED TO REMOVE FROM OPENLIST, HOPE JUST REMOVES WHEN DELETED
                 if (loopUser[l].id === compareClosureList[c].id){
                     loopUser.splice(l, 1);
                 }
@@ -62,8 +61,9 @@ class OpenList extends Component {
 
         return(
             <React.Fragment>
-                { showOpen.length > 0 &&
-                <React.Fragment><h1>Now Open</h1>{showOpen}</React.Fragment>
+                { showOpen.length > 0
+                ? <React.Fragment><h1>Now Open</h1>{showOpen}</React.Fragment>
+                : <React.Fragment><h1>Nothing Open Yet</h1></React.Fragment>
                 }
             </React.Fragment>
         )

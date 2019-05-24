@@ -41,7 +41,7 @@ class Register extends Component {
             <React.Fragment>
                 {
             this.state.logged
-            ? <Redirect to={`${process.env.REACT_APP_API}'/api/v1/'${this.props.currentUser._id}`} />
+            ? <Redirect to={`${process.env.REACT_APP_API}/api/v1/register`} />
             : <RegisterForm 
                 changeHandler={this.changeHandler}
                 onSubmit={this.onSubmit}
