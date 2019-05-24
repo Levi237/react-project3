@@ -95,7 +95,7 @@ input {
   grid-area: image; 
   background-color: transparent;
   width: auto;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .image-holder {
@@ -209,7 +209,24 @@ grid-template-areas:
   ' fa footer footer fb ';
    grid-gap: 0;
 }
+@media screen and (min-width: 1400px) {
+  .grid-container {
+    width: 100%;
+    display: grid;
+    position: relative;
+    grid-template-columns: 3fr 5fr 4fr 3fr;
+    grid-template-rows: 55px 200px 0px 56px auto 5rem;
+  grid-template-areas:
+    ' ha header header hb '
+    '  ha image image hb '
+    ' ta title title tb '
+    ' na nav nav nb '
 
+    ' . menu main . '
+    ' fa footer footer fb ';
+    grid-gap: 0;
+  }
+}
 /*********************** @media RESIZE TO PHONE 500px ***********************/
 
 @media screen and (max-width: 500px) {
