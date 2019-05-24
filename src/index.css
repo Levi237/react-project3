@@ -156,13 +156,13 @@ input {
   padding: 0;
 }
 
-.grid-list { 
+/* .grid-list { 
   grid-area: list; 
   padding: .5rem;
   height: auto;
   max-height: 300px;
   overflow: auto;
-}
+} */
 
 .grid-main { 
   grid-area: main; 

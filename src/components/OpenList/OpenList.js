@@ -53,8 +53,8 @@ class OpenList extends Component {
                     <div className="details">
                         {makeOpenList.description}
                     </div>
-                    {/* <button className="userListButton">Eventually this will be a delete button</button> */}
-                    <button className="userListButton" onClick={deleteItem.bind(null, makeOpenList.title, currentUser.title)}>Remove from List Coming Soon</button>
+                    <button className="userListButton">Eventually this will be a delete button</button>
+                    {/* <button className="userListButton" onClick={deleteItem.bind(null, makeOpenList.title, currentUser.title)}>Remove from List Coming Soon</button> */}
                 </div>
             </section>
         )
