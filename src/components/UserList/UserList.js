@@ -52,7 +52,7 @@ class UserList extends Component {
                     <div>
                     <strong>
                         { checkList.map((check) => check.title === alert.title
-                        ? <div className="alertOpen">THIS PARK IS NOW OPEN</div>
+                        ? <div className="alertOpen">NOW OPEN</div>
                         : ''  
                         )}
                         <div>{alert.fullName}</div>
@@ -65,7 +65,7 @@ class UserList extends Component {
                             {alert.addresses.city}<br/>
                             {alert.addresses.stateCode}<br/> */}
                     </div>
-                    <button className="userListButton" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove from List</button>
+                    <button className="deleteBtn" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove</button>
                 </div>
             </section>
         )
