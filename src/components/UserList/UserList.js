@@ -47,10 +47,10 @@ class UserList extends Component {
                 <div className="title" onClick={this.toggle}>
                     <div>
                     <strong>
-                        {/* { check.id === alert.id
+                        { checkList.map((check) => check.id === alert.id
                         ? <div>THIS PARK IS NOW OPEN</div>
                         : ''  
-                        } */}
+                        )}
                         <div>{alert.fullName}</div>
                         <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}{alert.name}</a>
                     </strong>
