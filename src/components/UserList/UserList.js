@@ -37,6 +37,7 @@ class UserList extends Component {
 
     render (){
         const { checkList } = this.state
+        console.log(checkList, "<==============checkList on UserList")
         const { currentUser, deleteItem, handleSetMap } = this.props
         const myList = currentUser.userList.map((alert, i) => 
             // checkList.map((check) =>
@@ -48,7 +49,7 @@ class UserList extends Component {
                     <div>
                     <strong>
                         { checkList.map((check) => check.id === alert.id
-                        ? <div>THIS PARK IS NOW OPEN</div>
+                        ? <div className="alertOpen">THIS PARK IS NOW OPEN</div>
                         : ''  
                         )}
                         <div>{alert.fullName}</div>
