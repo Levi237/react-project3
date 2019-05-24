@@ -31,9 +31,10 @@
 }
 
 .alertOpen {
-  background-color: rgb(255, 0, 0);
-  /* z-index: -500;
-  padding-bottom: 20px; */
+  background-color: rgb(57, 93, 41, 1);
+  color: #FFF;
+  /* z-index: -500; */
+  padding: 4px;
 }
 
 .alertList {
