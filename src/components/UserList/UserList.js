@@ -33,7 +33,7 @@ class UserList extends Component {
     toggle = event => {
         event.currentTarget.classList.toggle('active');
     }
-    // showOnMap = (event, park) =>{
+
     showOnMap = (event) => {
         event.preventDefault()
     }
@@ -61,9 +61,9 @@ class UserList extends Component {
                     </div>
                     <div className="details">
                             {alert.description}<br/>
-                            {alert.address.postalCode}<br/>
-                            {alert.address.city}<br/>
-                            {alert.address.stateCode}<br/>
+                            {alert.addresses.postalCode}<br/>
+                            {alert.addresses.city}<br/>
+                            {alert.addresses.stateCode}<br/>
                     </div>
                     <button className="userListButton" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove from List</button>
                 </div>
