@@ -148,7 +148,7 @@ input {
   text-align: justify;
   margin-bottom: 2rem;
   max-height: 600px;
-  overflow: auto;
+  overflow: overlay;
 }
 .grid-menu > h1, .grid-list > h1 {
   font-family: 'Times New Roman', Times, serif;
