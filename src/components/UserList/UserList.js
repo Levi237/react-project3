@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import './UserList.css'
 import '../Alerts/Alerts.css'
+// import Alerts from '../Alerts/Alerts';
 
 class UserList extends Component {
 
@@ -59,7 +60,10 @@ class UserList extends Component {
                     </strong>
                     </div>
                     <div className="details">
-                            {alert.description}
+                            {alert.description}<br/>
+                            {alert.address.postalCode}<br/>
+                            {alert.address.city}<br/>
+                            {alert.address.stateCode}<br/>
                     </div>
                     <button className="userListButton" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove from List</button>
                 </div>
