@@ -39,7 +39,7 @@ class UserList extends Component {
         const { checkList } = this.state
         const { currentUser, deleteItem, handleSetMap } = this.props
         const myList = currentUser.userList.map((alert, i) => 
-            checkList.map((check) =>
+            // checkList.map((check) =>
             <section className="alertList" key={i}>
                 <form className="mapBtn" onSubmit={this.showOnMap}>
                     <button onClick={handleSetMap} value={alert.latLong}>Map</button>
@@ -47,10 +47,10 @@ class UserList extends Component {
                 <div className="title" onClick={this.toggle}>
                     <div>
                     <strong>
-                        { check.id === alert.id
+                        {/* { check.id === alert.id
                         ? <div>THIS PARK IS NOW OPEN</div>
                         : ''  
-                        }
+                        } */}
                         <div>{alert.fullName}</div>
                         <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}{alert.name}</a>
                     </strong>
@@ -61,7 +61,8 @@ class UserList extends Component {
                     <button className="userListButton" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove from List</button>
                 </div>
             </section>
-        ))
+        )
+        // )
         
         return (
             <React.Fragment>
