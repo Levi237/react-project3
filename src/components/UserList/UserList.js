@@ -23,10 +23,10 @@ class UserList extends Component {
             </section>
         )
         return (
-            <div className="myListContainer">
+            <React.Fragment>
                 <h1>Tracking Closures:</h1>
                     { myList }
-            </div>      
+            </React.Fragment>      
         )
     }
 }
