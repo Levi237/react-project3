@@ -37,21 +37,29 @@ class UserList extends Component {
         const { currentUser, deleteItem, handleSetMap } = this.props
         const myList = currentUser.userList.map((alert, i) => 
             checkList.map((check,i) =>
-            <section className="listItem" key={i}>
-                <strong>
-                    { check.id === alert.id
-                    ? <div>THIS PARK IS NOW OPEN</div>
-                    : ''  
-                    }
-                    <div>{alert.fullName}</div>
-                    <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}{alert.name}</a>
-                </strong><br />
+            <section className="alertList" key={i}>
                 <form className="mapBtn" onSubmit={this.showOnMap}>
                     <button onClick={handleSetMap} value={alert.latLong}>Map</button>
                 </form>
+                <div className="title" onClick={this.toggle}>
+                    <div>
+                    <strong>
+                        { check.id === alert.id
+                        ? <div>THIS PARK IS NOW OPEN</div>
+                        : ''  
+                        }
+                        <div>{alert.fullName}</div>
+                        <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}{alert.name}</a>
+                    </strong>
+                    </div>
+                    <div className="details">
+                            {alert.description}
+                    </div>
                     <button className="userListButton" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove from List</button>
+                </div>
             </section>
         ))
+        
         return (
             <React.Fragment>
                 <h1>Tracking Closures:</h1>
