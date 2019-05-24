@@ -33,7 +33,7 @@ class UserList extends Component {
     }
 
     render (){
-        const { checkList } = this.stte
+        const { checkList } = this.state
         const { currentUser, deleteItem, handleSetMap } = this.props
         const myList = currentUser.userList.map((alert, i) => 
             <section className="listItem" key={i}>
