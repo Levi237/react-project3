@@ -12,6 +12,9 @@ a {
     /* color: #000; */
 }
 
+.deleteBox {
+    text-align:right;
+}
 
 .deleteBtn {
     color: #FFF;
