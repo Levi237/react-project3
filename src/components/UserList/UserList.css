@@ -20,22 +20,23 @@ a {
     border-radius: 5px;
     padding: .5em 1em;
     transition: all .1s ease-in-out;
-    background-color: rgb(57, 93, 41, 1);
+    background-color: rgb(153, 17, 13, 1);
     margin: .5em;
 }
 
 .userListButton:hover {
-background-color: rgba(33, 56, 23, 1);
+    font-size: .6em;
 }
 
 .listAlink {
       transition-delay: .1s;
       color: rgb(11, 91, 151);
+      border-bottom: 2px dotted rgb(136, 167, 189);
       font-size: .9em;
 }
 
 .listAlink:hover {
-    border-bottom: 2px dotted rgb(136, 167, 189);
+    border-bottom: 2px dotted rgb(11, 91, 151);
 }
 
 @media screen and (max-width: 1100px) {
