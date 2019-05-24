@@ -26,7 +26,10 @@ class UserList extends Component {
             checkList: makeCheckList
         })
     }
-
+    
+    toggle = event => {
+        event.currentTarget.classList.toggle('active');
+    }
     // showOnMap = (event, park) =>{
     showOnMap = (event) => {
         event.preventDefault()
