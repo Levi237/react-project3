@@ -3,7 +3,7 @@
     text-align: center;
 }
 
-button {
+.registerForm > form > button {
         color: #FFF;
         border: 1px #FFF solid;
         border-radius: 5px;
@@ -14,7 +14,7 @@ button {
         margin-bottom: .1em;
 }
 
-button:hover {
+.registerForm > form > button:hover {
         transition-delay: .1s;
         background-color: rgba(33, 56, 23, 1);
 }

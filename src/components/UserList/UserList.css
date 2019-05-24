@@ -40,7 +40,7 @@ a {
 }
 
 @media screen and (max-width: 1100px) {
-    .userListButton {
+    .deleteBtn {
 
         font-size: .1em;
 
