@@ -61,9 +61,9 @@ class UserList extends Component {
                     </div>
                     <div className="details">
                             {alert.description}<br/>
-                            {alert.addresses.postalCode}<br/>
+                            {/* {alert.addresses.postalCode}<br/>
                             {alert.addresses.city}<br/>
-                            {alert.addresses.stateCode}<br/>
+                            {alert.addresses.stateCode}<br/> */}
                     </div>
                     <button className="userListButton" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove from List</button>
                 </div>
