@@ -26,7 +26,7 @@ class UserList extends Component {
             checkList: makeCheckList
         })
     }
-    
+
     toggle = event => {
         event.currentTarget.classList.toggle('active');
     }
@@ -39,7 +39,7 @@ class UserList extends Component {
         const { checkList } = this.state
         const { currentUser, deleteItem, handleSetMap } = this.props
         const myList = currentUser.userList.map((alert, i) => 
-            checkList.map((check,i) =>
+            checkList.map((check) =>
             <section className="alertList" key={i}>
                 <form className="mapBtn" onSubmit={this.showOnMap}>
                     <button onClick={handleSetMap} value={alert.latLong}>Map</button>
