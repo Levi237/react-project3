@@ -33,12 +33,14 @@ class UserList extends Component {
     }
 
     render (){
+        const { checkList } = this.stte
         const { currentUser, deleteItem, handleSetMap } = this.props
         const myList = currentUser.userList.map((alert, i) => 
             <section className="listItem" key={i}>
                 <strong>
-                    {   this.state.checkList.id === alert.id &&
-                        <div>THIS PARK IS NOW OPEN</div>
+                    {   checkList.id === alert.id
+                    ? <div>THIS PARK IS NOW OPEN</div>
+                    : ''  
 
                     }
                     <div>{alert.fullName}</div>
