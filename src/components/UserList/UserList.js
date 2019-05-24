@@ -50,7 +50,7 @@ class UserList extends Component {
                 <div className="title" onClick={this.toggle}>
                     <div>
                     <strong>
-                        { checkList.map((check) => check.id === alert.id
+                        { checkList.map((check) => check.title === alert.title
                         ? <div className="alertOpen">THIS PARK IS NOW OPEN</div>
                         : ''  
                         )}
