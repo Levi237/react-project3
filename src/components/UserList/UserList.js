@@ -11,19 +11,19 @@ class UserList extends Component {
         let currentUserList = this.props.currentUser.userList;
         let compareClosureList = this.props.closureList;
         
-        let loopUser = [...currentUserList];
+        let makeCheckList = [...currentUserList];
         //Array.from(currentuserList) // also works
 
         for (let c = 0; c < compareClosureList.length; c++){
-            for (let l = loopUser.length - 1; l >= 0; l--){
+            for (let l = makeCheckList.length - 1; l >= 0; l--){
 
-                if (loopUser[l].id === compareClosureList[c].id){
-                    loopUser.splice(l, 1);
+                if (makeCheckList[l].id === compareClosureList[c].id){
+                    makeCheckList.splice(l, 1);
                 }
             }
         }        
         this.setState({
-            checkList: loopUser
+            checkList: makeCheckList
         })
     }
 
@@ -36,12 +36,12 @@ class UserList extends Component {
         const { checkList } = this.state
         const { currentUser, deleteItem, handleSetMap } = this.props
         const myList = currentUser.userList.map((alert, i) => 
+            checkList.map((check,i) =>
             <section className="listItem" key={i}>
                 <strong>
-                    {   checkList.id === alert.id
+                    { check.id === alert.id
                     ? <div>THIS PARK IS NOW OPEN</div>
                     : ''  
-
                     }
                     <div>{alert.fullName}</div>
                     <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}{alert.name}</a>
@@ -51,7 +51,7 @@ class UserList extends Component {
                 </form>
                     <button className="userListButton" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove from List</button>
             </section>
-        )
+        ))
         return (
             <React.Fragment>
                 <h1>Tracking Closures:</h1>
