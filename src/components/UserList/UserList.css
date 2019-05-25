@@ -23,12 +23,12 @@ a {
     border-radius: 5px;
     padding: .5em 1em;
     transition: all .1s ease-in-out;
-    background-color: rgb(153, 17, 13, 1);
+    background-color: rgb(113, 17, 13, 1);
     margin: .5em;
 }
 
 .deleteBtn:hover {
-    background-color: #ff0000;
+    background-color: rgb(196, 13, 22, 1);
 }
 
 .listAlink {
