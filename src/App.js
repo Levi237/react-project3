@@ -153,7 +153,7 @@ class App extends Component {
       <div className="grid-container">
         <div className="grid-ha" />
         <div className="grid-header">
-          <img src="../alert.png" alt="logo" /><h3>National Park Alert System</h3>
+          <h3><img src="../alert.png" alt="logo" />National Park Alert System</h3>
 
         </div><div className="grid-hb"/>     
 
