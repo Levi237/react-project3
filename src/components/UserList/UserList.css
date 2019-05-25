@@ -28,8 +28,7 @@ a {
 }
 
 .deleteBtn:hover {
-    font-size: .6em;
-    margin: -.05em;
+    background-color: rgb(80, 9, 6);
 }
 
 .listAlink {
