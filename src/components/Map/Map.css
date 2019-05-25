@@ -6,7 +6,19 @@
 .mapBtn:hover{
     transform: scale(1.1);
 }
-  
+
+.mapBtn > button {
+    display: inline-block;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: .5em 1em;
+    -webkit-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    background-color: #395d29;
+    margin-bottom: .1em;
+}
+
 .map {
   height: 20em;
   width: 94%;
