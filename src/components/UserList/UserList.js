@@ -53,7 +53,8 @@ class UserList extends Component {
                     <strong>
                         { checkList.map((check) => check.title === alert.title
                         ? <div className="alertOpen">NOW OPEN</div>
-                        : <div className="currentlyClosed">CURRENTLY CLOSED</div>
+                        : ''
+                        // <div className="currentlyClosed">CURRENTLY CLOSED</div>
                         )}
 
 
