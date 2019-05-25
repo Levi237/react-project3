@@ -55,7 +55,7 @@ class UserList extends Component {
                         ? <div className="alertOpen">NOW OPEN</div>
                         : ''
                         )}
-                        { checkList.map((check) => check.title !== [...alert.title]
+                        { checkList.map((check) => check.title === ![...alert.title]
                         ? <div className="currentlyClosed">CURRENTLY CLOSED</div>
                         : ''
                         )}
