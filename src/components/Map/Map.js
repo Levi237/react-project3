@@ -23,7 +23,7 @@ class Map extends Component {
                     center={{
                         lat: +this.props.lat,
                         lng: +this.props.lng,
-                        pin: '../pin-green.png'
+                        pin: '.../pin-green.png'
                     }}
                     defaultZoom={this.props.zoom}
                     >

@@ -30,20 +30,20 @@
   font-size: .8em;
 }
 
+.alertOpen, .currentlyClosed {
+  color: #fff;
+  border-radius: 5px 5px 0 0;
+  padding: 5px;
+}
+
 .alertOpen {
     background-color: #395d29;
-    color: #fff;
-    border-radius: 5px 5px 0 0;
-    padding: 5px;
     margin: -5px -5px -28px -5px;
     position: relative;
 }
 
-.currentlyClosed{
+.currentlyClosed {
   background-color: #99110d;
-  color: #fff;
-  border-radius: 5px 5px 0 0;
-  padding: 5px;
   margin: -5px -5px 0 -5px;
 }
 
