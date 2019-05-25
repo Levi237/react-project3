@@ -46,7 +46,7 @@
 }
 
 .alertList {
-    border-top: 1px dotted lightgray;
+    /* border-top: 1px dotted lightgray; */
     padding: .5em 1em ;
 }
 
