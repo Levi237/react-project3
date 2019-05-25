@@ -53,12 +53,9 @@ class UserList extends Component {
                     <strong>
                         { checkList.map((check) => check.title === alert.title
                         ? <div className="alertOpen">NOW OPEN</div>
-                        : ''
+                        : <div className="currentlyClosed">CURRENTLY CLOSED</div>
                         )}
-                        { checkList.map((check) => check.title === ![...alert.title]
-                        ? <div className="currentlyClosed">CURRENTLY CLOSED</div>
-                        : ''
-                        )}
+
 
                         <div>{alert.fullName}</div>
                         <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}{alert.name}</a>
