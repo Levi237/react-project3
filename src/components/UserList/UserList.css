@@ -17,9 +17,9 @@ a {
 }
 
 .deleteBtn {
-    color: #FFF;
+    color: #000;
     font-size: .5em;
-    border: 1px #FFF solid;
+    border: 1px #000 solid;
     border-radius: 5px;
     padding: .5em 1em;
     transition: all .1s ease-in-out;
@@ -30,11 +30,10 @@ a {
 }
 
 .deleteBtn:hover {
-    background-color: rgb(196, 13, 22, 1);
+    background-color: rgb(113, 17, 13, 1);
+    border: 1px #FFF solid;
     border-color: black;
-    margin: -1em;
-    padding: 1em;
-    color: black;
+    color: #fff;
 }
 
 .listAlink {
