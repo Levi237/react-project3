@@ -29,6 +29,8 @@ a {
 
 .deleteBtn:hover {
     background-color: rgb(196, 13, 22, 1);
+    border-color: black;
+    color: black;
 }
 
 .listAlink {
