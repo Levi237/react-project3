@@ -55,6 +55,11 @@ class UserList extends Component {
                         ? <div className="alertOpen">NOW OPEN</div>
                         : ''
                         )}
+                        { checkList.map((check) => check.title !== alert.title
+                        ? <div className="currentlyClosed">CURRENTLY CLOSED</div>
+                        : ''
+                        )}
+
                         <div>{alert.fullName}</div>
                         <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}{alert.name}</a>
                     </strong>
