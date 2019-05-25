@@ -25,11 +25,15 @@ a {
     transition: all .1s ease-in-out;
     background-color: rgb(113, 17, 13, 1);
     margin: .5em;
+    position: relative;
+    z-index: 300;
 }
 
 .deleteBtn:hover {
     background-color: rgb(196, 13, 22, 1);
     border-color: black;
+    margin: -1em;
+    padding: 1em;
     color: black;
 }
 

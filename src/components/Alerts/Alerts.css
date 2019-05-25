@@ -7,7 +7,6 @@
 .title {
   transition: all .1s ease-in-out;
 }
-
 .title:hover {
   text-decoration: none;
   cursor: pointer;
@@ -16,7 +15,6 @@
   padding: 5px;
   margin: -5px;
 }
-
 
 .active .details {
   transition-duration: 5s;
@@ -66,13 +64,11 @@
   transition-delay: .1s;
   background-color: rgba(33, 56, 23, 1);
 }
-
 @media screen and (max-width: 1100px) {
   .alertsButton {
     font-size: .5em;
     margin-bottom: 0;
   }
-
   .alertsButton:active {
     font-size: .5em;
     margin-bottom: 0;
