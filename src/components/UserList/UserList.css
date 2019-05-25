@@ -29,6 +29,7 @@ a {
 
 .deleteBtn:hover {
     font-size: .6em;
+    margin: -.1em;
 }
 
 .listAlink {
