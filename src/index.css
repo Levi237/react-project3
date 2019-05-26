@@ -27,6 +27,7 @@ h1 {
   margin-inline-end: 0px;
   font-weight: bold;
 }
+
 h3 {
   position: relative;
   z-index: 50;
@@ -37,6 +38,9 @@ h3 {
   font-weight: bold;
 }
 
+a {
+  text-decoration: none;
+}
 
 input, button {
   margin: 0 .3em;
@@ -47,12 +51,12 @@ input {
   width: 9em;
   height: 1rem;
 }
-
+/*************************** ShowUser ***************************/
 .showUser {
   margin-top: -2.5rem;
   text-align: center
 }
-
+/*************************** LOADING ***************************/
 .loading {
   margin: 2rem 0;
   text-align: center;

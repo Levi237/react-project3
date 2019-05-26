@@ -42,7 +42,7 @@ class Alerts extends Component {
                                 <div>{park.fullName}</div>
                             
                             <small>
-                                <a className="listAlink" href={park.url} target="_blank" rel="noopener noreferrer">{park.title}</a>
+                                <a className="npsLink" href={park.url} target="_blank" rel="noopener noreferrer">{park.title}</a>
                             </small>
                             </strong>
                         </div>

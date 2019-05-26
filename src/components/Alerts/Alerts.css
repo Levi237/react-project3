@@ -1,3 +1,10 @@
+.myListContainer {
+  font-size: 1em;
+  height: auto;
+  padding: 1em;
+  background-color: #FFF;
+}
+
 .title .details {
   transition-duration: 5s;
   display: none;
@@ -23,7 +30,7 @@
 }
 
 .details {
-  padding-top: .4em;
+  padding-top: .6em;
   text-decoration: none;
   font-size: .8em;
 }
@@ -64,6 +71,43 @@
   transition-delay: .1s;
   background-color: rgba(33, 56, 23, 1);
 }
+
+.deleteBox {
+  /* text-align:right; */
+}
+
+.deleteBtn {
+  font-size: .5em;
+  color: #000;
+  padding: .5em 1em;
+  margin: .5em;
+  background-color: rgb(0, 0, 0, .1);
+  border: 1px #000 solid;
+  border-radius: 5px;
+  position: relative;
+  z-index: 300;
+  transition: all .1s ease-in-out;
+  
+}
+
+.deleteBtn:hover {
+  background-color: rgb(113, 17, 13, 1);
+  border: 1px #FFF solid;
+  border-color: black;
+  color: #fff;
+}
+
+.npsLink {
+    transition-delay: .1s;
+    color: rgb(11, 91, 151);
+    border-bottom: 2px dotted rgb(136, 167, 189);
+    font-size: .9em;
+}
+
+.npsLink:hover {
+  border-bottom: 2px dotted rgb(11, 91, 151);
+}
+
 @media screen and (max-width: 1100px) {
   .alertsButton {
     font-size: .5em;
@@ -73,5 +117,8 @@
     font-size: .5em;
     margin-bottom: 0;
     background-color: rgba(33, 56, 23, 1);
+  }
+  .deleteBtn {
+    font-size: .1em;
   }
 }

@@ -56,7 +56,7 @@ class UserList extends Component {
                             <div className="currentlyClosed">CURRENTLY CLOSED</div>
                             <div>{alert.fullName}</div>
                         <small>
-                            <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}</a>
+                            <a className="npsLink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}</a>
                         </small>
                         </strong>
                     </div>
