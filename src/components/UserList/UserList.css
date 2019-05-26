@@ -9,7 +9,6 @@
 
 a {
     text-decoration: none;
-    /* color: #000; */
 }
 
 .deleteBox {
@@ -23,7 +22,7 @@ a {
     border-radius: 5px;
     padding: .5em 1em;
     transition: all .1s ease-in-out;
-    background-color: rgb(113, 17, 13, 1);
+    background-color: #FFF;
     margin: .5em;
     position: relative;
     z-index: 300;

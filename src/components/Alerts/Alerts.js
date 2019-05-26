@@ -22,33 +22,36 @@ class Alerts extends Component {
     }
 
     showOnMap = (event) =>{
-    // showOnMap = (event, park) =>{
         event.preventDefault()
     }
 
     render(){
-       
-        const alertList = this.props.closureList.map((park, i) => {
+        const { closureList, handleSetMap, currentUser } = this.props
+        const alertList = closureList.map((park, i) => {
             
             return (
 
                 <section className="alertList" key={i}>
-                    <form onSubmit={(map) => this.showOnMap(map, park)}>
-                        <button className="mapBtn" type="submit" onClick={this.props.handleSetMap} value={park.latLong}>Map</button>
+                    <form className="mapBtn" onSubmit={(map) => this.showOnMap(map, park)}>
+                        <button type="submit" onClick={handleSetMap} value={park.latLong}>Map</button>
                     </form>
                     <div className="title" onClick={this.toggle}>
                         <div>
-                            <strong>{park.fullName}</strong>
-                                <br />
-                            <small>{park.title}</small>
+                            <strong>
+                                <div className="currentlyClosed">CURRENTLY CLOSED</div>
+                                <div>{park.fullName}</div>
+                            
+                            <small>
+                                <a className="listAlink" href={park.url} target="_blank" rel="noopener noreferrer">{park.title}</a>
+                            </small>
+                            </strong>
                         </div>
                         <div className="details">
                             {park.description}
                         </div>
                     </div>
-
                     <form onSubmit={(event) => this.doAddAlert(event, park)}>
-                        { this.props.currentUser && 
+                        { currentUser && 
                         <button className="alertsButton" type="submit">Add to List</button>             
                         }
                     </form>

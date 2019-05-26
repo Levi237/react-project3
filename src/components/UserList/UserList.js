@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import './UserList.css'
 import '../Alerts/Alerts.css'
-// import Alerts from '../Alerts/Alerts';
 
 class UserList extends Component {
 
@@ -40,7 +39,6 @@ class UserList extends Component {
 
     render (){
         const { checkList } = this.state
-        console.log(checkList, "<==============checkList on UserList")
         const { currentUser, deleteItem, handleSetMap } = this.props
         const myList = currentUser.userList.map((alert, i) => 
             // checkList.map((check) =>
@@ -50,17 +48,17 @@ class UserList extends Component {
                 </form>
                 <div className="title" onClick={this.toggle}>
                     <div>
-                    <strong>
-                        { checkList.map((check) => check.title === alert.title
-                        ? <div className="alertOpen">NOW OPEN</div>
-                        : ''
-                        )}
-                        <div className="currentlyClosed">CURRENTLY CLOSED</div>
-
-
-                        <div>{alert.fullName}</div>
-                        <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}{alert.name}</a>
-                    </strong>
+                        <strong>
+                            { checkList.map((check) => check.title === alert.title
+                            ? <div className="alertOpen">NOW OPEN</div>
+                            : ''
+                            )}
+                            <div className="currentlyClosed">CURRENTLY CLOSED</div>
+                            <div>{alert.fullName}</div>
+                        <small>
+                            <a className="listAlink" href={alert.url} target="_blank" rel="noopener noreferrer">{alert.title}</a>
+                        </small>
+                        </strong>
                     </div>
                     <div className="details">
                             {alert.description}<br/>
