@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import './UserList.css'
 import '../Alerts/Alerts.css'
 
 class UserList extends Component {
