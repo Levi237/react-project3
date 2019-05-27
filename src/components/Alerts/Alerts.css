@@ -73,7 +73,10 @@
 }
 
 .deleteBox {
-  text-align:right;
+  text-align: right;
+  /* position: relative;
+  z-index: 300;
+  margin-top: -1.5em; */
 }
 
 .deleteBtn {
