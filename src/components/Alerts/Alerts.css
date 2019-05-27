@@ -73,7 +73,7 @@
 }
 
 .deleteBox {
-  /* text-align:right; */
+  text-align:right;
 }
 
 .deleteBtn {
@@ -85,7 +85,7 @@
   border: 1px #000 solid;
   border-radius: 5px;
   position: relative;
-  z-index: 300;
+  z-index: 300 !important;
   transition: all .1s ease-in-out;
   
 }

@@ -204,14 +204,14 @@ class App extends Component {
         <Map closureList={closureList} lat={lat} lng={lng}/>
       
         <Switch>
-                    <Route exact path={routes.SEARCH} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/>} />
+          <Route exact path={routes.SEARCH} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/>} />
         </Switch>
         
         </div>
 
 
         <div className="grid-fa" /><div className="grid-footer">
-          <h3><a href="https://www.nps.gov">Please enjoy this tribute to the National Park Service</a></h3>
+          <h3><a href="https://www.nps.gov" target="_blank" rel="noopener noreferrer">Please enjoy this tribute to the National Park Service</a></h3>
         </div><div className="grid-fb" />
                
       </div>
