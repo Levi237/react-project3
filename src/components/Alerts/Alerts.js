@@ -64,7 +64,7 @@ class Alerts extends Component {
                         </div>
                         <form onSubmit={(event) => this.doAddAlert(event, park)}>
                         { currentUserList.map((check) => 
-                        // check.title === alert.title &&
+                        check.title === alert.title &&
                         console.log(check.title)
                             // ? <div className="alertOpen">NOW OPEN</div>
                             // :  
