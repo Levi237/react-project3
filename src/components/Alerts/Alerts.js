@@ -27,6 +27,7 @@ class Alerts extends Component {
 
     render(){
         const { closureList, handleSetMap, currentUser } = this.props
+        console.log(currentUser.userList, "<------------currentUser.userList")
         const alertList = closureList.map((park, i) => {
             // var classes = classNames( this.props.className, {
             //     'selected': ( this.props.selected === this.props.className )
