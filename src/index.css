@@ -51,6 +51,14 @@ input {
   width: 9em;
   height: 1rem;
 }
+
+.show {
+  color: red
+}
+
+.hidden {
+  color: blue
+}
 /*************************** ShowUser ***************************/
 .showUser {
   margin-top: -2.5rem;

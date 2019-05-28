@@ -28,7 +28,17 @@ class Alerts extends Component {
     render(){
         const { closureList, handleSetMap, currentUser } = this.props
         const alertList = closureList.map((park, i) => {
-            
+            // var classes = classNames( this.props.className, {
+            //     'selected': ( this.props.selected === this.props.className )
+            // } );
+        
+            // return (
+            //     <li className={ classes }>
+            //         <a href={ this.props.href } onClick={ this.setLayoutFocus } >
+            //              <span className="menu-link-text">{ this.props.label }</span>
+            //         </a>
+            //     </li>
+            // );
             return (
 
                 <section className="alertList" key={i}>
@@ -50,12 +60,15 @@ class Alerts extends Component {
                             {park.description}
                         </div>
                         <form onSubmit={(event) => this.doAddAlert(event, park)}>
-                        {/* { currentUser.userList.map((check) => check.title === alert.title
-                            ? <div className="alertOpen">NOW OPEN</div>
-                            : ''  )}*/}
-                    
+                        { currentUser.userList.map((check) => check.title === alert.title &&
+                        console.log(check.title)
+                            // ? <div className="alertOpen">NOW OPEN</div>
+                            // :  
+                             )}
+                    {/* If check.title === alert.title then toggle className to offButton */}
                         { currentUser && 
-                        <button className="alertsButton" type="submit">Add to List</button>             
+                            <button className={'alertsButton ' + (this.props.changeClassName ? "show" : "hidden") + 'type="submit"'}>Add to List</button>  
+                        // <button className="alertsButton" type="submit">Add to List</button>             
                         }
                         </form>
                     </div>

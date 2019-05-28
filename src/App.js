@@ -50,7 +50,7 @@ class App extends Component {
     this.setState({
       currentUser: null //[]
     })
-    this.props.history.push(routes.ROOT)
+    this.props.history.push(routes.HOME)
   }
 
   handleSetMap = e => {
