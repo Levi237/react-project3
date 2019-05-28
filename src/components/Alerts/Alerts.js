@@ -49,9 +49,8 @@ class Alerts extends Component {
                         <div className="details">
                             {park.description}
                         </div>
-                    </div>
-                    <form onSubmit={(event) => this.doAddAlert(event, park)}>
-                    {/* { currentUser.userList.map((check) => check.title === alert.title
+                        <form onSubmit={(event) => this.doAddAlert(event, park)}>
+                        {/* { currentUser.userList.map((check) => check.title === alert.title
                             ? <div className="alertOpen">NOW OPEN</div>
                             : ''  )}*/}
                     
@@ -59,16 +58,18 @@ class Alerts extends Component {
                         <button className="alertsButton" type="submit">Add to List</button>             
                         }
                     </form>
+                    </div>
+
                 </section>  
             )  
         })
 
         return(
             <React.Fragment>
-            <h1>Current Park Closures</h1>
-            <div>
+                <h1>Current Park Closures</h1>
+                <div>
                     {alertList}
-            </div>
+                </div>
             </React.Fragment>
         )
     }
