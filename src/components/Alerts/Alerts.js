@@ -67,8 +67,8 @@ class Alerts extends Component {
                              )}
                     {/* If check.title === alert.title then toggle className to offButton */}
                         { currentUser && 
-                            <button className={'alertsButton ' + (this.props.changeClassName ? "show" : "hidden") + 'type="submit"'}>Add to List</button>  
-                        // <button className="alertsButton" type="submit">Add to List</button>             
+                            // <button className={'alertsButton ' + (this.props.changeClassName ? "show" : "hidden") + 'type="submit"'}>Add to List</button>  
+                        <button className="alertsButton" type="submit">Add to List</button>             
                         }
                         </form>
                     </div>
