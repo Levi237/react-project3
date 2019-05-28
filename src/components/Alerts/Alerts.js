@@ -27,10 +27,15 @@ class Alerts extends Component {
 
     render(){
         const { closureList, handleSetMap, currentUser } = this.props
-        console.log(currentUser.userList, "<------------currentUser.userList")
+        // console.log(currentUser.userList, "<------------currentUser.userList")
         const currentUserList = currentUser.userList
         console.log(currentUserList, "<------------currentUserList")
+        
         const alertList = closureList.map((park, i) => {
+            currentUserList.map((check) => check.title === park.title ? console.log("match found --->", check.title) : console.log('no luck'))
+                    // ? <div className="alertOpen">NOW OPEN</div>
+                    // :  
+                    
             // var classes = classNames( this.props.className, {
             //     'selected': ( this.props.selected === this.props.className )
             // } );
@@ -63,15 +68,10 @@ class Alerts extends Component {
                             {park.description}
                         </div>
                         <form onSubmit={(event) => this.doAddAlert(event, park)}>
-                        { currentUserList.map((check) => 
-                        check.title === park.title &&
-                        console.log(check.title)
-                            // ? <div className="alertOpen">NOW OPEN</div>
-                            // :  
-                             )}
-                    {/* If check.title === alert.title then toggle className to offButton */}
+
+
                         { currentUser && 
-                            // <button className={'alertsButton ' + (this.props.changeClassName ? "show" : "hidden") + 'type="submit"'}>Add to List</button>  
+                        
                         <button className="alertsButton" type="submit">Add to List</button>             
                         }
                         </form>
