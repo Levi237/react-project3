@@ -27,7 +27,6 @@ class Alerts extends Component {
 
     render(){
         const { closureList, handleSetMap, currentUser } = this.props
-        console.log(currentUser.userList)
         const alertList = closureList.map((park, i) => {
             
             return (
@@ -52,14 +51,13 @@ class Alerts extends Component {
                         </div>
                     </div>
                     <form onSubmit={(event) => this.doAddAlert(event, park)}>
-                    { currentUser.userList.map((check) => check.title === alert.title
-                            // ? <div className="alertOpen">NOW OPEN</div>
-
+                    {/* { currentUser.userList.map((check) => check.title === alert.title
+                            ? <div className="alertOpen">NOW OPEN</div>
+                            : ''  )}*/}
                     
-                        // { currentUser && 
-                        ? <button className="noAddButton" type="submit">DO NOT ADD LIST</button>        
-                        // }
-                        : ''   )}
+                        { currentUser && 
+                        <button className="alertsButton" type="submit">Add to List</button>             
+                        }
                     </form>
                 </section>  
             )  
