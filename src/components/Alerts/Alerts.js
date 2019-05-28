@@ -32,7 +32,7 @@ class Alerts extends Component {
         console.log(currentUserList, "<------------currentUserList")
         
         const alertList = closureList.map((park, i) => {
-            currentUserList.map((check) => check.title === park.title ? console.log("match found --->", check.title, "<--->", park.title) : console.log(check.title, "<--->", park.title, 'no luck'))
+            currentUserList.map((check) => check.title === park.title ? console.log("******** match found --->", check.title, "<--->", park.title) : console.log("xxxxxxxx", check.title, "<--->", park.title, 'no luck'))
                     // ? <div className="alertOpen">NOW OPEN</div>
                     // :  
                     
