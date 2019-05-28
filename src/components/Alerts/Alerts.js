@@ -57,8 +57,10 @@ class Alerts extends Component {
                     
                         // { currentUser && 
                         ? <button className="noAddButton" type="submit">DO NOT ADD LIST</button>        
-                        // }
-                        : <button className="alertsButton" type="submit">Add to List</button>   )}
+                        // }"
+                        : ''
+                        // <button className="alertsButton" type="submit">Add to List</button>   
+                        )}
                     </form>
                 </section>  
             )  
