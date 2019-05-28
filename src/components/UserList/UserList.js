@@ -65,11 +65,10 @@ class UserList extends Component {
                             {alert.addresses.city}<br/>
                             {alert.addresses.stateCode}<br/> */}
                     </div>
-                    <div className="deleteBox">
+                </div>
+                <div className="deleteBox">
                     <button className="deleteBtn" onClick={deleteItem.bind(null, alert._id, currentUser._id)}>Remove</button>
                 </div>
-                </div>
-
             </section>
         )
         // )
