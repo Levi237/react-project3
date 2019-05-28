@@ -18,7 +18,7 @@ class UserList extends Component {
         for (let c = 0; c < compareClosureList.length; c++){
             for (let l = makeCheckList.length - 1; l >= 0; l--){
 
-                if (makeCheckList[l].id === compareClosureList[c].id){
+                if (makeCheckList[l].title === compareClosureList[c].title){
                     makeCheckList.splice(l, 1);
                 }
             }
