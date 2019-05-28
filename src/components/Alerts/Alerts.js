@@ -49,15 +49,18 @@ class Alerts extends Component {
                         <div className="details">
                             {park.description}
                         </div>
+                        <div>
+
                         <form onSubmit={(event) => this.doAddAlert(event, park)}>
                         {/* { currentUser.userList.map((check) => check.title === alert.title
                             ? <div className="alertOpen">NOW OPEN</div>
-                            : ''  )}*/}
+                        : ''  )}*/}
                     
                         { currentUser && 
                         <button className="alertsButton" type="submit">Add to List</button>             
-                        }
-                    </form>
+                    }
+                        </form>
+                        </div>
                     </div>
 
                 </section>  
