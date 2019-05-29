@@ -56,17 +56,8 @@ input {
   display: none !important;
 }
 
-.add {
-  color: dodgerblue;
-}
 
-.show {
-  color: red
-}
 
-.hidden {
-  color: blue
-}
 /*************************** ShowUser ***************************/
 .showUser {
   margin-top: -2.5rem;

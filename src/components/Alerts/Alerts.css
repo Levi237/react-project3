@@ -57,9 +57,15 @@
     padding: .5em 1em ;
 }
 
+.addBox {
+  position: relative;
+  z-index: 500;
+  float: right;
+}
+
 .alertsButton {
   /* display: inline-block; */
-  position: absolute;
+  position: relative;
   color: #fff;
   border: 1px #fff solid;
   border-radius: 5px;
