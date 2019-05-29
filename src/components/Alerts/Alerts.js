@@ -32,24 +32,27 @@ class Alerts extends Component {
         // console.log(currentUserList, "<------------currentUserList")
         
         const alertList = closureList.map((park, i) => {
-            // currentUserList.map((check) => check.title === park.title && console.log("******** match found --->", check.title, "<--->", park.title)) //: console.log("xxxxxxxx", check.title, "<--->", park.title, 'no luck'))
+            for (let i = 0; i < currentUserList.length; i++){
+
+                // currentUserList.map((check) => {
+                    // currentUserList.map((check) => check.title === park.title && console.log("******** match found --->", check.title, "<--->", park.title)) //: console.log("xxxxxxxx", check.title, "<--->", park.title, 'no luck'))
                     // ? <div className="alertOpen">NOW OPEN</div>
                     // :  
                     
-            // var classes = classNames( this.props.className, {
-            //     'selected': ( this.props.selected === this.props.className )
-            // } );
-        
-            // return (
-            //     <li className={ classes }>
-            //         <a href={ this.props.href } onClick={ this.setLayoutFocus } >
-            //              <span className="menu-link-text">{ this.props.label }</span>
-            //         </a>
-            //     </li>
-            // );
-            return (
-
-                <section className="alertList" key={i}>
+                    // var classes = classNames( this.props.className, {
+                        //     'selected': ( this.props.selected === this.props.className )
+                        // } );
+                        
+                        // return (
+                            //     <li className={ classes }>
+                            //         <a href={ this.props.href } onClick={ this.setLayoutFocus } >
+                            //              <span className="menu-link-text">{ this.props.label }</span>
+                            //         </a>
+                            //     </li>
+                            // );
+                            return (
+                                
+                                <section className="alertList" key={i}>
                     <form className="mapBtn" onSubmit={(map) => this.showOnMap(map, park)}>
                         <button type="submit" onClick={handleSetMap} value={park.latLong}>Map</button>
                     </form>
@@ -71,8 +74,9 @@ class Alerts extends Component {
                         <form onSubmit={(event) => this.doAddAlert(event, park)}>
                         {
                             // currentUserList.map((check) => check.title === park.title &&
+                        <button className={park.title === currentUserList[i].title ? "selected" : "alertsButton"} type="submit">Add to List</button>     
 
-                        <button className={currentUserList.map((check) => check.title === park.title) ? "selected" : "alertsButton"} type="submit">Add to List</button>     
+                        // <button className={check.title === park.title ? "selected" : "alertsButton"} type="submit">Add to List</button>     
                         // <button className={currentUserList.map((check) => check.title === park.title) && "selected"} type="submit">Add to List</button>             
                       
                                   
@@ -84,6 +88,7 @@ class Alerts extends Component {
 
                 </section>  
             )  
+        }
         })
 
         return(
