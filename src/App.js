@@ -202,11 +202,7 @@ class App extends Component {
         <div className="grid-main">
 
         <Map closureList={closureList} lat={lat} lng={lng}/>
-      
-        <Switch>
-          <Route exact path={routes.SEARCH} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/>} />
-        </Switch>
-        
+
         </div>
 
 
