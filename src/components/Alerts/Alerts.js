@@ -72,11 +72,12 @@ class Alerts extends Component {
                         {
                             // currentUserList.map((check) => check.title === park.title &&
 
-                        
-                        <button className={currentUserList.map((check) => check.title === park.title) ? "selected" : "alertsButton"} type="submit">Add to List</button>             
+                            // <button className={currentUserList.map((check) => check.title === park.title) ? "selected" : "alertsButton"} type="submit">Add to List</button>     
+                        <button className={currentUserList.map((check) => check.title === park.title) && "selected"} type="submit">Add to List</button>             
                       
-                        // <button className="alertsButton" type="submit">Add to List</button>             
+                                  
                         }
+                        <button className="alertsButton" type="submit">Add to List</button>   
                         </form>
                         }
                     </div>
