@@ -32,9 +32,10 @@ class Alerts extends Component {
         // console.log(currentUserList, "<------------currentUserList")
         
         const alertList = closureList.map((park, i) => {
-            for (let i = 0; i < currentUserList.length; i++){
+            // for (let i = 0; i < currentUserList.length; i++){
+            //     console.log(currentUserList[i])
 
-                // currentUserList.map((check) => {
+                currentUserList.map((check) => {
                     // currentUserList.map((check) => check.title === park.title && console.log("******** match found --->", check.title, "<--->", park.title)) //: console.log("xxxxxxxx", check.title, "<--->", park.title, 'no luck'))
                     // ? <div className="alertOpen">NOW OPEN</div>
                     // :  
@@ -74,7 +75,7 @@ class Alerts extends Component {
                         <form onSubmit={(event) => this.doAddAlert(event, park)}>
                         {
                             // currentUserList.map((check) => check.title === park.title &&
-                        <button className={park.title === currentUserList[i].title ? "selected" : "alertsButton"} type="submit">Add to List</button>     
+                        <button className={park.title === check.title ? "selected" : "alertsButton"} type="submit">Add to List</button>     
 
                         // <button className={check.title === park.title ? "selected" : "alertsButton"} type="submit">Add to List</button>     
                         // <button className={currentUserList.map((check) => check.title === park.title) && "selected"} type="submit">Add to List</button>             
@@ -88,7 +89,7 @@ class Alerts extends Component {
 
                 </section>  
             )  
-        }
+                })
         })
 
         return(
