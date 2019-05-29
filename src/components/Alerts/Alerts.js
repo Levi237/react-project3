@@ -82,7 +82,7 @@ class Alerts extends Component {
                       
                                   
                         }
-                        <button className="alertsButton" type="submit">Add to List</button>   
+                        {/* <button className="alertsButton" type="submit">Add to List</button>    */}
                         </form>
                         }
                     </div>
