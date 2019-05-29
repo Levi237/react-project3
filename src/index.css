@@ -52,6 +52,10 @@ input {
   height: 1rem;
 }
 
+.selected {
+  color: purple;
+}
+
 .show {
   color: red
 }
