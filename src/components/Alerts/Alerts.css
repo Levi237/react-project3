@@ -60,7 +60,7 @@
 .addBox {
   position: relative;
   z-index: 500;
-  float: right;
+  text-align: right;
 }
 
 .alertsButton {
