@@ -29,7 +29,7 @@ class Alerts extends Component {
         const { closureList, handleSetMap, currentUser } = this.props
         // console.log(currentUser.userList, "<------------currentUser.userList")
         const currentUserList = currentUser.userList
-        console.log(currentUserList, "<------------currentUserList")
+        // console.log(currentUserList, "<------------currentUserList")
         
         const alertList = closureList.map((park, i) => {
             // currentUserList.map((check) => check.title === park.title && console.log("******** match found --->", check.title, "<--->", park.title)) //: console.log("xxxxxxxx", check.title, "<--->", park.title, 'no luck'))
@@ -73,7 +73,7 @@ class Alerts extends Component {
                             // currentUserList.map((check) => check.title === park.title &&
 
                         
-                        <button className={currentUserList.map((check) => check.title === park.title) && "alertsButton"} type="submit">Add to List</button>             
+                        <button className={currentUserList.map((check) => check.title === park.title) ? "selected" : "alertsButton"} type="submit">Add to List</button>             
                       
                         // <button className="alertsButton" type="submit">Add to List</button>             
                         }
