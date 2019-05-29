@@ -298,8 +298,6 @@ grid-template-areas:
   }
 
   .grid-title section > form > button {
-    /* height: 2rem; */
-    /* width: 80%; */
     font-size: 1rem;
   }
 
@@ -329,6 +327,7 @@ grid-template-areas:
   .grid-main {
     width: 100%;
   }
+  
   .grid-list {
     margin: auto;
     width: 100%;

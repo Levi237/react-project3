@@ -61,7 +61,6 @@ class App extends Component {
     })  
   }
 
-  
   componentDidMount(){
     this.getAlerts().then(alerts => {
       this.getParkNames()

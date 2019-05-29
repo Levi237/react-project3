@@ -72,6 +72,7 @@ class Alerts extends Component {
                         <div className="details">
                             {park.description}
                         </div>
+                    </div>
                         { currentUser && 
                         <form className="addBox" onSubmit={(event) => this.doAddAlert(event, park)}>
                         {
@@ -81,7 +82,7 @@ class Alerts extends Component {
                         }
                         </form>
                         }
-                    </div>
+                    
 
                 </section>  
             )  
