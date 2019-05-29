@@ -75,7 +75,7 @@ class Alerts extends Component {
                         <form className="addBox" onSubmit={(event) => this.doAddAlert(event, park)}>
                         {
                         // <button className={currentUserList.map((check) => check.title === park.title ? " selected " : " alertsButton ")} type="submit">Add to List</button>             
-                        <button className={currentUserList.map((check) => check.title === park.title && " selected ")} type="submit">Add to List</button>            
+                        <button className={currentUserList.filter((check) => check.title === park.title && " selected ")} type="submit">Add to List</button>            
      
                         }
                         </form>
