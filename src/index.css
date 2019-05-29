@@ -53,7 +53,7 @@ input {
 }
 
 .selected {
-  color: purple;
+  display: none;
 }
 
 .add {
