@@ -8,16 +8,14 @@ class UserList extends Component {
         checkList: []
     }
 
-    componentDidMount = () => {
-        let currentUserList = this.props.currentUser.userList;
-        let compareClosureList = this.props.closureList;
-        
+    componentDidMount = ({currentUser, closureList}) => {
+        // const { currentUser, closureList } = this.props
+        let currentUserList = currentUser.userList;
+        let compareClosureList = closureList;    
         let makeCheckList = [...currentUserList];
-        //Array.from(currentuserList) // also works
 
         for (let c = 0; c < compareClosureList.length; c++){
             for (let l = makeCheckList.length - 1; l >= 0; l--){
-
                 if (makeCheckList[l].title === compareClosureList[c].title){
                     makeCheckList.splice(l, 1);
                 }
@@ -28,19 +26,19 @@ class UserList extends Component {
         })
     }
 
-    toggle = event => {
-        event.currentTarget.classList.toggle('active');
+    toggle = e => {
+        e.currentTarget.classList.toggle('active');
     }
 
-    showOnMap = (event) => {
-        event.preventDefault()
+    showOnMap = (e) => {
+        e.preventDefault()
     }
 
     render (){
         const { checkList } = this.state
         const { currentUser, deleteItem, handleSetMap } = this.props
+
         const myList = currentUser.userList.map((alert, i) => 
-            // checkList.map((check) =>
             <section className="alertList" key={i}>
                 <form className="mapBtn" onSubmit={this.showOnMap}>
                     <button onClick={handleSetMap} value={alert.latLong}>Map</button>
@@ -71,13 +69,12 @@ class UserList extends Component {
                 </div>
             </section>
         )
-        // )
         
         return (
-            <React.Fragment>
+            <>
                 <h1>Tracking Closures:</h1>
                     { myList }
-            </React.Fragment>      
+            </>      
         )
     }
 }

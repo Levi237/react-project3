@@ -1,48 +1,44 @@
 import React, { Component } from 'react';
-// import { Redirect } from 'react-router-dom';
 
-// import './Login.css'
-
-class EditUser extends Component {
+export class EditUser extends Component {
+    
     state = {
         username: '',
         password: '',
-        // logged: true
+        logged: true
     }
 
-// editUsers = async (e) => {
-//     e.preventDefault();
-//     console.log(this.state.username, '<---------this.state.username===============<<<<<<')
-//     console.log(this.state, "<--------------this.state")
-//     console.log(e.target.username, '<-----------e.target.username');
-//     let userid = this.props.currentUser
-//         const editUser = await fetch('/users/'+userid._id+'/edit', {
-//             method: 'PUT',
-//             credentials: 'include',
-//             body: JSON.stringify(this.state),
-//             headers: {
-//                 'Content-type' : 'application/json'
-//             }
-//         })
-//           console.log(editUser, "<-----------editUser in editUser")
-//           const parsedResponse = await editUser.json();
-//           console.log(parsedResponse, "<==========parsed response")
-//           if(parsedResponse.data) {
-//               this.props.doSetCurrentUser(parsedResponse.data)
-//                   this.setState({
-//                       logged: true,
-//                   })
-//           }
-//         }
-
-
     changeHandler = e => {
-        
         this.setState({
             [e.target.name]: e.target.value
         })
-                console.log(this.state.username, this.state.password, "<--------changeHandler")
+    console.log(this.state.username, this.state.password, "<--------changeHandler")
     }
+
+    submitEditUser = async (e) => {
+        e.preventDefault();
+        console.log(this.state.username, '<---------this.state.username===============<<<<<<')
+        console.log(this.state, "<--------------this.state")
+        console.log(e.target.username, '<-----------e.target.username');
+        let userid = this.props.currentUser
+          const editUser = await fetch(process.env.REACT_APP_API+'/api/v1/'+userid._id+'/edit', {
+            method: 'PUT',
+            credentials: 'include',
+            body: JSON.stringify(this.state),
+            headers: {
+                'Content-type' : 'application/json'
+            }
+          })
+          console.log(editUser, "<-----------editUser in editUser")
+          const parsedResponse = await editUser.json();
+          console.log(parsedResponse, "<==========parsed response")
+          if(parsedResponse.data) {
+              this.props.doSetCurrentUser(parsedResponse.data)
+                  this.setState({
+                      logged: true,
+                  })
+          }
+      }
     // export function updateBlogPost(id, data) {
     //     return fetch('http://api.symfony-3.dev/app_dev.php/posts/' + id, {
     //         method: 'PUT',
@@ -81,25 +77,27 @@ class EditUser extends Component {
     //     }
 
     render(){
+
         console.log(this.state.username, this.state.password)
+
         const { username, password } = this.state
+        const { changeHandler, submitEditUser } = this.props
+
         return(
-//             this.state.logged
-//             ? <Redirect to={`/users/${this.props.currentUser._id}`} />
-//             : 
-            <section className="loginForm">
-                <form onSubmit={this.props.editUser}>
-                    <input type="text" placeholder="Your Name Here" name="username" onChange={this.changeHandler} value={username}></input>
-                    <input type="password" placeholder="Your Password" name="password" onChange={this.changeHandler} value={password}></input>
-                    <button type="submit">EDIT USER</button>
+
+            <section  className="enter">
+                <form onSubmit={e => submitEditUser(e)}>
+                    <input type="text" placeholder="Your Name Here" name="username" onChange={e => changeHandler(e)} value={username}/>
+                    <button type="submit">Edit User</button>
                 </form>
-            </section>
+                <form onSubmit={e => submitEditUser(e)}>
+                    <input type="password" placeholder="Your Password" name="password" onChange={e => changeHandler(e)} value={password}/>
+                    <button type="submit">Edit Password</button>
+                </form>
+            </section> 
         )
     }
 }
-
-
-export default EditUser
 
 //   closeAndEdit = async (e) => {
 //     e.preventDefault();
@@ -138,3 +136,5 @@ export default EditUser
 //       console.log(err);
 //     }
 //   }
+
+export default EditUser

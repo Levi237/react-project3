@@ -13,7 +13,8 @@ import Nav from './components/Nav/Nav';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import UserList from './components/UserList/UserList';
-// import EditUser from './components/EditUser/EditUser'
+import EditUser from './components/EditUser/EditUser'
+import Vsky from './components/Vsky/Vsky'
 
 import Intro from './components/Intro/Intro'
 
@@ -48,7 +49,7 @@ class App extends Component {
 
   logoutUser = () => {
     this.setState({
-      currentUser: null //[]
+      currentUser: null
     })
     this.props.history.push(routes.HOME)
   }
@@ -81,11 +82,12 @@ class App extends Component {
           })
         })
     })
+
   }
  
   getAlerts = async () => {
     try {
-      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=500?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const alertsJson = await alerts.json();
         return alertsJson
     } catch(err) {
@@ -95,7 +97,17 @@ class App extends Component {
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=500?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const nameJson = await parkNames.json();
+        return nameJson
+    } catch(err) {
+        return err
+    }
+  }
+
+  getCampgrounds = async () => {
+    try {
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/campgrounds&limit=500?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
@@ -113,6 +125,12 @@ class App extends Component {
     }
   }
 
+
+
+
+
+
+
   deleteItem = async (userListId, currentUserId, e) => {
     e.preventDefault();
     try {
@@ -126,35 +144,19 @@ class App extends Component {
     }
   }
 
-  // editUser = async (e) => {
-  // e.preventDefault();
-  // let userid = this.state.currentUser
-  //     const editUser = await fetch(process.env.REACT_APP_API+'/api/v1/'+userid._id+'/edit', {
-  //         method: 'PUT',
-  //         credentials: 'include',
-  //         body: JSON.stringify(this.state),
-  //         headers: {
-  //             'Content-type' : 'application/json'
-  //         }
-  //     })
-  //       const parsedResponse = await editUser.json();
-  //       if(parsedResponse.data) {
-  //           this.doSetCurrentUser(parsedResponse.data)
-  //               this.setState({
-  //                   logged: true,
-  //               })
-  //       }
-  // }
-
   render(){
+
     const { closureList, currentUser, loading, lat, lng } = this.state
+
     return (
+
       <div className="grid-container">
+
         <div className="grid-ha" />
         <div className="grid-header">
           <h3><img src="../alert.png" alt="logo" />National Park Alert System</h3>
-
-        </div><div className="grid-hb"/>     
+        </div>
+        <div className="grid-hb"/>     
 
         <div className="grid-image">
           <div className="image-holder">
@@ -162,52 +164,52 @@ class App extends Component {
           </div>
         </div>
 
-        
         <div className="grid-ta"/>
         <div className="grid-title">
-        { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }
-        { currentUser && <div><h1>{currentUser.username}'s Tracker</h1></div> }
-        
+          { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }
+          { currentUser && <div><h1>{currentUser.username}'s Tracker</h1></div> }  
           <Switch>
-              <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
-              <Route exact path={routes.HOME} render={() => currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
-              <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-              {/* { currentUser && 
-              <Route exact path={`${routes.USERS}/:id`} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from USER/:id TEST LINK</h1></div>}/>
-              } */}
-              <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-              <Route exact path={routes.LOGOUT} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from LOGOUT</h1></div>} />
-              <Route component={My404} />
-            </Switch>
-          </div><div className="grid-tb"/>
+            <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
+            <Route exact path={routes.HOME} render={() => currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
+            <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
+            {/* { currentUser && 
+            <Route exact path={`${routes.USERS}/:id`} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from USER/:id TEST LINK</h1></div>}/>
+            } */}
+            <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
+            <Route exact path={routes.LOGOUT} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from LOGOUT</h1></div>} />
+            <Route component={My404} />
+          </Switch>
+        </div>
+        <div className="grid-tb"/>
               
-        <div className="grid-na"/><div className="grid-nav">
+        <div className="grid-na"/>
+        <div className="grid-nav">
           {loading ? 
           <PacmanLoader loading={loading} color={"gold"} size={12}/> : <Nav currentUser={currentUser} logoutUser={this.logoutUser}/>
           }
-        </div><div className="grid-nb"/>
+        </div>
+        <div className="grid-nb"/>
 
         <div className="grid-menu">  
-        { currentUser ? '' : <Intro /> }
-
-        <Switch>
-          <Route exact path={routes.HOME} render={() => currentUser && <Intro />} />
-          <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
-          <Route exact path={routes.SEARCH} render={() => currentUser && <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
-          {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}
-        </Switch>
+          { currentUser ? '' : <Intro /> }
+          <Switch>
+            <Route exact path={routes.HOME} render={() => currentUser && <EditUser submitEditUser={this.submitEditUser} />} />
+            <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
+            <Route exact path={routes.SEARCH} render={() => currentUser && <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
+            {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}
+          </Switch>
         </div>  
 
         <div className="grid-main">
-
-        <Map closureList={closureList} lat={lat} lng={lng}/>
-
+          <Map closureList={closureList} lat={lat} lng={lng}/>
+          <Vsky />  
         </div>
 
-
-        <div className="grid-fa" /><div className="grid-footer">
+        <div className="grid-fa" />
+        <div className="grid-footer">
           <h3><a href="https://www.nps.gov" target="_blank" rel="noopener noreferrer">Please enjoy this tribute to the National Park Service</a></h3>
-        </div><div className="grid-fb" />
+        </div>
+        <div className="grid-fb" />
                
       </div>
     );

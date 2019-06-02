@@ -1,5 +1,6 @@
 export const ROOT = '/';
 export const HOME = '/home';
+export const ABOUT = '/about';
 export const REGISTER = '/register';
 export const LOGIN = '/login';
 export const USERS = '/users/:id';

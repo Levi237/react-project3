@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import './Login.css'
 
 class Login extends Component {
+
     state = {
         username: '',
         password: '',
@@ -15,8 +16,7 @@ class Login extends Component {
             [e.target.name]: e.target.value
         })
     }
-
-    onSubmit = async (e) => {
+    submitLogin = async (e) => {
         e.preventDefault();
         const loginResponse = await fetch(process.env.REACT_APP_API+'/api/v1/login', {
             method: 'POST',
@@ -24,9 +24,7 @@ class Login extends Component {
             body: JSON.stringify(this.state),
             headers: {
                 'Content-type' : 'application/json'
-            }
-
-               
+            }    
         })
         const parsedResponse = await loginResponse.json();
         if(parsedResponse.data) {
@@ -35,16 +33,16 @@ class Login extends Component {
                     logged: true,
                 })
         }
-    }
+      }
 
     render(){
-        const { username, password } = this.state
+        const { username, password, logged } = this.state
         return(
-            this.state.logged
-            // ? <Redirect to={`${process.env.REACT_APP_API}/api/v1/${this.props.currentUser._id}`} />
+            logged
             ? <Redirect to={'/home'} />
             : <section className="enter">
-                <form onSubmit={this.onSubmit}>
+                {/* <form onSubmit={this.props.submitLogin}> */}
+                <form onSubmit={this.submitLogin}>
                     <input type="text" placeholder="Your Name Here" name="username" onChange={this.changeHandler} value={username}></input>
                     <input type="password" placeholder="Your Password" name="password" onChange={this.changeHandler} value={password}></input>
                     <button type="submit">Login</button>

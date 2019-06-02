@@ -3,7 +3,17 @@ import { Redirect } from 'react-router-dom';
 
 import './Register.css'
 
-class Register extends Component {
+const RegisterForm = ({changeHandler, submitRegister, username, password}) => 
+    <section  className="enter">
+        <form onSubmit={e => submitRegister(e)}>
+            <input type="text" placeholder="Your Name Here" name="username" onChange={e => changeHandler(e)} value={username}></input>
+            <input type="password" placeholder="Your Password" name="password" onChange={e => changeHandler(e)} value={password}></input>
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+export class Register extends Component {
+
     state = {
         username: '',
         password: '',
@@ -16,7 +26,7 @@ class Register extends Component {
         })
     }
 
-    onSubmit = async (e) => {
+    submitRegister = async (e) => {
         e.preventDefault();
         const registerResponse = await fetch(process.env.REACT_APP_API+'/api/v1', {
             method: 'POST',
@@ -38,32 +48,15 @@ class Register extends Component {
     render(){
         const { username, password } = this.state
         return(
-            <React.Fragment>
-                {
+            <>
+            {
             this.state.logged
             ? <Redirect to={`${process.env.REACT_APP_API}/api/v1/register`} />
-            : <RegisterForm 
-                changeHandler={this.changeHandler}
-                onSubmit={this.onSubmit}
-                username={username}
-                password={password}
-                />
-                }
-
-            </React.Fragment>
+            : <RegisterForm changeHandler={this.changeHandler} onSubmit={this.submitRegister} username={username} password={password}/>
+            }
+            </>
         )
     }
 }
-
-const RegisterForm = ({changeHandler, onSubmit, username, password}) => 
-<section  className="enter">
-    <form onSubmit={e => onSubmit(e)}>
-         <input type="text" placeholder="Your Name Here" name="username" onChange={e => changeHandler(e)} value={username}></input>
-         <input type="password" placeholder="Your Password" name="password" onChange={e => changeHandler(e)} value={password}></input>
-         <button type="submit">Register</button>
-     </form>
-</section>
-
-
 
 export default Register

@@ -76,7 +76,8 @@
 }
 .alertsButton:hover {
   transition-delay: .1s;
-  background-color: rgba(33, 56, 23, 1);
+  transform: scale(1.1);
+  /* background-color: rgba(33, 56, 23, 1); */
 }
 
 .deleteBox {

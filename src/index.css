@@ -181,9 +181,9 @@ input {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1rem;
   background: transparent;
-  padding: 0 auto;
+  padding: 2em auto auto auto;
   overflow: auto;
-  max-height: 600px
+  max-height: 600px;
 }
 .grid-footer {
   grid-area: footer;
@@ -327,7 +327,7 @@ grid-template-areas:
   .grid-main {
     width: 100%;
   }
-  
+
   .grid-list {
     margin: auto;
     width: 100%;
