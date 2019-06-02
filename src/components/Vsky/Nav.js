@@ -53,32 +53,32 @@ az=271.5665939727662`
                 <form>
                 Constellation: 
                 <select onChange={this.changeHandler} name='constellations' value={constellations}>
-                        <option value="true">On</option>
                         <option value="false">Off</option>
+                        <option value="true">On</option>
                 </select>
                 <br />
                 Constellation Names: 
                 <select onChange={this.changeHandler} name='constellationLabels' value={constellationLabels}>
-                        <option value="true">On</option>
                         <option value="false">Off</option>
+                        <option value="true">On</option>
                 </select> 
                 <br />
                 Gridlines: 
                 <select onChange={this.changeHandler} name='azimuthGridlines' value={azimuthGridlines}>
-                        <option value="true">On</option>
                         <option value="false">Off</option>
+                        <option value="true">On</option>
                 </select> 
                 <br />
                 Meridian: 
                 <select onChange={this.changeHandler} name='showMeridian' value={showMeridian}>
-                        <option value="true">On</option>
                         <option value="false">Off</option>
+                        <option value="true">On</option>
                 </select> 
                 <br />
                 Star Names: 
                 <select onChange={this.changeHandler} name='showStarLabels' value={showStarLabels}>
-                        <option value="true">On</option>
                         <option value="false">Off</option>
+                        <option value="true">On</option>
                 </select>                     
                 <br />
                 Planets: 
@@ -95,8 +95,8 @@ az=271.5665939727662`
                 <br />
                 Planet Orbits: 
                 <select onChange={this.changeHandler} name='showOrbits' value={showOrbits}>
-                        <option value="true">On</option>
                         <option value="false">Off</option>
+                        <option value="true">On</option>
                 </select>  
                 <br />
                 View: 
