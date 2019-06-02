@@ -169,6 +169,7 @@ class App extends Component {
           { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }
           { currentUser && <div><h1>{currentUser.username}'s Tracker</h1></div> }  
           <Switch>
+            <Route exact path={routes.STAR} render={() => <Vsky />} />    
             <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
             <Route exact path={routes.HOME} render={() => currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
             <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
@@ -192,8 +193,7 @@ class App extends Component {
 
         <div className="grid-menu">  
           
-          <Switch>
-            <Route exact path={routes.STAR} render={() => <Vsky />} />            
+          <Switch>     
             <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} /> : <Intro />} />
             <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
             <Route exact path={routes.SEARCH} render={() => currentUser && <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />

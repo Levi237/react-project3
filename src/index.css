@@ -392,6 +392,17 @@ grid-template-areas:
 
 .vskyContainer > iframe {
   position: absolute;
+  z-index: 5000;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+  height: 80vh;
+  width: 80vw;
+}
+
+.vskyContainer > form {
+  position: absolute;
+  z-index: 5000;
   margin-right: auto;
   margin-left: auto;
   background-color: #fff;

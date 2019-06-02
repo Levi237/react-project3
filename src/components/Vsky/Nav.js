@@ -48,7 +48,7 @@ az=271.5665939727662`
         return (
 
             <div className="vskyContainer">
-                <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
+
 
                 <form>
                 Constellation: 
@@ -109,20 +109,11 @@ az=271.5665939727662`
                         <option value="planechart">planechart</option>
                         <option value="gnomic">gnomic</option>
                 </select>                                     
-\
+
                 </form>
                         
             </div>
 
-
-
-                // <div>
-                // <ToggleDiv setToggle={this.setToggle} setCoordinates={this.setCoordinates} />
-                // <IframeWrangler title="virtualSky" style={{
-                //         }}
-                //             src={`https://virtualsky.lco.global/embed/index.html?${settings}`}>
-                //     </IframeWrangler>
-                // </div>
 
         )
     }
