@@ -8,8 +8,8 @@ class UserList extends Component {
         checkList: []
     }
 
-    componentDidMount = ({currentUser, closureList}) => {
-        // const { currentUser, closureList } = this.props
+    componentDidMount = () => {
+        const { currentUser, closureList } = this.props
         let currentUserList = currentUser.userList;
         let compareClosureList = closureList;    
         let makeCheckList = [...currentUserList];
