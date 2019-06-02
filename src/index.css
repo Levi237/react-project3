@@ -395,17 +395,17 @@ grid-template-areas:
   z-index: 5000;
   margin-right: auto;
   margin-left: auto;
-  background-color: #fff;
+  /* background-color: #fff; */
   height: 80vh;
   width: 80vw;
 }
 
 .vskyContainer > form {
   position: absolute;
-  z-index: 5000;
+  z-index: 500000;
   margin-right: auto;
   margin-left: auto;
-  background-color: #fff;
+  /* background-color: #fff; */
   height: 80vh;
   width: 80vw;
 }
