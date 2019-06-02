@@ -1,39 +1,8 @@
 import React, { Component } from 'react'
 
 
-// import styled from "styled-components"
-
-// const Vframe = styled.iframe`
-// height: 70vh;
-// width: 70vw;
-// position: absolute;
-// border-radius: 10% 10% 10% 10%;
-// border: none;
-// z-index: 1;
-// scrolling: no;
-// left: 0;
-// right: 0;
-// margin-top: 14vh;
-// margin-left: auto;
-// margin-right: auto;
-// allow-transparency: true
-// `
-
 class Vsky extends Component {
 
-    // state = {
-    //     id: 'starmap',
-    //     projection: 'mollweide',
-    //     showstarlabels: true,
-    //     ground: true,
-    //     mouse: true,
-    //     keyboard: false,
-    //     az: 0,
-    //     negative: true,
-    //     constellations: true,
-    //     latitude: 36,
-    //     longitude: -96
-    // }
     state = {
         longitude: -117.8133,
         latitude: 33.8885,
@@ -48,111 +17,97 @@ class Vsky extends Component {
         projection: 'stereo',
     }
 
-
-  changeHandler = e => {
-    this.setState({
-        [e.target.name]: e.target.value
-    })
-  }
+    changeHandler = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
 
     render() {
 
-    const settings=`longitude=${this.state.longitude}&\
-latitude=${this.state.longitude}&\
-showplanets=${this.state.showPlanets}&\
-showplanetlabels=${this.state.showPlanetLabels}&\
-constellations=${this.state.constellations}&\
-showstarlabels=${this.state.showStarLabels}&\
+    const { longitude, showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
+
+    const settings=`longitude=${longitude}&\
+latitude=${longitude}&\
+showplanets=${showPlanets}&\
+showplanetlabels=${showPlanetLabels}&\
+constellations=${constellations}&\
+showstarlabels=${showStarLabels}&\
 scalestars=1.3&\
-showorbits=${this.state.showOrbits}&\
-meridian=${this.state.showMeridian}&\
-gridlines_az=${this.state.azimuthGridlines}&\
-constellationlabels=${this.state.constellationLabels}&\
-showdate=false&\
-projection=${this.state.projection}&\
+showorbits=${showOrbits}&\
+meridian=${showMeridian}&\
+gridlines_az=${azimuthGridlines}&\
+constellationlabels=${constellationLabels}&\
+showdate=true&\
+projection=${projection}&\
 showposition=true&\
 live=true&\
 color=black&\
 az=271.5665939727662`
+
         return (
-            // <div id="starmap"></div> // This just doens't work
-            // <iframe 
-            //     title="Vsky"
-            //     width="1000" 
-            //     height="700" 
-            //     frameborder="0" 
-            //     scrolling="no" 
-            //     marginheight="0" 
-            //     marginwidth="0" 
-            //     src="https://virtualsky.lco.global/embed/index.html" 
-            //     allowTransparency="true"
-            //     />
-        // <form onSubmit={this.createBlog} className="container entryContainer">
-        //     <input onChange={this.changeHandler} type='text' name='title' value={title}/><br />
-        //     <input onChange={this.changeHandler} type="text" name='location' value={location}/><br /> 
-        //     <textarea onChange={this.changeHandler} type='text' name='entry' value={entry}/><br />
-        //     <button type='submit'>Create Blog</button>
-        // </form> 
-            <div>
+
+            <div className="vskyContainer">
                 <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
 
-
-                
                 <form>
                 Constellation: 
-                <select onChange={this.changeHandler} name='constellations' value={this.state.constellations}>
+                <select onChange={this.changeHandler} name='constellations' value={constellations}>
                         <option value="true">On</option>
                         <option value="false">Off</option>
                 </select>
                 <br />
                 Constellation Names: 
-                <select onChange={this.changeHandler} name='constellationLabels' value={this.state.constellationLabels}>
+                <select onChange={this.changeHandler} name='constellationLabels' value={constellationLabels}>
                         <option value="true">On</option>
                         <option value="false">Off</option>
                 </select> 
                 <br />
                 Gridlines: 
-                <select onChange={this.changeHandler} name='azimuthGridlines' value={this.state.azimuthGridlines}>
+                <select onChange={this.changeHandler} name='azimuthGridlines' value={azimuthGridlines}>
                         <option value="true">On</option>
                         <option value="false">Off</option>
                 </select> 
                 <br />
                 Meridian: 
-                <select onChange={this.changeHandler} name='showMeridian' value={this.state.showMeridian}>
+                <select onChange={this.changeHandler} name='showMeridian' value={showMeridian}>
                         <option value="true">On</option>
                         <option value="false">Off</option>
                 </select> 
                 <br />
                 Star Names: 
-                <select onChange={this.changeHandler} name='showStarLabels' value={this.state.showStarLabels}>
+                <select onChange={this.changeHandler} name='showStarLabels' value={showStarLabels}>
                         <option value="true">On</option>
                         <option value="false">Off</option>
                 </select>                     
                 <br />
                 Planets: 
-                <select onChange={this.changeHandler} name='showPlanets' value={this.state.showPlanets}>
+                <select onChange={this.changeHandler} name='showPlanets' value={showPlanets}>
                         <option value="true">On</option>
                         <option value="false">Off</option>
                 </select> 
                 <br />
                 Planet Names: 
-                <select onChange={this.changeHandler} name='showPlanetLabels' value={this.state.showPlanetLabels}>
+                <select onChange={this.changeHandler} name='showPlanetLabels' value={showPlanetLabels}>
                         <option value="true">On</option>
                         <option value="false">Off</option>
                 </select> 
                 <br />
                 Planet Orbits: 
-                <select onChange={this.changeHandler} name='showOrbits' value={this.state.showOrbits}>
+                <select onChange={this.changeHandler} name='showOrbits' value={showOrbits}>
                         <option value="true">On</option>
                         <option value="false">Off</option>
                 </select>  
                 <br />
                 View: 
-                <select onChange={this.changeHandler} name='projection' value={this.state.projection}>
+                <select onChange={this.changeHandler} name='projection' value={projection}>
                         <option value="stereo">Stereo</option>
-                        <option value="false">Off</option>
-                        <option value="true">On</option>
-                        <option value="false">Off</option>
+                        <option value="polar">polar</option>
+                        <option value="lambert">lambert</option>
+                        <option value="equirectaungular">equirectaungular</option>
+                        <option value="mollweide">mollweide</option>
+                        <option value="planechart">planechart</option>
+                        <option value="gnomic">gnomic</option>
                 </select>                                     
                 {/* showStarLabels: false,
         showOrbits: false,
