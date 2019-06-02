@@ -191,6 +191,7 @@ class App extends Component {
         <div className="grid-nb"/>
 
         <div className="grid-menu">  
+          
           <Switch>
             <Route exact path={routes.STAR} render={() => <Vsky />} />            
             <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} /> : <Intro />} />
@@ -198,6 +199,7 @@ class App extends Component {
             <Route exact path={routes.SEARCH} render={() => currentUser && <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
             {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}
           </Switch>
+          { currentUser ? '' : <Intro /> }
         </div>  
 
         <div className="grid-main">
