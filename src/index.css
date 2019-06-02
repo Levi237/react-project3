@@ -388,3 +388,12 @@ grid-template-areas:
   }
 }
 /*-------------------------- SCALABLE GRID --------------------------*/
+
+
+.vskyContainer {
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  height: 80vh;
+  width: 80vw;
+}
