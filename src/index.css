@@ -390,10 +390,11 @@ grid-template-areas:
 /*-------------------------- SCALABLE GRID --------------------------*/
 
 
-.vskyContainer {
+.vskyContainer > iframe {
   position: absolute;
   margin-right: auto;
   margin-left: auto;
+  background-color: #fff;
   height: 80vh;
   width: 80vw;
 }
