@@ -193,7 +193,7 @@ class App extends Component {
         <div className="grid-menu">  
           { currentUser ? '' : <Intro /> }
           <Switch>
-            <Route exact path={routes.STAR} render={() => <VSky />} />            
+            <Route exact path={routes.STAR} render={() => <Vsky />} />            
             <Route exact path={routes.HOME} render={() => currentUser && <EditUser submitEditUser={this.submitEditUser} />} />
             <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
             <Route exact path={routes.SEARCH} render={() => currentUser && <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />

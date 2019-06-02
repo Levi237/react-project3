@@ -7,4 +7,4 @@ export const USERS = '/users/:id';
 export const LOGOUT = '/';
 export const TRACK = '/my/tracker'
 export const SEARCH = '/searchlist';
-export const STAR = '/starmap';
+export const STAR = '/tarmap';
