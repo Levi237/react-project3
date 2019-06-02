@@ -27,30 +27,13 @@ class Vsky extends Component {
 
     const { longitude, showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
 
-    const settings=`longitude=${longitude}&\
-latitude=${longitude}&\
-showplanets=${showPlanets}&\
-showplanetlabels=${showPlanetLabels}&\
-constellations=${constellations}&\
-showstarlabels=${showStarLabels}&\
-scalestars=1.3&\
-showorbits=${showOrbits}&\
-meridian=${showMeridian}&\
-gridlines_az=${azimuthGridlines}&\
-constellationlabels=${constellationLabels}&\
-showdate=true&\
-projection=${projection}&\
-showposition=true&\
-live=true&\
-color=black&\
-az=271.5665939727662`
 
         return (
 
             <div className="vskyContainer">
 
 
-                <form>
+                {/* <form>
                 Constellation: 
                 <select onChange={this.changeHandler} name='constellations' value={constellations}>
                         <option value="false">Off</option>
@@ -110,7 +93,7 @@ az=271.5665939727662`
                         <option value="gnomic">gnomic</option>
                 </select>                                     
 
-                </form>
+                </form> */}
                         
             </div>
 
