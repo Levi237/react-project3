@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Vnav from './Nav'
 
 class Vsky extends Component {
 
@@ -25,10 +25,10 @@ class Vsky extends Component {
 
     render() {
 
-    const { longitude, showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
+    const { longitude, latitude, showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
 
     const settings=`longitude=${longitude}&\
-latitude=${longitude}&\
+latitude=${latitude}&\
 showplanets=${showPlanets}&\
 showplanetlabels=${showPlanetLabels}&\
 constellations=${constellations}&\
@@ -48,9 +48,10 @@ az=271.5665939727662`
         return (
 
             <div className="vskyContainer">
+            <Vnav changeHandler={this.changeHandler} />
                 <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
 
-                <form>
+                {/* <form>
                 Constellation: 
                 <select onChange={this.changeHandler} name='constellations' value={constellations}>
                         <option value="false">Off</option>
@@ -110,7 +111,7 @@ az=271.5665939727662`
                         <option value="gnomic">gnomic</option>
                 </select>                                     
 
-                </form>
+                </form> */}
                         
             </div>
 

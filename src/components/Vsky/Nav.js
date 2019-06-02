@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-class Vsky extends Component {
+class Vnav extends Component {
 
     state = {
         longitude: -117.8133,
@@ -17,23 +17,22 @@ class Vsky extends Component {
         projection: 'stereo',
     }
 
-    changeHandler = e => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
+    // changeHandler = e => {
+    //     this.setState({
+    //         [e.target.name]: e.target.value
+    //     })
+    // }
 
     render() {
 
-    const { longitude, showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
+    const { showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
 
 
         return (
 
             <div className="vskyContainer">
 
-
-                {/* <form>
+                <form>
                 Constellation: 
                 <select onChange={this.changeHandler} name='constellations' value={constellations}>
                         <option value="false">Off</option>
@@ -93,7 +92,7 @@ class Vsky extends Component {
                         <option value="gnomic">gnomic</option>
                 </select>                                     
 
-                </form> */}
+                </form>
                         
             </div>
 
@@ -105,7 +104,7 @@ class Vsky extends Component {
 
 
 
-export default Vsky
+export default Vnav
 
 
 
