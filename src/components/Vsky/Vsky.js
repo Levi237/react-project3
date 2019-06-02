@@ -109,7 +109,7 @@ az=271.5665939727662`
                         <option value="planechart">planechart</option>
                         <option value="gnomic">gnomic</option>
                 </select>                                     
-\
+
                 </form>
                         
             </div>
