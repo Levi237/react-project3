@@ -48,7 +48,7 @@ az=271.5665939727662`
         return (
 
             <div className="vskyContainer">
-            <Vnav changeHandler={this.changeHandler} />
+            <Vnav changeHandler={this.changeHandler} /><br/><br/>
                 <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
 
                 {/* <form>
