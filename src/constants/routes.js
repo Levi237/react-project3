@@ -6,5 +6,5 @@ export const LOGIN = '/login';
 export const USERS = '/users/:id';
 export const LOGOUT = '/';
 export const TRACK = '/my/tracker'
-export const SEARCH = '/searchlist';
+export const ALERTS = '/alertlist';
 export const STAR = '/starmap';

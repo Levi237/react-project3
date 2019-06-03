@@ -72,7 +72,7 @@ class App extends Component {
           const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
           const list = filterAlerts.reduce((total, f) => {
             // names.data.forEach(a => {            
-            parks.data.forEach(a => {
+            parks.forEach(a => {
               if(a.parkCode === f.parkCode) {
                 total.push(Object.assign(f, a))
                 return total
@@ -208,7 +208,7 @@ class App extends Component {
           <Switch>     
             <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} /> : <Intro />} />
             <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
-            <Route exact path={routes.SEARCH} render={() => currentUser && <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
+            <Route exact path={routes.ALERTS} render={() => currentUser && <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
             {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}
           </Switch>
           { currentUser ? '' : <Intro /> }
