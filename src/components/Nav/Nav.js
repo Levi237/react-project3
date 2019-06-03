@@ -12,9 +12,7 @@ const Nav = ({currentUser, logoutUser}) =>
         ? <NavLink activeClassName="underline" className="navBtn" to={routes.TRACK} >TRACK</NavLink> 
         : <NavLink activeClassName="underline" className="navBtn" to={routes.REGISTER} >JOIN</NavLink>
         }
-        { currentUser &&
-            <NavLink activeClassName="underline" className="navBtn" to={routes.ALERTS}>ALERTS</NavLink>
-        }
+        <NavLink activeClassName="underline" className="navBtn" to={routes.ALERTS}>ALERTS</NavLink>
         { currentUser 
         ? <NavLink className="navBtn" to={routes.LOGOUT} onClick={logoutUser}>LOGOUT</NavLink> 
         : <NavLink activeClassName="underline" className="navBtn" to={routes.LOGIN}>LOGIN</NavLink>

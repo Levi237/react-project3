@@ -27,7 +27,10 @@ class Alerts extends Component {
 
     render(){
         const { closureList, handleSetMap, currentUser } = this.props
-        const currentUserList = currentUser.userList
+        let currentUserList = []
+        if (currentUser) {
+            currentUserList = currentUser.userList
+        }
         
         const alertList = closureList.map((park, i) => {
             return (
@@ -53,9 +56,9 @@ class Alerts extends Component {
                     </div>
                         { currentUser && 
                         <form className="addBox" onSubmit={(event) => this.doAddAlert(event, park)}>
-                        {          
-                        <button className={currentUserList.map((check) => check.title === park.title && " selected ")+" alertsButton"} type="submit">Add to List</button>
-                        }
+                                 
+                            <button className={currentUserList.map((check) => check.title === park.title && " selected ")+" alertsButton"} type="submit">Add to List</button>
+                    
                         </form>
                         }                
                 </section>  
