@@ -400,16 +400,17 @@ grid-template-areas:
   width: 80vw;
 }
 
-.vskyContainer > form {
+.vskyForm > form {
   position: absolute;
   z-index: 500000;
   margin-right: auto;
   margin-left: auto;
+  width: 100%;
   /* background-color: #fff; */
 
 }
 
-.vskyContainer > form > section {
+.vskyForm > form > section {
   display: inline-block;
   background-color: dodgerblue;
   border: red 2px solid;

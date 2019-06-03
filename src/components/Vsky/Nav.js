@@ -30,7 +30,7 @@ class Vnav extends Component {
 
         return (
 
-            <div className="vskyContainer">
+            <div className="vskyForm">
 
                 <form>
                     <section>
