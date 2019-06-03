@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 
 class Vnav extends Component {
 
-    state = {
-        longitude: -117.8133,
-        latitude: 33.8885,
-        showplanets: true, 
-        showplanetlabels: true,
-        constellations: false, 
-        showstarlabels: false,
-        showorbits: false, 
-        meridian: false, 
-        gridlines_az: false,
-        constellationlabels: false,
-        projection: 'stereo',
-    }
+    // state = {
+    //     longitude: -117.8133,
+    //     latitude: 33.8885,
+    //     showplanets: true, 
+    //     showplanetlabels: true,
+    //     constellations: false, 
+    //     showstarlabels: false,
+    //     showorbits: false, 
+    //     meridian: false, 
+    //     gridlines_az: false,
+    //     constellationlabels: false,
+    //     projection: 'stereo',
+    // }
 
     // changeHandler = e => {
     //     this.setState({
@@ -25,8 +26,8 @@ class Vnav extends Component {
 
     render() {
 
-    const { showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
-    const { changeHandler } = this.props
+    const { changeHandler, showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.props
+    // const { changeHandler } = this.props
 
         return (
 
@@ -40,7 +41,7 @@ class Vnav extends Component {
                             <option value="true">On</option>
                         </select>
                     </section>                    
-                    <br />
+                    
                     <section>
                         Constellation Names: 
                         <select onChange={changeHandler} name='constellationLabels' value={constellationLabels}>
@@ -48,7 +49,7 @@ class Vnav extends Component {
                                 <option value="true">On</option>
                         </select> 
                     </section>
-                    <br />
+                    
                     <section>
                         Gridlines: 
                         <select onChange={changeHandler} name='azimuthGridlines' value={azimuthGridlines}>
@@ -56,7 +57,7 @@ class Vnav extends Component {
                                 <option value="true">On</option>
                         </select> 
                     </section>
-                    <br />
+                    
                     <section>
                         Meridian: 
                         <select onChange={changeHandler} name='showMeridian' value={showMeridian}>
@@ -64,7 +65,7 @@ class Vnav extends Component {
                                 <option value="true">On</option>
                         </select> 
                     </section>
-                    <br />
+                    
                     <section>
                         Star Names: 
                         <select onChange={changeHandler} name='showStarLabels' value={showStarLabels}>
@@ -72,7 +73,7 @@ class Vnav extends Component {
                                 <option value="true">On</option>
                         </select>                     
                     </section>
-                    <br />
+                    
                     <section>
                         Planets: 
                         <select onChange={changeHandler} name='showPlanets' value={showPlanets}>
@@ -80,7 +81,7 @@ class Vnav extends Component {
                                 <option value="false">Off</option>
                         </select> 
                     </section>
-                    <br />
+                    
                     <section>
                         Planet Names: 
                         <select onChange={changeHandler} name='showPlanetLabels' value={showPlanetLabels}>
@@ -88,7 +89,7 @@ class Vnav extends Component {
                                 <option value="false">Off</option>
                         </select> 
                     </section>
-                    <br />
+                    
                     <section>
                         Planet Orbits: 
                         <select onChange={changeHandler} name='showOrbits' value={showOrbits}>
@@ -96,7 +97,7 @@ class Vnav extends Component {
                                 <option value="true">On</option>
                         </select>  
                     </section>
-                    <br />
+                    
                     <section>
                         View: 
                         <select onChange={changeHandler} name='projection' value={projection}>
@@ -108,9 +109,16 @@ class Vnav extends Component {
                             <option value="planechart">planechart</option>
                             <option value="gnomic">gnomic</option>
                         </select>      
-                    </section>                               
+                    </section>   
+                    <section>
+                        <button>
+                            <Link to={`/`}>
+                                RETURN HOME
+                            </Link>
+                        </button> 
+                    </section>                            
                 </form>
-                        
+
             </div>
 
 

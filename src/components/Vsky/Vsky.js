@@ -22,7 +22,12 @@ class Vsky extends Component {
             [e.target.name]: e.target.value
         })
     }
-
+    // setToggle=(data) => {
+    //     this.setState({
+        // [data]: !this.state[data]
+        // })
+    // }
+    
     render() {
 
     const { longitude, latitude, showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
@@ -48,7 +53,7 @@ az=271.5665939727662`
         return (
 
             <div className="vskyContainer">
-            <Vnav changeHandler={this.changeHandler} /><br/><br/>
+            <Vnav changeHandler={this.changeHandler} /><br/>
                 <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
 
                 {/* <form>

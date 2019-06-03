@@ -152,7 +152,11 @@ class App extends Component {
 
       <div className="grid-container">
 
-        <div className="grid-ha" />
+        <div className="grid-ha">
+          <Switch>
+            <Route exact path={routes.STAR} render={() => <Vsky />} />   
+          </Switch>
+        </div>
         <div className="grid-header">
           <h3><img src="../alert.png" alt="logo" />National Park Alert System</h3>
         </div>
@@ -169,7 +173,7 @@ class App extends Component {
           { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }
           { currentUser && <div><h1>{currentUser.username}'s Tracker</h1></div> }  
           <Switch>
-            <Route exact path={routes.STAR} render={() => <Vsky />} />    
+             
             <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
             <Route exact path={routes.HOME} render={() => currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
             <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
