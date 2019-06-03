@@ -26,7 +26,7 @@ class Vnav extends Component {
     render() {
 
     const { showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
-
+    const { changeHandler } = this.props
 
         return (
 
@@ -34,55 +34,55 @@ class Vnav extends Component {
 
                 <form>
                 Constellation: 
-                <select onChange={this.changeHandler} name='constellations' value={constellations}>
+                <select onChange={changeHandler} name='constellations' value={constellations}>
                         <option value="false">Off</option>
                         <option value="true">On</option>
                 </select>
                 <br />
                 Constellation Names: 
-                <select onChange={this.changeHandler} name='constellationLabels' value={constellationLabels}>
+                <select onChange={changeHandler} name='constellationLabels' value={constellationLabels}>
                         <option value="false">Off</option>
                         <option value="true">On</option>
                 </select> 
                 <br />
                 Gridlines: 
-                <select onChange={this.changeHandler} name='azimuthGridlines' value={azimuthGridlines}>
+                <select onChange={changeHandler} name='azimuthGridlines' value={azimuthGridlines}>
                         <option value="false">Off</option>
                         <option value="true">On</option>
                 </select> 
                 <br />
                 Meridian: 
-                <select onChange={this.changeHandler} name='showMeridian' value={showMeridian}>
+                <select onChange={changeHandler} name='showMeridian' value={showMeridian}>
                         <option value="false">Off</option>
                         <option value="true">On</option>
                 </select> 
                 <br />
                 Star Names: 
-                <select onChange={this.changeHandler} name='showStarLabels' value={showStarLabels}>
+                <select onChange={changeHandler} name='showStarLabels' value={showStarLabels}>
                         <option value="false">Off</option>
                         <option value="true">On</option>
                 </select>                     
                 <br />
                 Planets: 
-                <select onChange={this.changeHandler} name='showPlanets' value={showPlanets}>
+                <select onChange={changeHandler} name='showPlanets' value={showPlanets}>
                         <option value="true">On</option>
                         <option value="false">Off</option>
                 </select> 
                 <br />
                 Planet Names: 
-                <select onChange={this.changeHandler} name='showPlanetLabels' value={showPlanetLabels}>
+                <select onChange={changeHandler} name='showPlanetLabels' value={showPlanetLabels}>
                         <option value="true">On</option>
                         <option value="false">Off</option>
                 </select> 
                 <br />
                 Planet Orbits: 
-                <select onChange={this.changeHandler} name='showOrbits' value={showOrbits}>
+                <select onChange={changeHandler} name='showOrbits' value={showOrbits}>
                         <option value="false">Off</option>
                         <option value="true">On</option>
                 </select>  
                 <br />
                 View: 
-                <select onChange={this.changeHandler} name='projection' value={projection}>
+                <select onChange={changeHandler} name='projection' value={projection}>
                         <option value="stereo">Stereo</option>
                         <option value="polar">polar</option>
                         <option value="lambert">lambert</option>
