@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Vnav from './Nav'
 
 
 class Vnav extends Component {
