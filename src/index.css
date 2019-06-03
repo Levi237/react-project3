@@ -408,3 +408,11 @@ grid-template-areas:
   /* background-color: #fff; */
 
 }
+
+.vskyContainer > form > section {
+  display: inline-block;
+  background-color: dodgerblue;
+  border: red 2px solid;
+  /* background-color: #fff; */
+
+}
