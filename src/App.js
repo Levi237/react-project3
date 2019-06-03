@@ -34,7 +34,7 @@ class App extends Component {
   state = {
     currentUser: null,
     alerts: [],
-    parkNames: [],
+    parks: [],
     closureList: [],
     loading: true,
     lat: 37.8651,
@@ -82,6 +82,12 @@ class App extends Component {
           })
         })
     })
+    this.getParkNames().then(response => {
+      this.setState({
+        parks: response.data
+      })
+
+    })
 
   }
  
@@ -97,7 +103,7 @@ class App extends Component {
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=5?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
