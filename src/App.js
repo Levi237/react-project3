@@ -33,6 +33,7 @@ class App extends Component {
 
   state = {
     currentUser: null,
+    parks: [],
     alerts: [],
     parkNames: [],
     closureList: [],
@@ -64,11 +65,14 @@ class App extends Component {
 
   componentDidMount(){
     this.getAlerts().then(alerts => {
-      this.getParkNames()
-        .then(names => {
+      // this.getParkNames()
+      //   .then(names => {
+        const { parks } = this.state
+      //     const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
           const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
           const list = filterAlerts.reduce((total, f) => {
-            names.data.forEach(a => {
+            // names.data.forEach(a => {            
+            parks.data.forEach(a => {
               if(a.parkCode === f.parkCode) {
                 total.push(Object.assign(f, a))
                 return total
@@ -81,7 +85,10 @@ class App extends Component {
             loading: false
           })
         })
-    })
+    // })
+    this.getParkNames()
+    // this.setState({parks: nameJson})
+
 
   }
  
@@ -99,21 +106,22 @@ class App extends Component {
     try {
       const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=5?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
-        return nameJson
+        // return nameJson
+        this.setState({parks: nameJson})
     } catch(err) {
         return err
     }
   }
 
-  getCampgrounds = async () => {
-    try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/campgrounds&limit=5?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
-      const nameJson = await parkNames.json();
-        return nameJson
-    } catch(err) {
-        return err
-    }
-  }
+  // getCampgrounds = async () => {
+  //   try {
+  //     const parkNames = await fetch('https://developer.nps.gov/api/v1/campgrounds&limit=5?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+  //     const nameJson = await parkNames.json();
+  //       return nameJson
+  //   } catch(err) {
+  //       return err
+  //   }
+  // }
 
   getMap = async () => {
     try {
