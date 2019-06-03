@@ -395,7 +395,6 @@ grid-template-areas:
   z-index: 5000;
   margin-right: auto;
   margin-left: auto;
-  /* background-color: #fff; */
   height: 80vh;
   width: 80vw;
 }
@@ -406,14 +405,10 @@ grid-template-areas:
   margin-right: auto;
   margin-left: auto;
   width: 100%;
-  /* background-color: #fff; */
-
 }
 
 .vskyForm > form > section {
   display: inline-block;
   background-color: dodgerblue;
   border: red 2px solid;
-  /* background-color: #fff; */
-
 }
