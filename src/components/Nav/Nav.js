@@ -7,6 +7,7 @@ import './Nav.css'
 const Nav = ({currentUser, logoutUser}) => 
     <div className="navBox">
         <NavLink activeClassName="underline" className="navBtn" to={routes.HOME}>HOME</NavLink>
+        <NavLink activeClassName="underline" className="navBtn" to={routes.PARKS}>PARKS</NavLink>
         <NavLink activeClassName="underline" className="navBtn" to={routes.STAR}>STAR MAP</NavLink>
         { currentUser 
         ? <NavLink activeClassName="underline" className="navBtn" to={routes.TRACK} >TRACK</NavLink> 

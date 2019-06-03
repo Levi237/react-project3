@@ -15,6 +15,7 @@ import Register from './components/Register/Register';
 import UserList from './components/UserList/UserList';
 import EditUser from './components/EditUser/EditUser'
 import Vsky from './components/Vsky/Vsky'
+import ParkInfo from './components/Parks/Parks'
 
 import Intro from './components/Intro/Intro'
 
@@ -63,9 +64,16 @@ class App extends Component {
   }
 
   componentDidMount(){
+    this.getParkNames().then(response => {
+      this.setState({
+        parks: response.data
+      })
+    })
     this.getAlerts().then(alerts => {
       this.getParkNames()
         .then(names => {
+        // this.state.parks
+        // .forEach(names => {
           const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
           const list = filterAlerts.reduce((total, f) => {
             names.data.forEach(a => {
@@ -82,13 +90,6 @@ class App extends Component {
           })
         })
     })
-    this.getParkNames().then(response => {
-      this.setState({
-        parks: response.data
-      })
-
-    })
-
   }
  
   getAlerts = async () => {
@@ -131,12 +132,6 @@ class App extends Component {
     }
   }
 
-
-
-
-
-
-
   deleteItem = async (userListId, currentUserId, e) => {
     e.preventDefault();
     try {
@@ -152,7 +147,7 @@ class App extends Component {
 
   render(){
 
-    const { closureList, currentUser, loading, lat, lng } = this.state
+    const { closureList, currentUser, loading, lat, lng, parks } = this.state
 
     return (
 
@@ -181,7 +176,8 @@ class App extends Component {
           { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }
           { currentUser && <div><h1>{currentUser.username}'s Tracker</h1></div> }  
           <Switch>
-             
+           
+          <Route exact path={routes.PARKS} render={() =>  <div><h1>National Parks</h1></div>} />
             <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
             <Route exact path={routes.HOME} render={() => currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
             <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
@@ -206,16 +202,24 @@ class App extends Component {
         <div className="grid-menu">  
           
           <Switch>     
+            <Route exact path={routes.PARKS} render={() =>  <ParkInfo parks={parks} />} />
             <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} /> : <Intro />} />
             <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
             <Route exact path={routes.ALERTS} render={() => <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
             {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}
           </Switch>
-          { currentUser ? '' : <Intro /> }
+          {/* { currentUser ? '' : <Intro /> } */}
         </div>  
 
         <div className="grid-main">
-          <Map closureList={closureList} lat={lat} lng={lng}/>
+        <Switch>     
+            <Route exact path={routes.PARKS|routes.HOME|routes.TRACK|routes.ALERTS} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
+            {/* <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} /> : <Intro />} /> */}
+            {/* <Route exact path={routes.TRACK} render={() => <Map closureList={closureList} lat={lat} lng={lng}/> } /> */}
+            {/* <Route exact path={routes.ALERTS} render={() => <Map closureList={closureList} lat={lat} lng={lng}/>} /> */}
+            {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}
+          </Switch>
+          
         </div>
 
         <div className="grid-fa" />

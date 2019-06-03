@@ -8,3 +8,4 @@ export const LOGOUT = '/';
 export const TRACK = '/my/tracker'
 export const ALERTS = '/alertlist';
 export const STAR = '/starmap';
+export const PARKS = '/parks'
