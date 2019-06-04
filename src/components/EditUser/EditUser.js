@@ -50,8 +50,8 @@ export class EditUser extends Component {
             const editUser = await fetch(process.env.REACT_APP_API+'/api/v1/'+userid._id+'/edit', {
                 method: 'PUT',
                 credentials: 'include',
-                // body: JSON.stringify(this.state),
-                body: JSON.stringify(this.state.editUser),
+                body: JSON.stringify(this.state),
+                // body: JSON.stringify(this.state.editUser),
                 headers: {
                     'Content-type' : 'application/json'
                 }
