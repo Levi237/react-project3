@@ -9,10 +9,10 @@ export class EditUser extends Component {
     }
 
     changeHandler = e => {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     })
-    // console.log(this.state.username, this.state.password, "<--------changeHandler")
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    console.log(this.state.username, this.state.password, "<--------changeHandler")
     }
 
 
