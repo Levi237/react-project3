@@ -110,14 +110,14 @@ export class EditUser extends Component {
 
         console.log(this.state.username, this.state.password)
 
-        const { username, password } = this.state
+        // const { username, password } = this.state
         // const { submitEditUser, changeHandler } = this.props
 
         return(
 
             <section  className="enter">
                 <form onSubmit={e => this.submitEditUser(e)}>
-                    <input type="text" placeholder="Your Name Here" name="username" onChange={this.changeHandler()} value={username}/>
+                    <input type="text" placeholder="Your Name Here" name="username" onChange={this.changeHandler()} value={this.props.currentUser.username}/>
                     <button type="submit">Edit User</button>
                 </form>
                 {/* <form onSubmit={e => this.submitEditUser(e)}>

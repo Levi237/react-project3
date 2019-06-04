@@ -58,7 +58,6 @@ class App extends Component {
   }
 
   changeShowPark = (selectedPark) => {
-    // console.log(selectedPark, "<----------park on changeShowPark")
     this.setState({
       park: selectedPark
     })
@@ -73,7 +72,7 @@ class App extends Component {
     })  
   }
   handleSkyMap = e => {
-    console.log(e, "<--------handlSetMap")
+    console.log(e, "<--------handleSkyMap")
     let firstSplit = e.split(':')
     console.log()
     this.setState({
@@ -113,7 +112,7 @@ class App extends Component {
  
   getAlerts = async () => {
     try {
-      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=10?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const alertsJson = await alerts.json();
         return alertsJson
     } catch(err) {
@@ -123,7 +122,7 @@ class App extends Component {
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=10?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
@@ -237,7 +236,7 @@ class App extends Component {
             <Route exact path={routes.STAR} render={() =>  <ParkShow park={park} handleSkyMap={this.handleSkyMap}/>} />
             }   
             {/* <Route exact path={routes.PARKS} render={() =>  } /> */}
-            <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} /> : <Intro />} />
+            <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser}/> : <Intro />} />
             <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
             <Route exact path={routes.ALERTS} render={() => <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
             {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}

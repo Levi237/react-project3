@@ -9,7 +9,6 @@ class ParkShow extends Component {
 
     render(){
     const { park } = this.props
-    console.log(park.entranceFees, "<=========== entranceFees")
         return (
             <>
             { park.name &&
