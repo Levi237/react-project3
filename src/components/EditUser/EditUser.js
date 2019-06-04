@@ -117,7 +117,7 @@ export class EditUser extends Component {
 
             <section  className="enter">
                 <form onSubmit={e => this.submitEditUser(e)}>
-                    <input type="text" placeholder="Your Name Here" name="username" onChange={this.changeHandler()} value={this.props.currentUser.username}/>
+                    <input type="text" placeholder="Your Name Here" name="username" onChange={this.changeHandler} value={this.props.currentUser.username}/>
                     <button type="submit">Edit User</button>
                 </form>
                 {/* <form onSubmit={e => this.submitEditUser(e)}>
