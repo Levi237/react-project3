@@ -9,10 +9,10 @@ export class EditUser extends Component {
     }
 
     changeHandler = e => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    console.log(this.state.username, this.state.password, "<--------changeHandler")
+    //     this.setState({
+    //         [e.target.name]: e.target.value
+    //     })
+    // console.log(this.state.username, this.state.password, "<--------changeHandler")
     }
 
 
@@ -89,7 +89,7 @@ export class EditUser extends Component {
 
     render(){
 
-        console.log(this.state.username, this.state.password)
+        console.log(this.state.username, this.state.password, "<========<<<<< post render username and password on child state")
 
         // const { username, password } = this.state
         const { currentUser } = this.props
@@ -98,11 +98,11 @@ export class EditUser extends Component {
 
             <section  className="enter">
                 <form onSubmit={e => this.submitEditUser(e)}>
-                    <input type="text" value={currentUser.username} name="username" onChange={this.changeHandler}/>
+                    <input type="text" placeholder={currentUser.username} name="username" onChange={this.changeHandler}></input>
                     {/* <button type="submit">Edit User</button> */}
                 {/* </form>
                 <form onSubmit={e => this.submitEditUser(e)}> */}
-                    <input type="password" value={currentUser.password} name="password" onChange={this.changeHandler}/>
+                    <input type="password" placeholder="Change Password" name="password" onChange={this.changeHandler}></input>
                     <button type="submit">Edit</button>
                 </form>
             </section> 
