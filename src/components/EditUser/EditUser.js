@@ -102,7 +102,7 @@ export class EditUser extends Component {
                     <button type="submit">Edit User</button>
                 </form>
                 <form onSubmit={e => this.submitEditUser(e)}>
-                    <input type="password" placeholder="Your Password" name="password" onChange={this.changeHandler} value={password}/>
+                    <input type="password" placeholder={currentUser.password} name="password" onChange={this.changeHandler}/>
                     <button type="submit">Edit Password</button>
                 </form>
             </section> 
