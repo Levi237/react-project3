@@ -4,8 +4,8 @@ import Vnav from './Nav'
 class Vsky extends Component {
 
     state = {
-        longitude: -117.8133,
-        latitude: 33.8885,
+        // longitude: -117.8133,
+        // latitude: 33.8885,
         showplanets: true, 
         showplanetlabels: true,
         constellations: false, 
@@ -14,7 +14,7 @@ class Vsky extends Component {
         meridian: false, 
         gridlines_az: false,
         constellationlabels: false,
-        projection: 'stereo',
+        projection: 'equirectaungular',
     }
 
     changeHandler = e => {
@@ -30,10 +30,11 @@ class Vsky extends Component {
     
     render() {
 
-    const { longitude, latitude, showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
+    const { showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
+    const { lat, lng } = this.props    
 
-    const settings=`longitude=${longitude}&\
-latitude=${latitude}&\
+    const settings=`longitude=${lng}&\
+latitude=${lat}&\
 showplanets=${showPlanets}&\
 showplanetlabels=${showPlanetLabels}&\
 constellations=${constellations}&\

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
 import './Map.css';
-// const PointGreen = ({ ping }) => <img alt="?" className="pin" src={ping} />
+const PointGreen = ({ ping }) => <img className="greenPoint" alt="?" className="pin" src={ping} />
+// const
 
 class Map extends Component {
 
@@ -24,13 +25,14 @@ class Map extends Component {
                     center={{
                         lat: +this.props.lat,
                         lng: +this.props.lng,
-                        pin: '.../pin-green.png'
+                        // zoom: 10
+                        // pin: '.../pin-green.png'
                     }}
                     defaultZoom={this.props.zoom}
                     >
-                    {/* <PointGreen lat={37.8651} lng={-119.5383} ping="../map-pin-green.png" / > */}
+                    
                     {this.props.closureList.map((e, i)=>{
-                        const PointTo = ({ pin }) => 
+                        const AlertPoint = ({ pin }) => 
                             <a href={e.url} target="_blank" rel="noopener noreferrer">
                                 <img className="pin" src={pin} alt={e.fullName} title={e.fullName} />
                             </a>
@@ -38,7 +40,8 @@ class Map extends Component {
                         let firstSplit = e.latLong.split(':')
                         
                         return (
-                            <PointTo
+                            
+                            <AlertPoint
                             key={i}
                             lat={firstSplit[1].split(',')[0]}
                             lng={firstSplit[2]}
@@ -46,6 +49,15 @@ class Map extends Component {
                             />
                         )
                     })}
+
+                    <PointGreen
+                        // key={i}
+                        lat={+this.props.lat}
+                        lng={+this.props.lng}
+                        ping="../green-pin.png"
+                        zoom="10"
+                    />
+
                 </GoogleMapReact>
             </div>
             </>

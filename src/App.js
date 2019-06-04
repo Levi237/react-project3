@@ -15,7 +15,8 @@ import Register from './components/Register/Register';
 import UserList from './components/UserList/UserList';
 import EditUser from './components/EditUser/EditUser'
 import Vsky from './components/Vsky/Vsky'
-import ParkInfo from './components/Parks/Parks'
+import ParkNav from './components/Parks/Nav'
+import ParkShow from './components/Parks/ParkShow'
 
 import Intro from './components/Intro/Intro'
 
@@ -36,6 +37,7 @@ class App extends Component {
     currentUser: null,
     alerts: [],
     parks: [],
+    park: [],
     closureList: [],
     loading: true,
     lat: 37.8651,
@@ -55,8 +57,25 @@ class App extends Component {
     this.props.history.push(routes.HOME)
   }
 
+  changeShowPark = (selectedPark) => {
+    // console.log(selectedPark, "<----------park on changeShowPark")
+    this.setState({
+      park: selectedPark
+    })
+  }
+
   handleSetMap = e => {
+    console.log(e, "<--------handlSetMap")
     let firstSplit = e.target.value.split(':')
+    this.setState({
+        lat: firstSplit[1].split(',')[0],
+        lng: firstSplit[2]
+    })  
+  }
+  handleSkyMap = e => {
+    console.log(e, "<--------handlSetMap")
+    let firstSplit = e.split(':')
+    console.log()
     this.setState({
         lat: firstSplit[1].split(',')[0],
         lng: firstSplit[2]
@@ -147,21 +166,21 @@ class App extends Component {
 
   render(){
 
-    const { closureList, currentUser, loading, lat, lng, parks } = this.state
+    const { closureList, currentUser, loading, lat, lng, parks, park } = this.state
 
     return (
 
       <div className="grid-container">
 
         <div className="grid-ha">
-        <Switch>
+        {/* <Switch>
         <Route exact path={routes.STAR} render={() => <Vsky />} />   
 
-        </Switch>
+        </Switch> */}
         
         </div>
         <div className="grid-header">
-          <h3><img src="../alert.png" alt="logo" />National Park Alert System</h3>
+          <h3><img src="../alert.png" alt="logo" />Park Alert</h3>
         </div>
         <div className="grid-hb"/>     
 
@@ -193,6 +212,14 @@ class App extends Component {
               
         <div className="grid-na"/>
         <div className="grid-nav">
+        <Switch>
+          { !loading &&
+            <Route exact path={routes.PARKS} render={() =>  <ParkNav parks={parks} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/> } />
+          }
+          { !loading &&
+            <Route exact path={routes.STAR} render={() =>  <ParkNav parks={parks} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/> } />
+          }
+        </Switch>
           {loading ? 
           <PacmanLoader loading={loading} color={"gold"} size={12}/> : <Nav currentUser={currentUser} logoutUser={this.logoutUser}/>
           }
@@ -201,8 +228,15 @@ class App extends Component {
 
         <div className="grid-menu">  
           
-          <Switch>     
-            <Route exact path={routes.PARKS} render={() =>  <ParkInfo parks={parks} />} />
+          <Switch>
+            <Route exact path={routes.ROOT} render={() => <Intro />} />
+            { !loading &&  
+            <Route exact path={routes.PARKS} render={() =>  <ParkShow park={park} handleSkyMap={this.handleSkyMap}/>} />
+            }   
+            { !loading &&  
+            <Route exact path={routes.STAR} render={() =>  <ParkShow park={park} handleSkyMap={this.handleSkyMap}/>} />
+            }   
+            {/* <Route exact path={routes.PARKS} render={() =>  } /> */}
             <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} /> : <Intro />} />
             <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
             <Route exact path={routes.ALERTS} render={() => <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
@@ -213,10 +247,11 @@ class App extends Component {
 
         <div className="grid-main">
         <Switch>     
-            <Route exact path={routes.PARKS|routes.HOME|routes.TRACK|routes.ALERTS} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
-            {/* <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} /> : <Intro />} /> */}
-            {/* <Route exact path={routes.TRACK} render={() => <Map closureList={closureList} lat={lat} lng={lng}/> } /> */}
-            {/* <Route exact path={routes.ALERTS} render={() => <Map closureList={closureList} lat={lat} lng={lng}/>} /> */}
+            <Route exact path={routes.STAR} render={() =>  <div className="vskyWindow"><Vsky lat={lat} lng={lng}/></div> } />
+            <Route exact path={routes.PARKS} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
+            <Route exact path={routes.ALERTS} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
+            <Route exact path={routes.HOME} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
+            <Route exact path={routes.TRACK} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
             {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}
           </Switch>
           

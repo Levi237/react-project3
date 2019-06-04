@@ -87,6 +87,18 @@ input {
   margin: 2rem 0;
   text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 /*************************** SCALABLE GRID ***************************/
 /* there has got to be a dryer way */
 .grid-header, .grid-nav , .grid-footer, .grid-ha, .grid-hb, .grid-na, .grid-nb, .grid-fa, .grid-fb { background: #000; color: #FFF; }
@@ -202,7 +214,8 @@ input {
   background: transparent;
   padding: 2em auto auto auto;
   overflow: auto;
-  max-height: 600px;
+  max-height: 140vh;
+  min-height: 70vh;
 }
 .grid-footer {
   grid-area: footer;
@@ -255,6 +268,18 @@ grid-template-areas:
     grid-gap: 0;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 /*********************** @media RESIZE TO PHONE 500px ***********************/
 
 @media screen and (max-width: 500px) {
@@ -325,6 +350,18 @@ grid-template-areas:
   }
 }
 /*-------------------------- SCALABLE GRID --------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
 /*********************** @media RESIZE TO PHONE 800px ***********************/
 
 @media screen and (max-width: 800px) and (min-width: 500px) {
@@ -345,6 +382,7 @@ grid-template-areas:
 
   .grid-main {
     width: 100%;
+
   }
 
   .grid-list {
@@ -390,6 +428,17 @@ grid-template-areas:
 /*-------------------------- SCALABLE GRID --------------------------*/
 
 
+
+
+
+
+
+
+
+
+
+
+
 .vskyContainer > iframe {
   position: absolute;
   z-index: 5000;
@@ -402,7 +451,7 @@ grid-template-areas:
 }
 
 .vskyForm {
-  text-align: justify;
+  text-align: right;
   width: 100%; 
 }
 
@@ -418,4 +467,10 @@ grid-template-areas:
   display: inline-block;
   /* background-color: dodgerblue;
   border: red 2px solid; */
+}
+
+.vskyWindow {
+  position: absolute;
+  width: 30vw;
+  height: 60vh;
 }

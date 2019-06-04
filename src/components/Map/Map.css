@@ -20,13 +20,17 @@
 }
 
 .map {
-  height: 20em;
-  width: 94%;
-  padding: 3%;
+  height: 60vh;
+  width: 30vw;
+  padding: 5vh 0 0 0;
   background-color: #FFF;
 }
 .pin {
   text-align: center;
   height: 20px;
 
+}
+
+.greenPoint {
+  z-index: 5000000000000;
 }
