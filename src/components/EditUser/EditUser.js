@@ -50,14 +50,15 @@ export class EditUser extends Component {
             const editUser = await fetch(process.env.REACT_APP_API+'/api/v1/'+userid._id+'/edit', {
                 method: 'PUT',
                 credentials: 'include',
-                body: JSON.stringify(this.state),
+                // body: JSON.stringify(this.state),
+                body: JSON.stringify(this.state.editUser),
                 headers: {
                     'Content-type' : 'application/json'
                 }
               })
-              console.log(editUser, "<-----------editUser in editUser")
+              console.log(editUser, "<-----------editUser in submitEditUser")
               const parsedResponse = await editUser.json();
-              console.log(parsedResponse, "<==========parsed response")
+              console.log(parsedResponse, "<==========parsed response from submitEditUser")
               if(parsedResponse.data) {
                   this.props.doSetCurrentUser(parsedResponse.data)
                       this.setState({
@@ -69,19 +70,6 @@ export class EditUser extends Component {
         }
 
       }
-    // export function updateBlogPost(id, data) {
-    //     return fetch('http://api.symfony-3.dev/app_dev.php/posts/' + id, {
-    //         method: 'PUT',
-    //         mode: 'CORS',
-    //         body: JSON.stringify(data),
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }).then(res => {
-    //         return res;
-    //     }).catch(err => err);
-    // }
-
 
     // edituser = async (id, e) => {
     //     console.log(id, "<------- id on edituser")
@@ -117,7 +105,7 @@ export class EditUser extends Component {
 
             <section  className="enter">
                 <form onSubmit={e => this.submitEditUser(e)}>
-                    <input type="text" placeholder="Your Name Here" name="username" onChange={this.changeHandler} value={this.props.currentUser.username}/>
+                    <input type="text" placeholder={this.props.currentUser.username} name="username" onChange={this.changeHandler}/>
                     <button type="submit">Edit User</button>
                 </form>
                 {/* <form onSubmit={e => this.submitEditUser(e)}>

@@ -236,7 +236,7 @@ class App extends Component {
             <Route exact path={routes.STAR} render={() =>  <ParkShow park={park} handleSkyMap={this.handleSkyMap}/>} />
             }   
             {/* <Route exact path={routes.PARKS} render={() =>  } /> */}
-            <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser}/> : <Intro />} />
+            <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> : <Intro />} />
             <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
             <Route exact path={routes.ALERTS} render={() => <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
             {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}
