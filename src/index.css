@@ -435,7 +435,9 @@ grid-template-areas:
 
 
 
-
+.vskyContainer {
+  height: 100%;
+}
 
 
 
