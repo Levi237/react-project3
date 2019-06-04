@@ -10,10 +10,10 @@ import { PacmanLoader } from 'react-spinners'
 import Alerts from './components/Alerts/Alerts';
 import Map from './components/Map/Map';
 import Nav from './components/Nav/Nav';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
-import UserList from './components/UserList/UserList';
-import EditUser from './components/EditUser/EditUser'
+import Login from './components/User/Login';
+import Register from './components/User/Register';
+import UserList from './components/User/UserList';
+import EditUser from './components/User/EditUser'
 import Vsky from './components/Vsky/Vsky'
 import ParkNav from './components/Parks/Nav'
 import ParkShow from './components/Parks/ParkShow'
@@ -203,7 +203,7 @@ class App extends Component {
             <Route exact path={`${routes.USERS}/:id`} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from USER/:id TEST LINK</h1></div>}/>
             } */}
             <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-            <Route exact path={routes.LOGOUT} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from LOGOUT</h1></div>} />
+            {/* <Route exact path={routes.LOGOUT} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from LOGOUT</h1></div>} /> */}
             <Route component={My404} />
           </Switch>
         </div>
