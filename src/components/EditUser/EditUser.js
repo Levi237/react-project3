@@ -15,17 +15,10 @@ export class EditUser extends Component {
     console.log(this.state.username, this.state.password, "<--------changeHandler")
     }
 
-    // editUser = async () => {
-    //     try { const editUserResponse = await fetch(`/users/update/${this.props.match.params.id}`, {
-    //       method: 'PUT',
-    //       credentials: 'include',
-    //       body: JSON.stringify(this.state.userToEdit),
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       }
+
           
     //     })
-    //     console.log(editUserResponse)
+
     //     const editUserJson = await editUserResponse.json();
     //     console.log(editUserJson)
     //     this.setState({
@@ -108,10 +101,10 @@ export class EditUser extends Component {
                     <input type="text" placeholder={this.props.currentUser.username} name="username" onChange={this.changeHandler}/>
                     <button type="submit">Edit User</button>
                 </form>
-                {/* <form onSubmit={e => this.submitEditUser(e)}>
+                <form onSubmit={e => this.submitEditUser(e)}>
                     <input type="password" placeholder="Your Password" name="password" onChange={this.changeHandler()} value={password}/>
                     <button type="submit">Edit Password</button>
-                </form> */}
+                </form>
             </section> 
         )
     }
