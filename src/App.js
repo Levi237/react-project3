@@ -207,7 +207,8 @@ class App extends Component {
             <Route exact path={`${routes.USERS}/:id`} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from USER/:id TEST LINK</h1></div>}/>
             } */}
             <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-            {/* <Route exact path={routes.LOGOUT} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from LOGOUT</h1></div>} /> */}
+          <Route exact path={routes.EDIT} render={() => <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> }/>
+
             <Route component={My404} />
           </Switch>
         </div>
@@ -240,7 +241,10 @@ class App extends Component {
             <Route exact path={routes.STAR} render={() =>  <ParkShow park={park} handleSkyMap={this.handleSkyMap}/>} />
             }   
             {/* <Route exact path={routes.PARKS} render={() =>  } /> */}
-            <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> : <Intro />} />
+            {/* <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> : <Intro />} /> */}
+            <Route exact path={routes.HOME} render={() => <Intro />} />
+            <Route exact path={routes.EDIT} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> : <Intro />} />
+
             <Route exact path={routes.LOGIN} render={() => <Intro />} />
             <Route exact path={routes.REGISTER} render={() => <Intro />} />
             <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
