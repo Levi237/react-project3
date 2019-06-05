@@ -17,8 +17,8 @@ class Alerts extends Component {
         this.props.doSetCurrentUser(alertJson.user)
     }
 
-    toggle = event => {
-        event.currentTarget.classList.toggle('active');
+    toggle = e => {
+        e.currentTarget.classList.toggle('active');
     }
 
     showOnMap = (event) =>{
@@ -43,8 +43,7 @@ class Alerts extends Component {
                         <div>
                             <strong>
                                 <div className="currentlyClosed">CURRENTLY CLOSED</div>
-                                <div>{park.fullName}</div>
-                            
+                                <div>{park.fullName}</div>                            
                             <small>
                                 <a className="npsLink" href={park.url} target="_blank" rel="noopener noreferrer">{park.title}</a>
                             </small>
@@ -55,10 +54,8 @@ class Alerts extends Component {
                         </div>
                     </div>
                         { currentUser && 
-                        <form className="addBox" onSubmit={(event) => this.doAddAlert(event, park)}>
-                                 
-                            <button className={currentUserList.map((check) => check.title === park.title && " selected ")+" alertsButton"} type="submit">Add to List</button>
-                    
+                        <form className="addBox" onSubmit={(e) => this.doAddAlert(e, park)}>                                 
+                            <button className={currentUserList.map((check) => check.title === park.title && " selected ")+" alertsButton"} type="submit">Add to List</button>                    
                         </form>
                         }                
                 </section>  

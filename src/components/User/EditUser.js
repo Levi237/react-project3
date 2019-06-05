@@ -12,26 +12,7 @@ export class EditUser extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-    console.log(this.state.username, this.state.password, "<--------changeHandler")
     }
-
-
-          
-    //     })
-
-    //     const editUserJson = await editUserResponse.json();
-    //     console.log(editUserJson)
-    //     this.setState({
-    //       user: editUserJson
-    //     },()=>{
-    //       this.props.doSetCurrentUser(editUserJson)
-    //     })
-          
-    //     } catch(err){
-    //       console.log(err)
-    //     }
-    //   }
-
 
     submitEditUser = async (e) => {
         e.preventDefault();
@@ -44,7 +25,6 @@ export class EditUser extends Component {
                 method: 'PUT',
                 credentials: 'include',
                 body: JSON.stringify(this.state),
-                // body: JSON.stringify(this.state.editUser),
                 headers: {
                     'Content-type' : 'application/json'
                 }
@@ -64,34 +44,8 @@ export class EditUser extends Component {
 
       }
 
-    // edituser = async (id, e) => {
-    //     console.log(id, "<------- id on edituser")
-      
-    //     e.preventDefault();
-    //     const editUser = await fetch('/users/'+id+'/edit', {
-    //         method: 'PUT',
-    //         credentials: 'include',
-    //         body: JSON.stringify(this.state),
-    //         headers: {
-    //             'Content-type' : 'application/json'
-    //         }
-    //     })
-    //       console.log(editUser)
-    //       const parsedResponse = await editUser.json();
-    //       console.log(parsedResponse)
-    //       if(parsedResponse.data) {
-    //           this.props.doSetCurrentUser(parsedResponse.data)
-    //               this.setState({
-    //                   logged: true,
-    //               })
-    //       }
-    //     }
 
     render(){
-
-        console.log(this.state.username, this.state.password, "<========<<<<< post render username and password on child state")
-
-        // const { username, password } = this.state
         const { currentUser } = this.props
 
         return(
@@ -99,9 +53,6 @@ export class EditUser extends Component {
             <section  className="enter">
                 <form onSubmit={e => this.submitEditUser(e)}>
                     <input type="text" placeholder={currentUser.username} name="username" onChange={this.changeHandler}></input>
-                    {/* <button type="submit">Edit User</button> */}
-                {/* </form>
-                <form onSubmit={e => this.submitEditUser(e)}> */}
                     <input type="password" placeholder="Change Password" name="password" onChange={this.changeHandler}></input>
                     <button type="submit">Edit</button>
                 </form>

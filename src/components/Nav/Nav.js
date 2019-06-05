@@ -16,7 +16,7 @@ const Nav = ({currentUser, logoutUser}) =>
         }
         { currentUser 
         ? <NavLink activeClassName="underline" className="navBtn" to={routes.EDIT} >EDIT USER</NavLink> 
-        : <NavLink activeClassName="underline" className="navBtn" to={routes.REGISTER} >JOIN</NavLink>
+        : <NavLink activeClassName="underline" className="navBtn" to={routes.REGISTER} >SIGN UP</NavLink>
         }
         { currentUser 
         ? <NavLink className="navBtn" to={routes.LOGOUT} onClick={logoutUser}>LOGOUT</NavLink> 
