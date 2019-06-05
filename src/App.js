@@ -179,7 +179,8 @@ class App extends Component {
         
         </div>
         <div className="grid-header">
-          <h3><img src="../alert.png" alt="logo" />Park Alert</h3>
+          {/* <h3><img src="../alert.png" alt="logo" />Park Alert</h3> */}
+          { currentUser ? <div><h1>{currentUser.username}'s Tracker</h1></div> : <h3>Welcome to Park Aide</h3>}  
         </div>
         <div className="grid-hb"/>     
 
@@ -192,7 +193,7 @@ class App extends Component {
         <div className="grid-ta"/>
         <div className="grid-title">
           { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }
-          { currentUser && <div><h1>{currentUser.username}'s Tracker</h1></div> }  
+          
           <Switch>
            
           <Route exact path={routes.PARKS} render={() =>  <div><h1>National Parks</h1></div>} />
