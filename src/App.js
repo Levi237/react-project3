@@ -260,7 +260,7 @@ class App extends Component {
             <Route exact path={routes.PARKS} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
             { currentUser
             ? <Route exact path={routes.ALERTS} render={() => 
-                <>
+                <><br/>
                   <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> 
                   <Map closureList={closureList} lat={lat} lng={lng}/>
                 </> }/>
