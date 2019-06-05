@@ -9,4 +9,5 @@ export const TRACK = '/my/tracker'
 export const ALERTS = '/alertlist';
 export const STAR = '/starmap';
 export const PARKS = '/parks';
-export const EDIT = `/${this.props.currentUser._id}/edit`;
+// export const EDIT = `/${this.props.currentUser._id}/edit`;
+export const EDIT = `/:id/edit`;
