@@ -14,14 +14,18 @@ const Nav = ({currentUser, logoutUser}) =>
          <NavLink activeClassName="underline" className="navBtn" to={routes.TRACK} >TRACK</NavLink> 
 
         }
-        { currentUser 
+        { currentUser &&
+        <NavLink className="navBtn" to={routes.LOGOUT} onClick={logoutUser}>LOGOUT</NavLink> 
+
+        }
+        {/* { currentUser 
         ? <NavLink activeClassName="underline" className="navBtn" to={routes.EDIT} >EDIT USER</NavLink> 
         : <NavLink activeClassName="underline" className="navBtn" to={routes.REGISTER} >SIGN UP</NavLink>
         }
         { currentUser 
         ? <NavLink className="navBtn" to={routes.LOGOUT} onClick={logoutUser}>LOGOUT</NavLink> 
         : <NavLink activeClassName="underline" className="navBtn" to={routes.LOGIN}>LOGIN</NavLink>
-        }
+        } */}
     </div>
 
 export default Nav

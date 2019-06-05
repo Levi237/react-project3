@@ -112,7 +112,7 @@ class App extends Component {
  
   getAlerts = async () => {
     try {
-      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=10?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const alertsJson = await alerts.json();
         return alertsJson
     } catch(err) {
@@ -122,7 +122,7 @@ class App extends Component {
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=10?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
@@ -180,8 +180,8 @@ class App extends Component {
         </div>
         <div className="grid-header">
           {/* <h3><img src="../alert.png" alt="logo" />Park Alert</h3> */}
-          { currentUser ? <div><h1>{currentUser.username}'s Tracker</h1></div> : <h3>Welcome to Park Aide</h3>}  
-        <UserNav />
+          { currentUser ? <div><h1>{currentUser.username}'s Tracker</h1></div> : <h3>Welcome to Park-instance</h3>}  
+        {/* <UserNav /> */}
         </div>
         
         <div className="grid-hb"/>     
@@ -202,12 +202,12 @@ class App extends Component {
             <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
             <Route exact path={routes.HOME} render={() => currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
             {/* <Route exact path={routes.LOGIN} render={() => currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} /> */}
-            <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
+            {/* <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} /> */}
             {/* { currentUser && 
             <Route exact path={`${routes.USERS}/:id`} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from USER/:id TEST LINK</h1></div>}/>
             } */}
-            <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-          <Route exact path={routes.EDIT} render={() => <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> }/>
+            {/* <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} /> */}
+            {/* <Route exact path={routes.EDIT} render={() => <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> }/> */}
 
             <Route component={My404} />
           </Switch>
@@ -243,10 +243,10 @@ class App extends Component {
             {/* <Route exact path={routes.PARKS} render={() =>  } /> */}
             {/* <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> : <Intro />} /> */}
             <Route exact path={routes.HOME} render={() => <Intro />} />
-            <Route exact path={routes.EDIT} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> : <Intro />} />
+            {/* <Route exact path={routes.EDIT} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> : <Intro />} /> */}
 
-            <Route exact path={routes.LOGIN} render={() => <Intro />} />
-            <Route exact path={routes.REGISTER} render={() => <Intro />} />
+            {/* <Route exact path={routes.LOGIN} render={() => <Intro />} /> */}
+            {/* <Route exact path={routes.REGISTER} render={() => <Intro />} /> */}
             <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
             <Route exact path={routes.ALERTS} render={() => <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
             {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}
@@ -258,13 +258,21 @@ class App extends Component {
         <Switch>     
             <Route exact path={routes.STAR} render={() =>  <div className="vskyWindow"><Vsky lat={lat} lng={lng}/></div> } />
             <Route exact path={routes.PARKS} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
-            <Route exact path={routes.ALERTS} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
+            { currentUser
+            ? <Route exact path={routes.ALERTS} render={() =>  <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> }/>
+            : <Route exact path={routes.ALERTS} render={() =>  
+                <><br />
+                  <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+                  <br />
+                  <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+                  <Map closureList={closureList} lat={lat} lng={lng}/>
+                </>} />
+            }
             <Route exact path={routes.HOME} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
             <Route exact path={routes.TRACK} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
-            <Route exact path={routes.LOGIN} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
-            <Route exact path={routes.REGISTER} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
-            {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}
-          </Switch>
+            {/* <Route exact path={routes.LOGIN} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
+            <Route exact path={routes.REGISTER} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} /> */}
+        </Switch>
           
         </div>
 
