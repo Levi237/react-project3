@@ -259,7 +259,11 @@ class App extends Component {
             <Route exact path={routes.STAR} render={() =>  <div className="vskyWindow"><Vsky lat={lat} lng={lng}/></div> } />
             <Route exact path={routes.PARKS} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
             { currentUser
-            ? <Route exact path={routes.ALERTS} render={() =>  <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> }/>
+            ? <Route exact path={routes.ALERTS} render={() => 
+                <>
+                  <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> 
+                  <Map closureList={closureList} lat={lat} lng={lng}/>
+                </> }/>
             : <Route exact path={routes.ALERTS} render={() =>  
                 <><br />
                   <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
