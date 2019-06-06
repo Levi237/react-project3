@@ -16,7 +16,6 @@ class Register extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-        // console.log(this.state.username, this.state.password)
     }
 
     onSubmit = async (e) => {

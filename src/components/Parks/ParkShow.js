@@ -14,7 +14,6 @@ class ParkShow extends Component {
     render(){
     const { park, closureList } = this.props
 
-    console.log(closureList, "<=========closureList")
     const alertOn = closureList.map((alert, i) => {
         if (alert.id === park.id){
 

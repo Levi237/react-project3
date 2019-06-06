@@ -66,7 +66,6 @@ class App extends Component {
   }
 
   handleSetMap = e => {
-    console.log(e, "<--------handlSetMap")
     let firstSplit = e.target.value.split(':')
     this.setState({
         lat: firstSplit[1].split(',')[0],
@@ -74,9 +73,7 @@ class App extends Component {
     })  
   }
   handleSkyMap = e => {
-    console.log(e, "<--------handleSkyMap")
     let firstSplit = e.split(':')
-    console.log()
     this.setState({
         lat: firstSplit[1].split(',')[0],
         lng: firstSplit[2]
@@ -86,68 +83,18 @@ class App extends Component {
 
 
   componentDidMount(){
-  //   this.getParkNames().then(response => {
-  //     this.setState({
-  //       parks: response.data
-  //     })
-  //   })
-  //       this.getAlerts().then(alerts => {
-  //       // this.getParkNames()
-  //       //   .then(names => {
-  //         // this.state.parks
-  //         // .forEach(names => {
-  //           let filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
-  //           // const list = filterAlerts.reduce((total, f) => {
-  //           //   names.data.forEach(a => {
-  //           //     if(a.parkCode === f.parkCode) {
-  //           //       total.push(Object.assign(f, a))
-  //           //       return total
-  //           //     }
-  //           //   })
-  //           //   return total
-  //           // }, [])
-  //           console.log("filter alerts ===========>", filterAlerts, "<=========== filter alerts")
-  //           this.setState({
-  //             closureList: filterAlerts,
-  //             loading: false
-  //           })
-  //         // })
-  //     })
-  //    //   this.getAlerts().then(alerts => {
-  //     //   this.getParkNames()
-  //     //     .then(names => {
-  //     //     // this.state.parks
-  //     //     // .forEach(names => {
-  //     //       const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
-  //     //       const list = filterAlerts.reduce((total, f) => {
-  //     //         names.data.forEach(a => {
-  //     //           if(a.parkCode === f.parkCode) {
-  //     //             total.push(Object.assign(f, a))
-  //     //             return total
-  //     //           }
-  //     //         })
-  //     //         return total
-  //     //       }, [])
-  //     //       this.setState({
-  //     //         closureList: list,
-  //     //         loading: false
-  //     //       })
-  //     //     })
-  //     // })
-  // }
-  this.getParkNames().then(response => {
-    this.setState({
-      parks: response.data,
-      
-    }, () => {
+  
+    this.getParkNames().then(response => {
+      this.setState({
+        parks: response.data,
+        
+      }, () => {
     
                   this.getAlerts().then(alerts => {
                       let newlist = [];            
                           this.state.parks.forEach(names => {
                               const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
                               const list = filterAlerts.reduce((total, f) => {
-                                                // debugger
-                                                // console.log(names, "<---------- names & f", f)
 
                                         if(names.parkCode === f.parkCode) {
                                           total.push(Object.assign(f, names))
@@ -161,8 +108,7 @@ class App extends Component {
                                 return total
                                 
                               }, []) 
-                            // newlist.push(list)
-                            console.log(list, "<----------- const list post return")
+
                           })
                           console.log(newlist, "< NEW LIST")
                           newlist = [].concat.apply([], newlist)
@@ -171,8 +117,7 @@ class App extends Component {
                             loading: false
 
                           })
-                          // }
-                          console.log(this.state.closureList, "<----- CHECK CLOSURELIST AT END OF FOREACH")
+
                         })
   })
 
@@ -230,11 +175,6 @@ class App extends Component {
   }
 
 
-
-
-
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////                                                                  //////////////////////////////
 //////////////////////////////                              RENDER(){                           //////////////////////////////
@@ -244,7 +184,7 @@ class App extends Component {
 
   render(){
 
-    const { closureList, currentUser, loading, lat, lng, parks, park } = this.state
+    const { closureList, currentUser, loading, lat, lng, parks, park, show } = this.state
 
     return (
 
@@ -253,7 +193,8 @@ class App extends Component {
         <div className="grid-ha">
         
           <input type="button" onClick={this.showModal} value="Show Modal" />
-          <Modal show={this.state.show} onClose={this.showModal}>
+          
+          <Modal show={show} onClose={this.showModal}>
             <Vsky />
           </Modal>
         
@@ -297,7 +238,6 @@ class App extends Component {
           <Switch>
             <Route exact path={routes.ROOT} render={() =>
                <Intro />} />
-            {/* { !loading &&   */}
             <Route exact path={routes.PARKS} render={() =>
               <>
                 <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                
@@ -361,443 +301,3 @@ class App extends Component {
 
 export default withRouter(App);
 
-
-
-
-// import React, {Component } from 'react';
-// import { Switch, Route, withRouter } from 'react-router-dom'
-// import { PacmanLoader } from 'react-spinners'
-// // import moment from 'moment' and react-live-clock
-// // import Particles from 'react-particles-???'  also can rip from json
-// // npm package react-globe for the globe
-
-
-// import Alerts from './components/Alerts/Alerts';
-// import Map from './components/Map/Map';
-// import Nav from './components/Nav/Nav';
-// import Login from './components/User/Login';
-// import Register from './components/User/Register';
-// import UserList from './components/User/UserList';
-// import EditUser from './components/User/EditUser'
-// import Vsky from './components/Vsky/Vsky'
-// import ParkNav from './components/Parks/Nav'
-// import ParkShow from './components/Parks/ParkShow'
-// import UserNav from './components/User/Nav'
-// import Intro from './components/Intro/Intro'
-
-// import Modal from './components/Modal/Modal'
-
-// import * as routes from './constants/routes'
-// import './App.css';
-
-// const My404 = () =>{
-//   return (
-//     <div>
-//       {/* 404 */}
-//     </div>
-//     )
-// }
-
-// class App extends Component {
-
-//   state = {
-//     currentUser: null,
-//     // alerts: [],
-//     parks: [],
-//     park: [],
-//     closureList: [],
-//     loading: true,
-//     lat: 37.8651,
-//     lng: -119.5383,
-//     show: false,
-//   }
-
-//   doSetCurrentUser = user => {
-//     this.setState({
-//       currentUser: user
-//     })
-//   }
-
-//   logoutUser = () => {
-//     this.setState({
-//       currentUser: null
-//     })
-//     this.props.history.push(routes.HOME)
-//   }
-
-//   changeShowPark = (selectedPark) => {
-//     this.setState({
-//       park: selectedPark
-//     })
-//   }
-
-//   handleSetMap = e => {
-//     console.log(e, "<--------handlSetMap")
-//     let firstSplit = e.target.value.split(':')
-//     this.setState({
-//         lat: firstSplit[1].split(',')[0],
-//         lng: firstSplit[2]
-//     })  
-//   }
-//   handleSkyMap = e => {
-//     console.log(e, "<--------handleSkyMap")
-//     let firstSplit = e.split(':')
-//     console.log()
-//     this.setState({
-//         lat: firstSplit[1].split(',')[0],
-//         lng: firstSplit[2]
-//     })  
-//   }
-
-
-
-//   componentDidMount(){
-//     // this.getParkNames().then(response => {
-//     //   this.setState({
-//     //     parks: response.data
-//     //   })
-//     // })
-
-// this.getParkNames().then(response => {
-//     this.setState({
-//       parks: response.data
-//     }, () => {
-//     })
-//   })
-//       this.getAlerts().then(alerts => {
-//         // this.getParkNames()
-//         //   .then(names => {
-//           // debugger
-//           this.state.parks.map(names => {
-//             const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
-//             const list = filterAlerts.reduce((total, f) => {
-//               debugger
-//               console.log(names, "<---------- names & f", f)
-//                                                 names.forEach(a => {
-//                                                                     if(names.parkCode === f.parkCode) {
-//                                                                       total.push(Object.assign(f, names))
-//                                                                       console.log("it's a match ---------->", names.parkCode, f.parkCode)
-//                                                                       return total
-//                                                                     }
-//                                                 })
-//               return total
-//             }, [])
-//             this.setState({
-//               closureList: filterAlerts,
-//               loading: false
-//             })
-//           })
-//       }
-
-//   })
-
-    
-//       //   this.getAlerts().then(alerts => {
-//       //   // this.getParkNames()
-//       //   //   .then(names => {
-//       //     // this.state.parks
-//       //     // .forEach(names => {
-//       //       let filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
-//       //       // const list = filterAlerts.reduce((total, f) => {
-//       //       //   names.data.forEach(a => {
-//       //       //     if(a.parkCode === f.parkCode) {
-//       //       //       total.push(Object.assign(f, a))
-//       //       //       return total
-//       //       //     }
-//       //       //   })
-//       //       //   return total
-//       //       // }, [])
-//       //       console.log("filter alerts ===========>", filterAlerts, "<=========== filter alerts")
-//       //       this.setState({
-//       //         closureList: filterAlerts,
-//       //         loading: false
-//       //       })
-//       //     // })
-//       // })
-
-
-
-
-
-//      //   this.getAlerts().then(alerts => {
-//       //   this.getParkNames()
-//       //     .then(names => {
-//       //     // this.state.parks
-//       //     // .forEach(names => {
-//       //       const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
-//       //       const list = filterAlerts.reduce((total, f) => {
-//       //         names.data.forEach(a => {
-//       //           if(a.parkCode === f.parkCode) {
-//       //             total.push(Object.assign(f, a))
-//       //             return total
-//       //           }
-//       //         })
-//       //         return total
-//       //       }, [])
-//       //       this.setState({
-//       //         closureList: list,
-//       //         loading: false
-//       //       })
-//       //     })
-//       // })
-//   // }
-//   // this.getParkNames().then(response => {
-//   //   this.setState({
-//   //     parks: response.data
-//   //   // }, () => {
-//   //   })
-//   // })
-//   //     this.getAlerts().then(alerts => {
-//   //       // this.getParkNames()
-//   //       //   .then(names => {
-//   //         // debugger
-//   //         // this.state.parks.map(names => {
-//   //           const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
-//   //           // const list = filterAlerts.reduce((total, f) => {
-//   //             // debugger
-//   //             // console.log(names, "<---------- names & f", f)
-//   //                                               // names.forEach(a => {
-//   //                                                                   // if(names.parkCode === f.parkCode) {
-//   //                                                                   //   total.push(Object.assign(f, names))
-//   //                                                                   //   console.log("it's a match ---------->", names.parkCode, f.parkCode)
-//   //                                                                   //   return total
-//   //                                                                   // }
-//   //                                               // })
-//   //           //   return total
-//   //           // }, [])
-//   //           this.setState({
-//   //             closureList: filterAlerts,
-//   //             loading: false
-//   //           })
-//   //         })
-//   //     }
-
-//   // // })
-
-//   // alertsDidMount = () => {
-//   //     this.getAlerts().then(alerts => {
-//   //       // this.getParkNames()
-//   //       //   .then(names => {
-//   //         this.state.parks
-//   //         .forEach(names => {
-//   //           const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
-//   //           const list = filterAlerts.reduce((total, f) => {
-//   //             names.data.forEach(a => {
-//   //               if(a.parkCode === f.parkCode) {
-//   //                 total.push(Object.assign(f, a))
-//   //                 return total
-//   //               }
-//   //             })
-//   //             return total
-//   //           }, [])
-//   //           this.setState({
-//   //             closureList: list,
-//   //             loading: false
-//   //           })
-//   //         })
-//   //     })
-//   // }
-
-//   getParkNames = async () => {
-//     try {
-//       const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
-//       const nameJson = await parkNames.json();
-//         return nameJson
-//     } catch(err) {
-//         return err
-//     }
-//   }
-  
-//   getAlerts = async () => {
-//     try {
-//       const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
-//       const alertsJson = await alerts.json();
-//         return alertsJson
-//     } catch(err) {
-//         return err
-//     }
-//   }
-
-
-
-//   // getCampgrounds = async () => {
-//   //   try {
-//   //     const parkNames = await fetch('https://developer.nps.gov/api/v1/campgrounds&limit=5?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
-//   //     const nameJson = await parkNames.json();
-//   //       return nameJson
-//   //   } catch(err) {
-//   //       return err
-//   //   }
-//   // }
-
-//   getMap = async () => {
-//     try {
-//       const map = await fetch("https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&callback=initMap")
-//       const mapJson = await map.json();
-//       return mapJson
-//     } catch (err) {
-//       return err
-//     }
-//   }
-
-//   deleteItem = async (userListId, currentUserId, e) => {
-//     e.preventDefault();
-//     try {
-//         const deleteItem = await fetch(process.env.REACT_APP_API+'/api/v1/'+currentUserId+'/'+userListId, {
-//             method: 'DELETE'
-//         });
-//         const deleteItemJson = await deleteItem.json();
-//           this.setState({currentUser: deleteItemJson.data})
-//     } catch(err) {
-//         return err
-//     }
-//   }
-  
-//   showModal = () => {
-//     this.setState({
-//       ...this.state,
-//       show: !this.state.show
-//     })
-//   }
-
-
-
-
-
-
-
-// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// //////////////////////////////                                                                  //////////////////////////////
-// //////////////////////////////                              RENDER(){                           //////////////////////////////
-// //////////////////////////////                              RETURN()}                           //////////////////////////////
-// //////////////////////////////                                                                  //////////////////////////////
-// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//   render(){
-
-//     const { closureList, currentUser, loading, lat, lng, parks, park } = this.state
-
-//     return (
-
-//       <div className="grid-container">
-
-//         <div className="grid-ha">
-        
-//           <input type="button" onClick={this.showModal} value="Show Modal" />
-//           <Modal show={this.state.show} onClose={this.showModal}>
-//             <Vsky />
-//           </Modal>
-        
-        
-//         </div>
-//         <div className="grid-header">
-//           {/* <h3><img src="../alert.png" alt="logo" />Park Alert</h3> */}
-//           { currentUser ? <div><h1>{currentUser.username}'s Tracker</h1></div> : <h3>Welcome to Park-instance</h3>}  
-//         {/* <UserNav /> */}
-//         </div>
-        
-//         <div className="grid-hb"/>     
-
-//         <div className="grid-image">
-//           <div className="image-holder">
-//               <img src="../header-yosemite.png" alt="header-yosemite" title="5 days Aug 2018"/>
-//           </div>
-//         </div>
-
-//         <div className="grid-ta"/>
-//         <div className="grid-title">
-//           { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }          
-//         <Switch>    
-//           <Route exact path={routes.PARKS} render={() =>
-//               <div><h1>National Parks</h1></div>} />
-//             <Route exact path={routes.ROOT} render={() =>
-//                <div className="navAlert"></div>} />
-//             <Route exact path={routes.HOME} render={() =>
-//                currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
-//             <Route component={My404} />
-//         </Switch>
-//         </div>
-//         <div className="grid-tb"/>
-              
-//         <div className="grid-na"/>
-//         <div className="grid-nav">
-//         <Switch>
-//           { !loading &&
-//             <Route exact path={routes.PARKS} render={() =>
-//                 <ParkNav parks={parks} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/> } />
-//           }
-//           { !loading &&
-//             <Route exact path={routes.STAR} render={() =>
-//                 <ParkNav parks={parks} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/> } />
-//           }
-//         </Switch>
-//           {loading ? 
-//           <PacmanLoader loading={loading} color={"gold"} size={12}/> : <Nav currentUser={currentUser} logoutUser={this.logoutUser}/>
-//           }
-//         </div>
-//         <div className="grid-nb"/>
-
-//         <div className="grid-menu">            
-//           <Switch>
-//             <Route exact path={routes.ROOT} render={() =>
-//                <Intro />} />
-//             { !loading &&  
-//             <Route exact path={routes.PARKS} render={() =>
-//               <>
-//                 <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                
-//                 <input type="button" onClick={this.showModal} value="Enlarge Virtual Sky" />                 
-//               </>} />
-//             }   
-//             { !loading &&  
-//             <Route exact path={routes.STAR} render={() =>
-//                 <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>} />
-//             }   
-//             <Route exact path={routes.HOME} render={() =>
-//                <Intro />} />
-//             <Route exact path={routes.TRACK} render={() =>
-//                currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
-//             <Route exact path={routes.ALERTS} render={() =>
-//                <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap} parks={parks}/>} />
-//           </Switch>
-//         </div>  
-
-//         <div className="grid-main">
-//         <Switch>     
-//             <Route exact path={routes.STAR} render={() =>
-//                 <div className="vskyWindow"><Vsky lat={lat} lng={lng}/></div> } />
-//             <Route exact path={routes.PARKS} render={() =>
-//                 <Map closureList={closureList} lat={lat} lng={lng}/>} />
-//             { currentUser
-//             ? <Route exact path={routes.ALERTS} render={() =>
-//                 <><br/>
-//                   <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> 
-//                   <Map closureList={closureList} lat={lat} lng={lng}/>
-//                 </> }/>
-//             : <Route exact path={routes.ALERTS} render={() =>                
-//                 <><br />
-//                   <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
-//                   <br />
-//                   <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
-//                   <Map closureList={closureList} lat={lat} lng={lng}/>
-//                 </>} />
-//             }
-//             <Route exact path={routes.HOME} render={() =>
-//                 <Map closureList={closureList} lat={lat} lng={lng}/>} />
-//             <Route exact path={routes.TRACK} render={() =>
-//                 <Map closureList={closureList} lat={lat} lng={lng}/>} />
-//         </Switch>
-          
-//         </div>
-
-//         <div className="grid-fa" />
-//         <div className="grid-footer">
-//           <h3><a href="https://www.nps.gov" target="_blank" rel="noopener noreferrer">Please enjoy this tribute to the National Park Service</a></h3>
-//         </div>
-//         <div className="grid-fb" />
-               
-//       </div>
-//     );
-//   }
-// }
-
-// export default withRouter(App);
