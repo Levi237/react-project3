@@ -22,8 +22,9 @@ class Vsky extends Component {
         })
     }
     setToggle=(e) => {
+        console.log(e.target.value, "value", e.target.name, "name")
         this.setState({
-        constellations: !this.state.constellations
+        [e.target.name]: !this.state[e.target.name]
         })
     }
     
@@ -77,72 +78,27 @@ az=271.5665939727662`
 
                 <form>
                     <section>
-                        Constellation: <br />
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name={constellations} value={constellations}/>
-                        {/* <select onChange={changeHandler} name='constellations' value={constellations}>
-                            <option value="false">Off</option>
-                            <option value="true">On</option>
-                        </select> */}
-                    </section>                    
-                    
-                    <section>
-                        Names: <br />
-                        <select onChange={changeHandler} name='constellationLabels'>
-                            <option value="false">Off</option>
-                            <option value="true">On</option>
-                        </select> 
+
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellations" value="Constellations"/>
+
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellationLabels" value="constellationLabels"/>
+
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="azimuthGridlines" value="azimuthGridlines"/>
+                        
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showMeridian" value="showMeridian"/>
+
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showStarLabels" value="showStarLabels"/>
+
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanets" value="showPlanets"/>
+
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanetLabels" value="showPlanetLabels"/>
+
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showOrbits" value="showOrbits"/>
+
                     </section>
                     
                     <section>
-                        Gridlines: <br />
-                        <select onChange={changeHandler} name='azimuthGridlines' value={azimuthGridlines}>
-                            <option value="true">On</option>
-                            <option value="false">Off</option>
-                        </select> 
-                    </section>
-                    
-                    <section>
-                        Meridian: <br />
-                        <select onChange={changeHandler} name='showMeridian' value={showMeridian}>
-                            <option value="false">Off</option>
-                            <option value="true">On</option>
-                        </select> 
-                    </section>
-                    
-                    <section>
-                        Stars: <br />
-                        <select onChange={changeHandler} name='showStarLabels' value={showStarLabels}>
-                            <option value="false">Off</option>
-                            <option value="true">On</option>
-                        </select>                     
-                    </section>
-                    
-                    <section>
-                        Planets: <br />
-                        <select onChange={changeHandler} name='showPlanets' value={showPlanets}>
-                            <option value="true">On</option>
-                            <option value="false">Off</option>
-                        </select> 
-                    </section>
-                    
-                    <section>
-                        Names: <br />
-                        <select onChange={changeHandler} name='showPlanetLabels' value={showPlanetLabels}>
-                            <option value="true">On</option>
-                            <option value="false">Off</option>
-                        </select> 
-                    </section>
-                    
-                    <section>
-                        Orbits: <br />
-                        <select onChange={changeHandler} name='showOrbits' value={showOrbits}>
-                            <option value="false">Off</option>
-                            <option value="true">On</option>
-                        </select>  
-                    </section>
-                    
-                    <section>
-                        <select defaultValue={'DEFAULT'} onChange={changeHandler} name='projection' value={projection}>
+                        <select defaultValue={'DEFAULT'} onChange={this.changeHandler} name='projection' value={projection}>
                             <option value="DEFAULT" disabled>--- Select Projection ---</option>
                             <option value="equirectaungular">equirectaungular</option> 
                             <option value="stereo">Stereo</option>
