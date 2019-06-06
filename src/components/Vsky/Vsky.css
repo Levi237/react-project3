@@ -1,99 +1,155 @@
+/* small Parent */
 .vskyWindow {
   position: absolute;
   max-width: 35vw;
   max-height: 60vh;
 }
 
-.vskyContainer {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    background-color: rgb(0,0,0, .5);
-    background: #FFF;
-    /* color: #fff; */
-    /* text-align: center; */
-  }
+/* large Parent */
+.vskyModal {
+  z-index: 9999999999999999;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.vskySmallContainer {
+  position: absolute;
+  width: 35vw;
+  height: 35vh;
+}
+
+.vskyLargeContainer {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: rgb(0,0,0, .5);
+  background: #FFF;
+}
+
+.vskySmallContainer > iframe {
+  z-index: 5000;
+  border: none;
+  bottom: 0;
+  font-size: 2rem;
+  height: 60vh;
+  width: 35vw;
+}
+
+.vskyLargeContainer > iframe {
+  position: fixed;
+  z-index: 5000;
+  border: none;
+  bottom: 0;
+  font-size: 2rem;
+  height:100%;
+  width: 100%;
+}
   
 
-  .vskyContainer > form > span > div> form > select, .projection > select  {
+  .vskyLargeContainer > form > span > div> form > select, .projection > select  {
     color: #fff;
     
     background-color: rgb(0,0,0, .5);
   }
 
-  .vskyContainer > form > span > div> form > select {
-    /* background-color: transparent; */
-    /* color: rgb(125, 129, 181); */
-    
+  .vskyLargeContainer > form > span > div> form > select {
     font-size: 1.5rem;
     box-shadow: inset 0px 0px 8px 4px rgb(125, 129, 181);
     text-align-last:center;
-    
-    /* background: pink; */
   }
-  .vskyContainer > form > span > div {
+
+  .vskyLargeContainer > form > span > div {
     /* This affects the header in the Large View of Virtual Sky */
     z-index: 99999999999999999999999999999999999999999999999999999999999999999999999999999999;
-    /* color: #FFF; */
     position: sticky;
     float: right;
     margin-right: 30vw;
     width: 40vw;
     font-size: 2rem;
     text-align: center;
-    /* background: blue; */
   }
   
-  .vskyContainer > iframe {
-    position: fixed;
-    z-index: 5000;
-    border: none;
-    bottom: 0;
-    font-size: 2rem;
-    /* margin-right: auto; */
-    /* margin-left: auto; */
-    /* margin-top: 12rem; */
-    height:100%;
-    width: 100%;
-    /* padding: 5vh 0 0 0; */
-    
-  }
-  
-  .vskyForm {
-    background: yellow;
-    text-align: right;
+  .largeStarBtn, .smallStarBtn {
+    /* background: yellow; */
+    /* text-align: right; */
     width: 100%; 
   }
   
-  .vskyForm > form {
-    position: fixed;
+  .largeStarBtn > form, .smallStarBtn > form {
+
     bottom: 0;
     /* height: */
     z-index: 500000;
     margin-right: auto;
     margin-left: auto;
-    font-size: 1rem;
+    /* font-size: 1rem; */
   
   }
+  .largeStarBtn > form {
+    position: fixed;
+    /* bottom: 0; */
+    /* height: */
+    z-index: 500000;
+    margin-right: auto;
+    margin-left: auto;
+    /* font-size: 1rem; */
   
-  .vskyForm > form > section {
+  }
+  .smallStarBtn > form {
+    position: relative;
+    /* bottom: 0; */
+    /* height: */
+    z-index: 500000;
+    /* margin-right: auto;
+    margin-left: auto; */
+    /* font-size: 1rem; */
+  
+  }
+  .largeStarBtn > form > section, .smallStarBtn > form > section {
     /* background: purple; */
-    display: inline-block;
-    
-    /* background-color: dodgerblue;
-    border: red 2px solid; */
+    /* display: inline-block; */
   }
-  .vskyForm > form > section > input {
+  .largeStarBtn > form > section > input {
     margin: 0;
-    background: green;
+    /* background: green; */
     border: none;
     width: 11.1vw;
     height: 4rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     background-color: rgb(0,0,0, .5);
     color: #FFF;
   }
-  .vskyForm > form > section > input:hover {
+
+  .smallStarBtn > form > section > input {
+    margin: 0;
+    background: green;
+    border: none;
+    width: 7vw;
+    height: 2rem;
+    font-size: .8rem;
+    display: inline-block;
+    background-color: rgb(0,0,0, .5);
+    color: #FFF;
+  }
+
+  .smallStarBtn > form > section > input:hover {
+    margin: 0;
+    transition: all .3s;
+    background-image: linear-gradient(to right, rgb(211, 211, 211, .3), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1),  rgb(211, 211, 211, .3));
+    
+    /* background: green; */
+    border: none;
+    width: 7vw;
+    height: 2rem;
+    font-size: .8rem;
+    display: inline-block;
+    /* background-color: rgb(0,0,0, .5); */
+    color: #FFF;
+  }
+
+
+  .largeStarBtn > form > section > input:hover,{
     /* transform: 2s; */
     /* color: black; */
     text-shadow: 1px 2px black;
@@ -102,21 +158,15 @@
     border: none;
 
   }
-  .vskyForm > form > section > input:active {
+  /* .largeStarBtn > form > section > input:active { */
     /* color: dodgerblue; */
-    border: none;
+    /* border: none; */
 
-  }
+  /* } */
   
 
 
-.vskyModal {
-  
-  z-index: 9999999999999999;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-}
+
 
 .projection {
 /* background: orange; */

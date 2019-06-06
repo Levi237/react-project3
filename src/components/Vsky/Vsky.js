@@ -70,8 +70,9 @@ az=271.5665939727662`
 console.log(park.name, "<---------- park on Vsky")
         return (
 
-            <div className="vskyContainer">
-
+            <div className={(show ? "vskyLargeContainer" : "vskySmallContainer")}>
+                {
+                show &&
                 <form>
 
                     <section className="projection">
@@ -86,30 +87,39 @@ console.log(park.name, "<---------- park on Vsky")
                         </select>      
                     </section>   
                     {/* { park.name && */}
-                { show &&
+                
                 <span><ParkNav park={park} parks={parks} handleSkyMap={handleSkyMap} changeShowPark={changeShowPark}/></span>
-                }
+                
                 {/* }                      */}
                 </form>
+                }
                 <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
 
                 {/* <Vnav setToggle={this.setToggle} changeHandler={this.changeHandler} /> */}
 
 
-
-            <div className="vskyForm">
+                {/* <div className={"btn-group pull-right " + (this.props.showBulkActions ? 'show' : 'hidden')}> */}
+            <div className={(show ? "largeStarBtn" : "smallStarBtn")}>
 
                 <form>
                     <section>
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellations" value="Constellations"/>
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellationLabels" value="Const Names"/>
+                        {show &&
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="azimuthGridlines" value="Gridlines"/>
+                        }
+                        {show &&
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="showMeridian" value="Meridian"/>
+                        }
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="showStarLabels" value="Stars"/>
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanets" value="Planets"/>
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanetLabels" value="Planet Names"/>
+                        {show &&
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="showOrbits" value="Orbits"/>
+                        }
+                        {show && 
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="negative" value="Negative"/>
+                        }
                     </section>
                     </form>
 

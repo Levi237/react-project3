@@ -31,7 +31,7 @@ class Vnav extends Component {
 
         return (
 
-            <div className="vskyForm">
+            <div className="largeStarBtn">
 
                 <form>
                     <section>
