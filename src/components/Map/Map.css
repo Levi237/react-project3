@@ -22,7 +22,7 @@
 .map {
   height: 60vh;
   width: 35vw;
-  padding: 5vh 0 0 0;
+  padding: 1rem 0 0 0;
   background-color: #FFF;
 }
 .pin {

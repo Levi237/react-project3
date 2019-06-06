@@ -26,6 +26,11 @@
     z-index: 90
 }
 
+.neuter:hover {
+    background-color: gray;
+    color: darkgray;
+}
+
 @media screen and (max-width: 800px) {
     .navBtn {
         padding: 0 1rem;

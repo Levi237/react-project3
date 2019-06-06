@@ -3,7 +3,6 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import { PacmanLoader } from 'react-spinners'
 // import moment from 'moment' and react-live-clock
 // import Particles from 'react-particles-???'  also can rip from json
-// virtualsky.lco.global/embed/custom.html // Alex Project
 // npm package react-globe for the globe
 
 
@@ -17,8 +16,10 @@ import EditUser from './components/User/EditUser'
 import Vsky from './components/Vsky/Vsky'
 import ParkNav from './components/Parks/Nav'
 import ParkShow from './components/Parks/ParkShow'
-import UserNav from './components/User/Nav'
-import Intro from './components/Intro/Intro'
+// import UserNav from './components/User/Nav'
+import Intro from './components/Content/Intro'
+
+import Modal from './components/Modal/Modal'
 
 import * as routes from './constants/routes'
 import './App.css';
@@ -35,13 +36,14 @@ class App extends Component {
 
   state = {
     currentUser: null,
-    alerts: [],
+    // alerts: [],
     parks: [],
     park: [],
     closureList: [],
     loading: true,
     lat: 37.8651,
     lng: -119.5383,
+    show: false,
   }
 
   doSetCurrentUser = user => {
@@ -81,43 +83,100 @@ class App extends Component {
     })  
   }
 
+
+
   componentDidMount(){
-    this.getParkNames().then(response => {
-      this.setState({
-        parks: response.data
+  //   this.getParkNames().then(response => {
+  //     this.setState({
+  //       parks: response.data
+  //     })
+  //   })
+  //       this.getAlerts().then(alerts => {
+  //       // this.getParkNames()
+  //       //   .then(names => {
+  //         // this.state.parks
+  //         // .forEach(names => {
+  //           let filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
+  //           // const list = filterAlerts.reduce((total, f) => {
+  //           //   names.data.forEach(a => {
+  //           //     if(a.parkCode === f.parkCode) {
+  //           //       total.push(Object.assign(f, a))
+  //           //       return total
+  //           //     }
+  //           //   })
+  //           //   return total
+  //           // }, [])
+  //           console.log("filter alerts ===========>", filterAlerts, "<=========== filter alerts")
+  //           this.setState({
+  //             closureList: filterAlerts,
+  //             loading: false
+  //           })
+  //         // })
+  //     })
+  //    //   this.getAlerts().then(alerts => {
+  //     //   this.getParkNames()
+  //     //     .then(names => {
+  //     //     // this.state.parks
+  //     //     // .forEach(names => {
+  //     //       const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
+  //     //       const list = filterAlerts.reduce((total, f) => {
+  //     //         names.data.forEach(a => {
+  //     //           if(a.parkCode === f.parkCode) {
+  //     //             total.push(Object.assign(f, a))
+  //     //             return total
+  //     //           }
+  //     //         })
+  //     //         return total
+  //     //       }, [])
+  //     //       this.setState({
+  //     //         closureList: list,
+  //     //         loading: false
+  //     //       })
+  //     //     })
+  //     // })
+  // }
+  this.getParkNames().then(response => {
+    this.setState({
+      parks: response.data,
+      
+    }, () => {
+    
+                  this.getAlerts().then(alerts => {
+                      let newlist = [];            
+                          this.state.parks.forEach(names => {
+                              const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
+                              const list = filterAlerts.reduce((total, f) => {
+                                                // debugger
+                                                // console.log(names, "<---------- names & f", f)
+
+                                        if(names.parkCode === f.parkCode) {
+                                          total.push(Object.assign(f, names))
+                                          console.log("it's a match ---------->", names.parkCode, f.parkCode)
+                                          console.log(total, "total")
+                                          newlist.push(total)
+                                          return total
+                                          
+                                        }
+
+                                return total
+                                
+                              }, []) 
+                            // newlist.push(list)
+                            console.log(list, "<----------- const list post return")
+                          })
+                          console.log(newlist, "< NEW LIST")
+                          newlist = [].concat.apply([], newlist)
+                          this.setState({
+                            closureList: [...newlist],
+                            loading: false
+
+                          })
+                          // }
+                          console.log(this.state.closureList, "<----- CHECK CLOSURELIST AT END OF FOREACH")
+                        })
+  })
+
       })
-    })
-    this.getAlerts().then(alerts => {
-      this.getParkNames()
-        .then(names => {
-        // this.state.parks
-        // .forEach(names => {
-          const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
-          const list = filterAlerts.reduce((total, f) => {
-            names.data.forEach(a => {
-              if(a.parkCode === f.parkCode) {
-                total.push(Object.assign(f, a))
-                return total
-              }
-            })
-            return total
-          }, [])
-          this.setState({
-            closureList: list,
-            loading: false
-          })
-        })
-    })
-  }
- 
-  getAlerts = async () => {
-    try {
-      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
-      const alertsJson = await alerts.json();
-        return alertsJson
-    } catch(err) {
-        return err
-    }
   }
 
   getParkNames = async () => {
@@ -129,16 +188,16 @@ class App extends Component {
         return err
     }
   }
-
-  // getCampgrounds = async () => {
-  //   try {
-  //     const parkNames = await fetch('https://developer.nps.gov/api/v1/campgrounds&limit=5?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
-  //     const nameJson = await parkNames.json();
-  //       return nameJson
-  //   } catch(err) {
-  //       return err
-  //   }
-  // }
+  
+  getAlerts = async () => {
+    try {
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alertsJson = await alerts.json();
+        return alertsJson
+    } catch(err) {
+        return err
+    }
+  }
 
   getMap = async () => {
     try {
@@ -162,6 +221,26 @@ class App extends Component {
         return err
     }
   }
+  
+  showModal = () => {
+    this.setState({
+      ...this.state,
+      show: !this.state.show
+    })
+  }
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////                                                                  //////////////////////////////
+//////////////////////////////                              RENDER(){                           //////////////////////////////
+//////////////////////////////                              RETURN()}                           //////////////////////////////
+//////////////////////////////                                                                  //////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   render(){
 
@@ -172,16 +251,16 @@ class App extends Component {
       <div className="grid-container">
 
         <div className="grid-ha">
-        {/* <Switch>
-        <Route exact path={routes.STAR} render={() => <Vsky />} />   
-
-        </Switch> */}
+        
+          <input type="button" onClick={this.showModal} value="Show Modal" />
+          <Modal show={this.state.show} onClose={this.showModal}>
+            <Vsky />
+          </Modal>
+        
         
         </div>
         <div className="grid-header">
-          {/* <h3><img src="../alert.png" alt="logo" />Park Alert</h3> */}
           { currentUser ? <div><h1>{currentUser.username}'s Tracker</h1></div> : <h3>Welcome to Park-instance</h3>}  
-        {/* <UserNav /> */}
         </div>
         
         <div className="grid-hb"/>     
@@ -194,88 +273,77 @@ class App extends Component {
 
         <div className="grid-ta"/>
         <div className="grid-title">
-          { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }
-          
-          <Switch>
-           
-          <Route exact path={routes.PARKS} render={() =>  <div><h1>National Parks</h1></div>} />
-            <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
-            <Route exact path={routes.HOME} render={() => currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
-            {/* <Route exact path={routes.LOGIN} render={() => currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} /> */}
-            {/* <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} /> */}
-            {/* { currentUser && 
-            <Route exact path={`${routes.USERS}/:id`} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from USER/:id TEST LINK</h1></div>}/>
-            } */}
-            {/* <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} /> */}
-            {/* <Route exact path={routes.EDIT} render={() => <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> }/> */}
-
+          { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }          
+        <Switch>    
+          <Route exact path={routes.PARKS} render={() =>
+              <div><h1>National Parks</h1></div>} />
+            <Route exact path={routes.ROOT} render={() =>
+               <div className="navAlert"></div>} />
+            <Route exact path={routes.HOME} render={() =>
+               currentUser ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
             <Route component={My404} />
-          </Switch>
+        </Switch>
         </div>
         <div className="grid-tb"/>
               
         <div className="grid-na"/>
         <div className="grid-nav">
-        <Switch>
-          { !loading &&
-            <Route exact path={routes.PARKS} render={() =>  <ParkNav parks={parks} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/> } />
-          }
-          { !loading &&
-            <Route exact path={routes.STAR} render={() =>  <ParkNav parks={parks} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/> } />
-          }
-        </Switch>
-          {loading ? 
-          <PacmanLoader loading={loading} color={"gold"} size={12}/> : <Nav currentUser={currentUser} logoutUser={this.logoutUser}/>
-          }
+          <ParkNav parks={parks} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/>
+          <Nav currentUser={currentUser} logoutUser={this.logoutUser} loading={loading}/>
         </div>
         <div className="grid-nb"/>
 
-        <div className="grid-menu">  
-          
+        <div className="grid-menu">            
           <Switch>
-            <Route exact path={routes.ROOT} render={() => <Intro />} />
-            { !loading &&  
-            <Route exact path={routes.PARKS} render={() =>  <ParkShow park={park} handleSkyMap={this.handleSkyMap}/>} />
-            }   
-            { !loading &&  
-            <Route exact path={routes.STAR} render={() =>  <ParkShow park={park} handleSkyMap={this.handleSkyMap}/>} />
-            }   
-            {/* <Route exact path={routes.PARKS} render={() =>  } /> */}
-            {/* <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> : <Intro />} /> */}
-            <Route exact path={routes.HOME} render={() => <Intro />} />
-            {/* <Route exact path={routes.EDIT} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> : <Intro />} /> */}
+            <Route exact path={routes.ROOT} render={() =>
+               <Intro />} />
+            {/* { !loading &&   */}
+            <Route exact path={routes.PARKS} render={() =>
+              <>
+                <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                
+                <input type="button" onClick={this.showModal} value="Enlarge Virtual Sky" />                 
+              </>} />
 
-            {/* <Route exact path={routes.LOGIN} render={() => <Intro />} /> */}
-            {/* <Route exact path={routes.REGISTER} render={() => <Intro />} /> */}
-            <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
-            <Route exact path={routes.ALERTS} render={() => <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
-            {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}
+            <Route exact path={routes.STAR} render={() =>
+              <>
+              <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                
+              <input type="button" onClick={this.showModal} value="Enlarge Virtual Sky" />                 
+            </>} />
+            <Route exact path={routes.HOME} render={() =>
+               <Intro />} />
+            <Route exact path={routes.TRACK} render={() =>
+               currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
+            <Route exact path={routes.ALERTS} render={() =>
+               <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
           </Switch>
-          {/* { currentUser ? '' : <Intro /> } */}
         </div>  
 
         <div className="grid-main">
         <Switch>     
-            <Route exact path={routes.STAR} render={() =>  <div className="vskyWindow"><Vsky lat={lat} lng={lng}/></div> } />
-            <Route exact path={routes.PARKS} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
+            <Route exact path={routes.STAR} render={() =>
+                <div className="vskyWindow"><Vsky lat={lat} lng={lng}/></div> } />
+            <Route exact path={routes.PARKS} render={() =>
+                <Map closureList={closureList} lat={lat} lng={lng}/>} />
             { currentUser
-            ? <Route exact path={routes.ALERTS} render={() => 
+            ? <Route exact path={routes.ALERTS} render={() =>
                 <><br/>
+                <span>Edit your Username/Password here</span><br />
                   <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> 
                   <Map closureList={closureList} lat={lat} lng={lng}/>
                 </> }/>
-            : <Route exact path={routes.ALERTS} render={() =>  
+            : <Route exact path={routes.ALERTS} render={() =>                
                 <><br />
+                <span>Login/Register here to see what parks are closed. <br /> Track parks on your own list to see when they open!</span><br />
                   <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
                   <br />
                   <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
                   <Map closureList={closureList} lat={lat} lng={lng}/>
                 </>} />
             }
-            <Route exact path={routes.HOME} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
-            <Route exact path={routes.TRACK} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
-            {/* <Route exact path={routes.LOGIN} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} />
-            <Route exact path={routes.REGISTER} render={() =>  <Map closureList={closureList} lat={lat} lng={lng}/>} /> */}
+            <Route exact path={routes.HOME} render={() =>
+                <Map closureList={closureList} lat={lat} lng={lng}/>} />
+            <Route exact path={routes.TRACK} render={() =>
+                <Map closureList={closureList} lat={lat} lng={lng}/>} />
         </Switch>
           
         </div>
@@ -294,25 +362,30 @@ class App extends Component {
 export default withRouter(App);
 
 
+
+
 // import React, {Component } from 'react';
 // import { Switch, Route, withRouter } from 'react-router-dom'
 // import { PacmanLoader } from 'react-spinners'
 // // import moment from 'moment' and react-live-clock
 // // import Particles from 'react-particles-???'  also can rip from json
-// // virtualsky.lco.global/embed/custom.html // Alex Project
 // // npm package react-globe for the globe
 
 
 // import Alerts from './components/Alerts/Alerts';
 // import Map from './components/Map/Map';
 // import Nav from './components/Nav/Nav';
-// import Login from './components/Login/Login';
-// import Register from './components/Register/Register';
-// import UserList from './components/UserList/UserList';
-// import EditUser from './components/EditUser/EditUser'
+// import Login from './components/User/Login';
+// import Register from './components/User/Register';
+// import UserList from './components/User/UserList';
+// import EditUser from './components/User/EditUser'
 // import Vsky from './components/Vsky/Vsky'
-
+// import ParkNav from './components/Parks/Nav'
+// import ParkShow from './components/Parks/ParkShow'
+// import UserNav from './components/User/Nav'
 // import Intro from './components/Intro/Intro'
+
+// import Modal from './components/Modal/Modal'
 
 // import * as routes from './constants/routes'
 // import './App.css';
@@ -329,13 +402,14 @@ export default withRouter(App);
 
 //   state = {
 //     currentUser: null,
+//     // alerts: [],
 //     parks: [],
-//     alerts: [],
-//     parkNames: [],
+//     park: [],
 //     closureList: [],
 //     loading: true,
 //     lat: 37.8651,
 //     lng: -119.5383,
+//     show: false,
 //   }
 
 //   doSetCurrentUser = user => {
@@ -351,46 +425,192 @@ export default withRouter(App);
 //     this.props.history.push(routes.HOME)
 //   }
 
+//   changeShowPark = (selectedPark) => {
+//     this.setState({
+//       park: selectedPark
+//     })
+//   }
+
 //   handleSetMap = e => {
+//     console.log(e, "<--------handlSetMap")
 //     let firstSplit = e.target.value.split(':')
 //     this.setState({
 //         lat: firstSplit[1].split(',')[0],
 //         lng: firstSplit[2]
 //     })  
 //   }
+//   handleSkyMap = e => {
+//     console.log(e, "<--------handleSkyMap")
+//     let firstSplit = e.split(':')
+//     console.log()
+//     this.setState({
+//         lat: firstSplit[1].split(',')[0],
+//         lng: firstSplit[2]
+//     })  
+//   }
+
+
 
 //   componentDidMount(){
-//     this.getAlerts().then(alerts => {
-//       // this.getParkNames()
-//       //   .then(names => {
-//         const { parks } = this.state
-//       //     const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
-//           const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
-//           const list = filterAlerts.reduce((total, f) => {
-//             // names.data.forEach(a => {            
-//             parks.forEach(a => {
-//               if(a.parkCode === f.parkCode) {
-//                 total.push(Object.assign(f, a))
-//                 return total
-//               }
-//             })
-//             return total
-//           }, [])
-//           this.setState({
-//             closureList: list,
-//             loading: false
-//           })
-//         })
+//     // this.getParkNames().then(response => {
+//     //   this.setState({
+//     //     parks: response.data
+//     //   })
 //     // })
-//     this.getParkNames()
-//     // this.setState({parks: nameJson})
+
+// this.getParkNames().then(response => {
+//     this.setState({
+//       parks: response.data
+//     }, () => {
+//     })
+//   })
+//       this.getAlerts().then(alerts => {
+//         // this.getParkNames()
+//         //   .then(names => {
+//           // debugger
+//           this.state.parks.map(names => {
+//             const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
+//             const list = filterAlerts.reduce((total, f) => {
+//               debugger
+//               console.log(names, "<---------- names & f", f)
+//                                                 names.forEach(a => {
+//                                                                     if(names.parkCode === f.parkCode) {
+//                                                                       total.push(Object.assign(f, names))
+//                                                                       console.log("it's a match ---------->", names.parkCode, f.parkCode)
+//                                                                       return total
+//                                                                     }
+//                                                 })
+//               return total
+//             }, [])
+//             this.setState({
+//               closureList: filterAlerts,
+//               loading: false
+//             })
+//           })
+//       }
+
+//   })
+
+    
+//       //   this.getAlerts().then(alerts => {
+//       //   // this.getParkNames()
+//       //   //   .then(names => {
+//       //     // this.state.parks
+//       //     // .forEach(names => {
+//       //       let filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
+//       //       // const list = filterAlerts.reduce((total, f) => {
+//       //       //   names.data.forEach(a => {
+//       //       //     if(a.parkCode === f.parkCode) {
+//       //       //       total.push(Object.assign(f, a))
+//       //       //       return total
+//       //       //     }
+//       //       //   })
+//       //       //   return total
+//       //       // }, [])
+//       //       console.log("filter alerts ===========>", filterAlerts, "<=========== filter alerts")
+//       //       this.setState({
+//       //         closureList: filterAlerts,
+//       //         loading: false
+//       //       })
+//       //     // })
+//       // })
 
 
+
+
+
+//      //   this.getAlerts().then(alerts => {
+//       //   this.getParkNames()
+//       //     .then(names => {
+//       //     // this.state.parks
+//       //     // .forEach(names => {
+//       //       const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
+//       //       const list = filterAlerts.reduce((total, f) => {
+//       //         names.data.forEach(a => {
+//       //           if(a.parkCode === f.parkCode) {
+//       //             total.push(Object.assign(f, a))
+//       //             return total
+//       //           }
+//       //         })
+//       //         return total
+//       //       }, [])
+//       //       this.setState({
+//       //         closureList: list,
+//       //         loading: false
+//       //       })
+//       //     })
+//       // })
+//   // }
+//   // this.getParkNames().then(response => {
+//   //   this.setState({
+//   //     parks: response.data
+//   //   // }, () => {
+//   //   })
+//   // })
+//   //     this.getAlerts().then(alerts => {
+//   //       // this.getParkNames()
+//   //       //   .then(names => {
+//   //         // debugger
+//   //         // this.state.parks.map(names => {
+//   //           const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
+//   //           // const list = filterAlerts.reduce((total, f) => {
+//   //             // debugger
+//   //             // console.log(names, "<---------- names & f", f)
+//   //                                               // names.forEach(a => {
+//   //                                                                   // if(names.parkCode === f.parkCode) {
+//   //                                                                   //   total.push(Object.assign(f, names))
+//   //                                                                   //   console.log("it's a match ---------->", names.parkCode, f.parkCode)
+//   //                                                                   //   return total
+//   //                                                                   // }
+//   //                                               // })
+//   //           //   return total
+//   //           // }, [])
+//   //           this.setState({
+//   //             closureList: filterAlerts,
+//   //             loading: false
+//   //           })
+//   //         })
+//   //     }
+
+//   // // })
+
+//   // alertsDidMount = () => {
+//   //     this.getAlerts().then(alerts => {
+//   //       // this.getParkNames()
+//   //       //   .then(names => {
+//   //         this.state.parks
+//   //         .forEach(names => {
+//   //           const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
+//   //           const list = filterAlerts.reduce((total, f) => {
+//   //             names.data.forEach(a => {
+//   //               if(a.parkCode === f.parkCode) {
+//   //                 total.push(Object.assign(f, a))
+//   //                 return total
+//   //               }
+//   //             })
+//   //             return total
+//   //           }, [])
+//   //           this.setState({
+//   //             closureList: list,
+//   //             loading: false
+//   //           })
+//   //         })
+//   //     })
+//   // }
+
+//   getParkNames = async () => {
+//     try {
+//       const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+//       const nameJson = await parkNames.json();
+//         return nameJson
+//     } catch(err) {
+//         return err
+//     }
 //   }
- 
+  
 //   getAlerts = async () => {
 //     try {
-//       const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+//       const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
 //       const alertsJson = await alerts.json();
 //         return alertsJson
 //     } catch(err) {
@@ -398,16 +618,7 @@ export default withRouter(App);
 //     }
 //   }
 
-//   getParkNames = async () => {
-//     try {
-//       const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
-//       const nameJson = await parkNames.json();
-//         // return nameJson
-//         this.setState({parks: nameJson})
-//     } catch(err) {
-//         return err
-//     }
-//   }
+
 
 //   // getCampgrounds = async () => {
 //   //   try {
@@ -429,12 +640,6 @@ export default withRouter(App);
 //     }
 //   }
 
-
-
-
-
-
-
 //   deleteItem = async (userListId, currentUserId, e) => {
 //     e.preventDefault();
 //     try {
@@ -447,23 +652,50 @@ export default withRouter(App);
 //         return err
 //     }
 //   }
+  
+//   showModal = () => {
+//     this.setState({
+//       ...this.state,
+//       show: !this.state.show
+//     })
+//   }
+
+
+
+
+
+
+
+// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////                                                                  //////////////////////////////
+// //////////////////////////////                              RENDER(){                           //////////////////////////////
+// //////////////////////////////                              RETURN()}                           //////////////////////////////
+// //////////////////////////////                                                                  //////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //   render(){
 
-//     const { closureList, currentUser, loading, lat, lng } = this.state
+//     const { closureList, currentUser, loading, lat, lng, parks, park } = this.state
 
 //     return (
 
 //       <div className="grid-container">
 
 //         <div className="grid-ha">
-//           <Switch>
-//             <Route exact path={routes.STAR} render={() => <Vsky />} />   
-//           </Switch>
+        
+//           <input type="button" onClick={this.showModal} value="Show Modal" />
+//           <Modal show={this.state.show} onClose={this.showModal}>
+//             <Vsky />
+//           </Modal>
+        
+        
 //         </div>
 //         <div className="grid-header">
-//           <h3><img src="../alert.png" alt="logo" />National Park Alert System</h3>
+//           {/* <h3><img src="../alert.png" alt="logo" />Park Alert</h3> */}
+//           { currentUser ? <div><h1>{currentUser.username}'s Tracker</h1></div> : <h3>Welcome to Park-instance</h3>}  
+//         {/* <UserNav /> */}
 //         </div>
+        
 //         <div className="grid-hb"/>     
 
 //         <div className="grid-image">
@@ -474,44 +706,87 @@ export default withRouter(App);
 
 //         <div className="grid-ta"/>
 //         <div className="grid-title">
-//           { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }
-//           { currentUser && <div><h1>{currentUser.username}'s Tracker</h1></div> }  
-//           <Switch>
-             
-//             <Route exact path={routes.ROOT} render={() => <div className="navAlert"></div>} />
-//             <Route exact path={routes.HOME} render={() => currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
-//             <Route exact path={routes.REGISTER} render={() => <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-//             {/* { currentUser && 
-//             <Route exact path={`${routes.USERS}/:id`} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from USER/:id TEST LINK</h1></div>}/>
-//             } */}
-//             <Route exact path={routes.LOGIN} render={() => <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />
-//             <Route exact path={routes.LOGOUT} render={() => <div className="navAlert"><h1>{currentUser.username}'s Tracker from LOGOUT</h1></div>} />
+//           { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }          
+//         <Switch>    
+//           <Route exact path={routes.PARKS} render={() =>
+//               <div><h1>National Parks</h1></div>} />
+//             <Route exact path={routes.ROOT} render={() =>
+//                <div className="navAlert"></div>} />
+//             <Route exact path={routes.HOME} render={() =>
+//                currentUser || loading ? '' : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
 //             <Route component={My404} />
-//           </Switch>
+//         </Switch>
 //         </div>
 //         <div className="grid-tb"/>
               
 //         <div className="grid-na"/>
 //         <div className="grid-nav">
+//         <Switch>
+//           { !loading &&
+//             <Route exact path={routes.PARKS} render={() =>
+//                 <ParkNav parks={parks} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/> } />
+//           }
+//           { !loading &&
+//             <Route exact path={routes.STAR} render={() =>
+//                 <ParkNav parks={parks} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/> } />
+//           }
+//         </Switch>
 //           {loading ? 
 //           <PacmanLoader loading={loading} color={"gold"} size={12}/> : <Nav currentUser={currentUser} logoutUser={this.logoutUser}/>
 //           }
 //         </div>
 //         <div className="grid-nb"/>
 
-//         <div className="grid-menu">  
-          
-//           <Switch>     
-//             <Route exact path={routes.HOME} render={() => currentUser ? <EditUser submitEditUser={this.submitEditUser} /> : <Intro />} />
-//             <Route exact path={routes.TRACK} render={() => currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
-//             <Route exact path={routes.ALERTS} render={() => <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
-//             {/* <Route exact path={`${routes.USERS}/${this.props.currentUser._id}`} render={() => currentUser && <div>Welcome to your user page.<br />There isn't much here to use yet</div>} /> */}
+//         <div className="grid-menu">            
+//           <Switch>
+//             <Route exact path={routes.ROOT} render={() =>
+//                <Intro />} />
+//             { !loading &&  
+//             <Route exact path={routes.PARKS} render={() =>
+//               <>
+//                 <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                
+//                 <input type="button" onClick={this.showModal} value="Enlarge Virtual Sky" />                 
+//               </>} />
+//             }   
+//             { !loading &&  
+//             <Route exact path={routes.STAR} render={() =>
+//                 <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>} />
+//             }   
+//             <Route exact path={routes.HOME} render={() =>
+//                <Intro />} />
+//             <Route exact path={routes.TRACK} render={() =>
+//                currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
+//             <Route exact path={routes.ALERTS} render={() =>
+//                <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap} parks={parks}/>} />
 //           </Switch>
-//           { currentUser ? '' : <Intro /> }
 //         </div>  
 
 //         <div className="grid-main">
-//           <Map closureList={closureList} lat={lat} lng={lng}/>
+//         <Switch>     
+//             <Route exact path={routes.STAR} render={() =>
+//                 <div className="vskyWindow"><Vsky lat={lat} lng={lng}/></div> } />
+//             <Route exact path={routes.PARKS} render={() =>
+//                 <Map closureList={closureList} lat={lat} lng={lng}/>} />
+//             { currentUser
+//             ? <Route exact path={routes.ALERTS} render={() =>
+//                 <><br/>
+//                   <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> 
+//                   <Map closureList={closureList} lat={lat} lng={lng}/>
+//                 </> }/>
+//             : <Route exact path={routes.ALERTS} render={() =>                
+//                 <><br />
+//                   <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+//                   <br />
+//                   <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+//                   <Map closureList={closureList} lat={lat} lng={lng}/>
+//                 </>} />
+//             }
+//             <Route exact path={routes.HOME} render={() =>
+//                 <Map closureList={closureList} lat={lat} lng={lng}/>} />
+//             <Route exact path={routes.TRACK} render={() =>
+//                 <Map closureList={closureList} lat={lat} lng={lng}/>} />
+//         </Switch>
+          
 //         </div>
 
 //         <div className="grid-fa" />

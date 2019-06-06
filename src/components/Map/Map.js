@@ -8,7 +8,7 @@ const PointGreen = ({ ping }) => <img className="greenPoint" alt="?" className="
 class Map extends Component {
 
     static defaultProps = {
-        zoom: 5
+        zoom: 12
     }
 
     render(){

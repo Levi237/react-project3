@@ -4,12 +4,15 @@ import { NavLink } from 'react-router-dom'
 import * as routes from '../../constants/routes'
 import './Nav.css'
 
-const Nav = ({currentUser, logoutUser}) => 
+const Nav = ({currentUser, logoutUser, loading}) => 
     <div className="navBox">
         <NavLink activeClassName="underline" className="navBtn" to={routes.HOME}>HOME</NavLink>
         <NavLink activeClassName="underline" className="navBtn" to={routes.PARKS}>PARKS</NavLink>
         <NavLink activeClassName="underline" className="navBtn" to={routes.STAR}>STAR MAP</NavLink>
-        <NavLink activeClassName="underline" className="navBtn" to={routes.ALERTS}>ALERTS</NavLink>
+        {loading ?
+        <NavLink to={routes.ALERTS} className="navBtn neuter">ALERTS</NavLink>
+        :<NavLink activeClassName="underline" className="navBtn" to={routes.ALERTS}>ALERTS</NavLink>
+        }
         { currentUser &&
          <NavLink activeClassName="underline" className="navBtn" to={routes.TRACK} >TRACK</NavLink> 
 
@@ -18,14 +21,6 @@ const Nav = ({currentUser, logoutUser}) =>
         <NavLink className="navBtn" to={routes.LOGOUT} onClick={logoutUser}>LOGOUT</NavLink> 
 
         }
-        {/* { currentUser 
-        ? <NavLink activeClassName="underline" className="navBtn" to={routes.EDIT} >EDIT USER</NavLink> 
-        : <NavLink activeClassName="underline" className="navBtn" to={routes.REGISTER} >SIGN UP</NavLink>
-        }
-        { currentUser 
-        ? <NavLink className="navBtn" to={routes.LOGOUT} onClick={logoutUser}>LOGOUT</NavLink> 
-        : <NavLink activeClassName="underline" className="navBtn" to={routes.LOGIN}>LOGIN</NavLink>
-        } */}
     </div>
 
 export default Nav

@@ -45,56 +45,56 @@ class Vnav extends Component {
                     <section>
                         Names: <br />
                         <select onChange={changeHandler} name='constellationLabels' value={constellationLabels}>
-                                <option value="false">Off</option>
-                                <option value="true">On</option>
+                            <option value="false">Off</option>
+                            <option value="true">On</option>
                         </select> 
                     </section>
                     
                     <section>
                         Gridlines: <br />
                         <select onChange={changeHandler} name='azimuthGridlines' value={azimuthGridlines}>
-                                <option value="false">Off</option>
-                                <option value="true">On</option>
+                            <option value="true">On</option>
+                            <option value="false">Off</option>
                         </select> 
                     </section>
                     
                     <section>
                         Meridian: <br />
                         <select onChange={changeHandler} name='showMeridian' value={showMeridian}>
-                                <option value="false">Off</option>
-                                <option value="true">On</option>
+                            <option value="false">Off</option>
+                            <option value="true">On</option>
                         </select> 
                     </section>
                     
                     <section>
-                        Names: <br />
+                        Stars: <br />
                         <select onChange={changeHandler} name='showStarLabels' value={showStarLabels}>
-                                <option value="false">Off</option>
-                                <option value="true">On</option>
+                            <option value="false">Off</option>
+                            <option value="true">On</option>
                         </select>                     
                     </section>
                     
                     <section>
                         Planets: <br />
                         <select onChange={changeHandler} name='showPlanets' value={showPlanets}>
-                                <option value="true">On</option>
-                                <option value="false">Off</option>
+                            <option value="true">On</option>
+                            <option value="false">Off</option>
                         </select> 
                     </section>
                     
                     <section>
                         Names: <br />
                         <select onChange={changeHandler} name='showPlanetLabels' value={showPlanetLabels}>
-                                <option value="true">On</option>
-                                <option value="false">Off</option>
+                            <option value="true">On</option>
+                            <option value="false">Off</option>
                         </select> 
                     </section>
                     
                     <section>
                         Orbits: <br />
                         <select onChange={changeHandler} name='showOrbits' value={showOrbits}>
-                                <option value="false">Off</option>
-                                <option value="true">On</option>
+                            <option value="false">Off</option>
+                            <option value="true">On</option>
                         </select>  
                     </section>
                     

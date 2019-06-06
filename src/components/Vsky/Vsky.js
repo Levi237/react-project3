@@ -6,14 +6,14 @@ class Vsky extends Component {
 
     state = {
         showplanets: true, 
-        showplanetlabels: true,
-        constellations: false, 
+        showplanetlabels: false,
+        constellations: true, 
         showstarlabels: false,
         showorbits: false, 
         meridian: false, 
-        gridlines_az: false,
+        azimuthGridlines: true,
         constellationlabels: false,
-        projection: 'equirectaungular',
+        projection: 'lambert',
     }
 
     changeHandler = e => {
@@ -47,15 +47,16 @@ showdate=true&\
 projection=${projection}&\
 showposition=true&\
 live=true&\
-color=black&\
+color=dodgerblue&\
 az=271.5665939727662`
 
         return (
 
             <div className="vskyContainer">
-            <Vnav changeHandler={this.changeHandler} /><br/>
+            
                 <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
-
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <Vnav changeHandler={this.changeHandler} />
             </div>
 
         )

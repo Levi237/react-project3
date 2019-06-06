@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
+import ParkInfo from '../Content/Parks'
+
 import './Park.css'
 
 class ParkShow extends Component {
@@ -8,12 +12,29 @@ class ParkShow extends Component {
     }
 
     render(){
-    const { park } = this.props
+    const { park, closureList } = this.props
+
+    console.log(closureList, "<=========closureList")
+    const alertOn = closureList.map((alert, i) => {
+        if (alert.id === park.id){
+
+            return <><h1>{park.name}<Link to={'/alertlist'}><img className="alertSign" key={i} src="./alert.png"/></Link></h1></>
+
+        }
+        
+    })
+    
         return (
+
             <>
+            { !park.name && 
+            <ParkInfo />
+
+            }
             { park.name &&
             <>
-            <h1>{park.name}</h1>
+            {alertOn}
+            
             <h2>{park.designation}</h2>
             <h3>{park.fullName}, {park.states}</h3>
             <p>{park.description}</p>
@@ -21,7 +42,7 @@ class ParkShow extends Component {
             <p>{park.weatherInfo}</p>
             </>
             }
-
+            
             </>
         )
     }

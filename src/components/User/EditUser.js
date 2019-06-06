@@ -16,12 +16,9 @@ export class EditUser extends Component {
 
     submitEditUser = async (e) => {
         e.preventDefault();
-        console.log(this.state.username, '<---------this.state.username===============<<<<<<')
-        console.log(this.state, "<--------------this.state")
-        console.log(e.target.username, '<-----------e.target.username');
-        let userid = this.props.currentUser
+        const { currentUser, doSetCurrentUser } = this.props
         try {
-            const editUser = await fetch(process.env.REACT_APP_API+'/api/v1/'+userid._id+'/edit', {
+            const editUser = await fetch(process.env.REACT_APP_API+'/api/v1/'+currentUser._id+'/edit', {
                 method: 'PUT',
                 credentials: 'include',
                 body: JSON.stringify(this.state),
@@ -29,11 +26,9 @@ export class EditUser extends Component {
                     'Content-type' : 'application/json'
                 }
               })
-              console.log(editUser, "<-----------editUser in submitEditUser")
               const parsedResponse = await editUser.json();
-              console.log(parsedResponse, "<==========parsed response from submitEditUser")
               if(parsedResponse.data) {
-                  this.props.doSetCurrentUser(parsedResponse.data)
+                  doSetCurrentUser(parsedResponse.data)
                       this.setState({
                           logged: true,
                       })
