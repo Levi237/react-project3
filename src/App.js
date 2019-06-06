@@ -260,10 +260,13 @@ class App extends Component {
 
         <div className="grid-main">
         <Switch>     
+          {!show &&
+
             <Route exact path={routes.STAR} render={() =>
-                <div className="vskyWindow"><Vsky lat={lat} lng={lng}/></div> } />
+              <div className="vskyWindow"><Vsky lat={lat} lng={lng}/></div> } />
+            }
             <Route exact path={routes.PARKS} render={() =>
-                <Map closureList={closureList} lat={lat} lng={lng}/>} />
+              <Map closureList={closureList} lat={lat} lng={lng}/>} />
             { currentUser
             ? <Route exact path={routes.ALERTS} render={() =>
                 <><br/>

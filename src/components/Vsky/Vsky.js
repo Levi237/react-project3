@@ -67,37 +67,8 @@ az=271.5665939727662`
         return (
 
             <div className="vskyContainer">
-            
-                <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                {/* <Vnav setToggle={this.setToggle} changeHandler={this.changeHandler} /> */}
-
-
-
-            <div className="vskyForm">
-
                 <form>
-                    <section>
-
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellations" value="Constellations"/>
-
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellationLabels" value="constellationLabels"/>
-
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="azimuthGridlines" value="azimuthGridlines"/>
-                        
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showMeridian" value="showMeridian"/>
-
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showStarLabels" value="showStarLabels"/>
-
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanets" value="showPlanets"/>
-
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanetLabels" value="showPlanetLabels"/>
-
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showOrbits" value="showOrbits"/>
-
-                    </section>
-                    
-                    <section>
+                    <section className="projectionD">
                         <select defaultValue={'DEFAULT'} onChange={this.changeHandler} name='projection' value={projection}>
                             <option value="DEFAULT" disabled>--- Select Projection ---</option>
                             <option value="equirectaungular">equirectaungular</option> 
@@ -110,6 +81,26 @@ az=271.5665939727662`
                         </select>      
                     </section>                        
                 </form>
+                <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                {/* <Vnav setToggle={this.setToggle} changeHandler={this.changeHandler} /> */}
+
+
+
+            <div className="vskyForm">
+
+                <form>
+                    <section>
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellations" value="Constellations"/>
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellationLabels" value="Names"/>
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="azimuthGridlines" value="Gridlines"/>
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showMeridian" value="Meridian"/>
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showStarLabels" value="Stars"/>
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanets" value="Planets"/>
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanetLabels" value="Planet Names"/>
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showOrbits" value="Orbits"/>
+                    </section>
+                    </form>
 
             </div>
 
