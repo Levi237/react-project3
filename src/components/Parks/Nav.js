@@ -6,15 +6,22 @@ class ParkNav extends Component {
 
 //     }
     render(){
-        const { parks, changeShowPark, handleSkyMap } = this.props
-        const options = parks.map((park, i) => { return <option key={i} value={i}>{park.name} | {park.states}</option>})
+        const { parks, changeShowPark, handleSkyMap, park } = this.props
+        console.log(park, "<park")
+        console.log(parks, "<parksssssssss")
+        const options = parks.map((p, i) => { return <option key={i} value={i}>{p.name} - {p.states}</option>})
 
         return(
             <>
             <div className="parkMenu">
                 <form>
                     <select  defaultValue={'DEFAULT'} onChange={(e) => {changeShowPark(parks[e.target.value]); handleSkyMap(parks[e.target.value].latLong)}}>
-                        <option value="DEFAULT" disabled>--- Select a Park ---</option>
+                        {/* { park.name 
+                        ? <option value="DEFAULT" disabled>{park.name} | {park.states}</option> */}
+                        {/* : <option value="DEFAULT" disabled>--- Select a Park ---</option> */}
+                         <option value="DEFAULT" disabled>--- Select a Park ---</option>
+                        {/* } */}
+                        
                         {options}
                     </select>
                 </form>

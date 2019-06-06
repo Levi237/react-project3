@@ -1,6 +1,6 @@
 
 html {
-  height: 100vh;
+  height: 100% center;
 }
 
 body {
@@ -11,6 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
 
 code {
@@ -83,10 +84,6 @@ input {
   margin-left: -10px;
 }
 
-.close {
-  z-index: 9999999999999;
-  position: absolute;
-}
 
 /*************************** ShowUser ***************************/
 .showUser {

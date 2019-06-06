@@ -189,14 +189,14 @@ class App extends Component {
     return (
 
       <div className="grid-container">
-
+          <Modal show={show} onClose={this.showModal}>
+            <Vsky lat={lat} lng={lng} show={show} park={park} parks={parks} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/>
+          </Modal>
         <div className="grid-ha">
         
           <input type="button" onClick={this.showModal} value="Show Modal" />
           
-          <Modal show={show} onClose={this.showModal}>
-            <Vsky />
-          </Modal>
+
         
         
         </div>
@@ -229,7 +229,7 @@ class App extends Component {
               
         <div className="grid-na"/>
         <div className="grid-nav">
-          <ParkNav parks={parks} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/>
+          <ParkNav parks={parks} park={park} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/>
           <Nav currentUser={currentUser} logoutUser={this.logoutUser} loading={loading}/>
         </div>
         <div className="grid-nb"/>
@@ -260,10 +260,10 @@ class App extends Component {
 
         <div className="grid-main">
         <Switch>     
-          {!show &&
+          { !show &&
 
             <Route exact path={routes.STAR} render={() =>
-              <div className="vskyWindow"><Vsky lat={lat} lng={lng}/></div> } />
+              <div className="vskyWindow"><Vsky show={show} lat={lat} lng={lng} park={park} parks={parks}/></div> } />
             }
             <Route exact path={routes.PARKS} render={() =>
               <Map closureList={closureList} lat={lat} lng={lng}/>} />

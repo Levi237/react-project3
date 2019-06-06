@@ -10,15 +10,15 @@ export default class Model extends Component {
         }
         return(
             <div className="vskyModal">
-                <h1>
+                
                     {this.props.children}
 
                     <div>
                         <button className="close" onClick={(e) => {this.onClose(e)}}>
-                            Close
+                            X
                         </button>
                     </div>
-                </h1>
+                
             </div>
         )
     }

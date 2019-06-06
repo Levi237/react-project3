@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Vnav from './Nav'
 import './Vsky.css'
+import ParkInfo from '../Content/Parks';
+import ParkNav from '../Parks/Nav';
 
 class Vsky extends Component {
 
@@ -9,7 +11,9 @@ class Vsky extends Component {
         showplanetlabels: false,
         constellations: true, 
         showstarlabels: false,
-        showorbits: false, 
+        showorbits: false,
+        meteorshowers: true, 
+        negative: false,
         meridian: false, 
         azimuthGridlines: true,
         constellationlabels: false,
@@ -40,8 +44,8 @@ class Vsky extends Component {
     //           </Modal>
     render() {
 
-    const { showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
-    const { lat, lng, changeHandler  } = this.props    
+    const { showPlanets, meteorshowers, negative, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
+    const { lat, lng, park, parks, handleSkyMap, changeShowPark, show  } = this.props    
 
     const settings=`longitude=${lng}&\
 latitude=${lat}&\
@@ -51,8 +55,10 @@ constellations=${constellations}&\
 showstarlabels=${showStarLabels}&\
 scalestars=1.3&\
 showorbits=${showOrbits}&\
+meteorshowers=${meteorshowers}&\
 meridian=${showMeridian}&\
 gridlines_az=${azimuthGridlines}&\
+negative=${negative}&\
 constellationlabels=${constellationLabels}&\
 showdate=true&\
 projection=${projection}&\
@@ -61,17 +67,16 @@ live=true&\
 color=dodgerblue&\
 az=271.5665939727662`
 
-// const { showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
-// const { changeHandler } = this.props
-
+console.log(park.name, "<---------- park on Vsky")
         return (
 
             <div className="vskyContainer">
+
                 <form>
-                    <section className="projectionD">
-                        <select defaultValue={'DEFAULT'} onChange={this.changeHandler} name='projection' value={projection}>
-                            <option value="DEFAULT" disabled>--- Select Projection ---</option>
-                            <option value="equirectaungular">equirectaungular</option> 
+
+                    <section className="projection">
+                        <select onChange={this.changeHandler} name='projection' value={projection}>
+                            <option value="equirectaungular">Round</option> 
                             <option value="stereo">Stereo</option>
                             <option value="polar">polar</option>
                             <option value="lambert">lambert</option>
@@ -79,10 +84,15 @@ az=271.5665939727662`
                             <option value="planechart">planechart</option>
                             <option value="gnomic">gnomic</option>
                         </select>      
-                    </section>                        
+                    </section>   
+                    {/* { park.name && */}
+                { show &&
+                <span><ParkNav park={park} parks={parks} handleSkyMap={handleSkyMap} changeShowPark={changeShowPark}/></span>
+                }
+                {/* }                      */}
                 </form>
                 <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
                 {/* <Vnav setToggle={this.setToggle} changeHandler={this.changeHandler} /> */}
 
 
@@ -92,20 +102,22 @@ az=271.5665939727662`
                 <form>
                     <section>
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellations" value="Constellations"/>
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellationLabels" value="Names"/>
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellationLabels" value="Const Names"/>
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="azimuthGridlines" value="Gridlines"/>
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="showMeridian" value="Meridian"/>
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="showStarLabels" value="Stars"/>
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanets" value="Planets"/>
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanetLabels" value="Planet Names"/>
                         <input type="button" onClick={(e) => {this.setToggle(e)}} name="showOrbits" value="Orbits"/>
+                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="negative" value="Negative"/>
                     </section>
                     </form>
 
             </div>
+        
 
 
-            </div>
+             </div>
 
         )
     }
