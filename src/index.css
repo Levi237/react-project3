@@ -14,6 +14,10 @@ body {
   height: 100%;
 }
 
+*:focus {
+  outline: 0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -51,6 +55,11 @@ input, button {
 input {
   width: 9em;
   height: 1rem;
+}
+
+.pacman {
+  float: right;
+  width: 40px;
 }
 
 .selected {

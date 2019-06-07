@@ -95,10 +95,6 @@ console.log(park.name, "<---------- park on Vsky")
                 }
                 <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
 
-                {/* <Vnav setToggle={this.setToggle} changeHandler={this.changeHandler} /> */}
-
-
-                {/* <div className={"btn-group pull-right " + (this.props.showBulkActions ? 'show' : 'hidden')}> */}
             <div className={(show ? "largeStarBtn" : "smallStarBtn")}>
 
                 <form>

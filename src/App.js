@@ -80,8 +80,6 @@ class App extends Component {
     })  
   }
 
-
-
   componentDidMount(){
   
     this.getParkNames().then(response => {
@@ -126,7 +124,7 @@ class App extends Component {
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=500?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
@@ -194,11 +192,8 @@ class App extends Component {
           </Modal>
         <div className="grid-ha">
         
-          <input type="button" onClick={this.showModal} value="Show Modal" />
-          
+          {/* <input type="button" onClick={this.showModal} value="Show Modal" /> */}
 
-        
-        
         </div>
         <div className="grid-header">
           { currentUser ? <div><h1>{currentUser.username}'s Tracker</h1></div> : <h3>Welcome to Park-instance</h3>}  
@@ -240,14 +235,19 @@ class App extends Component {
                <Intro />} />
             <Route exact path={routes.PARKS} render={() =>
               <>
+              {loading
+              ?<div className="pacman"><PacmanLoader color={'gold'} size={10}/></div>
+              :<input className="vskyModalBtn" type="button" onClick={this.showModal} value="Full Star Map" />
+              }
                 <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                
-                <input type="button" onClick={this.showModal} value="Enlarge Virtual Sky" />                 
+                {/* <input type="button" onClick={this.showModal} value="Enlarge Virtual Sky" />                  */}
               </>} />
 
             <Route exact path={routes.STAR} render={() =>
               <>
+              <input className="vskyModalBtn" type="button" onClick={this.showModal} value="Full Star Map" />
               <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                
-              <input type="button" onClick={this.showModal} value="Enlarge Virtual Sky" />                 
+                               
             </>} />
             <Route exact path={routes.HOME} render={() =>
                <Intro />} />
@@ -260,8 +260,7 @@ class App extends Component {
 
         <div className="grid-main">
         <Switch>     
-          { !show &&
-
+            { !show &&
             <Route exact path={routes.STAR} render={() =>
               <div className="vskyWindow"><Vsky show={show} lat={lat} lng={lng} park={park} parks={parks}/></div> } />
             }

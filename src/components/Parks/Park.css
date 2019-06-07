@@ -3,3 +3,14 @@
     z-index: 500000000;
     position: absolute;
 }
+
+.parkMenu > form > select {
+    text-align: left;
+    z-index: 500000000;
+    /* position: absolute; */
+    font-size: 1rem;
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+}
+
