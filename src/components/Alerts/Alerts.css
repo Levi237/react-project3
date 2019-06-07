@@ -17,7 +17,7 @@
 .title:hover {
   text-decoration: none;
   cursor: pointer;
-  background-color: rgb(0, 0, 0, .1);
+  background-color: rgb(0, 0, 0, .2);
   border-radius: 5px;
   padding: 5px;
   margin: -5px;
