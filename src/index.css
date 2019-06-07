@@ -231,7 +231,7 @@ input {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1rem;
   background: transparent;
-  padding: 2em;
+  padding: 2.5vw;
   overflow: auto;
   max-height: 100vh;
   min-height: 70vh;

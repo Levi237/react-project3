@@ -7,10 +7,11 @@
 .parkMenu > form > select {
     text-align: left;
     z-index: 500000000;
+    max-width: 35vw;
     /* position: absolute; */
     font-size: 1rem;
     color: white;
     background: transparent;
-    border: 1px solid white;
+    /* border: 1px solid white; */
 }
 

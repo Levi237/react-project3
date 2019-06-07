@@ -88,43 +88,37 @@ class App extends Component {
         
       }, () => {
     
-                  this.getAlerts().then(alerts => {
-                      let newlist = [];            
-                          this.state.parks.forEach(names => {
-                              const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
-                              const list = filterAlerts.reduce((total, f) => {
+      this.getAlerts().then(alerts => {
+          let newlist = [];            
+              this.state.parks.forEach(names => {
+                  const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
+                  // const list = filterAlerts.reduce((total, f) => {
+                  filterAlerts.reduce((total, f) => {
+                      if(names.parkCode === f.parkCode) {
+                        total.push(Object.assign(f, names))
+                        newlist.push(total)
+                        return total 
+                      }
+                    return total                             
+                  }, []) 
+              })
+              console.log(newlist, "< NEW LIST")
+              newlist = [].concat.apply([], newlist)
+              this.setState({
+                closureList: [...newlist],
+                loading: false
 
-                                        if(names.parkCode === f.parkCode) {
-                                          total.push(Object.assign(f, names))
-                                          console.log("it's a match ---------->", names.parkCode, f.parkCode)
-                                          console.log(total, "total")
-                                          newlist.push(total)
-                                          return total
-                                          
-                                        }
+              })
 
-                                return total
-                                
-                              }, []) 
-
-                          })
-                          console.log(newlist, "< NEW LIST")
-                          newlist = [].concat.apply([], newlist)
-                          this.setState({
-                            closureList: [...newlist],
-                            loading: false
-
-                          })
-
-                        })
-  })
-
+        })
       })
+
+    })
   }
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=500?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Vnav from './Nav'
+
 import './Vsky.css'
-import ParkInfo from '../Content/Parks';
+
 import ParkNav from '../Parks/Nav';
 
 class Vsky extends Component {
@@ -32,16 +32,6 @@ class Vsky extends Component {
         })
     }
     
-    // showModal = () => {
-    //     this.setState({
-    //       ...this.state,
-    //       [show]: !this.state.show
-    //     })
-    //   }
-    // <input type="button" onClick={this.showModal} value="Show Modal" />
-    //           <Modal show={this.state.show} onClose={this.showModal}>
-    //             <Vsky />
-    //           </Modal>
     render() {
 
     const { showPlanets, meteorshowers, negative, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.state
@@ -67,7 +57,7 @@ live=true&\
 color=dodgerblue&\
 az=271.5665939727662`
 
-console.log(park.name, "<---------- park on Vsky")
+// console.log(park.name, "<---------- park on Vsky")
         return (
 
             <div className={(show ? "vskyLargeContainer" : "vskySmallContainer")}>

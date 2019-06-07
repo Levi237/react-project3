@@ -7,10 +7,12 @@ import './Park.css'
 
 class ParkShow extends Component {
 
-    showOnMap = (e) => {
-        e.preventDefault()
+    // showOnMap = (e) => {
+    //     e.preventDefault()
+    // }
+    toggle = e => {
+        e.currentTarget.classList.toggle('active');
     }
-
     render(){
     const { park, closureList } = this.props
 
@@ -37,8 +39,16 @@ class ParkShow extends Component {
             <h2>{park.designation}</h2>
             <h3>{park.fullName}, {park.states}</h3>
             <p>{park.description}</p>
-            Weather:
-            <p>{park.weatherInfo}</p>
+
+            <div className="title" onClick={this.toggle}>
+                                <button>Seasonal Weather:</button>                            
+                        <div className="details">
+                        <p>{park.weatherInfo}</p>
+                        </div>
+                    </div>
+
+        
+            
             </>
             }
             

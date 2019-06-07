@@ -20,9 +20,10 @@
 }
 
 .map {
+  transition: all .3s ease-in-out;
   height: 60vh;
-  width: 35vw;
-  padding: 1rem 0 0 0;
+  width: 30vw;
+  /* padding: 1rem 0 0 0; */
   background-color: #FFF;
 }
 .pin {

@@ -9,7 +9,7 @@ class ParkNav extends Component {
         const { parks, changeShowPark, handleSkyMap, park } = this.props
         // console.log(park, "<park")
         // console.log(parks, "<parksssssssss")
-        const options = parks.map((p, i) => { return <option key={i} value={i}>{p.name} - {p.states}</option>})
+        let options = parks.map((p, i) => { return <option key={i} value={i}>{p.name} - {p.states}</option>})
 
         return(
             <>
