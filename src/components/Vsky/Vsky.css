@@ -36,159 +36,134 @@
 }
 
 .vskySmallContainer > iframe {
-    font-size: 2rem;
+  font-size: 2rem;
 
 }
 
 .vskyLargeContainer > iframe {
-  position: fixed;
-    font-size: 2rem;
+position: fixed;
+  font-size: 2rem;
 
 }
+
+
+.vskyLargeContainer > form > span > div> form > select, .projection > select  {
+  color: #fff;
   
+  background-color: rgb(0,0,0, .5);
+}
 
-  .vskyLargeContainer > form > span > div> form > select, .projection > select  {
-    color: #fff;
-    
-    background-color: rgb(0,0,0, .5);
-  }
+.vskyLargeContainer > form > span > div> form > select {
+  font-size: 1.5rem;
+  box-shadow: inset 0px 0px 8px 4px rgb(125, 129, 181);
+  text-align-last:center;
+}
 
-  .vskyLargeContainer > form > span > div> form > select {
-    font-size: 1.5rem;
-    box-shadow: inset 0px 0px 8px 4px rgb(125, 129, 181);
-    text-align-last:center;
-  }
+.vskyLargeContainer > form > span > div {
+  /* This affects the header in the Large View of Virtual Sky */
+  z-index: 99999999999999999999999999999999999999999999999999999999999999999999999999999999;
+  position: sticky;
+  float: right;
+  margin-right: 30vw;
+  width: 40vw;
+  font-size: 2rem;
+  text-align: center;
+}
 
-  .vskyLargeContainer > form > span > div {
-    /* This affects the header in the Large View of Virtual Sky */
-    z-index: 99999999999999999999999999999999999999999999999999999999999999999999999999999999;
-    position: sticky;
-    float: right;
-    margin-right: 30vw;
-    width: 40vw;
-    font-size: 2rem;
-    text-align: center;
-  }
+.vskyModalBtn {
+  transition: all .3s ease-in-out;
+  float: right;
+  height: 2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid midnightblue;
+}
 
-  .vskyModalBtn {
-    transition: all .3s ease-in-out;
-    float: right;
-    height: 2rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid midnightblue;
-  }
-
-  .vskyModalBtn:hover {
-    transition: all .3s ease-in-out;
-    background-color: rgb(0,0,0, .5);
-    color: white;
-    /* height: 3.2rem;
-    font-size: 1.1rem; */
-    background-image: linear-gradient(to right, rgb(211, 211, 211, .3), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1),  rgb(211, 211, 211, .3));
-    
-  }
-
-  .largeStarBtn, .smallStarBtn {
-    /* background: yellow; */
-    /* text-align: right; */
-    width: 100%; 
-  }
+.vskyModalBtn:hover {
+  transition: all .3s ease-in-out;
+  background-color: rgb(0,0,0, .5);
+  color: white;
+  /* height: 3.2rem;
+  font-size: 1.1rem; */
+  background-image: linear-gradient(to right, rgb(211, 211, 211, .3), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1),  rgb(211, 211, 211, .3));
   
-  .largeStarBtn > form, .smallStarBtn > form {
+}
 
-    bottom: 0;
-    /* height: */
-    z-index: 500000;
-    margin-right: auto;
-    margin-left: auto;
-    /* font-size: 1rem; */
+.largeStarBtn, .smallStarBtn {
+  width: 100%; 
+}
+
+.largeStarBtn > form, .smallStarBtn > form {
+  bottom: 0;
+  z-index: 500000;
+  margin-right: auto;
+  margin-left: auto;
+}
+.largeStarBtn > form {
+  position: fixed;
+  z-index: 500000;
+  margin-right: auto;
+  margin-left: auto;
+}
+.smallStarBtn > form {
+  position: relative;
+  z-index: 500000;
+}
+.largeStarBtn > form > section, .smallStarBtn > form > section {
+
+  /* display: inline-block; */
+}
+.largeStarBtn > form > section > input {
+  margin: 0;
+  /* background: green; */
+  border: none;
+  width: 11.1vw;
+  height: 4rem;
+  font-size: 1.2rem;
+  background-color: rgb(0,0,0, .5);
+  color: #FFF;
+}
+
+.smallStarBtn > form > section > input {
+  margin: 0;
+  background: green;
+  border: none;
+  width: 6vw;
+  height: 2rem;
+  font-size: .6rem;
+  display: inline-block;
+  background-color: rgb(0,0,0, .5);
+  color: #FFF;
+}
+
+.smallStarBtn > form > section > input:hover {
+  /* margin: 0; */
+  transition: all .3s;
+  background-image: linear-gradient(to right, rgb(211, 211, 211, .3), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1),  rgb(211, 211, 211, .3));
   
-  }
-  .largeStarBtn > form {
-    position: fixed;
-    /* bottom: 0; */
-    /* height: */
-    z-index: 500000;
-    margin-right: auto;
-    margin-left: auto;
-    /* font-size: 1rem; */
-  
-  }
-  .smallStarBtn > form {
-    position: relative;
-    /* bottom: 0; */
-    /* height: */
-    z-index: 500000;
-    /* margin-right: auto;
-    margin-left: auto; */
-    /* font-size: 1rem; */
-  
-  }
-  .largeStarBtn > form > section, .smallStarBtn > form > section {
-    /* background: purple; */
-    /* display: inline-block; */
-  }
-  .largeStarBtn > form > section > input {
-    margin: 0;
-    /* background: green; */
-    border: none;
-    width: 11.1vw;
-    height: 4rem;
-    font-size: 1.2rem;
-    background-color: rgb(0,0,0, .5);
-    color: #FFF;
-  }
-
-  .smallStarBtn > form > section > input {
-    margin: 0;
-    background: green;
-    border: none;
-    width: 6vw;
-    height: 2rem;
-    font-size: .6rem;
-    display: inline-block;
-    background-color: rgb(0,0,0, .5);
-    color: #FFF;
-  }
-
-  .smallStarBtn > form > section > input:hover {
-    margin: 0;
-    transition: all .3s;
-    background-image: linear-gradient(to right, rgb(211, 211, 211, .3), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1),  rgb(211, 211, 211, .3));
-    
-    /* background: green; */
-    border: none;
-    width: 7vw;
-    height: 2rem;
-    font-size: .8rem;
-    display: inline-block;
-    /* background-color: rgb(0,0,0, .5); */
-    color: #FFF;
-  }
+  /* background: green; */
+  /* border: none; */
+  /* width: 7vw; */
+  /* height: 2rem;
+  font-size: .8rem; */
+  /* display: inline-block; */
+  /* background-color: rgb(0,0,0, .5); */
+  /* color: #FFF; */
+}
 
 
-  .largeStarBtn > form > section > input:hover,{
-    /* transform: 2s; */
-    /* color: black; */
-    text-shadow: 1px 2px black;
-    background-image: radial-gradient( transparent, rgb(125, 129, 181), transparent, transparent);
-    /* transition: 1s ease-in-out; */
-    border: none;
+.largeStarBtn > form > section > input:hover{
+  /* transform: 2s; */
+  /* color: black; */
+  text-shadow: 1px 2px black;
+  background-image: radial-gradient( transparent, rgb(125, 129, 181), transparent, transparent);
+  /* transition: 1s ease-in-out; */
+  /* border: none; */
 
-  }
-  /* .largeStarBtn > form > section > input:active { */
-    /* color: dodgerblue; */
-    /* border: none; */
-
-  /* } */
-  
-
-
+}
 
 
 .projection {
-/* background: orange; */
   float: right;
   position: sticky;
   width: 20vw;
@@ -198,28 +173,15 @@
 }
 .projection > select {
   text-align-last: center;
-  /* padding-right: 5px; */
   border: none;
-  /* background-color: transparent; */
-  /* color: rgb(125, 129, 181); */
   font-size: 1.5rem;
   margin: 5px;
   box-shadow: inset 0px 0px 6px 2px rgb(125, 129, 181);
 }
 .projection > select:focus {
-  /* display: none; */
   border: none;
-  /* background-image: radial-gradient( transparent, rgb(125, 129, 181), transparent, transparent); */
-  /* background-color: rgb(125, 129, 181); */
   box-shadow: inset 0px 0px 6px 2px rgb(125, 129, 181);
-  /* color: #FFF; */
 }
-
-/* .projection > select > option:active {
-  border: none;
-  background-color: transparent;
-  color: #FFF;
-} */
 
 
 .close {
@@ -231,14 +193,13 @@
   border-radius: 100px;
   border: 2px solid #FFF;
   font-weight: 800;
-  /* border-heig/t: */
   height: 24px;
   width: 24px;
   padding: 0;
   background-color: transparent;
   color: #FFF;
 }
+
 .close:hover {
-/* background-color: dodgerblue; */
 box-shadow: inset 0px 0px 6px 4px rgb(125, 129, 181);
 }
