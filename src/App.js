@@ -215,9 +215,11 @@ class App extends Component {
           { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }          
         <Switch>    
           <Route exact path={routes.PARKS} render={() =>
-              park.name ? <div><h1>{park.name}</h1></div> : <div><h1>National Parks</h1></div>} />
+              <div><h1>National Parks</h1></div>} />
           <Route exact path={routes.STAR} render={() =>
-              park.name ? <div><h1>{park.name}</h1></div> : <div><h1>National Parks</h1></div>} />              
+              <div><h1>National Parks</h1></div>} />     
+          <Route exact path={routes.ALERTS} render={() =>
+              park.name ? <div><h1>{park.name}'s Park Alerts</h1></div> : <div><h1>Park Alerts</h1></div>} />            
             <Route exact path={routes.ROOT} render={() =>
                <div className="navAlert"></div>} />
             <Route exact path={routes.HOME} render={() =>

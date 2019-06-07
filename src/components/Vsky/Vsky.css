@@ -197,7 +197,7 @@
   z-index: 9999999999999999999999999999999999999999999999999999999999999999999999999999;
 }
 .projection > select {
-  text-align-last: right;
+  text-align-last: center;
   /* padding-right: 5px; */
   border: none;
   /* background-color: transparent; */

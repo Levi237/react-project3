@@ -37,7 +37,7 @@ class ParkShow extends Component {
             {alertOn}
             
             <h2>{park.designation}</h2>
-            <h3>{park.fullName}, {park.states}</h3>
+            <h3><a className="npsLink" href={park.url} target="_blank" rel="noopener noreferrer">{park.fullName}, {park.states}</a></h3>
             <p>{park.description}</p>
 
             <div className="title" onClick={this.toggle}>
