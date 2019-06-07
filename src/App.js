@@ -198,14 +198,14 @@ class App extends Component {
         <div className="grid-image">
           <div className="image-holder">
           <Switch>
+            <Route exact path={routes.HOME} render={() =>
+            <img src="../devils-postpile.png" alt="devils postpile" title="Devil's Postpile"/>}/>
           <Route exact path={routes.PARKS} render={() =>
-          <img src="../header-yosemite.png" alt="yosemite" title="5 days Aug 2018"/> }/>
-          <Route exact path={routes.STAR} render={() =>
               <img src="../goblin-valley.png" alt="goblin valley" title="with Auntie Toy"/>}/>
-          <Route exact path={routes.HOME} render={() =>
-              <img src="../devils-postpile.png" alt="devils postpile" title="Devil's Postpile"/>}/>
+          <Route exact path={routes.STAR} render={() =>
+            <img src="../header-yosemite.png" alt="yosemite" title="5 days Aug 2018"/> }/>
           <Route exact path={routes.ALERTS} render={() =>
-              <img src="../san-raphael.png" alt="devils postpile" title="San Rapahel Reefs, Utah"/>}/>
+              <img src="../capital-reef.png" alt="capital reef" title="Capital Reef, Utah"/>}/>
           </Switch>
           </div>
         </div>
@@ -221,7 +221,7 @@ class App extends Component {
             <Route exact path={routes.ROOT} render={() =>
                <div className="navAlert"></div>} />
             <Route exact path={routes.HOME} render={() =>
-               currentUser ? <div className="navAlert"><h1>Home</h1></div> : <div className="navAlert"><h1>Welcome to Park Alert</h1></div>} />
+               currentUser ? <div className="navAlert"><h1>Home</h1></div> : <div className="navAlert"><h1>Welcome</h1></div>} />
             <Route component={My404} />
         </Switch>
         </div>
