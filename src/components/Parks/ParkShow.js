@@ -41,9 +41,9 @@ class ParkShow extends Component {
             <p>{park.description}</p>
 
             <div className="title" onClick={this.toggle}>
-                                <button>Seasonal Weather:</button>                            
+            Seasonal Weather Information<div className="weatherTitle"><span className="mn-dwn-arw"></span></div>                            
                         <div className="details">
-                        <p>{park.weatherInfo}</p>
+                        {park.weatherInfo}
                         </div>
                     </div>
 

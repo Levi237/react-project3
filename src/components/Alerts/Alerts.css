@@ -133,3 +133,24 @@
     font-size: .1em;
   }
 }
+
+
+.mn-dwn-arw {
+  border-color: #777 transparent;
+  border-style: solid;
+  bottom: 0;
+  /* margin-bottom: -5px; */
+  /* margin-top: -5px; */
+  border-width: 8px 5px 0 4px;
+  /* width: 0; */
+  /* height: 0; */
+  /* margin-left: -2px; */
+  /* top: 50%; */
+  /* margin-top: 20px; */
+  /* position: relative; */
+}
+
+.weatherTitle {
+  padding: 0 0 0 220px;
+  margin-top: -4px;
+}
