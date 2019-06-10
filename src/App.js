@@ -201,8 +201,8 @@ class App extends Component {
             <Info />
           </Help>
       <Switch>
-      <Route exact path={routes.ABOUT} render={() =>
-      <AboutFull /> } />
+        <Route exact path={routes.ABOUT} render={() =>
+          <AboutFull /> } />
       </Switch>
 
 {/* HEADER */}
@@ -266,8 +266,6 @@ class App extends Component {
 {/* MENU */}
         <div className="grid-menu">            
           <Switch>
-            <Route path={routes.ROOT} render={() =>
-               <Intro />} />
             <Route exact path={routes.PARKS} render={() =>
               <>
                 <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                
@@ -277,7 +275,7 @@ class App extends Component {
                 { loading
                 ? <div className="pacman"><PacmanLoader color={'gold'} size={10}/></div>
                 : <input className="vskyModalBtn" type="button" onClick={this.showModal} value="Full Star Map" />
-                }
+              }
                 <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                                
               </>} />
             <Route exact path={routes.HOME} render={() =>
@@ -291,9 +289,14 @@ class App extends Component {
             <Route exact path={routes.ALERTS} render={() =>
                <>   
               { currentUser
+                ? <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="User Edit" /><br /><br /></>
+                : <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="Alert Log/Register" /><br /><br /></>
+              }
+              {/* { currentUser
                 ? <><input className={!this.state.user ? "vskyModalBtn" : "hideUserBtn"} type="button" onClick={this.userModal} value="User Edit" /><br /></>
                 : <><input className={!this.state.user ? "vskyModalBtn" : "hideUserBtn"} type="button" onClick={this.userModal} value="Alert Log/Register" /><br /></>
-              }
+              } */}
+
                <UserModal onClose={this.userModal} user={this.state.user}>
                { currentUser 
                  ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
@@ -306,6 +309,8 @@ class App extends Component {
                </UserModal>
                <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
                </> } />
+            <Route path={routes.ROOT} render={() =>
+              <Intro />} />
                
           </Switch>
         </div>  
