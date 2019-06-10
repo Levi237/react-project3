@@ -4,14 +4,8 @@ const Intro = () =>
     <>
         <h1>Mission Statement</h1>
 
-        The purpose of this website is to provide information to park enthusiasts that is not readily available on the already exisiting nps.gov website.  The drop down menu allows users to select a specific national park for which they can get more detailed information:
-    <ul>
-        <li><strong>About tab:</strong> Introduces the web developer (that's me!) and delves into specific project details. </li>
-        <li><strong>Parks tab:</strong> Provides a description of the selected park and gives basic information about the park itself as well as a google map image.  </li>
-        <li><strong>Alerts tab:</strong> Gives a list of parks that are closed unexpectedly and current updates on park closures.  Allows users to create an account so they can track specific park closures and be notified of re-openings.</li>
-        <li><strong>Star Map tab:</strong> Serves as a digital star guide for astronomers and star gazers.  Provides both a large and small window to view the constellations above each location selected in the drop down menu for any given time.</li>
+        <p>The purpose of this website is to provide information to park enthusiasts that is not readily available on the already exisiting nps.gov website.  The drop down menu allows users to select a specific national park for which they can get more detailed information:</p>
 
-    </ul><br />
 <h1>Origins</h1>
 <p>With outdoor activities such as camping and back-packing gaining in popularity, it has become increasingly difficult to obtain access permits to federal parks.  On average, reservations to popular wilderness zones often need to be made six months in advance. However, unpredictable natural disasters such as fires and mudslides that cause park closures can compromise even the most well-planned trips.  Not knowing when the park will re-open is an additional obstacle to planning the perfect outdoor adventure.</p>
 <p>The original intent of this website was to provide the public with information about parks’ statuses.  Not only would a user be able to search for current park closures and openings, but also sort through data to easily store, track, and retrieve infomation specific to their selected parks and assist with their planning. Since then more content has been added to enhance the user experience.</p>

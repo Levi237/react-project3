@@ -337,9 +337,9 @@ transition: all .4s;
   font-size: 1rem;
   background: transparent;
   padding: 2.5vw;
-  overflow: auto;
-  max-height: 100vh;
-  min-height: 70vh;
+  /* overflow: auto;
+  max-height: 100vh; */
+  min-height: 100vh;
 }
 
 .grid-main > section {
