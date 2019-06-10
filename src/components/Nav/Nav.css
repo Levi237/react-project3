@@ -31,7 +31,7 @@
     color: darkgray;
 }
 
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
     .navBtn {
         padding: 0 1rem;
     }
@@ -43,4 +43,4 @@
         margin: 0 -2px;
     }
     
-}
+} */

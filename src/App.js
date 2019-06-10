@@ -16,10 +16,14 @@ import EditUser from './components/User/EditUser'
 import Vsky from './components/Vsky/Vsky'
 import ParkNav from './components/Parks/Nav'
 import ParkShow from './components/Parks/ParkShow'
-// import UserNav from './components/User/Nav'
+import Info from './components/Content/Info'
+import Help from './components/Modal/Help'
 import Intro from './components/Content/Intro'
-
+import About from './components/Content/About'
+import AboutRight from './components/Content/AboutRight'
+import AboutFull from './components/Content/AboutFull'
 import Modal from './components/Modal/Modal'
+import UserModal from './components/Modal/User'
 
 import * as routes from './constants/routes'
 import './App.css';
@@ -36,7 +40,6 @@ class App extends Component {
 
   state = {
     currentUser: null,
-    // alerts: [],
     parks: [],
     park: [],
     closureList: [],
@@ -44,6 +47,8 @@ class App extends Component {
     lat: 37.8651,
     lng: -119.5383,
     show: false,
+    help: false,
+    user: false,
   }
 
   doSetCurrentUser = user => {
@@ -51,7 +56,6 @@ class App extends Component {
       currentUser: user
     })
   }
-
   logoutUser = () => {
     this.setState({
       currentUser: null
@@ -88,28 +92,25 @@ class App extends Component {
         
       }, () => {
     
-      this.getAlerts().then(alerts => {
+        this.getAlerts().then(alerts => {
           let newlist = [];            
-              this.state.parks.forEach(names => {
-                  const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
-                  // const list = filterAlerts.reduce((total, f) => {
-                  filterAlerts.reduce((total, f) => {
-                      if(names.parkCode === f.parkCode) {
-                        total.push(Object.assign(f, names))
-                        newlist.push(total)
-                        return total 
-                      }
-                    return total                             
-                  }, []) 
-              })
-              console.log(newlist, "< NEW LIST")
-              newlist = [].concat.apply([], newlist)
-              this.setState({
-                closureList: [...newlist],
-                loading: false
-
-              })
-
+            this.state.parks.forEach(names => {
+              const filterAlerts = alerts.data.filter(a => (a.category === "Park Closure" && !a.title.includes("Restrooms") && a.description.includes("closed" || "closure")))
+              filterAlerts.reduce((total, f) => {
+                if(names.parkCode === f.parkCode) {
+                  total.push(Object.assign(f, names))
+                  newlist.push(total)
+                  return total 
+                }
+                return total                             
+              }, []) 
+            })
+            console.log(newlist, "< NEW LIST")
+            newlist = [].concat.apply([], newlist)
+            this.setState({
+              closureList: [...newlist],
+              loading: false
+            })
         })
       })
 
@@ -125,7 +126,7 @@ class App extends Component {
         return err
     }
   }
-  
+
   getAlerts = async () => {
     try {
       const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
@@ -165,7 +166,19 @@ class App extends Component {
       show: !this.state.show
     })
   }
-
+  helpModal = () => {
+    console.log("click")
+    this.setState({
+      ...this.state,
+      help: !this.state.help
+    })
+  }
+  userModal = () => {
+    this.setState({
+      ...this.state,
+      user: !this.state.user
+    })
+  }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////                                                                  //////////////////////////////
@@ -176,7 +189,7 @@ class App extends Component {
 
   render(){
 
-    const { closureList, currentUser, loading, lat, lng, parks, park, show } = this.state
+    const { closureList, currentUser, loading, lat, lng, parks, park, show, help } = this.state
 
     return (
 
@@ -184,51 +197,67 @@ class App extends Component {
           <Modal show={show} onClose={this.showModal}>
             <Vsky lat={lat} lng={lng} show={show} park={park} parks={parks} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/>
           </Modal>
-        <div className="grid-ha">
-        
-          {/* <input type="button" onClick={this.showModal} value="Show Modal" /> */}
+          
+          <Help onClose={this.helpModal} help={help}>
+            <Info />
+          </Help>
+<Switch>
+<Route exact path={routes.ABOUT} render={()=>
+  <AboutFull />} />
+          
+</Switch>
 
-        </div>
+{/* HEADER */}
+        <div className="grid-ha"/>
         <div className="grid-header">
-          { currentUser ? <div><h1>{currentUser.username}'s Tracker</h1></div> : <h3>Welcome to Park-instance</h3>}  
+          <h3>Welcome to Park Intel</h3>
         </div>
-        
-        <div className="grid-hb"/>     
+        <div className="grid-hb">
+          <input className="info" type="button" onClick={this.helpModal} value="?" />
+        </div>     
 
+{/* IMAGE */}
         <div className="grid-image">
           <div className="image-holder">
           <Switch>
             <Route exact path={routes.HOME} render={() =>
-            <img src="../devils-postpile.png" alt="devils postpile" title="Devil's Postpile"/>}/>
+            <img src="goblin-valley.png" alt="goblin valley" title="with Auntie Toy"/>}/>
+          <Route exact path={routes.ABOUT} render={() =>
+            <img src="header-yosemite.png" alt="yosemite" title="5 days Aug 2018"/> }/>
           <Route exact path={routes.PARKS} render={() =>
-              <img src="../goblin-valley.png" alt="goblin valley" title="with Auntie Toy"/>}/>
+            <img src="devils-postpile.png" alt="devils postpile" title="Devil's Postpile"/>}/>
           <Route exact path={routes.STAR} render={() =>
-            <img src="../header-yosemite.png" alt="yosemite" title="5 days Aug 2018"/> }/>
+              <img src="capital-reef.png" alt="capital reef" title="Capital Reef, Utah"/>}/>
           <Route exact path={routes.ALERTS} render={() =>
-              <img src="../capital-reef.png" alt="capital reef" title="Capital Reef, Utah"/>}/>
+              <img src="great-saltlake.png" alt="capital reef" title="Capital Reef, Utah"/>}/>          
+          <Route path={routes.ROOT}><img src="joshua-tree.png"></img></Route>
           </Switch>
           </div>
         </div>
 
+{/* TITLE */}
         <div className="grid-ta"/>
         <div className="grid-title">
           { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }          
         <Switch>    
           <Route exact path={routes.PARKS} render={() =>
-              <div><h1>National Parks</h1></div>} />
+            park.name ? <div><h1>{park.name}</h1></div> : <div><h1>National Parks</h1></div>} />
           <Route exact path={routes.STAR} render={() =>
-              <div><h1>National Parks</h1></div>} />     
+            park.name ? <div><h1>{park.name}</h1></div> : <div><h1>National Parks</h1></div>} />   
           <Route exact path={routes.ALERTS} render={() =>
-              park.name ? <div><h1>{park.name}'s Park Alerts</h1></div> : <div><h1>Park Alerts</h1></div>} />            
-            <Route exact path={routes.ROOT} render={() =>
-               <div className="navAlert"></div>} />
-            <Route exact path={routes.HOME} render={() =>
-               currentUser ? <div className="navAlert"><h1>Home</h1></div> : <div className="navAlert"><h1>Welcome</h1></div>} />
-            <Route component={My404} />
+            !currentUser ? <div><h1>Park Alerts</h1></div> : <div><h1>{currentUser.username}'s Park Alerts</h1></div>} />            
+          <Route exact path={routes.ROOT} render={() =>
+            <div className="navAlert"></div>} />
+          <Route exact path={routes.ABOUT} render={() =>
+            <div className="navAlert"><h1>About Me</h1></div>} />
+          <Route exact path={routes.HOME} render={() =>
+            currentUser ? <div className="navAlert"><h1>Home</h1></div> : <div className="navAlert"><h1>Welcome</h1></div>} />
+          <Route component={My404} />
         </Switch>
         </div>
         <div className="grid-tb"/>
-              
+
+{/* NAV BAR */}
         <div className="grid-na"/>
         <div className="grid-nav">
           <ParkNav parks={parks} park={park} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/>
@@ -236,73 +265,83 @@ class App extends Component {
         </div>
         <div className="grid-nb"/>
 
+{/* MENU */}
         <div className="grid-menu">            
           <Switch>
             <Route exact path={routes.ROOT} render={() =>
                <Intro />} />
             <Route exact path={routes.PARKS} render={() =>
               <>
-              {loading
-              ?<div className="pacman"><PacmanLoader color={'gold'} size={10}/></div>
-              :<input className="vskyModalBtn" type="button" onClick={this.showModal} value="Full Star Map" />
-              }
                 <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                
-                {/* <input type="button" onClick={this.showModal} value="Enlarge Virtual Sky" />                  */}
               </>} />
-
             <Route exact path={routes.STAR} render={() =>
               <>
-              <input className="vskyModalBtn" type="button" onClick={this.showModal} value="Full Star Map" />
-              <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                
-                               
-            </>} />
+                { loading
+                ? <div className="pacman"><PacmanLoader color={'gold'} size={10}/></div>
+                : <input className="vskyModalBtn" type="button" onClick={this.showModal} value="Full Star Map" />
+                }
+                <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                                
+              </>} />
             <Route exact path={routes.HOME} render={() =>
                <Intro />} />
+            <Route exact path={routes.ABOUT} render={() =>
+            <>
+               <About />
+               {/* <AboutRight /> */}
+               </>} />
             <Route exact path={routes.TRACK} render={() =>
                currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
             <Route exact path={routes.ALERTS} render={() =>
-               <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>} />
+               <>   
+              { currentUser
+                ? <><input className={!this.state.user ? "vskyModalBtn" : "hideUserBtn"} type="button" onClick={this.userModal} value="User Edit" /><br /></>
+                : <><input className={!this.state.user ? "vskyModalBtn" : "hideUserBtn"} type="button" onClick={this.userModal} value="Alert Log/Register" /><br /></>
+              }
+               <UserModal onClose={this.userModal} user={this.state.user}>
+               { currentUser 
+                 ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+                 : <>
+                    <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+                    <br/>
+                    <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+                  </>
+               }
+               </UserModal>
+               <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
+               </> } />
           </Switch>
         </div>  
 
+{/* MAIN */}
         <div className="grid-main">
         <Switch>     
-            { !show &&
-            <Route exact path={routes.STAR} render={() =>
-              <div className="vskyWindow"><Vsky show={show} lat={lat} lng={lng} park={park} parks={parks}/></div> } />
-            }
-            <Route exact path={routes.PARKS} render={() =>
-              <Map closureList={closureList} lat={lat} lng={lng}/>} />
-            { currentUser
-            ? <Route exact path={routes.ALERTS} render={() =>
-                <><br/>
-                <span>Edit your Username/Password here</span><br />
-                  <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/> 
-                  <Map closureList={closureList} lat={lat} lng={lng}/>
-                </> }/>
-            : <Route exact path={routes.ALERTS} render={() =>                
-                <><br />
-                <span>Login/Register here to see what parks are closed. <br /> Track parks on your own list to see when they open!</span><br />
-                  <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
-                  <br />
-                  <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
-                  <Map closureList={closureList} lat={lat} lng={lng}/>
-                </>} />
-            }
-            <Route exact path={routes.HOME} render={() =>
-                <Map closureList={closureList} lat={lat} lng={lng}/>} />
-            <Route exact path={routes.TRACK} render={() =>
-                <Map closureList={closureList} lat={lat} lng={lng}/>} />
-        </Switch>
-          
+          { !show &&
+          <Route exact path={routes.STAR} render={() =>
+            <div className="vskyWindow"><Vsky show={show} lat={lat} lng={lng} park={park} parks={parks}/></div> } />
+          }
+          <Route exact path={routes.PARKS} render={() =>
+            <Map closureList={closureList} lat={lat} lng={lng}/>} />
+          <Route exact path={routes.ALERTS} render={() =>
+            <Map closureList={closureList} lat={lat} lng={lng}/>} />
+          <Route exact path={routes.HOME} render={() =>
+            <img src="home-yosemite.png" />} />
+          {/* <Route exact path={routes.ABOUT} render={() => 
+            <AboutRight />} /> */}
+          <Route exact path={routes.TRACK} render={() =>
+            <Map closureList={closureList} lat={lat} lng={lng}/>} />
+        </Switch>  
         </div>
 
+{/* FOOTER */}
         <div className="grid-fa" />
         <div className="grid-footer">
           <h3><a href="https://www.nps.gov" target="_blank" rel="noopener noreferrer">Please enjoy this tribute to the National Park Service</a></h3>
+          <h3><a href="https://virtualsky.lco.global/" target="_blank" rel="noopener noreferrer">A special thanks to VirtualSky</a> <a href="cahworks.com"> & Alex Hughes</a></h3>
+          <h3><a href="google.maps">& maps.googleapis.com</a></h3>
         </div>
         <div className="grid-fb" />
-               
+
+
       </div>
     );
   }

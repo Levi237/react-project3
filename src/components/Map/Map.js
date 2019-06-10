@@ -3,7 +3,6 @@ import GoogleMapReact from 'google-map-react';
 
 import './Map.css';
 const PointGreen = ({ ping }) => <img className="greenPoint" alt="?" className="pin" src={ping} />
-// const
 
 class Map extends Component {
 
@@ -25,8 +24,6 @@ class Map extends Component {
                     center={{
                         lat: +this.props.lat,
                         lng: +this.props.lng,
-                        // zoom: 10
-                        // pin: '.../pin-green.png'
                     }}
                     defaultZoom={this.props.zoom}
                     >
@@ -51,7 +48,6 @@ class Map extends Component {
                     })}
 
                     <PointGreen
-                        // key={i}
                         lat={+this.props.lat}
                         lng={+this.props.lng}
                         ping="../green-pin.png"

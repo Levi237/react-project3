@@ -54,7 +54,7 @@ showdate=true&\
 projection=${projection}&\
 showposition=true&\
 live=true&\
-color=dodgerblue&\
+color=cornflowerblue&\
 az=271.5665939727662`
 
 // console.log(park.name, "<---------- park on Vsky")

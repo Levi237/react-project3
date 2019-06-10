@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-// import './Login.css'
-
 class Login extends Component {
 
     state = {
@@ -33,7 +31,7 @@ class Login extends Component {
                     logged: true,
                 })
         }
-      }
+    }
 
     render(){
         const { username, password, logged } = this.state

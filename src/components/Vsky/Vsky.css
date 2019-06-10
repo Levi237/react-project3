@@ -13,10 +13,17 @@
   height: 100vh;
 }
 
+/* .vskyModal > button {
+  z-index: 9999999999999999;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+} */
+
 .vskySmallContainer {
   position: absolute;
   width: 30vw;
-  height: 60vh;
+  height: 30vw;
 }
 
 .vskyLargeContainer {
@@ -42,7 +49,7 @@
 
 .vskyLargeContainer > iframe {
 position: fixed;
-  font-size: 2rem;
+  font-size: 10rem;
 
 }
 
@@ -55,7 +62,7 @@ position: fixed;
 
 .vskyLargeContainer > form > span > div> form > select {
   font-size: 1.5rem;
-  box-shadow: inset 0px 0px 8px 4px rgb(125, 129, 181);
+  box-shadow: inset 0px 0px 8px 4px #7d81b5;
   text-align-last:center;
 }
 
@@ -83,8 +90,6 @@ position: fixed;
   transition: all .3s ease-in-out;
   background-color: rgb(0,0,0, .5);
   color: white;
-  /* height: 3.2rem;
-  font-size: 1.1rem; */
   background-image: linear-gradient(to right, rgb(211, 211, 211, .3), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1),  rgb(211, 211, 211, .3));
   
 }
@@ -101,65 +106,40 @@ position: fixed;
 }
 .largeStarBtn > form {
   position: fixed;
-  z-index: 500000;
-  margin-right: auto;
-  margin-left: auto;
+  background-color: rgb(0,0,0, .5);
 }
 .smallStarBtn > form {
   position: relative;
-  z-index: 500000;
 }
-.largeStarBtn > form > section, .smallStarBtn > form > section {
 
-  /* display: inline-block; */
+.largeStarBtn > form > section > input, .smallStarBtn > form > section > input {
+  margin: 0;
+  border: none;
+  color: #FFF;
 }
 .largeStarBtn > form > section > input {
-  margin: 0;
-  /* background: green; */
-  border: none;
   width: 11.1vw;
   height: 4rem;
   font-size: 1.2rem;
-  background-color: rgb(0,0,0, .5);
-  color: #FFF;
+  background-color: transparent;
 }
-
 .smallStarBtn > form > section > input {
-  margin: 0;
-  background: green;
-  border: none;
   width: 6vw;
   height: 2rem;
   font-size: .6rem;
   display: inline-block;
   background-color: rgb(0,0,0, .5);
-  color: #FFF;
 }
 
 .smallStarBtn > form > section > input:hover {
-  /* margin: 0; */
   transition: all .3s;
   background-image: linear-gradient(to right, rgb(211, 211, 211, .3), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1),  rgb(211, 211, 211, .3));
-  
-  /* background: green; */
-  /* border: none; */
-  /* width: 7vw; */
-  /* height: 2rem;
-  font-size: .8rem; */
-  /* display: inline-block; */
-  /* background-color: rgb(0,0,0, .5); */
-  /* color: #FFF; */
 }
 
 
 .largeStarBtn > form > section > input:hover{
-  /* transform: 2s; */
-  /* color: black; */
   text-shadow: 1px 2px black;
   background-image: radial-gradient( transparent, rgb(125, 129, 181), transparent, transparent);
-  /* transition: 1s ease-in-out; */
-  /* border: none; */
-
 }
 
 
@@ -178,28 +158,51 @@ position: fixed;
   margin: 5px;
   box-shadow: inset 0px 0px 6px 2px rgb(125, 129, 181);
 }
-.projection > select:focus {
+/* .projection > select:focus {
   border: none;
   box-shadow: inset 0px 0px 6px 2px rgb(125, 129, 181);
+} */
+
+.close, .closeHelp, .close:hover, .closeHelp:hover {
+  transition: all .3s ease-in-out;
 }
 
-
-.close {
+.close, .closeHelp {
   z-index: 9999999999999;
   position: absolute;
-  right: 0;
-  bottom: 0;
-  margin-bottom: 5px;
-  border-radius: 100px;
-  border: 2px solid #FFF;
-  font-weight: 800;
+  padding: 0;
   height: 24px;
   width: 24px;
-  padding: 0;
-  background-color: transparent;
-  color: #FFF;
+  font-weight: 800;
+  
 }
 
-.close:hover {
-box-shadow: inset 0px 0px 6px 4px rgb(125, 129, 181);
+.close {
+  right: 0;
+  bottom: 0;
+  margin-right: 15px;
+  margin-bottom: 4.5rem;
+  border-radius: 100px;
+  border: 2px solid #FFF;
+  color: #FFF;
+  background-color: rgb(0,0,0, .5);
 }
+
+.closeHelp {
+  right: 0;
+  top: 0;
+  margin: 5px;
+  border-radius: 100px;
+  border: 2px solid black;
+  color: black;
+  background-color: transparent;
+}
+
+.closeHelp:hover, .close:hover {
+  box-shadow: inset 0px 0px 4px 1px red;
+  border: 2px solid red;
+  color: red;
+  font-size: 1.1rem;
+  background-color: transparent;
+  }
+  

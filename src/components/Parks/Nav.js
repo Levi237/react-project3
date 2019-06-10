@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 
-
 class ParkNav extends Component {
-//     state = {
 
-//     }
     render(){
         const { parks, changeShowPark, handleSkyMap, park } = this.props
-        // console.log(park, "<park")
-        // console.log(parks, "<parksssssssss")
         let options = parks.map((p, i) => { return <option key={i} value={i}>{p.name} - {p.states}</option>})
 
         return(
@@ -19,9 +14,7 @@ class ParkNav extends Component {
                         { park.name 
                         ? <option value="DEFAULT" disabled>{park.name} - {park.states}</option>
                         : <option value="DEFAULT" disabled>--- Select a Park ---</option>
-                        //  <option value="DEFAULT" disabled>--- Select a Park ---</option>
                         }
-                        
                         {options}
                     </select>
                 </form>
@@ -29,8 +22,6 @@ class ParkNav extends Component {
             </>
         )
     }
-
-
 }
-// )
+
 export default ParkNav

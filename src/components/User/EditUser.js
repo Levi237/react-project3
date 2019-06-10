@@ -25,26 +25,24 @@ export class EditUser extends Component {
                 headers: {
                     'Content-type' : 'application/json'
                 }
-              })
-              const parsedResponse = await editUser.json();
-              if(parsedResponse.data) {
-                  doSetCurrentUser(parsedResponse.data)
-                      this.setState({
-                          logged: true,
-                      })
-              }
+            })
+            const parsedResponse = await editUser.json();
+            if(parsedResponse.data) {
+                doSetCurrentUser(parsedResponse.data)
+                    this.setState({
+                        logged: true,
+                    })
+            }
         } catch(err){
             console.log(err)
         }
 
-      }
-
+    }
 
     render(){
         const { currentUser } = this.props
 
         return(
-
             <section  className="enter">
                 <form onSubmit={e => this.submitEditUser(e)}>
                     <input type="text" placeholder={currentUser.username} name="username" onChange={this.changeHandler}></input>
@@ -55,6 +53,5 @@ export class EditUser extends Component {
         )
     }
 }
-
 
 export default EditUser

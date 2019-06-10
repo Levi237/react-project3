@@ -1,39 +1,17 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
 
 
 class Vnav extends Component {
 
-    // state = {
-    //     longitude: -117.8133,
-    //     latitude: 33.8885,
-    //     showplanets: true, 
-    //     showplanetlabels: true,
-    //     constellations: false, 
-    //     showstarlabels: false,
-    //     showorbits: false, 
-    //     meridian: false, 
-    //     gridlines_az: false,
-    //     constellationlabels: false,
-    //     projection: 'stereo',
-    // }
-
-    // changeHandler = e => {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
-
     render() {
 
     const { changeHandler, showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.props
-    // const { changeHandler } = this.props
 
         return (
 
             <div className="largeStarBtn">
-
                 <form>
+
                     <section>
                         Constellation: <br />
                         <select onChange={changeHandler} name='constellations' value={constellations}>
@@ -110,24 +88,12 @@ class Vnav extends Component {
                             <option value="gnomic">gnomic</option>
                         </select>      
                     </section>   
-                    <section>
-                        {/* <button>
-                            <Link to={`/`}>
-                                RETURN HOME
-                            </Link>
-                        </button>  */}
-                    </section>                            
+                          
                 </form>
-
             </div>
-
-
         )
     }
-
 }
-
-
 
 export default Vnav
 
