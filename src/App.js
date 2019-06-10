@@ -5,7 +5,6 @@ import { PacmanLoader } from 'react-spinners'
 // import Particles from 'react-particles-???'  also can rip from json
 // npm package react-globe for the globe
 
-
 import Alerts from './components/Alerts/Alerts';
 import Map from './components/Map/Map';
 import Nav from './components/Nav/Nav';
@@ -258,7 +257,12 @@ class App extends Component {
 {/* NAV BAR */}
         <div className="grid-na"/>
         <div className="grid-nav">
-          <ParkNav parks={parks} park={park} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/>
+        <Switch>
+          <Route exact path={routes.ALERTS} render={() => <></> }/>
+          <Route path={routes.ROOT} render={() => 
+            <ParkNav parks={parks} park={park} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/>
+          }/>
+        </Switch>
           <Nav currentUser={currentUser} logoutUser={this.logoutUser} loading={loading}/>
         </div>
         <div className="grid-nb"/>
