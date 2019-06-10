@@ -20,7 +20,6 @@ import Info from './components/Content/Info'
 import Help from './components/Modal/Help'
 import Intro from './components/Content/Intro'
 import About from './components/Content/About'
-import AboutRight from './components/Content/AboutRight'
 import AboutFull from './components/Content/AboutFull'
 import Modal from './components/Modal/Modal'
 import UserModal from './components/Modal/User'
@@ -119,7 +118,7 @@ class App extends Component {
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
@@ -129,7 +128,7 @@ class App extends Component {
 
   getAlerts = async () => {
     try {
-      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=50?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const alertsJson = await alerts.json();
         return alertsJson
     } catch(err) {
@@ -201,11 +200,10 @@ class App extends Component {
           <Help onClose={this.helpModal} help={help}>
             <Info />
           </Help>
-<Switch>
-<Route exact path={routes.ABOUT} render={()=>
-  <AboutFull />} />
-          
-</Switch>
+      <Switch>
+      <Route exact path={routes.ABOUT} render={() =>
+      <AboutFull /> } />
+      </Switch>
 
 {/* HEADER */}
         <div className="grid-ha"/>
@@ -268,7 +266,7 @@ class App extends Component {
 {/* MENU */}
         <div className="grid-menu">            
           <Switch>
-            <Route exact path={routes.ROOT} render={() =>
+            <Route path={routes.ROOT} render={() =>
                <Intro />} />
             <Route exact path={routes.PARKS} render={() =>
               <>
@@ -287,7 +285,6 @@ class App extends Component {
             <Route exact path={routes.ABOUT} render={() =>
             <>
                <About />
-               {/* <AboutRight /> */}
                </>} />
             <Route exact path={routes.TRACK} render={() =>
                currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
@@ -309,6 +306,7 @@ class App extends Component {
                </UserModal>
                <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
                </> } />
+               
           </Switch>
         </div>  
 
@@ -324,20 +322,20 @@ class App extends Component {
           <Route exact path={routes.ALERTS} render={() =>
             <Map closureList={closureList} lat={lat} lng={lng}/>} />
           <Route exact path={routes.HOME} render={() =>
-            <img src="home-yosemite.png" />} />
-          {/* <Route exact path={routes.ABOUT} render={() => 
-            <AboutRight />} /> */}
+            <img className="resize" src="home-yosemite.png" />} />
           <Route exact path={routes.TRACK} render={() =>
             <Map closureList={closureList} lat={lat} lng={lng}/>} />
+          <Route exact path={routes.ABOUT} render={() =>
+            <></>} />
+          <Route path={routes.ROOT} render={() =>
+            <img class="resize" src="franklin-lake.png" />} /> 
         </Switch>  
         </div>
 
 {/* FOOTER */}
         <div className="grid-fa" />
         <div className="grid-footer">
-          <h3><a href="https://www.nps.gov" target="_blank" rel="noopener noreferrer">Please enjoy this tribute to the National Park Service</a></h3>
-          <h3><a href="https://virtualsky.lco.global/" target="_blank" rel="noopener noreferrer">A special thanks to VirtualSky</a> <a href="cahworks.com"> & Alex Hughes</a></h3>
-          <h3><a href="google.maps">& maps.googleapis.com</a></h3>
+          <h3><a href="https://www.nps.gov" target="_blank" rel="noopener noreferrer">Please enjoy this tribute to the National Park Service</a> | <a href="https://virtualsky.lco.global/" target="_blank" rel="noopener noreferrer"> A special thanks to VirtualSky</a> & <a href="cahworks.com">Alex Hughes </a> | <a href="google.maps">maps.googleapis.com</a></h3>
         </div>
         <div className="grid-fb" />
 

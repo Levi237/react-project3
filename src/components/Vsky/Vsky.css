@@ -13,13 +13,6 @@
   height: 100vh;
 }
 
-/* .vskyModal > button {
-  z-index: 9999999999999999;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-} */
-
 .vskySmallContainer {
   position: absolute;
   width: 30vw;
@@ -44,19 +37,16 @@
 
 .vskySmallContainer > iframe {
   font-size: 2rem;
-
 }
 
 .vskyLargeContainer > iframe {
-position: fixed;
+  position: fixed;
   font-size: 10rem;
 
 }
 
-
 .vskyLargeContainer > form > span > div> form > select, .projection > select  {
   color: #fff;
-  
   background-color: rgb(0,0,0, .5);
 }
 
@@ -91,8 +81,8 @@ position: fixed;
   background-color: rgb(0,0,0, .5);
   color: white;
   background-image: linear-gradient(to right, rgb(211, 211, 211, .3), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1),  rgb(211, 211, 211, .3));
-  
 }
+
 
 .largeStarBtn, .smallStarBtn {
   width: 100%; 
@@ -158,10 +148,7 @@ position: fixed;
   margin: 5px;
   box-shadow: inset 0px 0px 6px 2px rgb(125, 129, 181);
 }
-/* .projection > select:focus {
-  border: none;
-  box-shadow: inset 0px 0px 6px 2px rgb(125, 129, 181);
-} */
+
 
 .close, .closeHelp, .close:hover, .closeHelp:hover {
   transition: all .3s ease-in-out;

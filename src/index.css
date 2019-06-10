@@ -4,7 +4,6 @@ html {
 }
 
 body {
-  /* overflow: hidden; // compliments Vianney */
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -36,7 +35,6 @@ h1 {
 h3 {
   position: relative;
   z-index: 50;
-  /* display: block; */
   font-size: 1.17em;
   margin-block-start: .8em;
   margin-block-end: 0;
@@ -78,34 +76,24 @@ input {
 
 .info:hover{
   transition: all .3s ease-in-out;
-  
   box-shadow: inset 0 0 4px 2px white;
   font-size: 1.2rem;
 }
 
 .info:active{
-  /* transition: all .3s ease-in-out;
-  transform: scale(1.2); */
   transform: translateY(2px);
-  /* transform: scale(1.2); */
-  /* box-shadow: inset 0 0 4px 2px white;
-  font-size: 1.2rem; */
 }
 
 .helpModal {
-  z-index: 999999999999999999999999999999999;
+  z-index: 999999999999999999999999999999999 !important;
   position: fixed;
   height: 100%;
   width: 100%;
-  /* background-color: rgb(0,0,0,.5); */
-  /* color: white; */
 }
 
 .helpWindow {
   position: relative;
   margin: 40px auto;
-  /* margin-left: auto;
-  margin-right: auto; */
   width: 400px;
   height: 500px;
   background-color: white;
@@ -145,9 +133,12 @@ input {
       background-color: rgba(33, 56, 23, 1);
 }
 
+
+.resize {
+  width: 30vw;
+}
 .alertSign {
   height: 1rem;
-  /* margin-bottom: -10px; */
   margin-right: -3px;
   transition: all .4s;
 }
@@ -227,7 +218,6 @@ transition: all .4s;
 
 
 /*************************** SCALABLE GRID ***************************/
-/* there has got to be a dryer way */
 .grid-header, .grid-nav , .grid-footer, .grid-ha, .grid-hb, .grid-na, .grid-nb, .grid-fa, .grid-fb { background: #000; color: #FFF; }
 .grid-title, .grid-ta, .grid-tb {
   background: rgb(0, 0, 0, .6); 
@@ -264,7 +254,6 @@ transition: all .4s;
   grid-area: image; 
   background-color: transparent;
   width: auto;
-  /* margin: auto; */
 }
 
 .image-holder {
@@ -337,8 +326,6 @@ transition: all .4s;
   font-size: 1rem;
   background: transparent;
   padding: 2.5vw;
-  /* overflow: auto;
-  max-height: 100vh; */
   min-height: 100vh;
 }
 
@@ -354,8 +341,8 @@ transition: all .4s;
 }
 
 .grid-footer > h3 {
-    /* size: 1.17rem; */
-    margin-block-start: 0;
+  font-size: .7rem;
+    margin-block-start: 2rem;
     margin-block-end: 0;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
@@ -364,7 +351,7 @@ transition: all .4s;
 }
 
 .grid-footer > h3 > a {
-  font-size: .7rem;
+  
   transition: all .3s ease-in-out;
   text-decoration: none;
   color: #FFF;

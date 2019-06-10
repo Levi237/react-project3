@@ -35,11 +35,11 @@ class Login extends Component {
 
     render(){
         const { username, password, logged } = this.state
+
         return(
             logged
             ? <Redirect to={'/home'} />
             : <section className="enter">
-                {/* <form onSubmit={this.props.submitLogin}> */}
                 <form onSubmit={this.submitLogin}>
                     <input type="text" placeholder="Your Name Here" name="username" onChange={this.changeHandler} value={username}></input>
                     <input type="password" placeholder="Your Password" name="password" onChange={this.changeHandler} value={password}></input>

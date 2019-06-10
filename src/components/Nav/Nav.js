@@ -9,11 +9,11 @@ const Nav = ({currentUser, logoutUser, loading}) =>
 <NavLink activeClassName="underline" className="navBtn" to={routes.HOME}>HOME</NavLink>
         <NavLink activeClassName="underline" className="navBtn" to={routes.ABOUT}>ABOUT</NavLink>
         <NavLink activeClassName="underline" className="navBtn" to={routes.PARKS}>PARKS</NavLink>
+        <NavLink activeClassName="underline" className="navBtn" to={routes.STAR}>STAR MAP</NavLink>
         {loading 
         ? <NavLink to={routes.ALERTS} className="navBtn neuter">ALERTS</NavLink>
         : <NavLink activeClassName="underline" className="navBtn" to={routes.ALERTS}>ALERTS</NavLink>
         }
-        <NavLink activeClassName="underline" className="navBtn" to={routes.STAR}>STAR MAP</NavLink>
         { currentUser &&
         <NavLink activeClassName="underline" className="navBtn" to={routes.TRACK} >TRACK</NavLink>    
         }

@@ -10,7 +10,6 @@
 .navBtn:hover {
     transition: all .3s;
     background-image: linear-gradient(to right, rgb(211, 211, 211, .3), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1),  rgb(211, 211, 211, .3));
-    /* background-color: rgb(211, 211, 211, .5); */
     border-right: 2px solid rgb(211, 211, 211, .4);
     border-left: 2px solid rgb(211, 211, 211, .4);
     margin: 0 -2px;
