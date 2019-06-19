@@ -441,9 +441,23 @@ grid-template-areas:
     /* font-weight: bold; */
   }
 
-  .grid-navPark {
-    /* float: right; */
-    margin-left: -500px;
+  .grid-navPark { 
+    /* grid-area: navPark;  */
+    float: right;
+    position: relative;
+    padding: 19px 0 ;
+    /* font-weight: bold; */
+  }
+  .grid-navBar {
+    /* grid-area: navBar; */
+    /* text-align: right; */
+    /* position: relative; */
+    /* padding: 19px 0; */
+    margin-top: -3px;
+    /* font-weight: bold; */
+}
+  .parkMenu {
+    float: right;
   }
 
   .grid-navBar, .grid-navPark { 

@@ -290,17 +290,17 @@ class App extends Component {
                 : <><input className={!this.state.user ? "vskyModalBtn" : "hideUserBtn"} type="button" onClick={this.userModal} value="Alert Log/Register" /><br /></>
               } */}
               { currentUser
-                ? <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="User Edit" /><br /><br /></>
-                : <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="Alert Log/Register" /><br /><br /></>
+              ? <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="User Edit" /><br /><br /></>
+              : <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="Alert Log/Register" /><br /><br /></>
               }
               <UserModal onClose={this.userModal} user={this.state.user}>
               { currentUser 
-                ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
-                : <>
-                  <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
-                  <br/>
-                  <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
-                  </>
+              ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+              : <>
+                <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+                <br/>
+                <Register currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
+                </>
               }
               </UserModal>
               <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
@@ -325,9 +325,9 @@ class App extends Component {
               <img className="resize" src="home-yosemite.png" /> }/>
             <Route exact path={routes.TRACK} render={() =>
               <Map closureList={closureList} lat={lat} lng={lng}/> }/>
+            <Route exact path={routes.ABOUT} render={() => <></> }/>
             <Route path={routes.ROOT} render={() =>
               <img class="resize" src="franklin-lake.png" /> }/> 
-            <Route exact path={routes.ABOUT} render={() => <></> }/>
           </Switch>  
         </div>
 
