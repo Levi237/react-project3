@@ -3,8 +3,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-// // import './Register.css'
-
 class Register extends Component {
     state = {
         username: '',
@@ -39,6 +37,7 @@ class Register extends Component {
 
     render(){
         const { username, password } = this.state
+
         return(
             <div>
                 {
@@ -65,7 +64,5 @@ const RegisterForm = ({changeHandler, onSubmit, username, password}) =>
             <button type="submit">Register</button>
         </form>
     </section>
-
-
 
 export default Register

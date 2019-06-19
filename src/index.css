@@ -218,7 +218,7 @@ transition: all .4s;
 
 
 /*************************** SCALABLE GRID ***************************/
-.grid-header, .grid-nav , .grid-footer, .grid-ha, .grid-hb, .grid-na, .grid-nb, .grid-fa, .grid-fb { background: #000; color: #FFF; z-index:30000000000}
+.grid-header, .grid-navBar, .grid-navPark , .grid-footer, .grid-ha, .grid-hb, .grid-na, .grid-nb, .grid-fa, .grid-fb { background: #000; color: #FFF; z-index:30000000000}
 .grid-title, .grid-ta, .grid-tb {
   background: rgb(0, 0, 0, .6); 
   color: #FFF; 
@@ -277,8 +277,15 @@ transition: all .4s;
   z-index: 100;
 }
 
-.grid-nav { 
-  grid-area: nav; 
+.grid-navPark { 
+  grid-area: navPark; 
+  text-align: right;
+  position: relative;
+  padding: 19px 0 ;
+  font-weight: bold;
+}
+.grid-navBar { 
+  grid-area: navBar; 
   text-align: right;
   position: relative;
   padding: 19px 0 ;
@@ -374,7 +381,7 @@ grid-template-areas:
   ' ha header header hb '
   ' image image image image'
   ' ta title title tb '
-  ' na nav nav nb '
+  ' na navPark navBar nb '
   ' . menu main . '
   ' fa footer footer fb ';
    grid-gap: 0;
@@ -394,10 +401,10 @@ grid-template-areas:
     grid-template-columns: 5vw 90vw 5vw;
     grid-template-rows: 55px 100px 0px 56px auto 340px 5rem;
   grid-template-areas:
-    ' header header header '
+    ' header header navPark '
     ' image image image '
     ' title title title '
-    ' nav nav nav '
+    ' navBar navBar navBar '
     ' . menu . '
     ' . main . '
     ' footer footer footer ';
@@ -432,8 +439,14 @@ grid-template-areas:
     /* margin-inline-start: 0px; */
     /* margin-inline-end: 0px; */
     /* font-weight: bold; */
-}
-  .grid-nav { 
+  }
+
+  .grid-navPark {
+    /* float: right; */
+    margin-left: -500px;
+  }
+
+  .grid-navBar, .grid-navPark { 
     /* grid-area: nav; 
     text-align: right;
     position: relative; */

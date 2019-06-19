@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
 
 class Vnav extends Component {
 
@@ -8,7 +7,6 @@ class Vnav extends Component {
     const { changeHandler, showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.props
 
         return (
-
             <div className="largeStarBtn">
                 <form>
 

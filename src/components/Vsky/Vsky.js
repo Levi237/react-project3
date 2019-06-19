@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import './Vsky.css'
+import './Vsky.css';
 
 import ParkNav from '../Parks/Nav';
 
@@ -58,7 +58,6 @@ color=cornflowerblue&\
 az=271.5665939727662`
 
         return (
-
             <div className={(show ? "vskyLargeContainer" : "vskySmallContainer")}>
                 {
                 show &&
@@ -101,12 +100,9 @@ az=271.5665939727662`
                         </section>
                     </form>
                 </div>
-
             </div>
-
         )
     }
-
 }
 
 

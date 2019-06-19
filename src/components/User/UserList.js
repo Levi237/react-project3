@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import '../Alerts/Alerts.css'
+import '../Alerts/Alerts.css';
 
 class UserList extends Component {
 
