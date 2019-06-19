@@ -394,12 +394,16 @@ grid-template-areas:
 /***********************                              ***********************/
 /****************************************************************************/
 @media screen and (max-width: 960px) {
+  html {
+    font-size: .8rem;
+  }
+
   .grid-container {
     width: 100%;
     display: grid;
     position: relative;
     grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 55px 100px 0px 56px auto 340px 5rem;
+    grid-template-rows: 40px 100px 0px 55px auto 340px 5rem;
   grid-template-areas:
     ' header header navPark '
     ' image image image '
@@ -421,7 +425,9 @@ grid-template-areas:
   .grid-title, .grid-header { 
     padding-left: 1rem;
   }
-
+  .grid-header > h3 {
+    width: 15rem;
+  }
   .grid-title {
     /* background: rgb(0, 0, 0, .6); 
     color: #FFF;  */
@@ -433,7 +439,7 @@ grid-template-areas:
   .grid-title > div > h1 {
     /* position: absolute; */
     /* display: block; */
-    font-size: 1rem;
+    font-size: 1.2rem;
     /* margin-block-start: 0.8em; */
     /* margin-block-end: 0.2em; */
     /* margin-inline-start: 0px; */
@@ -453,11 +459,12 @@ grid-template-areas:
     /* text-align: right; */
     /* position: relative; */
     /* padding: 19px 0; */
-    margin-top: -3px;
+    /* margin-top: -3px; */
     /* font-weight: bold; */
 }
   .parkMenu {
     float: right;
+    margin: -8px;
   }
 
   .grid-navBar, .grid-navPark { 

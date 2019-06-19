@@ -31,16 +31,14 @@
     color: darkgray;
 }
 
-/* @media screen and (max-width: 800px) {
+@media screen and (max-width: 960px) {
     .navBtn {
-        padding: 0 1rem;
+        /* text-decoration: none;   */
+        /* background-color: none; */
+        /* color: #FFF; */
+        padding: 19px .6rem;
+        /* margin: 0 0; */
+        font-size: 1.1rem;
+        /* text-shadow: 1px 1px #000; */
     }
-    .active {
-        text-decoration: underline !important;
-        background-color: rgb(211, 211, 211, .5);
-        border-right: 2px solid gray;
-        border-left: 2px solid gray;
-        margin: 0 -2px;
-    }
-    
-} */
+}
