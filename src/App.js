@@ -116,7 +116,7 @@ class App extends Component {
 
   getParkNames = async () => {
     try {
-      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const parkNames = await fetch('https://developer.nps.gov/api/v1/parks&limit=10?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const nameJson = await parkNames.json();
         return nameJson
     } catch(err) {
@@ -126,7 +126,7 @@ class App extends Component {
 
   getAlerts = async () => {
     try {
-      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=100?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
+      const alerts = await fetch('https://developer.nps.gov/api/v1/alerts&limit=10?api_key=WZ7TKRUSuVC5NEf18Txpco74bA3qKdFBZqxfq9W6')
       const alertsJson = await alerts.json();
         return alertsJson
     } catch(err) {
@@ -197,7 +197,7 @@ class App extends Component {
         </Help>
       <Switch>
         <Route exact path={routes.ABOUT} render={() =>
-          <AboutFull /> } />
+          <AboutFull /> }/>
       </Switch>
 
 {/* HEADER */}
@@ -214,15 +214,15 @@ class App extends Component {
           <div className="image-holder">
             <Switch>
               <Route exact path={routes.HOME} render={() =>
-                <img src="goblin-valley.png" alt="goblin valley" title="with Auntie Toy"/>}/>
+                <img src="goblin-valley.png" alt="goblin valley" title="with Auntie Toy"/> }/>
               <Route exact path={routes.ABOUT} render={() =>
                 <img src="header-yosemite.png" alt="yosemite" title="5 days Aug 2018"/> }/>
               <Route exact path={routes.PARKS} render={() =>
-                <img src="devils-postpile.png" alt="devils postpile" title="Devil's Postpile"/>}/>
+                <img src="devils-postpile.png" alt="devils postpile" title="Devil's Postpile"/> }/>
               <Route exact path={routes.STAR} render={() =>
-                <img src="capital-reef.png" alt="capital reef" title="Capital Reef, Utah"/>}/>
+                <img src="capital-reef.png" alt="capital reef" title="Capital Reef, Utah"/> }/>
               <Route exact path={routes.ALERTS} render={() =>
-                <img src="great-saltlake.png" alt="capital reef" title="Capital Reef, Utah"/>}/>          
+                <img src="great-saltlake.png" alt="capital reef" title="Capital Reef, Utah"/> }/>          
               <Route path={routes.ROOT}><img src="joshua-tree.png" /></Route>
             </Switch>
           </div>
@@ -234,18 +234,18 @@ class App extends Component {
           { loading && <div className="loading">Please allow time for data to load.  Compliments of nps.gov</div> }          
           <Switch>    
             <Route exact path={routes.PARKS} render={() =>
-              park.name ? <div><h1>{park.name}</h1></div> : <div><h1>National Parks</h1></div>} />
+              park.name ? <div><h1>{park.name}</h1></div> : <div><h1>National Parks</h1></div> }/>
             <Route exact path={routes.STAR} render={() =>
-              park.name ? <div><h1>{park.name}</h1></div> : <div><h1>National Parks</h1></div>} />   
+              park.name ? <div><h1>{park.name}</h1></div> : <div><h1>National Parks</h1></div> }/>   
             <Route exact path={routes.ALERTS} render={() =>
-              !currentUser ? <div><h1>Park Alerts</h1></div> : <div><h1>{currentUser.username}'s Park Alerts</h1></div>} />            
+              !currentUser ? <div><h1>Park Alerts</h1></div> : <div><h1>{currentUser.username}'s Park Alerts</h1></div> }/>            
             <Route exact path={routes.ROOT} render={() =>
-              <div className="navAlert"></div>} />
+              <div className="navAlert"></div> }/>
             <Route exact path={routes.ABOUT} render={() =>
-              <div className="navAlert"><h1>About Me</h1></div>} />
+              <div className="navAlert"><h1>About Me</h1></div> }/>
             <Route exact path={routes.HOME} render={() =>
-              currentUser ? <div className="navAlert"><h1>Home</h1></div> : <div className="navAlert"><h1>Welcome</h1></div>} />
-            <Route component={My404} />
+              currentUser ? <div className="navAlert"><h1>Home</h1></div> : <div className="navAlert"><h1>Welcome</h1></div> }/>
+            <Route component={My404}/>
           </Switch>
         </div>
         <div className="grid-tb"/>
@@ -256,7 +256,7 @@ class App extends Component {
           <Switch>
             <Route exact path={routes.ALERTS} render={() => <></> }/>
             <Route path={routes.ROOT} render={() => 
-              <ParkNav parks={parks} park={park} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/>  }/>
+              <ParkNav parks={parks} park={park} handleSkyMap={this.handleSkyMap} changeShowPark={this.changeShowPark}/> }/>
           </Switch>
         </div>
         <div className="grid-navBar">
@@ -268,21 +268,21 @@ class App extends Component {
         <div className="grid-menu">            
           <Switch>
             <Route exact path={routes.PARKS} render={() =>
-              <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/> } />
+              <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/> }/>
             <Route exact path={routes.STAR} render={() =>
               <>
               { loading
               ? <div className="pacman"><PacmanLoader color={'gold'} size={10}/></div>
-              : <input className="vskyModalBtn" type="button" onClick={this.showModal} value="Full Star Map" />
+              : <input className="vskyModalBtn" type="button" onClick={this.showModal} value="Full Star Map"/>
               }
               <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                                
-              </>} />
+              </> }/>
             <Route exact path={routes.HOME} render={() =>
-              <Intro />} />
+              <Intro /> }/>
             <Route exact path={routes.ABOUT} render={() =>
-              <About />} />
+              <About /> }/>
             <Route exact path={routes.TRACK} render={() =>
-              currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
+              currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> }/>
             <Route exact path={routes.ALERTS} render={() =>
               <>   
               {/* { currentUser
@@ -295,7 +295,7 @@ class App extends Component {
               }
               <UserModal onClose={this.userModal} user={this.state.user}>
               { currentUser 
-                ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} />
+                ? <EditUser submitEditUser={this.submitEditUser} currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
                 : <>
                   <Login currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser}/>
                   <br/>
@@ -303,10 +303,10 @@ class App extends Component {
                   </>
               }
               </UserModal>
-              <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap} />
-              </> } />
+              <Alerts currentUser={currentUser} doSetCurrentUser={this.doSetCurrentUser} closureList={closureList} handleSetMap={this.handleSetMap}/>
+              </> }/>
             <Route path={routes.ROOT} render={() =>
-              <Intro />} />   
+              <Intro /> }/>   
           </Switch>
         </div>  
 
@@ -315,19 +315,19 @@ class App extends Component {
           <Switch>     
             { !show &&
             <Route exact path={routes.STAR} render={() =>
-              <div className="vskyWindow"><Vsky show={show} lat={lat} lng={lng} park={park} parks={parks}/></div> } />
+              <div className="vskyWindow"><Vsky show={show} lat={lat} lng={lng} park={park} parks={parks}/></div> }/>
             }
             <Route exact path={routes.PARKS} render={() =>
-              <Map closureList={closureList} lat={lat} lng={lng}/>} />
+              <Map closureList={closureList} lat={lat} lng={lng}/> }/>
             <Route exact path={routes.ALERTS} render={() =>
-              <Map closureList={closureList} lat={lat} lng={lng}/>} />
+              <Map closureList={closureList} lat={lat} lng={lng}/> }/>
             <Route exact path={routes.HOME} render={() =>
-              <img className="resize" src="home-yosemite.png" />} />
+              <img className="resize" src="home-yosemite.png" /> }/>
             <Route exact path={routes.TRACK} render={() =>
-              <Map closureList={closureList} lat={lat} lng={lng}/>} />
+              <Map closureList={closureList} lat={lat} lng={lng}/> }/>
             <Route path={routes.ROOT} render={() =>
-              <img class="resize" src="franklin-lake.png" />} /> 
-            <Route exact path={routes.ABOUT} render={() => <></> } />
+              <img class="resize" src="franklin-lake.png" /> }/> 
+            <Route exact path={routes.ABOUT} render={() => <></> }/>
           </Switch>  
         </div>
 

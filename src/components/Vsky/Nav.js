@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 class Vnav extends Component {
 
     render() {
-
-    const { changeHandler, showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.props
+        const { changeHandler, showPlanets, showPlanetLabels, constellations, showStarLabels, showOrbits, showMeridian, azimuthGridlines, constellationLabels, projection } = this.props
 
         return (
             <div className="largeStarBtn">

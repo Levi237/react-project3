@@ -76,7 +76,7 @@ az=271.5665939727662`
                     <span><ParkNav park={park} parks={parks} handleSkyMap={handleSkyMap} changeShowPark={changeShowPark}/></span>
                 </form>
                 }
-                <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
+                <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`}/>
                 <div className={(show ? "largeStarBtn" : "smallStarBtn")}>
                     <form>
                         <section>

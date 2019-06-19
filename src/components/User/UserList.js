@@ -58,10 +58,7 @@ class UserList extends Component {
                         </strong>
                     </div>
                     <div className="details">
-                            {alert.description}<br/>
-                            {/* {alert.addresses.postalCode}<br/>
-                            {alert.addresses.city}<br/>
-                            {alert.addresses.stateCode}<br/> */}
+                            {alert.description}
                     </div>
                 </div>
                 <div className="deleteBox">
@@ -72,8 +69,8 @@ class UserList extends Component {
         
         return (
             <>
-                <h1>Tracking Closures:</h1>
-                    { myList }
+            <h1>Tracking Closures:</h1>
+            {myList}
             </>      
         )
     }
