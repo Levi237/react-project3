@@ -103,7 +103,6 @@ class App extends Component {
                 return total                             
               }, []) 
             })
-            console.log(newlist, "< NEW LIST")
             newlist = [].concat.apply([], newlist)
             this.setState({
               closureList: [...newlist],
@@ -165,7 +164,6 @@ class App extends Component {
     })
   }
   helpModal = () => {
-    console.log("click")
     this.setState({
       ...this.state,
       help: !this.state.help
@@ -203,7 +201,7 @@ class App extends Component {
         <Route exact path={routes.ABOUT} render={() =>
           <AboutFull /> } />
       </Switch>
-
+{/* data.map(invite => invite._id).includes(x._id) */}
 {/* HEADER */}
         <div className="grid-ha"/>
         <div className="grid-header">
@@ -283,15 +281,13 @@ class App extends Component {
                 <ParkShow park={park} closureList={closureList} handleSkyMap={this.handleSkyMap}/>                                
               </>} />
             <Route exact path={routes.HOME} render={() =>
-               <Intro />} />
+              <Intro />} />
             <Route exact path={routes.ABOUT} render={() =>
-            <>
-               <About />
-               </>} />
+              <About />} />
             <Route exact path={routes.TRACK} render={() =>
-               currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
+              currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> } />
             <Route exact path={routes.ALERTS} render={() =>
-               <>   
+              <>   
               { currentUser
                 ? <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="User Edit" /><br /><br /></>
                 : <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="Alert Log/Register" /><br /><br /></>

@@ -91,7 +91,7 @@ input {
   width: 100%;
 }
 
-.helpWindow {
+.helpModal > div {
   position: relative;
   margin: 40px auto;
   width: 400px;
@@ -379,23 +379,48 @@ grid-template-areas:
   ' fa footer footer fb ';
    grid-gap: 0;
 }
-/* @media screen and (min-width: 1400px) {
+
+
+/****************************************************************************/
+/***********************                              ***********************/
+/***********************         Media Query          ***********************/
+/***********************                              ***********************/
+/****************************************************************************/
+@media screen and (max-width: 960px) {
   .grid-container {
     width: 100%;
     display: grid;
     position: relative;
-    grid-template-columns: 20vw 30vw 30vw 20vw;
-    grid-template-rows: 55px 200px 0px 56px auto 5rem;
+    grid-template-columns: 10vw 80vw 10vw;
+    grid-template-rows: 55px 200px 0px 56px 300px auto 5rem;
   grid-template-areas:
-    ' ha header header hb '
-    '  ha image image hb '
-    ' ta title title tb '
-    ' na nav nav nb '
-    ' . menu main . '
-    ' fa footer footer fb ';
+    ' ha header hb '
+    '  ha image hb '
+    ' ta title tb '
+    ' na nav nb '
+    ' . main . '
+    ' . menu . '
+    ' fa footer fb ';
     grid-gap: 0;
   }
-} */
+  .grid-main { 
+    /* grid-area: main; 
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    background: transparent;
+    padding: 2.5vw; */
+    min-height: 265px;
+    padding: 0;
+    width: 80vw;
+  }
+  .map {
+    /* transition: all .3s ease-in-out; */
+    /* height: 30vw; */
+    width: 80vw;
+    /* padding: 1rem 0 0 0; */
+    /* background-color: #FFF; */
+}
+}
 
 
 

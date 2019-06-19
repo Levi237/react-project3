@@ -25,8 +25,8 @@ class Vsky extends Component {
             [e.target.name]: e.target.value
         })
     }
+    
     setToggle=(e) => {
-        console.log(e.target.value, "value", e.target.name, "name")
         this.setState({
         [e.target.name]: !this.state[e.target.name]
         })
@@ -57,14 +57,12 @@ live=true&\
 color=cornflowerblue&\
 az=271.5665939727662`
 
-// console.log(park.name, "<---------- park on Vsky")
         return (
 
             <div className={(show ? "vskyLargeContainer" : "vskySmallContainer")}>
                 {
                 show &&
                 <form>
-
                     <section className="projection">
                         <select onChange={this.changeHandler} name='projection' value={projection}>
                             <option value="equirectaungular">Round</option> 
@@ -75,45 +73,36 @@ az=271.5665939727662`
                             <option value="planechart">planechart</option>
                             <option value="gnomic">gnomic</option>
                         </select>      
-                    </section>   
-                    {/* { park.name && */}
-                
-                <span><ParkNav park={park} parks={parks} handleSkyMap={handleSkyMap} changeShowPark={changeShowPark}/></span>
-                
-                {/* }                      */}
+                    </section>              
+                    <span><ParkNav park={park} parks={parks} handleSkyMap={handleSkyMap} changeShowPark={changeShowPark}/></span>
                 </form>
                 }
                 <iframe  title="VirtualSky" src={`https://virtualsky.lco.global/embed/index.html?${settings}`} />
-
-            <div className={(show ? "largeStarBtn" : "smallStarBtn")}>
-
-                <form>
-                    <section>
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellations" value="Constellations"/>
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellationLabels" value="Const Names"/>
-                        {show &&
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="azimuthGridlines" value="Gridlines"/>
-                        }
-                        {show &&
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showMeridian" value="Meridian"/>
-                        }
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showStarLabels" value="Stars"/>
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanets" value="Planets"/>
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanetLabels" value="Planet Names"/>
-                        {show &&
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="showOrbits" value="Orbits"/>
-                        }
-                        {show && 
-                        <input type="button" onClick={(e) => {this.setToggle(e)}} name="negative" value="Negative"/>
-                        }
-                    </section>
+                <div className={(show ? "largeStarBtn" : "smallStarBtn")}>
+                    <form>
+                        <section>
+                            <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellations" value="Constellations"/>
+                            <input type="button" onClick={(e) => {this.setToggle(e)}} name="constellationLabels" value="Const Names"/>
+                            {show &&
+                            <input type="button" onClick={(e) => {this.setToggle(e)}} name="azimuthGridlines" value="Gridlines"/>
+                            }
+                            {show &&
+                            <input type="button" onClick={(e) => {this.setToggle(e)}} name="showMeridian" value="Meridian"/>
+                            }
+                            <input type="button" onClick={(e) => {this.setToggle(e)}} name="showStarLabels" value="Stars"/>
+                            <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanets" value="Planets"/>
+                            <input type="button" onClick={(e) => {this.setToggle(e)}} name="showPlanetLabels" value="Planet Names"/>
+                            {show &&
+                            <input type="button" onClick={(e) => {this.setToggle(e)}} name="showOrbits" value="Orbits"/>
+                            }
+                            {show && 
+                            <input type="button" onClick={(e) => {this.setToggle(e)}} name="negative" value="Negative"/>
+                            }
+                        </section>
                     </form>
+                </div>
 
             </div>
-        
-
-
-             </div>
 
         )
     }

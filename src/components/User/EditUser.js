@@ -34,7 +34,7 @@ export class EditUser extends Component {
                     })
             }
         } catch(err){
-            console.log(err)
+            return(err)
         }
 
     }

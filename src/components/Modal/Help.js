@@ -12,9 +12,9 @@ export default class Help extends Component {
             <div className="helpModal">
                 <div className="helpWindow">
                     <div>
-                <button className="closeHelp" onClick={(e) => {this.onClose(e)}}>
-                    X
-                </button>
+                        <button className="closeHelp" onClick={(e) => {this.onClose(e)}}>
+                            X
+                        </button>
                     </div>
                     {this.props.children}
                 </div>
