@@ -567,10 +567,11 @@ grid-template-areas:
   }
   .grid-container {
     width: 100%;
+    height: 100vh;
     display: grid;
     position: relative;
     grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 34px 30px 100px 0px 39px auto 340px 5rem;
+    grid-template-rows: 34px 30px 100px 0px 39px 140vw 40vw 5rem;
   grid-template-areas:
     ' header header header '
     ' navPark navPark navPark'
@@ -602,10 +603,22 @@ grid-template-areas:
     /* position: absolute; */
     /* display: block; */
     font-size: 2rem;
+    text-align: center;
     margin-block-start: 0.3em;
     /* margin-block-end: 0.2em; */
     /* margin-inline-start: 0px; */
     /* margin-inline-end: 0px; */
+    /* font-weight: bold; */
+  }
+  .grid-navBar {
+    padding: 11px 0;
+    /* margin-bottom: -10px; */
+  }
+  .grid-navPark { 
+    /* grid-area: navPark;  */
+    float: right;
+    position: relative;
+    padding: 0 ;
     /* font-weight: bold; */
   }
   .navBtn {
@@ -631,18 +644,8 @@ grid-template-areas:
     /* background: transparent; */
     /* border: 1px solid white; */
   }
-  .grid-navBar {
-    padding: 11px;
-  }
-  .grid-navPark { 
-    /* grid-area: navPark;  */
-    float: right;
-    position: relative;
-    padding: 0 ;
-    /* font-weight: bold; */
-  }
   .aboutInfoCenter {
-        /* font-size: 2vw; */
+        font-size: 3vw;
     /* width: 50vw; */
     /* margin-top: 20px; */
     /* margin-left: 5vw; */
@@ -656,13 +659,20 @@ grid-template-areas:
   
   .aboutInfoCenter > h1 {
     /* display: block; */
-        /* font-size: 4vw; */
+        font-size: 4.2vw;
     /* margin-block-start: 0em; */
     /* margin-block-end: 0em; */
     /* font-family: 'Times New Roman', Times, serif; */
     /* margin-inline-start: 0px; */
     /* margin-inline-end: 0px; */
     /* font-weight: bold; */
+  }
+  .aboutFullPic {
+    height: 180vw;
+    margin-top: 200px;
+  }
+  .technologies {
+    font-size: 1.4vw;
   }
   h2 {
     display: block;
@@ -672,6 +682,13 @@ grid-template-areas:
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
+  }
+  .grid-footer {
+    /* grid-area: footer; */
+    /* position: -webkit-sticky; */
+    /* position: sticky; */
+    margin-top: -10px;
+    /* text-align: center; */
 }
 }
 /*********************** @media RESIZE TO PHONE 500px ***********************/
