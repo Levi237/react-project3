@@ -287,11 +287,11 @@ class App extends Component {
               <>   
               {/* { currentUser
                 ? <><input className={!this.state.user ? "vskyModalBtn" : "hideUserBtn"} type="button" onClick={this.userModal} value="User Edit" /><br /></>
-                : <><input className={!this.state.user ? "vskyModalBtn" : "hideUserBtn"} type="button" onClick={this.userModal} value="Alert Log/Register" /><br /></>
+                : <><input className={!this.state.user ? "vskyModalBtn" : "hideUserBtn"} type="button" onClick={this.userModal} value="Log/Register" /><br /></>
               } */}
               { currentUser
               ? <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="User Edit" /><br /><br /></>
-              : <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="Alert Log/Register" /><br /><br /></>
+              : <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="Log/Register" /><br /><br /></>
               }
               <UserModal onClose={this.userModal} user={this.state.user}>
               { currentUser 
