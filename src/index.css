@@ -389,6 +389,7 @@ transition: all .4s;
 
 .grid-container {
   width: 100%;
+  height: auto;
   display: grid;
   position: relative;
   grid-template-columns: 15vw 35vw 35vw 15vw;
@@ -411,6 +412,7 @@ grid-template-areas:
 /***********************                              ***********************/
 /****************************************************************************/
 @media screen and (max-width: 960px) {
+
   html {
     font-size: .8rem;
   }
@@ -420,7 +422,7 @@ grid-template-areas:
     display: grid;
     position: relative;
     grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 40px 100px 0px 55px 40vw 20vw 5rem;
+    grid-template-rows: 40px 100px 0px 55px minmax(10vw, 40vw) 40vw 5rem;
   grid-template-areas:
     ' header header navPark '
     ' image image image '
@@ -485,7 +487,7 @@ grid-template-areas:
     /* font-size: 1rem; */
     /* background: transparent; */
     /* padding: 2.5vw; */
-    min-height: auto;
+    
   }
   .parkMenu {
     float: right;
@@ -508,10 +510,12 @@ grid-template-areas:
     /* min-height: 265px; */
     padding: 0 0 1rem 0;
     width: 90vw;
+    min-height: auto;
   }
   .grid-menu {
     padding: 0;
     margin: 0;
+    overflow: auto;
     /* min-height: 300px */
   }
   .aboutFullPic {
@@ -603,11 +607,17 @@ grid-template-areas:
     /* margin-block-end: 0; */
     /* font-weight: bold; */
   }
+  .grid-main {
+    
+  }
   .grid-menu > h1 {
         /* font-size: 1.8rem; */
   }
 
-  .grid-menu { padding: 0;}
+  .grid-menu { 
+    padding: 0;
+    overflow: auto;
+  }
   .grid-title {
     overflow: hidden;
   }

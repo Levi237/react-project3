@@ -50,3 +50,17 @@
     /* background-color: #FFF; */
   }
 }
+
+
+element.style {
+}
+@media screen and (max-width: 500px) {
+  .map {
+      /* transition: all .3s ease-in-out; */
+      /* height: 30vw; */
+      /* width: 30vw; */
+      margin-top: -15rem;
+      /* padding: 1rem 0 0 0; */
+      /* background-color: #FFF; */
+  }
+}

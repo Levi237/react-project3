@@ -206,6 +206,7 @@
     width: 90vw;
     height: 300px;
     padding: 0 0 1rem 0;
+    
   }
   .smallStarBtn > form > section > input {
     width: 18vw;
@@ -214,6 +215,9 @@
     padding: 0;
     /* display: inline-block; */
     /* background-color: rgb(0,0,0, .5); */
+  }
+  .vskyModalBtn {
+    margin-top: 10px;
   }
 }
 
@@ -231,6 +235,7 @@
     /* width: 90vw; */
     /* height: 300px; */
     /* padding: 0 0 1rem 0; */
+    margin-top: -17rem;
   }
   .smallStarBtn > form > section > input {
     /* width: 18vw; */
@@ -247,6 +252,7 @@
     height: 1.8rem;
     font-size: 1rem;
     width: 7.5rem;
+
     /* position: fixed; */
     /* border-radius: 5px; */
     /* border: 1px solid midnightblue; */
