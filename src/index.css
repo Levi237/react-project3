@@ -420,7 +420,7 @@ grid-template-areas:
     display: grid;
     position: relative;
     grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 40px 100px 0px 55px auto 340px 5rem;
+    grid-template-rows: 40px 100px 0px 55px 40vw 20vw 5rem;
   grid-template-areas:
     ' header header navPark '
     ' image image image '
@@ -478,10 +478,18 @@ grid-template-areas:
     /* padding: 19px 0; */
     /* margin-top: -3px; */
     /* font-weight: bold; */
-}
+  }
+  .grid-main { 
+    /* grid-area: main;  */
+    /* font-family: 'Times New Roman', Times, serif; */
+    /* font-size: 1rem; */
+    /* background: transparent; */
+    /* padding: 2.5vw; */
+    min-height: auto;
+  }
   .parkMenu {
     float: right;
-    margin: -8px;
+    margin: -8px 0 0 -50vw;
   }
 
   .grid-navBar, .grid-navPark { 
@@ -502,13 +510,15 @@ grid-template-areas:
     width: 90vw;
   }
   .grid-menu {
+    padding: 0;
+    margin: 0;
     /* min-height: 300px */
   }
   .aboutFullPic {
     /* width: 100vw; */
-    height: auto;
+    height: 60vw;
     position: absolute;
-    margin-top: 210px;
+    margin-top: 195px;
   }
   .aboutInfoCenter {
     /* margin: 20px 0 0 0; */
@@ -633,13 +643,17 @@ grid-template-areas:
   }
   /* form, select, option {
     width: 80vw;
-  } */
+  } */  
+  .parkMenu {
+    float: right;
+    margin: 0;
+  }
   .parkMenu > form > select {
     /* text-align: left; */
     /* z-index: 500000000; */
     max-width: 90vw;
     width: 90vw;
-    margin: 13px 7.5vw;
+    margin: 5px 5vw;
     /* position: absolute; */
     /* font-size: 1rem; */
     /* color: white; */
