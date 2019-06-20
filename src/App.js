@@ -206,7 +206,7 @@ class App extends Component {
           <h3>Welcome to Park Intel</h3>
         </div>
         <div className="grid-hb">
-          <input className="info" type="button" onClick={this.helpModal} value="?" />
+          <input type="button" onClick={this.helpModal} value="?" />
         </div>     
 
 {/* IMAGE */}

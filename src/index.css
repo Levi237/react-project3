@@ -55,12 +55,7 @@ input {
   height: 1rem;
 }
 
-.aboutPic {
-  height: auto;
-  width: 30vw;
-}
-
-.info {
+.grid-hb > input {
   height: 30px;
   width: 30px;
   border-radius: 100px;
@@ -74,13 +69,13 @@ input {
   transition: all .3s ease-in-out;
 }
 
-.info:hover{
+.grid-hb > input:hover{
   transition: all .3s ease-in-out;
   box-shadow: inset 0 0 4px 2px white;
   font-size: 1.2rem;
 }
 
-.info:active{
+.grid-hb > input:active{
   transform: translateY(2px);
 }
 
@@ -364,7 +359,7 @@ transition: all .4s;
 }
 
 .grid-footer > h3 {
-  font-size: .7rem;
+  font-size: 1.1vw;
     margin-block-start: 2rem;
     margin-block-end: 0;
     margin-inline-start: 0px;
@@ -378,7 +373,7 @@ transition: all .4s;
   transition: all .3s ease-in-out;
   text-decoration: none;
   color: #FFF;
-  margin: 2rem auto;
+  /* margin: 2rem auto; */
 }
 
 .grid-footer > h3 > a:hover {
@@ -458,8 +453,8 @@ grid-template-areas:
   .grid-title > div > h1 {
     /* position: absolute; */
     /* display: block; */
-    font-size: 1.2rem;
-    /* margin-block-start: 0.8em; */
+    font-size: 1.6rem;
+    margin-block-start: 0.4em;
     /* margin-block-end: 0.2em; */
     /* margin-inline-start: 0px; */
     /* margin-inline-end: 0px; */
