@@ -567,7 +567,7 @@ grid-template-areas:
     display: grid;
     position: relative;
     grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 30px 30px 100px 0px 55px auto 340px 5rem;
+    grid-template-rows: 34px 30px 100px 0px 39px auto 340px 5rem;
   grid-template-areas:
     ' header header header '
     ' navPark navPark navPark'
@@ -585,7 +585,7 @@ grid-template-areas:
   .navBtn {
     /* text-decoration: none; */
     /* color: #FFF; */
-    padding: 19px .6rem;
+    padding: 12px .6rem;
     /* margin: 0 0; */
     font-size: .8rem;
     /* text-shadow: 1px 1px #000; */
@@ -604,6 +604,9 @@ grid-template-areas:
     /* color: white; */
     /* background: transparent; */
     /* border: 1px solid white; */
+  }
+  .grid-navBar {
+    padding: 11px;
   }
   .grid-navPark { 
     /* grid-area: navPark;  */

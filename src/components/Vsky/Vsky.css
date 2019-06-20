@@ -216,3 +216,40 @@
     /* background-color: rgb(0,0,0, .5); */
   }
 }
+
+
+/****************************************************************************/
+/***********************                              ***********************/
+/***********************         Media Query          ***********************/
+/***********************         500px maxW           ***********************/
+/***********************                              ***********************/
+/****************************************************************************/
+@media screen and (max-width: 500px) {
+
+  .vskySmallContainer {
+    /* position: absolute; */
+    /* width: 90vw; */
+    /* height: 300px; */
+    /* padding: 0 0 1rem 0; */
+  }
+  .smallStarBtn > form > section > input {
+    /* width: 18vw; */
+    /* height: 6vw; */
+    /* font-size: 2vw; */
+    /* padding: 0; */
+    /* display: inline-block; */
+    /* background-color: rgb(0,0,0, .5); */
+  }
+
+  .vskyModalBtn {
+    /* transition: all .3s ease-in-out; */
+    /* float: right; */
+    height: 1.8rem;
+    font-size: 1rem;
+    width: 7.5rem;
+    /* position: fixed; */
+    /* border-radius: 5px; */
+    /* border: 1px solid midnightblue; */
+  }
+}
+
