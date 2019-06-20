@@ -206,7 +206,33 @@ transition: all .4s;
 }
 
 
-/*************************** SCALABLE GRID ***************************/
+
+
+
+/****************************************************************************/
+/***********************                              ***********************/
+/***********************         Media Query          ***********************/
+/***********************           DESKTOP            ***********************/
+/***********************                              ***********************/
+/****************************************************************************/
+
+.grid-container {
+  width: 100%;
+  height: auto;
+  display: grid;
+  position: relative;
+  grid-template-columns: 15vw 35vw 35vw 15vw;
+  grid-template-rows: 55px 200px 0px 56px auto 5rem;
+grid-template-areas:
+  ' ha header header hb '
+  ' image image image image'
+  ' ta title title tb '
+  ' na navPark navBar nb '
+  ' . menu main . '
+  ' fa footer footer fb ';
+   grid-gap: 0;
+}
+
 .grid-header, .grid-navBar, .grid-navPark , .grid-footer, .grid-ha, .grid-hb, .grid-na, .grid-nb, .grid-fa, .grid-fb { background: #000; color: #FFF; z-index:30000000000}
 .grid-title, .grid-ta, .grid-tb {
   background: rgb(0, 0, 0, .6); 
@@ -214,8 +240,7 @@ transition: all .4s;
   width: 100%;
   margin-top: -82px;
 }
-.grid-ha { grid-area: ha; }
-.grid-hb { grid-area: hb; }
+
 .grid-na { grid-area: na; }
 .grid-nb { grid-area: nb; }
 .grid-fa { grid-area: fa; }
@@ -223,11 +248,15 @@ transition: all .4s;
 .grid-ta { grid-area: ta; }
 .grid-tb { grid-area: tb; }
 
+/***********************         GRID-HEADER          ***********************/
+.grid-ha { grid-area: ha; }
 .grid-header { 
   grid-area: header; 
   position: relative;
   z-index: 5000;
 }
+.grid-hb { grid-area: hb; }
+
 .grid-header > h1 {
   font-size: 2.5rem;
   margin-block-end: 0em;
@@ -239,49 +268,27 @@ transition: all .4s;
   margin-right: -.15em;
 }
 
+/***********************         GRID-IMAGE          ***********************/
 .grid-image { 
   grid-area: image; 
   background-color: transparent;
   width: auto;
 }
 
-.image-holder {
+.grid-image > div  {
   height: 200px;
 }
-
-.image-holder > img {
+.grid-image > div  > img {
   height: 100%;
   width: 100%;
 }
-
 .grid-image > div > img {
   max-height: 200px;
   width: 100%;
   z-index: -10;
   position: relative;
 }
-
-.switchContainer {
-  position: relative;
-  z-index: 100;
-}
-
-.grid-navPark { 
-  grid-area: navPark; 
-  text-align: right;
-  position: relative;
-  padding: 19px 0 ;
-  font-weight: bold;
-}
-
-.grid-navBar { 
-  grid-area: navBar; 
-  text-align: right;
-  position: relative;
-  padding: 19px 0 ;
-  font-weight: bold;
-}
-
+/***********************         GRID-TITLE          ***********************/
 .grid-title { 
   grid-area: title;
 }
@@ -289,7 +296,6 @@ transition: all .4s;
 .grid-title > section > form {
   margin: 1em 0;
 }
-
 .grid-title > div > h1 {
   position: absolute;
   display: block;
@@ -301,6 +307,26 @@ transition: all .4s;
   font-weight: bold;
 }
 
+/***********************         GRID-NAVPARK          ***********************/
+.grid-navPark { 
+  grid-area: navPark; 
+  text-align: right;
+  position: relative;
+  padding: 19px 0 ;
+  font-weight: bold;
+}
+
+/***********************         GRID-NAVBAR          ***********************/
+.grid-navBar { 
+  grid-area: navBar; 
+  text-align: right;
+  position: relative;
+  padding: 19px 0 ;
+  font-weight: bold;
+}
+
+
+/***********************         GRID-MENU          ***********************/
 .grid-menu { 
   grid-area: menu; 
   background: #FFF;
@@ -311,12 +337,14 @@ transition: all .4s;
   /* overflow: overlay; */
   background-color: transparent;
 }
+
 .grid-menu > h1, .grid-list > h1 {
   font-family: 'Times New Roman', Times, serif;
   font-size: 2rem;
   padding: 0;
 }
 
+/***********************         GRID-MAIN          ***********************/
 .grid-main { 
   grid-area: main; 
   font-family: 'Times New Roman', Times, serif;
@@ -331,6 +359,7 @@ transition: all .4s;
   font-size: .8rem;
 }
 
+/***********************         GRID-FOOTER          ***********************/
 .grid-footer {
   grid-area: footer;
   position: sticky;
@@ -359,23 +388,6 @@ transition: all .4s;
   font-size: 1rem;
   transition: all .3s ease-in-out;
   text-decoration: underline;
-}
-
-.grid-container {
-  width: 100%;
-  height: auto;
-  display: grid;
-  position: relative;
-  grid-template-columns: 15vw 35vw 35vw 15vw;
-  grid-template-rows: 55px 200px 0px 56px auto 5rem;
-grid-template-areas:
-  ' ha header header hb '
-  ' image image image image'
-  ' ta title title tb '
-  ' na navPark navBar nb '
-  ' . menu main . '
-  ' fa footer footer fb ';
-   grid-gap: 0;
 }
 
 
@@ -517,7 +529,7 @@ grid-template-areas:
     height: 300px;
     /* padding-bottom: 20px; */
   }
-  .image-holder {
+  .grid-image > div  {
     height: 100px;
   }
   .grid-footer {
