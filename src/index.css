@@ -596,6 +596,8 @@ grid-template-areas:
   .grid-menu > h1 {
         /* font-size: 1.8rem; */
   }
+
+  .grid-menu { padding: 0;}
   .grid-title {
     overflow: hidden;
   }
