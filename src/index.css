@@ -145,7 +145,7 @@ input {
   /* border: 1px solid white; */
 }
 
-.resize {
+.grid-main > img {
   width: 30vw;
 }
 .alertSign {
@@ -278,16 +278,14 @@ grid-template-areas:
 .grid-image > div  {
   height: 200px;
 }
-.grid-image > div  > img {
-  height: 100%;
-  width: 100%;
-}
 .grid-image > div > img {
   max-height: 200px;
+  height: 100%;
   width: 100%;
   z-index: -10;
   position: relative;
 }
+
 /***********************         GRID-TITLE          ***********************/
 .grid-title { 
   grid-area: title;
@@ -304,7 +302,6 @@ grid-template-areas:
   margin-block-end: 0.2em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-weight: bold;
 }
 
 /***********************         GRID-NAVPARK          ***********************/
@@ -333,12 +330,10 @@ grid-template-areas:
   padding: .5rem;
   text-align: justify;
   margin-bottom: 2rem;
-  /* max-height: 600px; */
-  /* overflow: overlay; */
   background-color: transparent;
 }
 
-.grid-menu > h1, .grid-list > h1 {
+.grid-menu > h1 {
   font-family: 'Times New Roman', Times, serif;
   font-size: 2rem;
   padding: 0;
@@ -375,20 +370,17 @@ grid-template-areas:
     font-weight: bold;
     transition: all .3s ease-in-out;
 }
-
 .grid-footer > h3 > a {
-  
   transition: all .3s ease-in-out;
   text-decoration: none;
   color: #FFF;
-  /* margin: 2rem auto; */
 }
-
 .grid-footer > h3 > a:hover {
   font-size: 1rem;
   transition: all .3s ease-in-out;
   text-decoration: underline;
 }
+
 
 
 /****************************************************************************/
@@ -421,132 +413,92 @@ grid-template-areas:
   }
   .grid-ha, .grid-hb, .grid-na, .grid-nb, .grid-ta, .grid-tb, .grid-fa, .grid-fb { display: none}
 
-  .grid-image > div > img {
-    max-height: 100px;
-    width: 100%;
-    z-index: -10;
-    position: relative;
-  }
+  /***********************         GRID-HEADER 960          ***********************/
   .grid-title, .grid-header { 
     padding-left: 1rem;
   }
   .grid-header > h3 {
     width: 15rem;
   }
+
+  /***********************         GRID-NAVPARK 960          ***********************/
+  .grid-navPark { 
+    float: right;
+    position: relative;
+    padding: 19px 0 ;
+  }
+  .grid-navBar, .grid-navPark { 
+    padding: 19px 1rem ;
+  }
+  
+  /***********************         GRID-NAVBAR 960          ***********************/
+  .grid-navBar {
+  }
+
+  /***********************         GRID-IMAGE 960          ***********************/
+  .grid-image > div > img {
+    max-height: 100px;
+    width: 100%;
+    z-index: -10;
+    position: relative;
+  }
+
+  /***********************         GRID-TITLE 960          ***********************/
   .grid-title {
-    /* background: rgb(0, 0, 0, .6); 
-    color: #FFF;  */
     width: auto;
     padding: 0 1rem;
     height: 40px;
     margin-top: -40px;
   }
   .grid-title > div > h1 {
-    /* position: absolute; */
-    /* display: block; */
     font-size: 1.6rem;
     margin-block-start: 0.4em;
-    /* margin-block-end: 0.2em; */
-    /* margin-inline-start: 0px; */
-    /* margin-inline-end: 0px; */
-    /* font-weight: bold; */
   }
 
-  .grid-navPark { 
-    /* grid-area: navPark;  */
-    float: right;
-    position: relative;
-    padding: 19px 0 ;
-    /* font-weight: bold; */
-  }
-  .grid-navBar {
-    /* grid-area: navBar; */
-    /* text-align: right; */
-    /* position: relative; */
-    /* padding: 19px 0; */
-    /* margin-top: -3px; */
-    /* font-weight: bold; */
-  }
-  .grid-main { 
-    /* grid-area: main;  */
-    /* font-family: 'Times New Roman', Times, serif; */
-    /* font-size: 1rem; */
-    /* background: transparent; */
-    /* padding: 2.5vw; */
-    
-  }
-  .parkMenu {
-    float: right;
-    margin: -8px 0 0 -50vw;
-  }
-
-  .grid-navBar, .grid-navPark { 
-    /* grid-area: nav; 
-    text-align: right;
-    position: relative; */
-    padding: 19px 1rem ;
-    /* font-weight: bold; */
-  }
-  .grid-main { 
-    /* grid-area: main; 
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1rem;
-    background: transparent;
-    padding: 2.5vw; */
-    /* min-height: 265px; */
-    padding: 0 0 1rem 0;
-    width: 90vw;
-    min-height: auto;
-  }
+  /***********************         GRID-MENU 960          ***********************/
   .grid-menu {
     padding: 0;
     margin: 0;
     overflow: auto;
-    /* min-height: 300px */
+  }
+
+  .parkMenu {
+    float: right;
+    margin: -8px 0 0 -50vw;
+  }
+  /***********************         GRID-MAIN 960          ***********************/
+  .grid-main { 
+    padding: 0 0 1rem 0;
+    width: 90vw;
+    min-height: auto;
   }
   .aboutFullPic {
-    /* width: 100vw; */
     height: 60vw;
     position: absolute;
     margin-top: 195px;
   }
+
   .aboutInfoCenter {
-    /* margin: 20px 0 0 0; */
-    /* margin-top: 20px; */
-    /* font-size: 1.3vw; */
     width: 70vw;
-    /* margin-top: 20px; */
-    /* margin-left: 5vw; */
-    /* margin-right: 5vw; */
-    /* z-index: 5000000000000000; */
-    /* position: absolute; */
-    /* background-color: rgb(255,255,255,.5); */
-    /* border-radius: 15px; */
-    /* padding:  2rem 5vw 0 5vw; */
   }
-  .resize {
+  .grid-main > img {
     width: 90vw;
     height: 300px;
-    /* padding-bottom: 20px; */
   }
   .grid-image > div  {
     height: 100px;
   }
-  .grid-footer {
-    padding: 0 5vw;
-  }
   .parkMenu > form > select {
-    /* text-align: left; */
-    /* z-index: 500000000; */
     max-width: 50vw;
     width: 50vw;
     margin-top: 2px;
-    /* position: absolute; */
-    /* font-size: 1rem; */
-    /* color: white; */
-    /* background: transparent; */
-    /* border: 1px solid white; */
   }
+
+  /***********************         GRID-FOOTER 960          ***********************/
+  .grid-footer {
+    padding: 0 5vw;
+  }
+
 }
 
 
@@ -558,7 +510,7 @@ grid-template-areas:
 /****************************************************************************/
 /***********************                              ***********************/
 /***********************         Media Query          ***********************/
-/***********************           max 960            ***********************/
+/***********************           max 500            ***********************/
 /***********************                              ***********************/
 /****************************************************************************/
 @media screen and (max-width: 500px) {
@@ -583,7 +535,7 @@ grid-template-areas:
     ' footer footer footer ';
     grid-gap: 0;
   }
-
+  /***********************         GRID-HEADER 500          ***********************/
   .grid-header > h3 {
     font-size: 1.6rem;
     width: 90vw;
@@ -595,36 +547,8 @@ grid-template-areas:
     /* margin-block-end: 0; */
     /* font-weight: bold; */
   }
-  .grid-main {
-    /* overflow: auto; */
-  }
-  .grid-menu > h1 {
-        /* font-size: 1.8rem; */
-  }
 
-  .grid-menu { 
-    padding: 0;
-    overflow: auto;
-    max-height: 100vw;
-  }
-  .grid-title {
-    overflow: hidden;
-  }
-  .grid-title > div > h1 {
-    /* position: absolute; */
-    /* display: block; */
-    font-size: 2rem;
-    text-align: center;
-    margin-block-start: 0.3em;
-    /* margin-block-end: 0.2em; */
-    /* margin-inline-start: 0px; */
-    /* margin-inline-end: 0px; */
-    /* font-weight: bold; */
-  }
-  .grid-navBar {
-    padding: 11px 0;
-    /* margin-bottom: -10px; */
-  }
+  /***********************         GRID-NAVPARK 500          ***********************/
   .grid-navPark { 
     /* grid-area: navPark;  */
     float: right;
@@ -638,73 +562,74 @@ grid-template-areas:
     padding: 12px .6rem;
     /* margin: 0 0; */
         /* font-size: .8rem; */
-    /* text-shadow: 1px 1px #000; */
+        /* text-shadow: 1px 1px #000; */
+      }
+      .grid-navBar {
+        padding: 11px 0;
+        /* margin-bottom: -10px; */
+      }
+      
+/***********************         GRID-IMAGE 500          ***********************/
+/***********************         GRID-TITLE 500          ***********************/
+.grid-title {
+  overflow: hidden;
+}
+.grid-title > div > h1 {
+  /* position: absolute; */
+  /* display: block; */
+  font-size: 2rem;
+  text-align: center;
+  margin-block-start: 0.3em;
+  /* margin-block-end: 0.2em; */
+  /* margin-inline-start: 0px; */
+  /* margin-inline-end: 0px; */
+  /* font-weight: bold; */
+}
+
+/***********************         GRID-MAIN 500          ***********************/
+  .grid-main {
   }
-  /* form, select, option {
-    width: 80vw;
-  } */  
+
+/***********************         GRID-MENU 500          ***********************/
+  .grid-menu { 
+    padding: 0;
+    overflow: auto;
+    max-height: 100vw;
+  }
+
+  .grid-menu > h1 {
+    /* font-size: 1.8rem; */
+  }
+
   .parkMenu {
     float: right;
     margin: 0;
   }
   .parkMenu > form > select {
-    /* text-align: left; */
-    /* z-index: 500000000; */
     max-width: 90vw;
     width: 90vw;
     margin: 5px 5vw;
-    /* position: absolute; */
-    /* font-size: 1rem; */
-    /* color: white; */
-    /* background: transparent; */
-    /* border: 1px solid white; */
   }
+
   .aboutInfoCenter {
-        font-size: 3vw;
-    /* width: 50vw; */
-    /* margin-top: 20px; */
-    /* margin-left: 5vw; */
-    /* margin-right: 5vw; */
-    /* z-index: 5000000000000000; */
-    /* position: absolute; */
-    /* background-color: rgb(255,255,255,.5); */
-    /* border-radius: 15px; */
-    /* padding:  2rem 5vw 0 5vw; */
-  }
-  
+    font-size: 3vw;
+  }  
   .aboutInfoCenter > h1 {
-    /* display: block; */
         font-size: 4.2vw;
-    /* margin-block-start: 0em; */
-    /* margin-block-end: 0em; */
-    /* font-family: 'Times New Roman', Times, serif; */
-    /* margin-inline-start: 0px; */
-    /* margin-inline-end: 0px; */
-    /* font-weight: bold; */
-  }
-  .aboutFullPic {
-    height: 180vw;
-    margin-top: 200px;
   }
   .aboutInfoCenter > section {
     font-size: 1.4vw;
   }
-  h2 {
-    display: block;
-        /* font-size: 1.2em; */
-    margin-block-start: 1.5em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
+
+  .aboutFullPic {
+    height: 180vw;
+    margin-top: 200px;
   }
+
+  /***********************         GRID-FOOTER 500          ***********************/
   .grid-footer {
-    /* grid-area: footer; */
-    /* position: -webkit-sticky; */
-    /* position: sticky; */
     margin-top: -10px;
-    /* text-align: center; */
-}
+  }
 }
 /*********************** @media RESIZE TO PHONE 500px ***********************/
 

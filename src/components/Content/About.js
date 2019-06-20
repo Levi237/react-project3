@@ -1,6 +1,6 @@
 import React from 'react'
 
-const About = () => 
+const  About = () => 
     <div className="aboutInfoCenter">
         <h1>Levi Eiko Winans</h1>
         

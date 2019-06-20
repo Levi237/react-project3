@@ -318,12 +318,12 @@ class App extends Component {
             <Route exact path={routes.ALERTS} render={() =>
               <Map closureList={closureList} lat={lat} lng={lng}/> }/>
             <Route exact path={routes.HOME} render={() =>
-              <img className="resize" src="home-yosemite.png" /> }/>
+              <img src="home-yosemite.png" /> }/>
             <Route exact path={routes.TRACK} render={() =>
               <Map closureList={closureList} lat={lat} lng={lng}/> }/>
             <Route exact path={routes.ABOUT} render={() => <></> }/>
             <Route path={routes.ROOT} render={() =>
-              <img class="resize" src="franklin-lake.png" /> }/> 
+              <img src="franklin-lake.png" /> }/> 
           </Switch>  
         </div>
 
