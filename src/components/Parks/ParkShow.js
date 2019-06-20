@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 
 import Info from '../Content/Info'
 
-import './Park.css'
-
 class ParkShow extends Component {
 
     toggle = e => {

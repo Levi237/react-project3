@@ -196,7 +196,6 @@ transition: all .4s;
 }
 
 .aboutInfoCenter {
-
   font-size: 1.3vw;
   width: 50vw;
   margin-top: 20px;
@@ -300,6 +299,7 @@ transition: all .4s;
   padding: 19px 0 ;
   font-weight: bold;
 }
+
 .grid-navBar { 
   grid-area: navBar; 
   text-align: right;
@@ -606,6 +606,29 @@ grid-template-areas:
     float: right;
     position: relative;
     padding: 0 ;
+    /* font-weight: bold; */
+  }
+  .aboutInfoCenter {
+    font-size: 2vw;
+    /* width: 50vw; */
+    /* margin-top: 20px; */
+    /* margin-left: 5vw; */
+    /* margin-right: 5vw; */
+    /* z-index: 5000000000000000; */
+    /* position: absolute; */
+    /* background-color: rgb(255,255,255,.5); */
+    /* border-radius: 15px; */
+    /* padding:  2rem 5vw 0 5vw; */
+  }
+  
+  .aboutInfoCenter > h1 {
+    /* display: block; */
+    font-size: 4vw;
+    /* margin-block-start: 0em; */
+    /* margin-block-end: 0em; */
+    /* font-family: 'Times New Roman', Times, serif; */
+    /* margin-inline-start: 0px; */
+    /* margin-inline-end: 0px; */
     /* font-weight: bold; */
   }
 }
