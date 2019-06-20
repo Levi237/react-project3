@@ -42,3 +42,18 @@
         /* text-shadow: 1px 1px #000; */
     }
 }
+
+@media screen and (max-width: 500px) {
+    .navBtn {
+        /* text-decoration: none; */
+        /* color: #FFF; */
+        padding: 22px 3vw;
+        /* margin: 0 0; */
+        /* text-align: z */
+        font-size: 3vw;
+        /* text-shadow: 1px 1px #000; */
+    }
+    .navBox {
+        text-align: center;
+    }
+}
