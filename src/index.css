@@ -181,11 +181,6 @@ transition: all .4s;
   height: 66vw;
 }
 
-.AboutCenterContact{
-  position: relative;
-  z-index: 5000000000000000;
-}
-
 .aboutInfoCenter {
   font-size: 1.3vw;
   width: 50vw;
@@ -209,18 +204,6 @@ transition: all .4s;
   margin-inline-end: 0px;
   font-weight: bold;
 }
-
-.userNav {
-  text-align: right;
-}
-.contacts {
-  text-align: center;
-}
-
-.hideUserBtn {
-  display: none;
-}
-
 
 
 /*************************** SCALABLE GRID ***************************/

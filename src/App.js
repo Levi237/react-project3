@@ -285,10 +285,6 @@ class App extends Component {
               currentUser && <UserList deleteItem={this.deleteItem} currentUser={currentUser} edituser={this.edituser} handleSetMap={this.handleSetMap} closureList={closureList}/> }/>
             <Route exact path={routes.ALERTS} render={() =>
               <>   
-              {/* { currentUser
-                ? <><input className={!this.state.user ? "vskyModalBtn" : "hideUserBtn"} type="button" onClick={this.userModal} value="User Edit" /><br /></>
-                : <><input className={!this.state.user ? "vskyModalBtn" : "hideUserBtn"} type="button" onClick={this.userModal} value="Log/Register" /><br /></>
-              } */}
               { currentUser
               ? <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="User Edit" /><br /><br /></>
               : <><input className="vskyModalBtn" type="button" onClick={this.userModal} value="Log/Register" /><br /><br /></>
