@@ -1,4 +1,3 @@
-
 html {
   height: 100% center;
 }
@@ -54,14 +53,13 @@ input {
   width: 9em;
   height: 1rem;
 }
-
+/*************************** HELP MODAL ***************************/
 .helpModal {
   z-index: 999999999999999999999999999999999 !important;
   position: fixed;
   height: 100%;
   width: 100%;
 }
-
 .helpModal > div {
   position: relative;
   margin: 40px auto;
@@ -74,15 +72,13 @@ input {
 
 }
 
-.pacman {
-  float: right;
-  width: 40px;
-}
-
+/*************************** SELECT TOGGLE ***************************/
 .selected {
   display: none !important;
 }
 
+
+/*************************** EDIT ***************************/
 .edit {
   margin: auto 0;
   text-align: center;
@@ -102,6 +98,7 @@ input {
       background-color: rgba(33, 56, 23, 1);
 }
 
+/*************************** ALERT ***************************/
 .alertSign {
   height: 1rem;
   margin-right: -3px;
@@ -112,16 +109,14 @@ input {
   transition: all .4s;
 }
 
-.aboutInfoCenter > section {
-  font-size: 1.1vw;
-  text-align: center;
-  margin: 0 -5vw;
-}
-
 /*************************** LOADING ***************************/
 .loading {
   margin: 1.5rem 0;
   text-align: center;
+}
+.pacman {
+  float: right;
+  width: 40px;
 }
 
 
@@ -131,7 +126,6 @@ input {
 /***********************           DESKTOP            ***********************/
 /***********************                              ***********************/
 /****************************************************************************/
-
 .grid-container {
   width: 100%;
   height: auto;
@@ -148,7 +142,6 @@ grid-template-areas:
   ' fa footer footer fb ';
    grid-gap: 0;
 }
-
 .grid-header, .grid-navBar, .grid-navPark , .grid-footer, .grid-ha, .grid-hb, .grid-na, .grid-nb, .grid-fa, .grid-fb { background: #000; color: #FFF; z-index:30000000000}
 .grid-title, .grid-ta, .grid-tb {
   background: rgb(0, 0, 0, .6); 
@@ -166,7 +159,6 @@ grid-template-areas:
 .grid-tb { grid-area: tb; }
 
 /***********************         GRID-HEADER          ***********************/
-
 .grid-header { 
   grid-area: header; 
   position: relative;
@@ -211,7 +203,6 @@ grid-template-areas:
   background-color: transparent;
   width: auto;
 }
-
 .grid-image > div  {
   height: 200px;
 }
@@ -227,7 +218,6 @@ grid-template-areas:
 .grid-title { 
   grid-area: title;
 }
-
 .grid-title > section > form {
   margin: 1em 0;
 }
@@ -249,12 +239,12 @@ grid-template-areas:
   padding: 19px 0 ;
   font-weight: bold;
 }
+
 .parkMenu {
   text-align: left;
   z-index: 500000000;
   position: absolute;
 }
-
 .parkMenu > form > select {
   text-align: left;
   z-index: 500000000;
@@ -274,7 +264,6 @@ grid-template-areas:
   padding: 19px 0 ;
   font-weight: bold;
 }
-
 
 /***********************         GRID-MENU          ***********************/
 .grid-menu { 
@@ -317,6 +306,11 @@ grid-template-areas:
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;
+}
+.aboutInfoCenter > section {
+  font-size: 1.1vw;
+  text-align: center;
+  margin: 0 -5vw;
 }
 .aboutInfoCenter > section > a > img {
   width: 6vw;
