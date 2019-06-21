@@ -1,3 +1,15 @@
+/****************************************************************************/
+/***********************                              ***********************/
+/***********************         GOOGLE MAP           ***********************/
+/***********************                              ***********************/
+/****************************************************************************/
+.map {
+  transition: all .3s ease-in-out;
+  height: 30vw;
+  width: 30vw;
+  background-color: #FFF;
+}
+
 .mapBtn {
     position: relative;
     float: right;
@@ -6,7 +18,6 @@
 .mapBtn:hover{
     transform: scale(1.1);
 }
-
 .mapBtn > button {
     display: inline-block;
     color: #fff;
@@ -19,22 +30,17 @@
     margin-bottom: .1em;
 }
 
-.map {
-  transition: all .3s ease-in-out;
-  height: 30vw;
-  width: 30vw;
-  /* padding: 1rem 0 0 0; */
-  background-color: #FFF;
-}
 .pin {
   text-align: center;
   height: 20px;
-
 }
 
 .greenPoint {
   z-index: 5000000000000;
 }
+
+
+
 
 /****************************************************************************/
 /***********************                              ***********************/
@@ -47,7 +53,6 @@
     height: 300px;
     width: 90vw;
     padding: 0 0 1rem  0;
-
   }
 }
 
@@ -62,8 +67,6 @@
 @media screen and (max-width: 500px) {
   .map {
     height: 66vw;
-    /* width: 90vw; */
     margin: -38vw 0 0 0;
-    /* padding: 0 0 1rem 0; */
-}
+  }
 }

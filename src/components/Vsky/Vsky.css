@@ -1,10 +1,14 @@
+/****************************************************************************/
+/***********************                              ***********************/
+/***********************         VIRTUAL SKY          ***********************/
+/***********************                              ***********************/
+/****************************************************************************/
 /* small Parent */
 .vskyWindow {
   position: absolute;
   max-width: 35vw;
   max-height: 60vh;
 }
-
 /* large Parent */
 .vskyModal {
   z-index: 9999999999999999;
@@ -18,7 +22,6 @@
   width: 30vw;
   height: 30vw;
 }
-
 .vskyLargeContainer {
   height: 100vh;
   width: 100vw;
@@ -38,11 +41,9 @@
 .vskySmallContainer > iframe {
   font-size: 2rem;
 }
-
 .vskyLargeContainer > iframe {
   position: fixed;
   font-size: 10rem;
-
 }
 
 .vskyLargeContainer > form > span > div> form > select, .projection > select  {
@@ -50,14 +51,7 @@
   background-color: rgb(0,0,0, .5);
 }
 
-.vskyLargeContainer > form > span > div> form > select {
-  font-size: 1.5rem;
-  box-shadow: inset 0px 0px 8px 4px #7d81b5;
-  text-align-last:center;
-}
-
 .vskyLargeContainer > form > span > div {
-  /* This affects the header in the Large View of Virtual Sky */
   z-index: 99999999999999999999999999999999999999999999999999999999999999999999999999999999;
   position: sticky;
   float: right;
@@ -65,6 +59,11 @@
   width: 40vw;
   font-size: 2rem;
   text-align: center;
+}
+.vskyLargeContainer > form > span > div> form > select {
+  font-size: 1.5rem;
+  box-shadow: inset 0px 0px 8px 4px #7d81b5;
+  text-align-last:center;
 }
 
 .vskyModalBtn {
@@ -75,14 +74,12 @@
   border-radius: 5px;
   border: 1px solid midnightblue;
 }
-
 .vskyModalBtn:hover {
   transition: all .3s ease-in-out;
   background-color: rgb(0,0,0, .5);
   color: white;
   background-image: linear-gradient(to right, rgb(211, 211, 211, .3), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1),  rgb(211, 211, 211, .3));
 }
-
 
 .largeStarBtn, .smallStarBtn {
   width: 100%; 
@@ -120,18 +117,15 @@
   display: inline-block;
   background-color: rgb(0,0,0, .5);
 }
-
 .smallStarBtn > form > section > input:hover {
   transition: all .3s;
   background-image: linear-gradient(to right, rgb(211, 211, 211, .3), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1), rgb(211, 211, 211, .1),  rgb(211, 211, 211, .3));
 }
 
-
 .largeStarBtn > form > section > input:hover{
   text-shadow: 1px 2px black;
   background-image: radial-gradient( transparent, rgb(125, 129, 181), transparent, transparent);
 }
-
 
 .projection {
   float: right;
@@ -149,11 +143,9 @@
   box-shadow: inset 0px 0px 6px 2px rgb(125, 129, 181);
 }
 
-
 .close, .closeHelp, .close:hover, .closeHelp:hover {
   transition: all .3s ease-in-out;
 }
-
 .close, .closeHelp {
   z-index: 9999999999999;
   position: absolute;
@@ -161,9 +153,7 @@
   height: 24px;
   width: 24px;
   font-weight: 800;
-  
 }
-
 .close {
   right: 0;
   bottom: 0;
@@ -174,7 +164,6 @@
   color: #FFF;
   background-color: rgb(0,0,0, .5);
 }
-
 .closeHelp {
   right: 0;
   top: 0;
@@ -184,7 +173,6 @@
   color: black;
   background-color: transparent;
 }
-
 .closeHelp:hover, .close:hover {
   box-shadow: inset 0px 0px 4px 1px red;
   border: 2px solid red;
@@ -197,6 +185,7 @@
 /****************************************************************************/
 /***********************                              ***********************/
 /***********************         Media Query          ***********************/
+/***********************         960px maxW           ***********************/
 /***********************                              ***********************/
 /****************************************************************************/
 @media screen and (max-width: 960px) {
@@ -206,16 +195,15 @@
     width: 90vw;
     height: 300px;
     padding: 0 0 1rem 0;
-    
   }
+
   .smallStarBtn > form > section > input {
     width: 18vw;
     height: 6vw;
     font-size: 2vw;
     padding: 0;
-    /* display: inline-block; */
-    /* background-color: rgb(0,0,0, .5); */
   }
+
   .vskyModalBtn {
     margin-top: 10px;
   }
@@ -231,31 +219,17 @@
 @media screen and (max-width: 500px) {
 
   .vskySmallContainer {
-    /* position: absolute; */
-    /* width: 90vw; */
     height: 60vw;
-    /* padding: 0 0 1rem 0; */
     margin-top: -38vw;
   }
+
   .smallStarBtn > form > section > input {
-    /* width: 18vw; */
-    /* height: 6vw; */
-    /* font-size: 2vw; */
-    /* padding: 0; */
-    /* display: inline-block; */
-    /* background-color: rgb(0,0,0, .5); */
   }
 
   .vskyModalBtn {
-    /* transition: all .3s ease-in-out; */
-    /* float: right; */
     height: 1.8rem;
     font-size: 1rem;
     width: 7.5rem;
-
-    /* position: fixed; */
-    /* border-radius: 5px; */
-    /* border: 1px solid midnightblue; */
   }
 }
 

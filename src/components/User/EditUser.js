@@ -42,7 +42,7 @@ export class EditUser extends Component {
         const { currentUser } = this.props
 
         return(
-            <section  className="enter">
+            <section  className="edit">
                 <form onSubmit={e => this.submitEditUser(e)}>
                     <input type="text" placeholder={currentUser.username} name="username" onChange={this.changeHandler}></input>
                     <input type="password" placeholder="Change Password" name="password" onChange={this.changeHandler}></input>
