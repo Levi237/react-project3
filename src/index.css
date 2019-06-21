@@ -163,11 +163,7 @@ transform: scale(1.4);
 transition: all .4s;
 }
 
-.aboutIcon {
-  width: 6vw;
-  text-align: center;
-  margin: 0 2vw;
-}
+
 
 
 /*************************** LOADING ***************************/
@@ -176,34 +172,7 @@ transition: all .4s;
   text-align: center;
 }
 
-.aboutFullPic {
-  width: 100vw;
-  height: 66vw;
-}
 
-.aboutInfoCenter {
-  font-size: 1.3vw;
-  width: 50vw;
-  margin-top: 20px;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  z-index: 5000000000000000;
-  position: absolute;
-  background-color: rgb(255,255,255,.5);
-  border-radius: 15px;
-  padding:  2rem 5vw 0 5vw;
-}
-
-.aboutInfoCenter > h1 {
-  display: block;
-  font-size: 2vw;
-  margin-block-start: 0em;
-  margin-block-end: 0em;
-  font-family: 'Times New Roman', Times, serif;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
 
 
 
@@ -339,6 +308,41 @@ grid-template-areas:
   padding: 0;
 }
 
+.aboutFullPic {
+  width: 100vw;
+  height: 66vw;
+}
+
+.aboutInfoCenter {
+  font-size: 1.3vw;
+  width: 50vw;
+  margin-top: 20px;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  z-index: 5000000000000000;
+  position: absolute;
+  background-color: rgb(255,255,255,.5);
+  border-radius: 15px;
+  padding:  2rem 5vw 0 5vw;
+}
+
+.aboutInfoCenter > h1 {
+  display: block;
+  font-size: 2vw;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  font-family: 'Times New Roman', Times, serif;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.aboutInfoCenter > section > a > img {
+  width: 6vw;
+  text-align: center;
+  margin: 0 2vw;
+}
+
 /***********************         GRID-MAIN          ***********************/
 .grid-main { 
   grid-area: main; 
@@ -421,7 +425,7 @@ grid-template-areas:
     width: 15rem;
   }
 
-  /***********************         GRID-NAVPARK 960          ***********************/
+  /***********************         GRID-NAVPARK GRID-NAVBAR 960          ***********************/
   .grid-navPark { 
     float: right;
     position: relative;
@@ -429,10 +433,6 @@ grid-template-areas:
   }
   .grid-navBar, .grid-navPark { 
     padding: 19px 1rem ;
-  }
-  
-  /***********************         GRID-NAVBAR 960          ***********************/
-  .grid-navBar {
   }
 
   /***********************         GRID-IMAGE 960          ***********************/
@@ -472,6 +472,14 @@ grid-template-areas:
     width: 90vw;
     min-height: auto;
   }
+  .grid-main > img {
+    width: 90vw;
+    height: 300px;
+  }
+  .grid-image > div  {
+    height: 100px;
+  }
+
   .aboutFullPic {
     height: 60vw;
     position: absolute;
@@ -481,13 +489,7 @@ grid-template-areas:
   .aboutInfoCenter {
     width: 70vw;
   }
-  .grid-main > img {
-    width: 90vw;
-    height: 300px;
-  }
-  .grid-image > div  {
-    height: 100px;
-  }
+
   .parkMenu > form > select {
     max-width: 50vw;
     width: 50vw;

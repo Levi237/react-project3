@@ -13,9 +13,9 @@ const  About = () =>
         <br />
         <section>  
            <strong>LeviEiko@gmail.com | 646.206.8777</strong><br/><br/>
-        <a href="mailto:levieiko@gmail.com"><img className="aboutIcon" alt="email" src="email.png" /></a> 
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/Levi237"><img className="aboutIcon" alt="github" src="github.png" /></a> 
-        <a target="_blank" rel="noopener noreferrer" href="http://www.linkedin.com/in/leviwinans"><img className="aboutIcon" alt="linkedin" src="linkedin.png" /></a>
+        <a href="mailto:levieiko@gmail.com"><img alt="email" src="email.png" /></a> 
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/Levi237"><img alt="github" src="github.png" /></a> 
+        <a target="_blank" rel="noopener noreferrer" href="http://www.linkedin.com/in/leviwinans"><img alt="linkedin" src="linkedin.png" /></a>
         </section> <br />
 
     </div>
