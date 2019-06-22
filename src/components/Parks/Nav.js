@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-class ParkNav extends Component {
+export default class ParkNav extends Component {
 
     render(){
         const { parks, changeShowPark, handleSkyMap, park } = this.props
@@ -23,5 +23,3 @@ class ParkNav extends Component {
         )
     }
 }
-
-export default ParkNav

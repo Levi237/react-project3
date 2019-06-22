@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class EditUser extends Component {
+export default class EditUser extends Component {
     
     state = {
         username: '',
@@ -52,5 +52,3 @@ export class EditUser extends Component {
         )
     }
 }
-
-export default EditUser

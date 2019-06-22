@@ -11,7 +11,7 @@
 }
 /* large Parent */
 .vskyModal {
-  z-index: 9999999999999999;
+  z-index: 900;
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -31,7 +31,7 @@
 }
 
 .vskySmallContainer > iframe, .vskyLargeContainer > iframe {
-  z-index: 5000;
+  z-index: 500;
   border: none;
   bottom: 0;
   height: 100%;
@@ -52,7 +52,7 @@
 }
 
 .vskyLargeContainer > form > span > div {
-  z-index: 99999999999999999999999999999999999999999999999999999999999999999999999999999999;
+  z-index: 900;
   position: sticky;
   float: right;
   margin-right: 30vw;
@@ -87,7 +87,7 @@
 
 .largeStarBtn > form, .smallStarBtn > form {
   bottom: 0;
-  z-index: 500000;
+  z-index: 500;
   margin-right: auto;
   margin-left: auto;
 }
@@ -133,7 +133,7 @@
   width: 20vw;
   text-align: right;
   margin-left: -20vw;
-  z-index: 9999999999999999999999999999999999999999999999999999999999999999999999999999;
+  z-index: 900;
 }
 .projection > select {
   text-align-last: center;
@@ -147,7 +147,7 @@
   transition: all .3s ease-in-out;
 }
 .close, .closeHelp {
-  z-index: 9999999999999;
+  z-index: 900;
   position: absolute;
   padding: 0;
   height: 24px;
@@ -221,9 +221,6 @@
   .vskySmallContainer {
     height: 60vw;
     margin-top: -38vw;
-  }
-
-  .smallStarBtn > form > section > input {
   }
 
   .vskyModalBtn {

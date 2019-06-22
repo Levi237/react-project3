@@ -4,7 +4,7 @@ import GoogleMapReact from 'google-map-react';
 import './Map.css';
 const PointGreen = ({ ping }) => <img className="greenPoint" alt="?" className="pin" src={ping} />
 
-class Map extends Component {
+export default class Map extends Component {
 
     static defaultProps = {
         zoom: 12
@@ -60,5 +60,3 @@ class Map extends Component {
         );
     }
 }
-
-export default Map

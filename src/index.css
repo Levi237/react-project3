@@ -16,30 +16,17 @@ body {
   outline: 0;
 }
 
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-} */
-
 h1 {
-  /* display: block; */
   font-size: 2rem;
   margin-block-start: 0em;
   margin-block-end: 0em;
-  /* margin-inline-start: 0px; */
-  /* margin-inline-end: 0px; */
-  /* font-weight: bold; */
 }
 
 h2 {
   font-family: 'Times New Roman', Times, serif;
-  /* display: block; */
   font-size: 1.6rem;
   margin-block-start: 0em;
   margin-block-end: 0em;
-  /* margin-inline-start: 0px; */
-  /* margin-inline-end: 0px; */
-  /* font-weight: bold; */
 }
 
 h3 {
@@ -48,17 +35,11 @@ h3 {
   font-size: 1.17rem;
   margin-block-start: .8em;
   margin-block-end: 0;
-  /* font-weight: bold; */
 }
 
 a {
   text-decoration: none;
 }
-
-/* input, button {
-  margin: 0 .3em;
-  border-radius: 2px;
-} */
 
 input {
   width: 9em;
@@ -66,7 +47,7 @@ input {
 }
 /*************************** HELP MODAL ***************************/
 .helpModal {
-  z-index: 999999999999999999999999999999999 !important;
+  z-index: 9000 !important;
   position: fixed;
   height: 100%;
   width: 100%;
@@ -143,7 +124,7 @@ input {
   display: grid;
   position: relative;
   grid-template-columns: 15vw 35vw 35vw 15vw;
-  grid-template-rows: 55px 200px 0px 56px auto 5rem;
+  grid-template-rows: 55px 200px 0px 55px auto 5rem;
 grid-template-areas:
   ' ha header header hb '
   ' image image image image'
@@ -173,7 +154,7 @@ grid-template-areas:
 .grid-header { 
   grid-area: header; 
   position: relative;
-  z-index: 5000;
+  z-index: 500;
 }
 .grid-header > h1 {
   font-size: 2.5rem;
@@ -197,12 +178,13 @@ grid-template-areas:
   color: white;
   float: right;
   margin: 10px 15px;
+  padding: 0;
   transition: all .3s ease-in-out;
 }
 .grid-hb > input:hover{
   transition: all .3s ease-in-out;
   box-shadow: inset 0 0 4px 2px white;
-  font-size: 1.2rem;
+  transform: scale(1.1)
 }
 .grid-hb > input:active{
   transform: translateY(2px);
@@ -253,18 +235,15 @@ grid-template-areas:
 
 .parkMenu {
   text-align: left;
-  z-index: 500000000;
-  position: absolute;
+  z-index: 500;
 }
 .parkMenu > form > select {
   text-align: left;
-  z-index: 500000000;
+  z-index: 500;
   max-width: 35vw;
-  /* position: absolute; */
   font-size: 1rem;
   color: white;
   background: transparent;
-  /* border: 1px solid white; */
 }
 
 /***********************         GRID-NAVBAR          ***********************/
@@ -272,7 +251,7 @@ grid-template-areas:
   grid-area: navBar; 
   text-align: right;
   position: relative;
-  padding: 19px 0 ;
+  padding: 18px 0 ;
   font-weight: bold;
 }
 
@@ -282,7 +261,6 @@ grid-template-areas:
   background: #FFF;
   padding: 2.5vw 0;
   text-align: justify;
-  /* margin-bottom: 2rem; */
   background-color: transparent;
 }
 .grid-menu > h1 {
@@ -302,7 +280,6 @@ grid-template-areas:
   margin-top: 20px;
   margin-left: 5vw;
   margin-right: 5vw;
-  /* z-index: 5000000000000000; */
   position: absolute;
   background-color: rgb(255,255,255,.5);
   border-radius: 15px;
@@ -391,9 +368,9 @@ grid-template-areas:
     display: grid;
     position: relative;
     grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 40px 100px 0px 55px minmax(10vw, 40vw) 40vw 5rem;
+    grid-template-rows: 40px 100px 0px 29px minmax(10vw, 40vw) 40vw 5rem;
   grid-template-areas:
-    ' header header navPark '
+    ' header navPark hb'
     ' image image image '
     ' title title title '
     ' navBar navBar navBar '
@@ -402,7 +379,7 @@ grid-template-areas:
     ' footer footer footer ';
     grid-gap: 0;
   }
-  .grid-ha, .grid-hb, .grid-na, .grid-nb, .grid-ta, .grid-tb, .grid-fa, .grid-fb { display: none}
+  .grid-ha, .grid-na, .grid-nb, .grid-ta, .grid-tb, .grid-fa, .grid-fb { display: none}
 
   /***********************         GRID-HEADER 960          ***********************/
   .grid-title, .grid-header { 
@@ -411,15 +388,22 @@ grid-template-areas:
   .grid-header > h3 {
     width: 15rem;
   }
-
-  /***********************         GRID-NAVPARK GRID-NAVBAR 960          ***********************/
+  .grid-hb > input {
+    height: 3vw;
+    width: 3vw;
+    font-size: 1.5vw;
+    margin: .6rem 1vw;
+}
+  /***********************         GRID-NAVPARK 960          ***********************/
   .grid-navPark { 
     float: right;
     position: relative;
-    padding: 19px 0 ;
-  }
-  .grid-navBar, .grid-navPark { 
     padding: 19px 1rem ;
+  }
+
+  /***********************         GRID-NAVBAR 960          ***********************/
+  .grid-navBar {
+    padding: 7px 0;
   }
 
   /***********************         GRID-IMAGE 960          ***********************/
@@ -471,7 +455,7 @@ grid-template-areas:
   .aboutFullPic {
     height: 60vw;
     position: absolute;
-    margin-top: 195px;
+    margin-top: 169px;
   }
 
   .aboutInfoCenter {
@@ -510,17 +494,17 @@ grid-template-areas:
     height: 100vh;
     display: grid;
     position: relative;
-    grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 34px 30px 100px 0px 39px 140vw 40vw 3rem;
+    grid-template-columns: 5vw 5vw 80vw 5vw 5vw;
+    grid-template-rows: 34px 30px 100px 0px 29px 140vw 40vw 3rem;
   grid-template-areas:
-    ' header header header '
-    ' navPark navPark navPark'
-    ' image image image '
-    ' title title title '
-    ' navBar navBar navBar '
-    ' . menu . '
-    ' . main . '
-    ' footer footer footer ';
+    ' header header header hb hb '
+    ' navPark navPark navPark navPark navPark'
+    ' image image image image image '
+    ' title title title title title '
+    ' navBar navBar navBar navBar navBar '
+    ' . menu menu menu . '
+    ' . main main main . '
+    ' footer footer footer footer footer ';
     grid-gap: 0;
   }
 
@@ -531,18 +515,20 @@ grid-template-areas:
     text-align: center;
     margin-block-start: .4em;
   }
-
-  /***********************         GRID-NAVPARK GRID-NAVPARK 500          ***********************/
+  .grid-hb > input {
+    height: 5vw;
+    width: 5vw;
+    font-size: 2vw;
+    margin: .6rem 1vw;
+  }
+  /***********************         GRID-NAVPARK GRID-NAVBAR 500          ***********************/
   .grid-navPark { 
     float: right;
     position: relative;
     padding: 0 ;
   }
-  .navBtn {
-    padding: 12px .6rem;
-  }
   .grid-navBar {
-    padding: 11px 0;
+    padding: 7px 0;
   }
       
   /***********************         GRID-IMAGE 500          ***********************/
@@ -557,8 +543,6 @@ grid-template-areas:
   }
 
   /***********************         GRID-MAIN 500          ***********************/
-  .grid-main {
-  }
   .grid-main > img {
     width: 90vw;
     margin-top: -38vw;
@@ -569,8 +553,6 @@ grid-template-areas:
     /* padding: 0; */
     overflow: auto;
     max-height: 100vw;
-  }
-  .grid-menu > h1 {
   }
 
   .parkMenu {
@@ -595,7 +577,7 @@ grid-template-areas:
 
   .aboutFullPic {
     height: 180vw;
-    margin-top: 200px;
+    margin-top: 190px;
   }
 
   /***********************         GRID-FOOTER 500          ***********************/

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import '../Alerts/Alerts.css';
 
-class UserList extends Component {
+export default class UserList extends Component {
 
     state = {
         checkList: []
@@ -75,5 +75,3 @@ class UserList extends Component {
         )
     }
 }
-
-export default UserList

@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import Info from '../Content/Info'
+import Info from '../Content/Info';
 
-class ParkShow extends Component {
+export default class ParkShow extends Component {
 
     toggle = e => {
         e.currentTarget.classList.toggle('active');
@@ -45,7 +45,3 @@ class ParkShow extends Component {
         )
     }
 }
-
-
-
-export default ParkShow

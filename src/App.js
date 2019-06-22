@@ -1,30 +1,26 @@
 import React, {Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { PacmanLoader } from 'react-spinners';
-// import moment from 'moment' and react-live-clock
-// import Particles from 'react-particles-???'  also can rip from json
-// npm package react-globe for the globe
 
-import Alerts from './components/Alerts/Alerts';
-import Map from './components/Map/Map';
-import Nav from './components/Nav/Nav';
-import Login from './components/User/Login';
-import Register from './components/User/Register';
-import UserList from './components/User/UserList';
-import EditUser from './components/User/EditUser'
-import Vsky from './components/Vsky/Vsky';
-import ParkNav from './components/Parks/Nav';
-import ParkShow from './components/Parks/ParkShow';
-import Info from './components/Content/Info';
-import Help from './components/Modal/Help';
-import Intro from './components/Content/Intro';
 import About from './components/Content/About';
 import AboutFull from './components/Content/AboutFull';
+import Alerts from './components/Alerts/Alerts';
+import EditUser from './components/User/EditUser'
+import Help from './components/Modal/Help';
+import Info from './components/Content/Info';
+import Intro from './components/Content/Intro';
+import Login from './components/User/Login';
+import Map from './components/Map/Map';
 import Modal from './components/Modal/Modal';
+import Nav from './components/Nav/Nav';
+import ParkNav from './components/Parks/Nav';
+import ParkShow from './components/Parks/ParkShow';
+import Register from './components/User/Register';
+import UserList from './components/User/UserList';
 import UserModal from './components/Modal/User';
+import Vsky from './components/Vsky/Vsky';
 
 import * as routes from './constants/routes';
-import './App.css';
 
 const My404 = () =>{
   return (
@@ -86,10 +82,8 @@ class App extends Component {
   
     this.getParkNames().then(response => {
       this.setState({
-        parks: response.data,
-        
-      }, () => {
-    
+        parks: response.data, 
+      }, () => { 
         this.getAlerts().then(alerts => {
           let newlist = [];            
             this.state.parks.forEach(names => {

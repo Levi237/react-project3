@@ -4,7 +4,7 @@ import './Vsky.css';
 
 import ParkNav from '../Parks/Nav';
 
-class Vsky extends Component {
+export default class Vsky extends Component {
 
     state = {
         showplanets: true, 
@@ -104,11 +104,3 @@ az=271.5665939727662`
         )
     }
 }
-
-
-
-export default Vsky
-
-
-
-

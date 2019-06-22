@@ -2,7 +2,7 @@
     text-decoration: none;  
     background-color: none;
     color: #FFF;
-    padding: 22px .5rem;
+    padding: 20px .5rem;
     margin: 0 0;
     font-size: .8rem;
     text-shadow: 1px 1px #000;
@@ -23,7 +23,7 @@
 
 .navAlert {
     text-align: center;
-    z-index: 90
+    z-index: 900
 }
 
 .neuter:hover {
@@ -33,25 +33,14 @@
 
 @media screen and (max-width: 960px) {
     .navBtn {
-        /* text-decoration: none;   */
-        /* background-color: none; */
-        /* color: #FFF; */
-        padding: 19px .6rem;
-        /* margin: 0 0; */
-        font-size: 1.1rem;
-        /* text-shadow: 1px 1px #000; */
+        padding: 8px .6rem;
+        font-size: .9rem;
     }
 }
 
 @media screen and (max-width: 500px) {
     .navBtn {
-        /* text-decoration: none; */
-        /* color: #FFF; */
-        padding: 14px 3vw;
-        /* margin: 0 0; */
-        /* text-align: z */
-        font-size: 3vw;
-        /* text-shadow: 1px 1px #000; */
+        font-size: .8rem;
     }
     .navBox {
         text-align: center;
