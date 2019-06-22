@@ -17,9 +17,9 @@ const Nav = ({currentUser, logoutUser, loading}) =>
     { currentUser &&
     <NavLink activeClassName="underline" className="navBtn" to={routes.TRACK} >TRACK</NavLink>    
     }
-    { currentUser &&
+    {/* { currentUser &&
     <NavLink className="navBtn" to={routes.LOGOUT} onClick={logoutUser}>LOGOUT</NavLink> 
-    }
+    } */}
     </div>
 
 export default Nav

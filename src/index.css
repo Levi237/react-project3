@@ -123,7 +123,7 @@ input {
   height: auto;
   display: grid;
   position: relative;
-  grid-template-columns: 15vw 35vw 35vw 15vw;
+  grid-template-columns: 5vw 45vw 45vw 5vw;
   grid-template-rows: 55px 200px 0px 55px auto 5rem;
 grid-template-areas:
   ' ha header header hb '
