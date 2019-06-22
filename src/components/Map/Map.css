@@ -7,6 +7,7 @@
   transition: all .3s ease-in-out;
   height: 30vw;
   width: 30vw;
+  max-height: 36vh;
   background-color: #FFF;
 }
 
