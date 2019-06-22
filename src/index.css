@@ -260,13 +260,17 @@ grid-template-areas:
   grid-area: menu; 
   background: #FFF;
   padding: 2.5vw 0;
-  text-align: justify;
+  
   background-color: transparent;
 }
 .grid-menu > h1 {
   font-family: 'Times New Roman', Times, serif;
   font-size: 2rem;
   padding: 0;
+}
+
+.grid-menu > p {
+  text-align: justify;
 }
 
 .aboutFullPic {
