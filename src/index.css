@@ -1,5 +1,5 @@
 html {
-  height: 100% center;
+  height: 100vh center;
 }
 
 body {
@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
+  height: 100vh;
 }
 
 *:focus {
@@ -124,7 +124,7 @@ input {
   display: grid;
   position: relative;
   grid-template-columns: 5vw 45vw 45vw 5vw;
-  grid-template-rows: 55px 200px 0px 55px auto 5rem;
+  grid-template-rows: 55px 200px 0px 55px minmax(800px auto) 5rem;
 grid-template-areas:
   ' ha header header hb '
   ' image image image image'
