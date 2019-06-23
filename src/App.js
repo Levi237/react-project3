@@ -322,11 +322,16 @@ class App extends Component {
         </div>
 
 {/* FOOTER */}
-        <div className="grid-fa" />
-        <div className="grid-footer">
-          <h3><a href="https://www.nps.gov" target="_blank" rel="noopener noreferrer">Please enjoy this tribute to the National Park Service</a> | <a href="https://virtualsky.lco.global/" target="_blank" rel="noopener noreferrer"> A special thanks to VirtualSky</a> & <a href="cahworks.com">Alex Hughes </a> | <a href="google.maps">maps.googleapis.com</a></h3>
-        </div>
-        <div className="grid-fb" />
+        <Switch>
+          <Route exact path={routes.ABOUT} render={() => <></> }/>
+          <Route  path={routes.ROOT} render={() => <>
+            <div className="grid-fa" />
+            <div className="grid-footer">
+              <h3><a href="https://www.nps.gov" target="_blank" rel="noopener noreferrer">Please enjoy this tribute to the National Park Service</a> | <a href="https://virtualsky.lco.global/" target="_blank" rel="noopener noreferrer"> A special thanks to VirtualSky</a> & <a href="cahworks.com">Alex Hughes </a> | <a href="google.maps">maps.googleapis.com</a></h3>
+            </div>
+            <div className="grid-fb" />
+          </> }/>
+        </Switch>
 
       </div>
     );
