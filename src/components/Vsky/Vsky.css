@@ -193,7 +193,6 @@
   .vskySmallContainer {
     position: absolute;
     width: 90vw;
-     /* height: 300px; */
     padding: 0 0 1rem 0;
   }
 
@@ -220,7 +219,6 @@
 
   .vskySmallContainer {
     height: 60vw;
-    margin-top: -38vw;
   }
 
   .vskyModalBtn {

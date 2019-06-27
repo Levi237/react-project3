@@ -33,7 +33,7 @@
 
 @media screen and (max-width: 960px) {
     .navBtn {
-        padding: 8px .6rem;
+        padding: 8px 1rem;
         font-size: .9rem;
     }
 }

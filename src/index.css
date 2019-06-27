@@ -48,7 +48,7 @@ input {
 /*************************** HELP MODAL ***************************/
 .helpModal {
   z-index: 9000 !important;
-  position: fixed;
+  position: absolute;
   height: 100%;
   width: 100%;
 }
@@ -56,10 +56,10 @@ input {
   position: relative;
   margin: 40px auto;
   width: 400px;
-  height: 500px;
+  /* height: 500px; */
   background-color: white;
   color: black;
-  padding: 5px 5vw;
+  padding: 5vw 5vw;
   box-shadow: 15px 15px 40px 15px black;
 
 }
@@ -123,8 +123,8 @@ input {
   height: auto;
   display: grid;
   position: relative;
-  grid-template-columns: 5vw 45vw 45vw 5vw;
-  grid-template-rows: 55px 200px 0px 55px minmax(800px auto) 5rem;
+  grid-template-columns: 10vw 40vw 40vw 10vw;
+  grid-template-rows: 55px 200px 0px 55px minmax(36vw, auto) 5rem;
 grid-template-areas:
   ' ha header header hb '
   ' image image image image'
@@ -282,8 +282,8 @@ grid-template-areas:
   font-size: 1.3vw;
   width: 50vw;
   margin-top: 20px;
-  margin-left: 15vw;
-  margin-right: 15vw;
+  margin-left: 10vw;
+  margin-right: 10vw;
   position: absolute;
   background-color: rgb(255,255,255,.5);
   border-radius: 15px;
@@ -298,6 +298,9 @@ grid-template-areas:
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;
+}
+.aboutInfoCenter > p {
+  text-align: justify;
 }
 .aboutInfoCenter > section {
   font-size: 1.1vw;
@@ -467,7 +470,9 @@ grid-template-areas:
     margin-left: 5vw;
     margin-right: 5vw;
   }
-
+  .aboutInfoCenter > section {
+    font-size: 1.4vw;
+  }
   .parkMenu > form > select {
     max-width: 50vw;
     width: 50vw;
@@ -479,6 +484,10 @@ grid-template-areas:
     padding: 0 5vw;
   }
 
+  /***********************         HELP MODAL 960          ***********************/
+  .helpModal > div {
+  width: 60vw;
+  }
 }
 
 
@@ -501,7 +510,7 @@ grid-template-areas:
     display: grid;
     position: relative;
     grid-template-columns: 5vw 5vw 80vw 5vw 5vw;
-    grid-template-rows: 34px 30px 100px 0px 29px 140vw 40vw 3rem;
+    grid-template-rows: 34px 30px 100px 0px 29px minmax(max-content, 140vw) 72vw 2rem;
   grid-template-areas:
     ' header header header hb hb '
     ' navPark navPark navPark navPark navPark'
@@ -556,9 +565,9 @@ grid-template-areas:
   }
   /***********************         GRID-MENU 500          ***********************/
   .grid-menu { 
-    /* padding: 0; */
-    overflow: auto;
-    max-height: 100vw;
+
+    /* overflow: auto; */
+    /* max-height: 100vw; */
   }
 
   .parkMenu {
@@ -572,22 +581,30 @@ grid-template-areas:
   }
 
   .aboutInfoCenter {
-    font-size: 3vw;
+    font-size: 2.2vw;
   }  
   .aboutInfoCenter > h1 {
         font-size: 4.2vw;
   }
-  .aboutInfoCenter > section {
-    font-size: 1.4vw;
+  .aboutInfoCenter > section > span {
+    font-size: 2.5vw;
   }
 
   .aboutFullPic {
-    height: 180vw;
+    height: 125vw;
     margin-top: 190px;
   }
 
   /***********************         GRID-FOOTER 500          ***********************/
   .grid-footer {
-    margin-top: -10px;
+    margin-top: -20px;
   }
+  .grid-footer > h3 > a {
+    font-size: 8px;
+  }
+  /***********************         HELP MODAL 500          ***********************/
+  .helpModal > div {
+    width: 80vw;
+  }
+    
 }

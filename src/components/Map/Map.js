@@ -33,11 +33,9 @@ export default class Map extends Component {
                             <a href={e.url} target="_blank" rel="noopener noreferrer">
                                 <img className="pin" src={pin} alt={e.fullName} title={e.fullName} />
                             </a>
-
                         let firstSplit = e.latLong.split(':')
                         
                         return (
-                            
                             <AlertPoint
                             key={i}
                             lat={firstSplit[1].split(',')[0]}
@@ -53,7 +51,7 @@ export default class Map extends Component {
                         ping="../green-pin.png"
                         zoom="10"
                     />
-
+                    
                 </GoogleMapReact>
             </div>
             </>

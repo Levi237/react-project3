@@ -1,5 +1,3 @@
-
-    
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
@@ -40,17 +38,10 @@ export default class Register extends Component {
 
         return(
             <div>
-                {
-            this.state.logged
-            ? <Redirect to={`${process.env.REACT_APP_API}/api/v1/register`}/>
-            : <RegisterForm 
-                changeHandler={this.changeHandler}
-                onSubmit={this.onSubmit}
-                username={username}
-                password={password}
-                />
+                { this.state.logged
+                ? <Redirect to={`${process.env.REACT_APP_API}/api/v1/register`}/>
+                : <RegisterForm changeHandler={this.changeHandler} onSubmit={this.onSubmit} username={username} password={password} />
                 }
-
             </div>
         )
     }

@@ -12,7 +12,7 @@ const  About = () =>
         <section><strong>Photoshop | HTML5 | CSS3 | Javascript | React | Express | EJS | Node.js | Mongoose | MongoDB | JSON</strong></section>
         <br />
         <section>  
-           <strong>LeviEiko@gmail.com | 646.206.8777</strong><br/><br/>
+           <span>LeviEiko@gmail.com | 646.206.8777</span><br/><br/>
         <a href="mailto:levieiko@gmail.com"><img alt="email" src="email.png" /></a> 
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/Levi237"><img alt="github" src="github.png" /></a> 
         <a target="_blank" rel="noopener noreferrer" href="http://www.linkedin.com/in/leviwinans"><img alt="linkedin" src="linkedin.png" /></a>

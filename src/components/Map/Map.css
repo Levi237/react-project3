@@ -7,7 +7,6 @@
   transition: all .3s ease-in-out;
   height: 30vw;
   width: 30vw;
-  /* max-height: 36vh; */
   background-color: #FFF;
 }
 
@@ -67,6 +66,5 @@
 @media screen and (max-width: 500px) {
   .map {
     height: 66vw;
-    margin: -38vw 0 0 0;
   }
 }

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const Info = () => 
     <>
-    <h1>Site Help</h1>
+    <h1>Site Help</h1><br />
     <strong>Drop Down:</strong><br />
        Select available parks to learn more about them.
        <hr />
@@ -17,6 +17,7 @@ const Info = () =>
        <hr />
        <strong>Star Map tab:</strong><br /> 
        Serves as a digital star guide for astronomers and star gazers.  Provides both a large and small window to view the constellations above each location selected in the drop down menu for any given time.
+       <br /><br />
     </>
 
 export default Info

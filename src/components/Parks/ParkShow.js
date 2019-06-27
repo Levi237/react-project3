@@ -8,6 +8,7 @@ export default class ParkShow extends Component {
     toggle = e => {
         e.currentTarget.classList.toggle('active');
     }
+    
     render(){
         const { park, closureList } = this.props
 

@@ -1,8 +1,8 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import * as routes from '../../constants/routes'
-import './Nav.css'
+import * as routes from '../../constants/routes';
+import './Nav.css';
 
 const Nav = ({currentUser, logoutUser, loading}) => 
 <div className="navBox">

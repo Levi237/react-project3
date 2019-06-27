@@ -10,7 +10,6 @@
   display: none;
 
 }
-
 .title {
   transition: all .1s ease-in-out;
 }
@@ -22,13 +21,11 @@
   padding: 5px;
   margin: -5px;
 }
-
 .active .details {
   transition-duration: 5s;
   display: inline-block;
   width: 100%;
 }
-
 .details {
   padding-top: .6em;
   text-decoration: none;
@@ -40,13 +37,11 @@
   border-radius: 5px 5px 0 0;
   padding: 5px;
 }
-
 .alertOpen {
     background-color: #395d29;
     margin: -5px -5px -28px -5px;
     position: relative;
 }
-
 .currentlyClosed {
   background-color: #99110d;
   margin: -5px -5px 0 -5px;
@@ -92,9 +87,7 @@
   position: relative;
   z-index: 300 !important;
   transition: all .1s ease-in-out;
-  
 }
-
 .deleteBtn:hover {
   background-color: rgb(113, 17, 13, 1);
   border: 1px #FFF solid;
@@ -108,7 +101,6 @@
     border-bottom: 2px dotted rgb(136, 167, 189);
     font-size: .9em;
 }
-
 .npsLink:hover {
   border-bottom: 2px dotted rgb(11, 91, 151);
 }
