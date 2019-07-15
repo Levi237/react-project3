@@ -1,10 +1,13 @@
 # Park Alert
 
-## Overview
+## Mission Statement
+The purpose of this website is to provide information to park enthusiasts that is not readily available on the already exisiting nps.gov website. The drop down menu allows users to select a specific national park for which they can get more detailed information:
 
-Nature is one of our greatest resources.  As outdoor activities such as backpaking have gained in popularity, the ability to get an access permit has become more difficult.  Most of the best wilderness zone reservations need to be made 6 months prior to date.  However, no one can predict when the next disaster will happen.  And when something does occur, such as fire or mud slide, parts of a park can close.  Planning for these trips can become compromised since most times you cannot predict when a park will re-open.
+##Origins
+With outdoor activities such as camping and back-packing gaining in popularity, it has become increasingly difficult to obtain access permits to federal parks. On average, reservations to popular wilderness zones often need to be made six months in advance. However, unpredictable natural disasters such as fires and mudslides that cause park closures can compromise even the most well-planned trips. Not knowing when the park will re-open is an additional obstacle to planning the perfect outdoor adventure.
 
-My goal with this project is to make it easier for people to know when access becomes available again to allow the public.
+The original intent of this website was to provide the public with information about parks’ statuses. Not only would a user be able to search for current park closures and openings, but also sort through data to easily store, track, and retrieve information specific to their selected parks and assist with their planning. Since then more content has been added to enhance the user experience.
+
 <br><br>
 *Future additions: compare userList to closureList to find !== matches and create a new list to show which parks have opened most recently*
 
@@ -12,7 +15,7 @@ My goal with this project is to make it easier for people to know when access be
 
 ## Website
 
-### <a href="https://intense-headland-71507.herokuapp.com/home">Park Alert System</a>
+### <a href="https://parkintel.herokuapp.com/home">Park Alert System</a>
 
 ## 3rd Party API Sources:
 
@@ -20,15 +23,17 @@ My goal with this project is to make it easier for people to know when access be
 https://developer.nps.gov/api/v1/alerts<br>
 https://developer.nps.gov/api/v1/parks
 
-
 **Google Map React**<br>
 https://maps.googleapis.com/maps/api/js
+
+**Virtual Sky**<br>
+https://virtualsky.lco.global/embed/index.html
 
 ## Technologies
 <ul>
 <li>React</li>
 <li>Express</li>
-<li>Node JS</li>
+<li>NodeJS</li>
 <li>Mongoose</li>
 <li>Javascript</li>
 <li>CSS</li>
